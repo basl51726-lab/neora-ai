@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Sitemap: https://neora-ai.com/sitemap.xml

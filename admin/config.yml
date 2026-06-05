@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: tools
+    label: "الأدوات"
+    folder: "_tools"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "اسم الأداة", name: "title", widget: "string"}
+      - {label: "الرابط الرسمي", name: "url", widget: "string"}
+      - {label: "رابط Affiliate", name: "affiliate_url", widget: "string", required: false}
+      - label: "التصنيف"
+        name: "category"
+        widget: "select"
+        options:
+          - {label: "دردشة AI", value: "chat"}
+          - {label: "توليد الصور", value: "image"}
+          - {label: "توليد الفيديو", value: "video"}
+          - {label: "مساعدي الكود", value: "code"}
+          - {label: "أدوات الكتابة", value: "writing"}
+          - {label: "أدوات الصوت", value: "voice"}
+          - {label: "الإنتاجية", value: "productivity"}
+          - {label: "البحث والتحليل", value: "research"}
+      - label: "الشارة"
+        name: "badge"
+        widget: "select"
+        options:
+          - {label: "مجاني", value: "free"}
+          - {label: "احترافي", value: "pro"}
+          - {label: "جديد", value: "new"}
+      - {label: "التقييم", name: "rating", widget: "number", min: 1, max: 5, step: 0.1}
+      - {label: "الأيقونة", name: "icon", widget: "string"}
+      - {label: "الوصف عربي", name: "desc_ar", widget: "text"}
+      - {label: "الوصف إنجليزي", name: "desc_en", widget: "text"}
+      - {label: "التسعير", name: "pricing_ar", widget: "string"}
+
+  - name: blog
+    label: "المدونة"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "العنوان", name: "title", widget: "string"}
+      - {label: "التاريخ", name: "date", widget: "datetime"}
+      - {label: "الوصف", name: "description", widget: "text"}
+      - {label: "المحتوى", name: "body", widget: "markdown"}
+
+  - name: affiliates
+    label: "روابط Affiliate"
+    folder: "_affiliates"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "اسم الأداة", name: "title", widget: "string"}
+      - {label: "رابط Affiliate", name: "affiliate_url", widget: "string"}
+      - {label: "العمولة", name: "commission", widget: "string"}
+      - {label: "نشط؟", name: "active", widget: "boolean", default: true}
