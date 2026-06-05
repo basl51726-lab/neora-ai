@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: tools
     label: "الأدوات"
-   folder: "."
+    folder: "_tools"
     create: true
     slug: "{{slug}}"
     fields:
@@ -16,7 +16,7 @@ collections:
       - {label: "الرابط الرسمي", name: "url", widget: "string"}
       - {label: "رابط Affiliate", name: "affiliate_url", widget: "string", required: false}
       - label: "التصنيف"
-        name: "category"
+        name: category
         widget: "select"
         options:
           - {label: "دردشة AI", value: "chat"}
@@ -28,7 +28,7 @@ collections:
           - {label: "الإنتاجية", value: "productivity"}
           - {label: "البحث والتحليل", value: "research"}
       - label: "الشارة"
-        name: "badge"
+        name: badge
         widget: "select"
         options:
           - {label: "مجاني", value: "free"}
@@ -38,7 +38,7 @@ collections:
       - {label: "الأيقونة", name: "icon", widget: "string"}
       - {label: "الوصف عربي", name: "desc_ar", widget: "text"}
       - {label: "الوصف إنجليزي", name: "desc_en", widget: "text"}
-      - {label: "التسعير", name: "pricing_ar", widget: "string"}
+      - {label: "السعر", name: "pricing_ar", widget: "string"}
 
   - name: blog
     label: "المدونة"
@@ -60,4 +60,4 @@ collections:
       - {label: "اسم الأداة", name: "title", widget: "string"}
       - {label: "رابط Affiliate", name: "affiliate_url", widget: "string"}
       - {label: "العمولة", name: "commission", widget: "string"}
-      - {label: "نشط؟", name: "active", widget: "boolean", default: true}
+      - {label: "الوصف", name: "description", widget: "text"}
