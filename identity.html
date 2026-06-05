@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEORA — Authenticating...</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0f;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .logo span { color: #6c63ff; }
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(108, 99, 255, 0.2);
+      border-top-color: #6c63ff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .message {
+      font-size: 1rem;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+    .error {
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">NE<span>O</span>RA</div>
+    <div class="spinner"></div>
+    <p class="message" id="msg">Verifying your identity...</p>
+    <p class="error" id="err"></p>
+  </div>
+
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <script>
+    (function () {
+      var hash = window.location.hash;
+      var msg  = document.getElementById('msg');
+      var err  = document.getElementById('err');
+
+      // Extract token type and value from hash
+      function getToken(key) {
+        var match = hash.match(new RegExp('[#&]' + key + '=([^&]*)'));
+        return match ? match[1] : null;
+      }
+
+      var inviteToken   = getToken('invite_token');
+      var recoveryToken = getToken('recovery_token');
+      var confirmToken  = getToken('confirmation_token');
+
+      // Build admin URL preserving the token
+      function goToAdmin(tokenParam) {
+        msg.textContent = 'Redirecting to admin panel...';
+        window.location.replace('/admin/#' + tokenParam);
+      }
+
+      if (inviteToken) {
+        msg.textContent = 'Accepting your invitation...';
+        goToAdmin('invite_token=' + inviteToken);
+
+      } else if (recoveryToken) {
+        msg.textContent = 'Processing password reset...';
+        goToAdmin('recovery_token=' + recoveryToken);
+
+      } else if (confirmToken) {
+        msg.textContent = 'Confirming your account...';
+        goToAdmin('confirmation_token=' + confirmToken);
+
+      } else {
+        // No token found — redirect to admin login
+        msg.textContent = 'Redirecting to admin...';
+        setTimeout(function () {
+          window.location.replace('/admin/');
+        }, 800);
+      }
+    })();
+  </script>
+</body>
+</html>

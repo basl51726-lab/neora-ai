@@ -1,0 +1,36 @@
+# netlify.toml — NEORA Website Configuration
+
+# ─── Build Settings ────────────────────────────────────────────────────────────
+[build]
+  publish = "."         # Change this to your actual publish folder if needed (e.g. "dist", "public", "_site")
+  command = ""          # Add your build command if you have one (e.g. "npm run build")
+
+# ─── Netlify Identity — Token Redirect Handlers ────────────────────────────────
+# These rules catch invite/recovery/confirmation links and route them correctly
+# instead of falling through to the homepage.
+
+[[redirects]]
+  from   = "/"
+  to     = "/identity.html"
+  status = 200
+  conditions = {Role = ["*"]}
+  # Only activates when hash contains a token (handled client-side in identity.html)
+
+# Ensure /admin always serves the SPA correctly
+[[redirects]]
+  from   = "/admin"
+  to     = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/admin/*"
+  to     = "/admin/index.html"
+  status = 200
+
+# ─── Headers ───────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
