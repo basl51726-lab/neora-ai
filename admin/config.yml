@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name: tools
     label: "الأدوات"
-    folder: "_tools"
+   folder: "."
     create: true
     slug: "{{slug}}"
     fields:
