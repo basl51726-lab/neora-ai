@@ -259,7 +259,7 @@
   if (!slug) { showError(); return; }
 
   // ── عنوان الملف الخام من GitHub ──
-  const RAW = `/_posts/${slug}.md`;
+ const RAW = `https://neora-ai.com/_posts/${slug}.md`;
 
   try {
     const res = await fetch(RAW);
