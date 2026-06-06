@@ -259,7 +259,7 @@
   if (!slug) { showError(); return; }
 
   // ── عنوان الملف الخام من GitHub ──
-  const RAW = `https://raw.githubusercontent.com/basl51726-lab/neora-ai/main/_posts/${slug}.md`;
+  const RAW = `/_posts/${slug}.md`;
 
   try {
     const res = await fetch(RAW);
