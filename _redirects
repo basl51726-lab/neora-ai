@@ -1,3 +1,4 @@
+/blog/*    /blog/post.html    200
 /tool/chatgpt  /?tool=chatgpt  200
 /tool/midjourney  /?tool=midjourney  200
 /tool/github-copilot  /?tool=github-copilot  200
