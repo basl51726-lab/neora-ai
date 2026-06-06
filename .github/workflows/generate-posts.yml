@@ -1,11 +1,9 @@
 
-  name: Generate Posts JSON
-
+name: Generate Posts JSON
 on:
   push:
     paths:
       - '_posts/**'
-
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -13,22 +11,18 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-
       - name: Generate JSON files
         run: |
           mkdir -p _posts-json
           node -e "
           const fs = require('fs');
           const path = require('path');
-
           const posts = [];
           const files = fs.readdirSync('_posts').filter(f => f.endsWith('.md'));
-
           files.forEach(file => {
             const content = fs.readFileSync(path.join('_posts', file), 'utf8');
             const match = content.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
             if (!match) return;
-
             const frontmatter = {};
             match[1].split('\n').forEach(line => {
               const colonIdx = line.indexOf(':');
@@ -37,22 +31,17 @@ jobs:
               const val = line.slice(colonIdx + 1).trim().replace(/^['\"]|['\"]$/g, '');
               frontmatter[key] = val;
             });
-
-            // استخدم اسم الملف كـ slug مباشرة بدون تعديل
             const slug = file.replace('.md', '');
-
             const postData = {
               title: frontmatter.title || '',
               date: frontmatter.date ? frontmatter.date.split('T')[0] : '',
               description: frontmatter.description || '',
               content: match[2].trim()
             };
-
             fs.writeFileSync(
               path.join('_posts-json', slug + '.json'),
               JSON.stringify(postData, null, 2)
             );
-
             posts.push({
               slug,
               title: frontmatter.title || '',
@@ -60,16 +49,14 @@ jobs:
               description: frontmatter.description || ''
             });
           });
-
           posts.sort((a, b) => new Date(b.date) - new Date(a.date));
           fs.writeFileSync('posts-index.json', JSON.stringify(posts, null, 2));
           console.log('Generated', posts.length, 'posts');
           "
-
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           git add _posts-json/ posts-index.json
           git diff --staged --quiet || git commit -m 'Auto: generate posts JSON'
-          git push     
+          git push
