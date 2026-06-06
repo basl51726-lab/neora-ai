@@ -1,324 +1,44 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="page-title">مقال — NEORA</title>
-  <meta name="description" id="meta-desc" content="" />
-  <meta property="og:title" id="og-title" content="" />
-  <meta property="og:description" id="og-desc" content="" />
-  <meta property="og:image" id="og-image" content="" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="NEORA" />
-  <link rel="canonical" id="canonical" href="" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-      background: #fff;
-      color: #1a1a2e;
-      direction: rtl;
-    }
-    nav {
-      padding: 16px 40px;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 100;
-    }
-    .nav-logo { font-weight: 900; font-size: 1.4rem; color: #0f0f1a; text-decoration: none; }
-    .nav-back { color: #6c47ff; font-weight: 600; text-decoration: none; font-size: 15px; }
-    .nav-back:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-
-    /* ── Loading ── */
-    .loading {
-      text-align: center;
-      padding: 120px 20px;
-      color: #888;
-      font-size: 18px;
-    }
-    .loading-spinner {
-      width: 40px; height: 40px;
-      border: 3px solid #eee;
-      border-top-color: #6c47ff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 16px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── Error ── */
-    .error-box {
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .error-box h2 { font-size: 2rem; margin-bottom: 12px; }
-    .error-box p  { color: #888; margin-bottom: 24px; }
-    .error-box a  { color: #6c47ff; font-weight: 600; text-decoration: none; }
-
-    /* ── Post Header ── */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #6c47ff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    .back-link:hover { text-decoration: underline; }
-
-    .post-category {
-      display: inline-block;
-      background: #f0ebff;
-      color: #6c47ff;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-    .post-title {
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
-      font-weight: 900;
-      line-height: 1.35;
-      margin-bottom: 20px;
-      color: #0f0f1a;
-    }
-    .post-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: #999;
-      font-size: 14px;
-      margin-bottom: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .post-meta span { display: flex; align-items: center; gap: 5px; }
-
-    .post-hero {
-      width: 100%;
-      max-height: 440px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-bottom: 40px;
-    }
-
-    /* ── Post Body ── */
-    .post-body { font-size: 17px; line-height: 1.9; color: #2a2a3e; }
-    .post-body h2 {
-      font-size: 1.55rem;
-      font-weight: 800;
-      margin: 44px 0 16px;
-      color: #0f0f1a;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #f0ebff;
-    }
-    .post-body h3 { font-size: 1.2rem; font-weight: 700; margin: 32px 0 12px; color: #1a1a2e; }
-    .post-body p  { margin-bottom: 22px; }
-    .post-body ul, .post-body ol { padding-right: 28px; margin-bottom: 22px; }
-    .post-body li { margin-bottom: 10px; }
-    .post-body a  { color: #6c47ff; text-decoration: underline; }
-    .post-body a:hover { color: #4a27dd; }
-    .post-body img { width: 100%; border-radius: 12px; margin: 28px 0; }
-    .post-body strong { color: #0f0f1a; }
-    .post-body blockquote {
-      border-right: 4px solid #6c47ff;
-      background: #f8f5ff;
-      padding: 16px 20px;
-      border-radius: 0 10px 10px 0;
-      margin: 28px 0;
-      color: #555;
-      font-style: italic;
-    }
-    .post-body code {
-      background: #f0f0f7;
-      padding: 2px 7px;
-      border-radius: 5px;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      color: #6c47ff;
-    }
-    .post-body pre {
-      background: #1a1a2e;
-      color: #e8e8ff;
-      padding: 22px;
-      border-radius: 12px;
-      overflow-x: auto;
-      margin: 28px 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .post-body pre code { background: none; color: inherit; padding: 0; }
-    .post-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 28px 0;
-      font-size: 15px;
-    }
-    .post-body th, .post-body td {
-      padding: 12px 16px;
-      border: 1px solid #e8e8ee;
-      text-align: right;
-    }
-    .post-body th { background: #f5f3ff; font-weight: 700; }
-    .post-body tr:nth-child(even) { background: #fafafa; }
-    .post-body hr { border: none; border-top: 2px solid #f0f0f0; margin: 40px 0; }
-
-    /* ── Footer ── */
-    .post-footer {
-      margin-top: 60px;
-      padding-top: 32px;
-      border-top: 1px solid #f0f0f0;
-      text-align: center;
-    }
-    .post-footer a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #6c47ff;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      transition: background 0.2s;
-    }
-    .post-footer a:hover { background: #4a27dd; }
-
-    @media (max-width: 600px) {
-      nav { padding: 14px 20px; }
-      .container { padding: 32px 16px 60px; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <a href="/" class="nav-logo">NEORA</a>
-  <a href="/blog" class="nav-back">→ المدونة</a>
-</nav>
-
-<div class="container">
-
-  <!-- Loading -->
-  <div class="loading" id="loading">
-    <div class="loading-spinner"></div>
-    جاري تحميل المقال...
-  </div>
-
-  <!-- Error -->
-  <div class="error-box" id="error-box" style="display:none;">
-    <h2>😕</h2>
-    <h2>المقال غير موجود</h2>
-    <p>تعذّر تحميل هذا المقال، ربما تم نقله أو حذفه.</p>
-    <a href="/blog">← العودة للمدونة</a>
-  </div>
-
-  <!-- Post Content -->
-  <div id="post-content" style="display:none;">
-    <a href="/blog" class="back-link">← العودة للمدونة</a>
-
-    <div id="post-category-wrap"></div>
-    <h1 class="post-title" id="post-title"></h1>
-    <div class="post-meta" id="post-meta"></div>
-
-    <img id="post-image" class="post-hero" style="display:none;" alt="" />
-
-    <div class="post-body" id="post-body"></div>
-
-    <div class="post-footer">
-      <a href="/blog">← اقرأ المزيد من المقالات</a>
-    </div>
-  </div>
-
-</div>
-
-<script>
 (async () => {
-  // ── استخرج الـ slug من URL ──
-  const slug = window.location.pathname
-    .replace(/^\/blog\//, '')
-    .replace(/\/+$/, '')
-    .trim();
+  const slugFromURL = decodeURIComponent(
+    window.location.pathname.replace(/^\/blog\//, '').replace(/\/+$/, '').trim()
+  );
 
-  if (!slug) { showError(); return; }
-
-  // ── عنوان الملف الخام من GitHub ──
- const RAW = `https://neora-ai.com/_posts/${slug}.md`;
+  if (!slugFromURL) { showError(); return; }
 
   try {
-    const res = await fetch(RAW);
+    const res = await fetch(`/_posts-json/${slugFromURL}.json`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const raw = await res.text();
+    const data = await res.json();
 
-    const { data, content } = parseFrontmatter(raw);
-
-    // ── SEO & Meta ──
     const title = data.title || 'مقال على NEORA';
     document.title = `${title} — NEORA`;
     document.getElementById('canonical').href = window.location.href;
-    setMeta('meta-desc', data.description || data.excerpt || '');
-    setMeta('og-title',  title);
-    setMeta('og-desc',   data.description || data.excerpt || '');
-    if (data.image || data.thumbnail || data.featured_image) {
-      setMeta('og-image', data.image || data.thumbnail || data.featured_image);
-    }
+    setMeta('meta-desc', data.description || '');
+    setMeta('og-title', title);
+    setMeta('og-desc', data.description || '');
 
-    // ── العنوان ──
     document.getElementById('post-title').textContent = title;
 
-    // ── التصنيف ──
-    const category = data.category || data.categories || (Array.isArray(data.tags) ? data.tags[0] : data.tags);
-    if (category) {
-      document.getElementById('post-category-wrap').innerHTML =
-        `<span class="post-category">${category}</span>`;
-    }
-
-    // ── التاريخ والكاتب ──
-    const metaEl = document.getElementById('post-meta');
-    let metaHTML = '';
     if (data.date) {
       const d = new Date(data.date);
-      const formatted = d.toLocaleDateString('ar-SA', { year:'numeric', month:'long', day:'numeric' });
-      metaHTML += `<span>📅 ${formatted}</span>`;
+      document.getElementById('post-meta').innerHTML =
+        `<span>📅 ${d.toLocaleDateString('ar-SA', {year:'numeric', month:'long', day:'numeric'})}</span>`;
     }
-    if (data.author) metaHTML += `<span>✍️ ${data.author}</span>`;
-    metaEl.innerHTML = metaHTML;
 
-    // ── الصورة المميزة ──
-    const imgSrc = data.image || data.thumbnail || data.featured_image;
-    if (imgSrc) {
+    if (data.image) {
       const img = document.getElementById('post-image');
-      img.src = imgSrc;
-      img.alt = title;
-      img.style.display = 'block';
+      img.src = data.image; img.alt = title; img.style.display = 'block';
     }
 
-    // ── المحتوى ──
     marked.setOptions({ breaks: true, gfm: true });
-    document.getElementById('post-body').innerHTML = marked.parse(content || '');
+    document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
 
-    // ── أظهر المقال ──
     document.getElementById('loading').style.display = 'none';
     document.getElementById('post-content').style.display = 'block';
 
   } catch (e) {
-    console.error('Blog post error:', e);
+    console.error('Error:', e);
     showError();
   }
 })();
@@ -333,38 +53,3 @@ function setMeta(id, val) {
   const el = document.getElementById(id);
   if (el) el.setAttribute('content', val);
 }
-
-// ── محلل frontmatter بسيط وموثوق ──
-function parseFrontmatter(raw) {
-  const normalized = raw.replace(/\r\n/g, '\n').trim();
-  const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!match) return { data: {}, content: normalized };
-
-  const data = {};
-  const lines = match[1].split('\n');
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const colonIdx = line.indexOf(':');
-    if (colonIdx === -1) continue;
-    const key = line.slice(0, colonIdx).trim();
-    let val = line.slice(colonIdx + 1).trim();
-
-    // multi-line list (tags, categories)
-    if (val === '' && lines[i+1] && lines[i+1].startsWith('  -')) {
-      const items = [];
-      while (lines[i+1] && lines[i+1].match(/^\s+-\s/)) {
-        items.push(lines[++i].replace(/^\s+-\s*/, '').trim());
-      }
-      data[key] = items;
-    } else {
-      // أزل علامات الاقتباس
-      data[key] = val.replace(/^["']|["']$/g, '');
-    }
-  }
-
-  return { data, content: match[2].trim() };
-}
-</script>
-</body>
-</html>
