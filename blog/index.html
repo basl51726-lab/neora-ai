@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المدونة — NEORA</title>
+  <meta name="description" content="مقالات ودليل شامل حول أدوات الذكاء الاصطناعي" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0f;
+      color: #e0e0e0;
+      font-family: 'Cairo', sans-serif;
+      min-height: 100vh;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    .logo { font-size: 1.5rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 0.1em; }
+    .logo span { color: #00d4ff; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: #aaa; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .hero { text-align: center; padding: 4rem 2rem 3rem; }
+    .hero h1 { font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 1rem; }
+    .hero h1 span { color: #00d4ff; }
+    .hero p { color: #888; font-size: 1rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .post-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .post-card:hover {
+      border-color: rgba(0,212,255,0.3);
+      background: rgba(0,212,255,0.05);
+      transform: translateY(-4px);
+    }
+    .post-date { font-size: 0.75rem; color: #555; margin-bottom: 0.75rem; }
+    .post-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; line-height: 1.5; }
+    .post-desc { font-size: 0.85rem; color: #888; line-height: 1.7; }
+    .post-read { margin-top: 1rem; font-size: 0.8rem; color: #00d4ff; }
+    .empty { text-align: center; padding: 4rem 2rem; color: #555; }
+    .empty h2 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #777; }
+    #loading { text-align: center; padding: 3rem; color: #555; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">NE<span>O</span>RA</a>
+  <ul class="nav-links">
+    <li><a href="/">الرئيسية</a></li>
+    <li><a href="/blog" class="active">المدونة</a></li>
+    <li><a href="/#tools">الأدوات</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <h1>مدونة <span>NEORA</span></h1>
+  <p>أحدث المقالات حول أدوات الذكاء الاصطناعي والتقنية</p>
+</div>
+<div class="container">
+  <div id="loading">جاري تحميل المقالات...</div>
+  <div class="posts-grid" id="posts-grid" style="display:none"></div>
+  <div class="empty" id="empty" style="display:none">
+    <h2>لا توجد مقالات بعد</h2>
+    <p>سيتم نشر المقالات قريباً</p>
+  </div>
+</div>
+<script>
+async function loadPosts() {
+  try {
+    const res = await fetch('/posts-index.json');
+    if (!res.ok) throw new Error('no index');
+    const posts = await res.json();
+    renderPosts(posts);
+  } catch(e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('empty').style.display = 'block';
+  }
+}
+function renderPosts(posts) {
+  document.getElementById('loading').style.display = 'none';
+  if (!posts || posts.length === 0) {
+    document.getElementById('empty').style.display = 'block';
+    return;
+  }
+  const grid = document.getElementById('posts-grid');
+  grid.style.display = 'grid';
+  grid.innerHTML = posts.map(post => `
+    <a href="/blog/${post.slug}" class="post-card">
+      <div class="post-date">${post.date || ''}</div>
+      <div class="post-title">${post.title}</div>
+      <div class="post-desc">${post.description || ''}</div>
+      <div class="post-read">اقرأ المقال ←</div>
+    </a>
+  `).join('');
+}
+loadPosts();
+</script>
+</body>
+</html>
