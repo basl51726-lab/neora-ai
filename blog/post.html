@@ -1,55 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">مقال — NEORA</title>
+  <meta name="description" id="meta-desc" content="" />
+  <meta property="og:title" id="og-title" content="" />
+  <meta property="og:description" id="og-desc" content="" />
+  <link id="canonical" rel="canonical" href="" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0f; color: #e0e0e0; font-family: 'Cairo', sans-serif; min-height: 100vh; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky; top: 0; background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(10px); z-index: 100;
+    }
+    .logo { font-size: 1.5rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 0.1em; }
+    .logo span { color: #00d4ff; }
+    .nav-back { color: #00d4ff; text-decoration: none; font-size: 0.9rem; }
+    .nav-back:hover { text-decoration: underline; }
+    .container { max-width: 800px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    .loading { text-align: center; padding: 6rem 2rem; color: #555; font-size: 1.1rem; }
+    .error-box { text-align: center; padding: 6rem 2rem; }
+    .error-box h2 { color: #fff; margin-bottom: 1rem; }
+    .error-box p { color: #888; margin-bottom: 2rem; }
+    .error-box a { color: #00d4ff; text-decoration: none; }
+    .back-link { display: inline-block; color: #00d4ff; text-decoration: none; font-size: 0.9rem; margin-bottom: 2rem; }
+    .back-link:hover { text-decoration: underline; }
+    .post-title { font-size: 2rem; font-weight: 900; color: #fff; line-height: 1.4; margin-bottom: 1rem; }
+    .post-meta { color: #555; font-size: 0.85rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .post-hero { width: 100%; border-radius: 12px; margin-bottom: 2rem; }
+    .post-body { font-size: 1rem; line-height: 1.9; color: #ccc; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 2.5rem 0 1rem; }
+    .post-body h3 { font-size: 1.15rem; font-weight: 700; color: #e0e0e0; margin: 2rem 0 0.75rem; }
+    .post-body p { margin-bottom: 1.25rem; }
+    .post-body ul, .post-body ol { padding-right: 1.5rem; margin-bottom: 1.25rem; }
+    .post-body li { margin-bottom: 0.5rem; }
+    .post-body a { color: #00d4ff; text-decoration: underline; }
+    .post-body strong { color: #fff; }
+    .post-body blockquote { border-right: 3px solid #00d4ff; padding: 1rem 1.25rem; background: rgba(0,212,255,0.05); border-radius: 0 8px 8px 0; margin: 1.5rem 0; color: #aaa; }
+    .post-body code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9rem; color: #00d4ff; }
+    .post-body pre { background: rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 10px; overflow-x: auto; margin: 1.5rem 0; }
+    .post-body pre code { background: none; color: #e0e0e0; padding: 0; }
+    .post-footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+    .post-footer a { color: #00d4ff; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
 
+<nav>
+  <a href="/" class="logo">NE<span>O</span>RA</a>
+  <a href="/blog" class="nav-back">← المدونة</a>
+</nav>
+
+<div class="container">
+  <div class="loading" id="loading">جاري تحميل المقال...</div>
+  <div class="error-box" id="error-box" style="display:none;">
+    <h2>😕 المقال غير موجود</h2>
+    <p>تعذّر تحميل هذا المقال.</p>
+    <a href="/blog">← العودة للمدونة</a>
+  </div>
+  <div id="post-content" style="display:none;">
+    <a href="/blog" class="back-link">← العودة للمدونة</a>
+    <h1 class="post-title" id="post-title"></h1>
+    <div class="post-meta" id="post-meta"></div>
+    <img id="post-image" class="post-hero" style="display:none;" alt="" />
+    <div class="post-body" id="post-body"></div>
+    <div class="post-footer">
+      <a href="/blog">← اقرأ المزيد من المقالات</a>
+    </div>
+  </div>
+</div>
+
+<script>
 (async () => {
   const slugFromURL = decodeURIComponent(
     window.location.pathname.replace(/^\/blog\//, '').replace(/\/+$/, '').trim()
   );
-
   if (!slugFromURL) { showError(); return; }
-
   try {
     const res = await fetch(`/_posts-json/${slugFromURL}.json`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-
     const title = data.title || 'مقال على NEORA';
     document.title = `${title} — NEORA`;
     document.getElementById('canonical').href = window.location.href;
     setMeta('meta-desc', data.description || '');
     setMeta('og-title', title);
     setMeta('og-desc', data.description || '');
-
     document.getElementById('post-title').textContent = title;
-
     if (data.date) {
       const d = new Date(data.date);
       document.getElementById('post-meta').innerHTML =
         `<span>📅 ${d.toLocaleDateString('ar-SA', {year:'numeric', month:'long', day:'numeric'})}</span>`;
     }
-
     if (data.image) {
       const img = document.getElementById('post-image');
       img.src = data.image; img.alt = title; img.style.display = 'block';
     }
-
     marked.setOptions({ breaks: true, gfm: true });
     document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
-
     document.getElementById('loading').style.display = 'none';
     document.getElementById('post-content').style.display = 'block';
-
   } catch (e) {
     console.error('Error:', e);
     showError();
   }
 })();
-
 function showError() {
   document.getElementById('loading').style.display = 'none';
   document.getElementById('error-box').style.display = 'block';
 }
-
 function setMeta(id, val) {
   if (!val) return;
   const el = document.getElementById(id);
   if (el) el.setAttribute('content', val);
 }
+</script>
+</body>
+</html>
