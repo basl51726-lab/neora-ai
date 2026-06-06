@@ -1,4 +1,5 @@
-name: Generate Posts JSON
+
+  name: Generate Posts JSON
 
 on:
   push:
@@ -8,6 +9,8 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
 
@@ -35,12 +38,8 @@ jobs:
               frontmatter[key] = val;
             });
 
-            const slug = file
-              .replace('.md', '')
-              .replace(/[^\w\-]/g, '-')
-              .replace(/-+/g, '-')
-              .replace(/^-|-$/, '')
-              .toLowerCase();
+            // استخدم اسم الملف كـ slug مباشرة بدون تعديل
+            const slug = file.replace('.md', '');
 
             const postData = {
               title: frontmatter.title || '',
@@ -73,4 +72,4 @@ jobs:
           git config --global user.email 'action@github.com'
           git add _posts-json/ posts-index.json
           git diff --staged --quiet || git commit -m 'Auto: generate posts JSON'
-          git push
+          git push     
