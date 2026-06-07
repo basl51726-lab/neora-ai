@@ -1,0 +1,27 @@
+# Neora AI
+
+Website: https://neora-ai.com
+
+Description:
+Neora AI is an AI tools directory and comparison platform helping users discover, compare and evaluate the best artificial intelligence tools.
+
+Main Pages:
+https://neora-ai.com
+https://neora-ai.com/blog
+https://neora-ai.com/categories
+https://neora-ai.com/about
+https://neora-ai.com/contact
+
+Language:
+Arabic
+English
+
+Topics:
+AI Tools
+Chatbots
+Image Generation
+Video Generation
+Programming
+Marketing
+Research
+Productivity
