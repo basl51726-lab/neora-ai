@@ -1,9 +1,9 @@
-
 name: Generate Posts JSON
 on:
   push:
     paths:
       - '_posts/**'
+      - '_tools/**'
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -53,10 +53,46 @@ jobs:
           fs.writeFileSync('posts-index.json', JSON.stringify(posts, null, 2));
           console.log('Generated', posts.length, 'posts');
           "
+      - name: Generate Tools JSON
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const tools = [];
+          if (!fs.existsSync('_tools')) { console.log('No _tools folder'); process.exit(0); }
+          const files = fs.readdirSync('_tools').filter(f => f.endsWith('.md'));
+          files.forEach(file => {
+            const content = fs.readFileSync(path.join('_tools', file), 'utf8');
+            const match = content.match(/^---\n([\s\S]*?)\n---/);
+            if (!match) return;
+            const frontmatter = {};
+            match[1].split('\n').forEach(line => {
+              const colonIdx = line.indexOf(':');
+              if (colonIdx === -1) return;
+              const key = line.slice(0, colonIdx).trim();
+              const val = line.slice(colonIdx + 1).trim().replace(/^['\"]|['\"]$/g, '');
+              frontmatter[key] = val;
+            });
+            tools.push({
+              slug: file.replace('.md', ''),
+              title: frontmatter.title || '',
+              url: frontmatter.url || '',
+              category: frontmatter.category || '',
+              badge: frontmatter.badge || '',
+              rating: frontmatter.rating || '',
+              icon: frontmatter.icon || '',
+              desc_ar: frontmatter.desc_ar || '',
+              desc_en: frontmatter.desc_en || '',
+              pricing_ar: frontmatter.pricing_ar || ''
+            });
+          });
+          fs.writeFileSync('tools-index.json', JSON.stringify(tools, null, 2));
+          console.log('Generated', tools.length, 'tools');
+          "
       - name: Commit changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add _posts-json/ posts-index.json
-          git diff --staged --quiet || git commit -m 'Auto: generate posts JSON'
-          git push
+          git add _posts-json/ posts-index.json tools-index.json
+          git diff --staged --quiet || git commit -m 'Auto: generate posts and tools JSON'
+          git push 
