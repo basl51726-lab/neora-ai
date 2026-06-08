@@ -245,15 +245,14 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:50
 <!-- CATEGORY NAV -->
 <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto 40px;padding:0 20px">
   <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-    <button onclick="showCat('chat')" class="cat-nav-btn">💬 <span data-key="cat_chat">دردشة</span></button>
-    <button onclick="showCat('image')" class="cat-nav-btn">🎨 <span data-key="cat_image_n">صور</span></button>
-    <button onclick="showCat('video')" class="cat-nav-btn">🎬 <span data-key="cat_video_n">فيديو</span></button>
-    <button onclick="showCat('code')" class="cat-nav-btn">💻 <span data-key="cat_code_n">كود</span></button>
-    <button onclick="showCat('writing')" class="cat-nav-btn">✍️ <span data-key="cat_writing_n">كتابة</span></button>
-    <button onclick="showCat('voice')" class="cat-nav-btn">🎙️ <span data-key="cat_voice_n">صوت</span></button>
-    <button onclick="showCat('productivity')" class="cat-nav-btn">⚡ <span data-key="cat_prod_n">إنتاجية</span></button>
-    <button onclick="showCat('research')" class="cat-nav-btn">🔬 <span data-key="cat_research_n">بحث</span></button>
-    <button onclick="showCat('builders')" class="cat-nav-btn">🌐 <span data-key="cat_builders_n">بناء المواقع</span></button>
+    <button onclick="showCat('chat')" class="cat-nav-btn">💬 <span data-key="cat_chat">دردشة AI</span></button>
+    <button onclick="showCat('image')" class="cat-nav-btn">🎨 <span data-key="cat_image_n">توليد الصور</span></button>
+    <button onclick="showCat('video')" class="cat-nav-btn">🎬 <span data-key="cat_video_n">توليد الفيديو</span></button>
+    <button onclick="showCat('code')" class="cat-nav-btn">💻 <span data-key="cat_code_n">البرمجة والكود</span></button>
+    <button onclick="showCat('writing')" class="cat-nav-btn">✍️ <span data-key="cat_writing_n">الكتابة والترجمة</span></button>
+    <button onclick="showCat('voice')" class="cat-nav-btn">🎙️ <span data-key="cat_voice_n">الصوت والموسيقى</span></button>
+    <button onclick="showCat('productivity')" class="cat-nav-btn">⚡ <span data-key="cat_prod_n">الإنتاجية</span></button>
+    <button onclick="showCat('research')" class="cat-nav-btn">🔬 <span data-key="cat_research_n">البحث والتحليل</span></button>
   </div>
 </div>
 
@@ -266,14 +265,13 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:50
 
 <div class="categories" id="categories-section">
   <button class="cat-btn active" onclick="filterCat(this,'all')" data-key="cat_all">⚡ الكل</button>
-  <button class="cat-btn" onclick="filterCat(this,'writing')" data-key="cat_writing">✍️ كتابة</button>
-  <button class="cat-btn" onclick="filterCat(this,'image')" data-key="cat_image">🎨 صور</button>
-  <button class="cat-btn" onclick="filterCat(this,'code')" data-key="cat_code">💻 كود</button>
-  <button class="cat-btn" onclick="filterCat(this,'video')" data-key="cat_video">🎬 فيديو</button>
-  <button class="cat-btn" onclick="filterCat(this,'voice')" data-key="cat_voice">🎙️ صوت</button>
-  <button class="cat-btn" onclick="filterCat(this,'data')" data-key="cat_data">📊 بيانات</button>
-  <button class="cat-btn" onclick="filterCat(this,'chat')" data-key="cat_chat">💬 دردشة</button>
-  <button class="cat-btn" onclick="filterCat(this,'builders')" data-key="cat_builders">🌐 بناء المواقع</button>
+  <button class="cat-btn" onclick="filterCat(this,'writing')" data-key="cat_writing">✍️ الكتابة والترجمة</button>
+  <button class="cat-btn" onclick="filterCat(this,'image')" data-key="cat_image">🎨 توليد الصور</button>
+  <button class="cat-btn" onclick="filterCat(this,'code')" data-key="cat_code">💻 البرمجة والكود</button>
+  <button class="cat-btn" onclick="filterCat(this,'video')" data-key="cat_video">🎬 توليد الفيديو</button>
+  <button class="cat-btn" onclick="filterCat(this,'voice')" data-key="cat_voice">🎙️ الصوت والموسيقى</button>
+  <button class="cat-btn" onclick="filterCat(this,'data')" data-key="cat_data">📊 تحليل البيانات</button>
+  <button class="cat-btn" onclick="filterCat(this,'chat')" data-key="cat_chat">💬 دردشة AI</button>
 </div>
 
 <section class="featured-section" id="featured-section">
@@ -7040,8 +7038,8 @@ ar:{
   hero_btn1:'استكشف الأدوات',hero_btn2:'من نحن',
   stat1:'أداة ذكاء اصطناعي',stat2:'تصنيف متخصص',stat3:'تحديث مستمر',stat4:'وصول مجاني',
   search_ph:'ابحث عن أداة... مثال: كتابة، تصميم، كود',search_btn:'🔍 بحث',
-  cat_all:'⚡ الكل',cat_writing:'✍️ كتابة',cat_image:'🎨 صور',cat_code:'💻 كود',
-  cat_video:'🎬 فيديو',cat_voice:'🎙️ صوت',cat_data:'📊 بيانات',cat_chat:'💬 دردشة',
+  cat_all:'⚡ الكل',cat_writing:'✍️ الكتابة والترجمة',cat_image:'🎨 توليد الصور',cat_code:'💻 البرمجة والكود',
+  cat_video:'🎬 توليد الفيديو',cat_voice:'🎙️ الصوت والموسيقى',cat_data:'📊 تحليل البيانات',cat_chat:'💬 دردشة AI',
   live_now:'مباشر الآن',feat_title:'جرّب الذكاء الاصطناعي مباشرةً من هنا ✦',
   feat_desc:'لا تحتاج تفتح موقعاً آخر — اسأل أي سؤال واحصل على إجابة فورية من الذكاء الاصطناعي.',
   feat_btn:'استكشف كل الأدوات',chat_hdr:'🤖 مساعد NEORA — مباشر',chat_ph:'اكتب سؤالك هنا...',send_btn:'إرسال',
@@ -7116,8 +7114,8 @@ en:{
   hero_btn1:'Explore Tools',hero_btn2:'About Us',
   stat1:'AI Tools',stat2:'Categories',stat3:'Regularly Updated',stat4:'Free Access',
   search_ph:'Search for a tool... e.g. writing, design, code',search_btn:'🔍 Search',
-  cat_all:'⚡ All',cat_writing:'✍️ Writing',cat_image:'🎨 Images',cat_code:'💻 Code',
-  cat_video:'🎬 Video',cat_voice:'🎙️ Voice',cat_data:'📊 Data',cat_chat:'💬 Chat',
+  cat_all:'⚡ All',cat_writing:'✍️ Writing & Translation',cat_image:'🎨 Image Generation',cat_code:'💻 Coding & Dev',
+  cat_video:'🎬 Video Generation',cat_voice:'🎵 Audio & Music',cat_data:'📊 Data Analysis',cat_chat:'💬 Chat AI',
   live_now:'Live Now',feat_title:'Try AI Directly Right Here ✦',
   feat_desc:'No need to open another site — ask any question and get an instant AI response inside the platform.',
   feat_btn:'Explore All Tools',chat_hdr:'🤖 NEORA Assistant — Live',chat_ph:'Type your question here...',send_btn:'Send',
