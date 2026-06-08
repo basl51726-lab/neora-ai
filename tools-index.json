@@ -1,3 +1,4 @@
+ls index · JSON
 [
   {
     "slug": "adobe-firefly",
@@ -324,6 +325,19 @@
     "pricing_ar": "مجاني"
   },
   {
+    "slug": "lovable",
+    "title": "Lovable",
+    "url": "https://lovable.dev",
+    "affiliate_url": "",
+    "category": "builders",
+    "badge": "new",
+    "rating": "4.7",
+    "icon": "🌐",
+    "desc_ar": "منصة لبناء المواقع والتطبيقات بالذكاء الاصطناعي بدون كود. فقط اكتب فكرتك وسيبنيها لك.",
+    "desc_en": "AI-powered platform to build websites and apps without code. Just describe your idea and it builds it.",
+    "pricing_ar": "مجاني / مدفوع"
+  },
+  {
     "slug": "luma-ai",
     "title": "Luma AI",
     "url": "https://lumalabs.ai",
@@ -384,18 +398,6 @@
     "pricing_ar": "مجاني"
   },
   {
-    "slug": "notion-ai",
-    "title": "Notion AI",
-    "url": "https://notion.so",
-    "category": "writing",
-    "badge": "pro",
-    "rating": "4.6",
-    "icon": "📓",
-    "desc_ar": "ذكاء اصطناعي مدمج في Notion لتحسين الكتابة وتلخيص الملاحظات.",
-    "desc_en": "AI built into Notion for writing and note summarization.",
-    "pricing_ar": "$10/شهر"
-  },
-  {
     "slug": "notion",
     "title": "Notion",
     "url": "https://notion.so",
@@ -406,6 +408,18 @@
     "desc_ar": "مساحة عمل متكاملة مع ذكاء اصطناعي للملاحظات وإدارة المشاريع.",
     "desc_en": "All-in-one workspace with AI for notes and project management.",
     "pricing_ar": "مجاني"
+  },
+  {
+    "slug": "notion-ai",
+    "title": "Notion AI",
+    "url": "https://notion.so",
+    "category": "writing",
+    "badge": "pro",
+    "rating": "4.6",
+    "icon": "📓",
+    "desc_ar": "ذكاء اصطناعي مدمج في Notion لتحسين الكتابة وتلخيص الملاحظات.",
+    "desc_en": "AI built into Notion for writing and note summarization.",
+    "pricing_ar": "$10/شهر"
   },
   {
     "slug": "otter-ai",
