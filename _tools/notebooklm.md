@@ -2,7 +2,7 @@
 title: NotebookLM
 url: https://notebooklm.google.com
 category: research
-badge: new
+badge: free
 rating: 4
 icon: https://notebooklm.google.com/favicon.ico
 desc_ar: NotebookLM هو مساعد بحثي ذكي من Google يساعدك على تحليل المستندات
