@@ -8650,32 +8650,7 @@ function handleFormSubmit(e){
 
 function submitForm(){}
 
-const OR_KEY='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';
-
-async function sendMsg(){
-  const input=document.getElementById('chatInput');
-  const btn=document.getElementById('sendBtn');
-  const msgs=document.getElementById('chatMessages');
-  const text=input.value.trim();if(!text)return;
-  const uMsg=document.createElement('div');uMsg.className='msg msg-user';uMsg.textContent=text;
-  msgs.appendChild(uMsg);msgs.scrollTop=msgs.scrollHeight;input.value='';btn.disabled=true;
-  const load=document.createElement('div');load.className='msg msg-ai loading';load.textContent=T[lang].thinking;
-  msgs.appendChild(load);msgs.scrollTop=msgs.scrollHeight;
-  try{
-    const res=await fetch('https://openrouter.ai/api/v1/chat/completions',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+OR_KEY,'HTTP-Referer':'https://neora-ai.com','X-Title':'NEORA'},
-      body:JSON.stringify({
-        model:'openai/gpt-4o-mini',
-        messages:[{role:'system',content:T[lang].ai_sys},{role:'user',content:text}]
-      })
-    });
-    const data=await res.json();
-    const reply=data.choices?.[0]?.message?.content||T[lang].err;
-    load.className='msg msg-ai';load.textContent=reply;
-  }catch(e){load.className='msg msg-ai';load.textContent=T[lang].err;}
-  btn.disabled=false;msgs.scrollTop=msgs.scrollHeight;
-}
+const OR_KEY='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
 
 setLang(lang);
 </script> 
