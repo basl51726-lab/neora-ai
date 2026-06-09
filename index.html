@@ -8574,22 +8574,27 @@ function scrollToSection(id){setTimeout(()=>{const el=document.getElementById(id
 function doSearch(){
   const q=document.getElementById('searchInput').value.toLowerCase().trim();
   let vis=0;
+
   document.querySelectorAll('.tool-card').forEach(card=>{
-    const name=(card.getAttribute('data-name')||'').toLowerCase();
-    const cat=(card.getAttribute('data-cat')||'').toLowerCase();
-    const ar=(card.getAttribute('data-ar')||'').toLowerCase();
-    const en=(card.getAttribute('data-en')||'').toLowerCase();
-    const desc=(card.querySelector('.tool-desc')||{}).textContent?.toLowerCase()||'';
-    const match=!q||name.includes(q)||cat.includes(q)||ar.includes(q)||en.includes(q)||desc.includes(q);
-    card.style.display=match?'':'none';
+    const text=card.innerText.toLowerCase();
+    const data=Array.from(card.attributes)
+      .map(a=>a.value)
+      .join(' ')
+      .toLowerCase();
+
+    const match=!q || text.includes(q) || data.includes(q);
+
+    card.style.display=match ? '' : 'none';
     if(match)vis++;
   });
+
   const noRes=document.getElementById('noResults');
-  if(noRes)noRes.classList.toggle('show',q.length>0&&vis===0);
-  // reset category buttons
+  if(noRes)noRes.classList.toggle('show', q.length>0 && vis===0);
+
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.cat-btn').classList.add('active');
-  // scroll to tools section
+  const allBtn=document.querySelector('.cat-btn');
+  if(allBtn)allBtn.classList.add('active');
+
   const el=document.getElementById('tools-section');
   if(el)el.scrollIntoView({behavior:'smooth'});
 }
