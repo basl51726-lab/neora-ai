@@ -8523,8 +8523,8 @@ function setLang(l){
     const k=el.getAttribute('data-key-ph');
     if(T[l][k])el.placeholder=T[l][k];
   });
-  document.getElementById('welcomeMsg').textContent=T[l].welcome;
-
+ const welcomeMsg = document.getElementById('welcomeMsg');
+if (welcomeMsg) welcomeMsg.textContent = T[l].welcome;
   // Update tool cards for new format
   document.querySelectorAll('.tool-card').forEach(card => {
     const descEl = card.querySelector('.tool-desc');
