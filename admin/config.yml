@@ -40,24 +40,39 @@ collections:
       - {label: "الوصف إنجليزي", name: "desc_en", widget: "text"}
       - {label: "السعر", name: "pricing_ar", widget: "string"}
 
-  - name: blog
+   - name: blog
     label: "المدونة"
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "العنوان", name: "title", widget: "string"}
-      - {label: "التاريخ", name: "date", widget: "datetime"}
-      - {label: "الوصف", name: "description", widget: "text"}
-      - {label: "المحتوى", name: "body", widget: "markdown"}
 
-  - name: affiliates
-    label: "روابط Affiliate"
-    folder: "_affiliates"
-    create: true
-    slug: "{{slug}}"
     fields:
-      - {label: "اسم الأداة", name: "title", widget: "string"}
-      - {label: "رابط Affiliate", name: "affiliate_url", widget: "string"}
-      - {label: "العمولة", name: "commission", widget: "string"}
-      - {label: "الوصف", name: "description", widget: "text"}
+      - { label: "العنوان", name: "title", widget: "string" }
+
+      - { label: "التاريخ", name: "date", widget: "datetime" }
+
+      - { label: "الوصف", name: "description", widget: "text" }
+
+      - label: "صورة المقال"
+        name: "featuredImage"
+        widget: "image"
+        required: false
+
+      - label: "تصنيف المقال"
+        name: "category"
+        widget: "select"
+        required: false
+        options:
+          - "مقال"
+          - "مقارنة"
+          - "دليل"
+          - "مراجعة"
+          - "تحليل"
+
+      - label: "مقال مميز"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - { label: "المحتوى", name: "body", widget: "markdown" }
