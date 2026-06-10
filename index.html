@@ -8568,15 +8568,19 @@ window.doSearch = function(){
   const noRes = document.getElementById('noResults');
   if (noRes) noRes.classList.toggle('show', q.length > 0 && vis === 0);
 };
-document.getElementById('searchInput').addEventListener('input',function(){
-  if(this.value.trim()===''){
-    document.querySelectorAll('.tool-card').forEach(c=>c.style.display='');
-    const noRes=document.getElementById('noResults');
-    if(noRes)noRes.classList.remove('show');
-  } else {
-    doSearch();
-  }
-});
+const searchInputEl = document.getElementById('searchInput');
+
+if (searchInputEl) {
+  searchInputEl.addEventListener('input', function(){
+    if(this.value.trim()===''){
+      document.querySelectorAll('.tool-card').forEach(c=>c.style.display='');
+      const noRes=document.getElementById('noResults');
+      if(noRes) noRes.classList.remove('show');
+    } else {
+      doSearch();
+    }
+  });
+}
 
 function filterCat(btn,cat){
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
