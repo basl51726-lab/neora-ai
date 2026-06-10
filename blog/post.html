@@ -17,128 +17,101 @@
     nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem; border-bottom: 1px solid rgba(212,175,55,0.25);
-      position: sticky; top: 0; background: rgba(255,255,255,0.95);
+      position: sticky; top: 0; background: rgba(255,255,255,0.97);
       backdrop-filter: blur(10px); z-index: 100;
       box-shadow: 0 1px 20px rgba(212,175,55,0.08);
     }
-    .logo {
-      font-size: 1.5rem; font-weight: 900; text-decoration: none; letter-spacing: 0.1em;
-      background: linear-gradient(135deg,#b8962e,#d4af37,#9a7d24);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .nav-back { color: #b8962e; text-decoration: none; font-size: 0.9rem; font-weight: 700; }
+    .logo { font-size: 1.5rem; font-weight: 900; text-decoration: none; letter-spacing: 0.1em; background: linear-gradient(135deg,#b8962e,#d4af37,#9a7d24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-back { color: #b8962e; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 4px; }
     .nav-back:hover { text-decoration: underline; }
 
-    .container { max-width: 800px; margin: 0 auto; padding: 3rem 2rem 6rem; }
-
+    .container { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 6rem; }
     .loading { text-align: center; padding: 6rem 2rem; color: #94a3b8; font-size: 1.1rem; }
-
     .error-box { text-align: center; padding: 6rem 2rem; }
     .error-box h2 { color: #0f0f0f; margin-bottom: 1rem; }
     .error-box p { color: #475569; margin-bottom: 2rem; }
     .error-box a { color: #b8962e; text-decoration: none; font-weight: 700; }
 
-    .back-link {
-      display: inline-block; color: #b8962e; text-decoration: none;
-      font-size: 0.9rem; margin-bottom: 2rem; font-weight: 700;
-    }
-    .back-link:hover { text-decoration: underline; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #94a3b8; margin-bottom: 2rem; }
+    .breadcrumb a { color: #b8962e; text-decoration: none; font-weight: 700; }
+    .breadcrumb span { color: #cbd5e1; }
 
-    .post-title {
-      font-size: 2rem; font-weight: 900; color: #b8962e;
-      line-height: 1.4; margin-bottom: 1rem;
-    }
+    .post-hero-img { width: 100%; border-radius: 16px; margin-bottom: 2rem; max-height: 420px; object-fit: cover; border: 1px solid rgba(212,175,55,0.15); }
+
+    .post-title { font-size: 1.9rem; font-weight: 900; color: #0f0f0f; line-height: 1.4; margin-bottom: 1rem; }
     .post-meta {
-      color: #94a3b8; font-size: 0.85rem; margin-bottom: 2.5rem;
-      padding-bottom: 2rem; border-bottom: 1px solid rgba(212,175,55,0.2);
-      font-weight: 600;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      color: #94a3b8; font-size: 0.82rem; font-weight: 600;
+      margin-bottom: 2rem; padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
     }
-    .post-hero { width: 100%; border-radius: 12px; margin-bottom: 2rem; }
+    .meta-item { display: flex; align-items: center; gap: 5px; }
 
-    .post-body { font-size: 1rem; line-height: 1.9; color: #334155; }
-    .post-body h2 {
-      font-size: 1.4rem; font-weight: 800; color: #b8962e;
-      margin: 2.5rem 0 1rem;
-    }
-    .post-body h3 {
-      font-size: 1.15rem; font-weight: 700; color: #0f0f0f;
-      margin: 2rem 0 0.75rem;
-    }
-    .post-body p { margin-bottom: 1.25rem; color: #334155; }
+    .post-body { font-size: 1.05rem; line-height: 2; color: #334155; }
+    .post-body h2 { font-size: 1.45rem; font-weight: 900; color: #b8962e; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(212,175,55,0.15); }
+    .post-body h3 { font-size: 1.15rem; font-weight: 800; color: #0f0f0f; margin: 2rem 0 0.75rem; }
+    .post-body p { margin-bottom: 1.3rem; color: #334155; }
     .post-body ul, .post-body ol { padding-right: 1.5rem; margin-bottom: 1.25rem; }
-    .post-body li { margin-bottom: 0.5rem; color: #334155; }
+    .post-body li { margin-bottom: 0.6rem; color: #334155; }
     .post-body a { color: #b8962e; text-decoration: underline; }
     .post-body strong { color: #0f0f0f; font-weight: 800; }
-    .post-body blockquote {
-      border-right: 3px solid #d4af37;
-      padding: 1rem 1.25rem;
-      background: rgba(212,175,55,0.06);
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0; color: #475569;
-    }
-    .post-body code {
-      background: rgba(212,175,55,0.1); padding: 2px 6px;
-      border-radius: 4px; font-family: monospace;
-      font-size: 0.9rem; color: #9a7d24;
-    }
-    .post-body pre {
-      background: #f8f5ee; padding: 1.25rem;
-      border-radius: 10px; overflow-x: auto; margin: 1.5rem 0;
-      border: 1px solid rgba(212,175,55,0.2);
-    }
+    .post-body hr { border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 2rem 0; }
+    .post-body blockquote { border-right: 4px solid #d4af37; padding: 1rem 1.5rem; background: rgba(212,175,55,0.06); border-radius: 0 10px 10px 0; margin: 1.5rem 0; color: #475569; font-style: italic; }
+    .post-body code { background: rgba(212,175,55,0.1); padding: 2px 7px; border-radius: 5px; font-family: monospace; font-size: 0.9rem; color: #9a7d24; }
+    .post-body pre { background: #f8f5ee; padding: 1.25rem; border-radius: 12px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(212,175,55,0.2); }
     .post-body pre code { background: none; color: #334155; padding: 0; }
+    .post-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 10px; overflow: hidden; }
+    .post-body th { background: rgba(212,175,55,0.12); color: #b8962e; padding: 12px 16px; text-align: right; font-weight: 800; border-bottom: 2px solid rgba(212,175,55,0.25); }
+    .post-body td { padding: 11px 16px; border-bottom: 1px solid rgba(212,175,55,0.1); color: #334155; }
+    .post-body tr:hover td { background: rgba(212,175,55,0.04); }
+    .post-body img { max-width: 100%; border-radius: 10px; margin: 1rem 0; }
 
-    .post-body table {
-      width: 100%; border-collapse: collapse; margin: 1.5rem 0;
-    }
-    .post-body th {
-      background: rgba(212,175,55,0.1); color: #b8962e;
-      padding: 10px 14px; text-align: right; font-weight: 800;
-      border-bottom: 2px solid rgba(212,175,55,0.3);
-    }
-    .post-body td {
-      padding: 10px 14px; border-bottom: 1px solid rgba(212,175,55,0.1);
-      color: #334155;
-    }
-    .post-body tr:hover td { background: rgba(212,175,55,0.03); }
+    .post-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 6px; color: #b8962e; text-decoration: none; font-weight: 700; font-size: 0.9rem; background: rgba(212,175,55,0.08); padding: 9px 18px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.2); transition: all 0.2s; }
+    .back-btn:hover { background: rgba(212,175,55,0.15); }
+    .share-text { font-size: 0.8rem; color: #94a3b8; font-weight: 600; }
 
-    .post-footer {
-      margin-top: 4rem; padding-top: 2rem;
-      border-top: 1px solid rgba(212,175,55,0.2);
-      text-align: center;
-    }
-    .post-footer a { color: #b8962e; text-decoration: none; font-weight: 700; }
-
-    footer {
-      text-align: center; padding: 2rem; margin-top: 2rem;
-      border-top: 1px solid rgba(212,175,55,0.15);
-      color: #94a3b8; font-size: 0.85rem; background: #fff;
-    }
+    footer { text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid rgba(212,175,55,0.15); color: #94a3b8; font-size: 0.85rem; background: #fff; }
     footer a { color: #b8962e; text-decoration: none; font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .container { padding: 1.5rem 1rem 4rem; }
+      .post-title { font-size: 1.5rem; }
+      .post-body { font-size: 0.97rem; }
+      nav { padding: 1rem; }
+    }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="logo">NEORA</a>
   <a href="/blog" class="nav-back">← المدونة</a>
 </nav>
 
 <div class="container">
-  <div class="loading" id="loading">جاري تحميل المقال...</div>
+  <div class="loading" id="loading">⏳ جاري تحميل المقال...</div>
   <div class="error-box" id="error-box" style="display:none;">
     <h2>😕 المقال غير موجود</h2>
     <p>تعذّر تحميل هذا المقال.</p>
     <a href="/blog">← العودة للمدونة</a>
   </div>
   <div id="post-content" style="display:none;">
-    <a href="/blog" class="back-link">← العودة للمدونة</a>
+    <div class="breadcrumb">
+      <a href="/">NEORA</a>
+      <span>›</span>
+      <a href="/blog">المدونة</a>
+      <span>›</span>
+      <span id="breadcrumb-title"></span>
+    </div>
+
+    <img id="post-image" class="post-hero-img" style="display:none;" alt="" />
     <h1 class="post-title" id="post-title"></h1>
     <div class="post-meta" id="post-meta"></div>
-    <img id="post-image" class="post-hero" style="display:none;" alt="" />
     <div class="post-body" id="post-body"></div>
+
     <div class="post-footer">
-      <a href="/blog">← اقرأ المزيد من المقالات</a>
+      <a href="/blog" class="back-btn">← اقرأ المزيد من المقالات</a>
+      <span class="share-text">📖 شارك المقال مع أصدقائك</span>
     </div>
   </div>
 </div>
@@ -164,14 +137,21 @@
     setMeta('og-title', title);
     setMeta('og-desc', data.description || '');
     document.getElementById('post-title').textContent = title;
+    document.getElementById('breadcrumb-title').textContent = title.length > 40 ? title.slice(0,40)+'...' : title;
+
+    let metaHTML = '';
     if (data.date) {
       const d = new Date(data.date);
-      document.getElementById('post-meta').innerHTML =
-        `<span>📅 ${d.toLocaleDateString('ar-SA', {year:'numeric', month:'long', day:'numeric'})}</span>`;
+      metaHTML += `<span class="meta-item">📅 ${d.toLocaleDateString('ar-SA', {year:'numeric', month:'long', day:'numeric'})}</span>`;
     }
-    if (data.image) {
+    metaHTML += `<span class="meta-item">⏱️ قراءة 5 دقائق</span>`;
+    document.getElementById('post-meta').innerHTML = metaHTML;
+
+    if (data.featuredImage || data.image) {
       const img = document.getElementById('post-image');
-      img.src = data.image; img.alt = title; img.style.display = 'block';
+      img.src = data.featuredImage || data.image;
+      img.alt = title;
+      img.style.display = 'block';
     }
     marked.setOptions({ breaks: true, gfm: true });
     document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
