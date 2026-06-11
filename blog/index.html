@@ -69,25 +69,34 @@
     .featured-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #d4af37, #b8962e); z-index: 1; }
     .featured-card:hover { transform: translateY(-4px); box-shadow: 0 16px 52px rgba(212,175,55,0.18); border-color: rgba(212,175,55,0.4); }
 
-    /* صورة المقال المميز — نسبة ثابتة بدون ارتفاع زائد */
+    /* ── صورة المقال المميز ── */
     .featured-img {
       aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #1a1a0f, #2a2010);
+      background: linear-gradient(135deg, #0f0e08, #1e1b0e);
       display: flex; align-items: center; justify-content: center;
       border-left: 1px solid rgba(212,175,55,0.15);
       position: relative; overflow: hidden;
     }
     .featured-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      position: absolute; inset: 0; transition: transform 0.4s ease;
+      width: 70%; height: 70%; object-fit: contain;
+      position: relative; z-index: 2; transition: transform 0.4s ease;
+      filter: drop-shadow(0 4px 20px rgba(212,175,55,0.25));
     }
-    .featured-card:hover .featured-img img { transform: scale(1.04); }
-    .featured-img .placeholder { font-size: 4rem; opacity: 0.3; }
-    /* overlay gradient على الصورة المميزة */
+    .featured-card:hover .featured-img img { transform: scale(1.06); }
+
+    /* هالة ذهبية خلف اللوغو */
+    .featured-img::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.18) 0%, transparent 65%),
+        radial-gradient(circle at 20% 20%, rgba(212,175,55,0.10) 0%, transparent 40%);
+    }
+    /* شبكة خفيفة */
     .featured-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.08), transparent);
-      pointer-events: none;
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background-image: linear-gradient(rgba(212,175,55,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
 
     .featured-body { padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: center; gap: 0; }
@@ -121,30 +130,47 @@
     }
     .post-card:hover { border-color: rgba(212,175,55,0.42); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(212,175,55,0.13); }
 
-    /* ── صورة البطاقة: أقل ارتفاعاً، نسبة ثابتة ── */
+    /* ── صورة البطاقة ── */
     .card-img {
       aspect-ratio: 16/9;
-      max-height: 150px;
-      background: linear-gradient(135deg, #1c1a0a, #252010);
+      max-height: 160px;
+      background: linear-gradient(135deg, #0f0e08, #1e1b0e);
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
       border-bottom: 1px solid rgba(212,175,55,0.1);
     }
+
+    /* اللوغو داخل البطاقة */
     .card-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      position: absolute; inset: 0; transition: transform 0.35s ease;
+      width: 55%; height: 55%; object-fit: contain;
+      position: relative; z-index: 2; transition: transform 0.35s ease;
+      filter: drop-shadow(0 2px 12px rgba(212,175,55,0.3));
     }
-    .post-card:hover .card-img img { transform: scale(1.05); }
-    /* overlay خفيف على صور البطاقات لتوحيد المظهر */
+    .post-card:hover .card-img img { transform: scale(1.08); }
+
+    /* هالة ذهبية خلف لوغو البطاقة */
+    .card-img::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.16) 0%, transparent 60%);
+    }
+    /* شبكة خفيفة */
     .card-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.18));
-      pointer-events: none; z-index: 1;
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background-image: linear-gradient(rgba(212,175,55,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
-    .card-img .emoji-placeholder { opacity: 0.28; font-size: 3rem; position: relative; z-index: 2; }
 
+    /* شارة الفئة فوق الصورة */
+    .card-category-badge {
+      position: absolute; bottom: 8px; right: 10px; z-index: 3;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+      color: #d4af37; font-size: 0.62rem; font-weight: 800;
+      padding: 3px 9px; border-radius: 20px; letter-spacing: 0.5px;
+    }
 
-    /* ── Smart fallback thumbnails (بديل احترافي عند عدم وجود صورة حقيقية) ── */
+    /* ── Smart fallback (عند عدم وجود صورة) ── */
     .smart-art {
       width: 100%; height: 100%; position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center; padding: 1.2rem;
@@ -156,7 +182,8 @@
     }
     .smart-art::before {
       content: ''; position: absolute; inset: -35%; opacity: 0.12;
-      background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px);
       background-size: 28px 28px; transform: rotate(-8deg);
     }
     .smart-art-inner {
@@ -179,14 +206,6 @@
     .featured-img .smart-art-mark { width: 86px; height: 86px; border-radius: 26px; font-size: 2.7rem; }
     .featured-img .smart-art-title { max-width: 360px; font-size: 1.15rem; }
 
-    /* شارة الفئة فوق الصورة */
-    .card-category-badge {
-      position: absolute; bottom: 8px; right: 10px; z-index: 3;
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
-      color: #d4af37; font-size: 0.62rem; font-weight: 800;
-      padding: 3px 9px; border-radius: 20px; letter-spacing: 0.5px;
-    }
-
     .card-body { padding: 1.1rem 1.2rem 1rem; flex: 1; display: flex; flex-direction: column; }
     .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 0.55rem; flex-wrap: wrap; }
     .card-date { font-size: 0.7rem; color: #94a3b8; font-weight: 600; }
@@ -196,16 +215,13 @@
     .badge-updated { background: rgba(16,185,129,0.08); color: #059669; }
     .badge-editors { background: rgba(139,92,246,0.08); color: #7c3aed; }
 
-    /* تحسين قراءة العنوان والوصف */
     .card-title {
       font-size: 1.03rem; font-weight: 900; color: #0f0f0f; line-height: 1.55;
       margin-bottom: 0.55rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .card-desc {
-      font-size: 0.88rem;
-      color: #4a5568; line-height: 1.75;  /* ↑ تحسين line-height */
-      font-weight: 500; flex: 1;
+      font-size: 0.88rem; color: #4a5568; line-height: 1.75; font-weight: 500; flex: 1;
       display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
     }
     .card-read {
@@ -216,7 +232,6 @@
     .card-read::after { content: '←'; margin-right: 2px; transition: margin 0.2s; }
     .post-card:hover .card-read::after { margin-right: 6px; }
 
-    /* ── STATES ── */
     .empty { text-align: center; padding: 4rem 2rem; color: #94a3b8; }
     .empty h2 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #64748b; }
     #loading { text-align: center; padding: 3rem; color: #94a3b8; font-size: 1rem; }
@@ -228,7 +243,6 @@
     }
     footer a { color: #b8962e; text-decoration: none; font-weight: 700; }
 
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
       .featured-card { grid-template-columns: 1fr; }
       .featured-img { aspect-ratio: 16/9; max-height: 220px; border-left: none; border-bottom: 1px solid rgba(212,175,55,0.15); }
@@ -262,14 +276,11 @@
   <div id="loading">⏳ جاري تحميل المقالات...</div>
 
   <div id="blog-content" style="display:none">
-
     <!-- Featured -->
     <div class="featured-section" id="featured-section" style="display:none">
       <div class="section-eyebrow">⭐ المقال المميز</div>
       <a href="#" class="featured-card" id="featured-card">
-        <div class="featured-img" id="featured-img">
-          <span class="placeholder">🤖</span>
-        </div>
+        <div class="featured-img" id="featured-img"></div>
         <div class="featured-body">
           <span class="featured-tag">مقال مميز</span>
           <div class="featured-title" id="featured-title"></div>
@@ -299,38 +310,33 @@
 </footer>
 
 <script>
-/* ── helpers ── */
 function escapeHTML(value) {
-  return String(value || '').replace(/[&<>'"]/g, ch => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-  }[ch]));
+  return String(value || '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
 }
 
 function getVisualMeta(post) {
   const title = (post.title || '').toLowerCase();
-  const category = (post.category || '').toLowerCase();
-  if (title.includes('lovable') || title.includes('bolt')) return { icon: '⚡', label: 'Lovable vs Bolt' };
-  if (title.includes('windsurf') || title.includes('cursor')) return { icon: '🏄', label: 'Windsurf vs Cursor' };
+  if (title.includes('lovable') && title.includes('bolt')) return { icon: '⚡', label: 'Lovable vs Bolt' };
+  if (title.includes('windsurf') || title.includes('cursor')) return { icon: '💻', label: 'Windsurf vs Cursor' };
   if (title.includes('notebook')) return { icon: '📓', label: 'NotebookLM Review' };
   if (title.includes('يوتيوب') || title.includes('youtube')) return { icon: '▶️', label: 'YouTube AI' };
   if (title.includes('صور') || title.includes('image')) return { icon: '🎨', label: 'AI Image Tools' };
   if (title.includes('فيديو') || title.includes('video')) return { icon: '🎬', label: 'AI Video Tools' };
-  if (title.includes('كود') || title.includes('برمج')) return { icon: '💻', label: 'AI Coding Tools' };
-  if (title.includes('بحث') || title.includes('research')) return { icon: '🔬', label: 'AI Research' };
-  if (title.includes('طلاب') || title.includes('تعلم')) return { icon: '📚', label: 'AI Learning' };
-  if (title.includes('تسويق') || title.includes('market')) return { icon: '📈', label: 'AI Marketing' };
-  if (category.includes('مقارنة')) return { icon: '⚖️', label: 'AI Comparison' };
-  if (category.includes('دليل')) return { icon: '🧭', label: 'AI Guide' };
+  if (title.includes('برمج') || title.includes('كود')) return { icon: '💻', label: 'AI Coding' };
+  if (title.includes('بحث')) return { icon: '🔬', label: 'AI Research' };
+  if (title.includes('طلاب')) return { icon: '📚', label: 'AI for Students' };
+  if (title.includes('تسويق')) return { icon: '📈', label: 'AI Marketing' };
+  if (title.includes('chatgpt') || title.includes('claude') || title.includes('gemini')) return { icon: '🤖', label: 'AI Comparison' };
+  if (title.includes('مواقع') || title.includes('تطبيق')) return { icon: '🚀', label: 'AI Web Tools' };
   return { icon: '✦', label: 'NEORA Insight' };
 }
 
-function smartArt(post, large = false) {
+function smartArt(post) {
   const meta = getVisualMeta(post);
-  const label = escapeHTML(meta.label || post.title || 'NEORA');
-  return `<div class="smart-art ${large ? 'smart-art-large' : ''}" aria-hidden="true">
+  return `<div class="smart-art" aria-hidden="true">
     <div class="smart-art-inner">
       <div class="smart-art-mark">${escapeHTML(meta.icon)}</div>
-      <div class="smart-art-title">${label}</div>
+      <div class="smart-art-title">${escapeHTML(meta.label)}</div>
     </div>
   </div>`;
 }
@@ -346,11 +352,9 @@ function formatDate(date, options) {
   return d && !isNaN(d) ? d.toLocaleDateString('ar-SA', options) : '';
 }
 
-/* شارة بناءً على التاريخ + خصائص المقال */
 function getBadge(post, index) {
   const date = post.date ? new Date(post.date) : null;
   const days = date && !isNaN(date) ? (new Date() - date) / 864e5 : 999;
-
   if (post.editorsPick) return '<span class="card-badge badge-editors">✦ اختيار المحرر</span>';
   if (post.featured) return '<span class="card-badge badge-editors">✦ مميز</span>';
   if (days < 7) return '<span class="card-badge badge-new">✦ جديد</span>';
@@ -359,7 +363,6 @@ function getBadge(post, index) {
   return '';
 }
 
-/* فئة المقال */
 function getCategory(post) {
   if (post.category) return post.category;
   const t = (post.title || '').toLowerCase();
@@ -367,15 +370,18 @@ function getCategory(post) {
   if (t.includes('شرح') || t.includes('كيف') || t.includes('دليل')) return 'دليل';
   if (t.includes('مراجعة')) return 'مراجعة';
   if (t.includes('أفضل')) return 'قائمة أدوات';
-  if (t.includes('مجاني') || t.includes('free')) return 'مجاني';
   return 'مقال';
 }
 
-function pickFeatured(posts) {
-  return posts.find(p => p.featured || p.editorsPick) || posts[0];
+/* بناء صورة البطاقة */
+function buildCardImg(post, title, large) {
+  const src = post.featuredImage || post.image;
+  if (src) {
+    return `<img src="${escapeHTML(src)}" alt="${title}" loading="${large ? 'eager' : 'lazy'}" />`;
+  }
+  return smartArt(post);
 }
 
-/* ── load ── */
 async function loadPosts() {
   try {
     const res = await fetch('/posts-index.json', { cache: 'no-store' });
@@ -396,8 +402,8 @@ function renderPosts(posts) {
   }
 
   const sorted = [...posts].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-  const featured = pickFeatured(sorted);
-  const rest = sorted.filter(post => post !== featured);
+  const featured = sorted.find(p => p.featured || p.editorsPick) || sorted[0];
+  const rest = sorted.filter(p => p !== featured);
 
   document.getElementById('blog-content').style.display = 'block';
   document.getElementById('posts-count').textContent = `${sorted.length} مقال`;
@@ -410,19 +416,13 @@ function renderPosts(posts) {
     document.getElementById('featured-title').textContent = featured.title || '';
     document.getElementById('featured-desc').textContent = featured.description || '';
 
-    const dateStr = formatDate(featured.date, {year:'numeric',month:'long',day:'numeric'});
+    const dateStr = formatDate(featured.date, {year:'numeric', month:'long', day:'numeric'});
     document.getElementById('featured-meta').innerHTML = [
       dateStr ? `<span>📅 ${dateStr}</span>` : '',
       `<span>⏱ ${estimateReadingMinutes(featured)} دقائق قراءة</span>`
     ].filter(Boolean).join('');
 
-    const featImg = document.getElementById('featured-img');
-    if (featured.featuredImage || featured.image) {
-      const src = escapeHTML(featured.featuredImage || featured.image);
-      featImg.innerHTML = `<img src="${src}" alt="${featuredTitle}" loading="eager" />`;
-    } else {
-      featImg.innerHTML = smartArt(featured, true);
-    }
+    document.getElementById('featured-img').innerHTML = buildCardImg(featured, featuredTitle, true);
   }
 
   /* ── Grid ── */
@@ -431,19 +431,14 @@ function renderPosts(posts) {
     const title = escapeHTML(post.title || 'مقال على NEORA');
     const desc = escapeHTML(post.description || '');
     const slug = encodeURIComponent(post.slug || '');
-    const hasImg = post.featuredImage || post.image;
-    const imgHTML = hasImg
-      ? `<img src="${escapeHTML(hasImg)}" alt="${title}" loading="lazy" />`
-      : smartArt(post);
-
-    const dateStr = formatDate(post.date, {year:'numeric',month:'short',day:'numeric'});
+    const dateStr = formatDate(post.date, {year:'numeric', month:'short', day:'numeric'});
     const cat = escapeHTML(getCategory(post));
     const mins = estimateReadingMinutes(post);
 
     return `
       <a href="/blog/${slug}" class="post-card" aria-label="${title}">
         <div class="card-img">
-          ${imgHTML}
+          ${buildCardImg(post, title, false)}
           <span class="card-category-badge">${cat}</span>
         </div>
         <div class="card-body">
