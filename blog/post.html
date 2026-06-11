@@ -277,26 +277,40 @@ function escapeHTML(v) {
   return String(v || '').replace(/[&<>'"]/g, c => m[c]);
 }
 
-/* صورة لكل أداة بناءً على عنوان المقال */
+/* صورة فقط عند وجود لوغو مطابق للأداة المذكورة في المقال */
 function getPostImage(title) {
   const t = String(title || '').toLowerCase();
+  // مقالات مقارنة محددة
   if (t.includes('lovable') && t.includes('bolt')) return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('lovable'))   return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('bolt'))      return '/blog/bolt-logo.png';
-  if (t.includes('windsurf') || t.includes('cursor')) return '/blog/Cursor_logo.svg';
-  if (t.includes('notebook'))  return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('chatgpt') && t.includes('claude')) return '/blog/Claude_AI_logo.svg';
-  if (t.includes('chatgpt'))   return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('claude'))    return '/blog/Claude_AI_logo.svg';
-  if (t.includes('gemini'))    return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('perplexity')) return '/blog/Perplexity_AI_logo.svg';
-  if (t.includes('يوتيوب') || t.includes('youtube')) return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('صور') || t.includes('image'))   return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('فيديو') || t.includes('video')) return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('برمج') || t.includes('مواقع')) return '/blog/Cursor_logo.svg';
-  if (t.includes('بحث') || t.includes('طلاب'))   return '/blog/Perplexity_AI_logo.svg';
-  if (t.includes('تسويق'))    return '/blog/ChatGPT-Logo.svg';
-  return '/blog/ChatGPT-Logo.svg';
+  if (t.includes('windsurf') && t.includes('cursor')) return '/blog/Cursor_logo.svg';
+  if (t.includes('chatgpt') && t.includes('claude') && t.includes('gemini')) return '/blog/Claude_AI_logo.svg';
+  // أداة واحدة محددة بالاسم
+  if (t.includes('lovable') && !t.includes('أفضل')) return '/blog/lovable-wordmark-light.svg';
+  if (t.includes('bolt') && !t.includes('أفضل')) return '/blog/bolt-logo.png';
+  if (t.includes('cursor') && !t.includes('أفضل')) return '/blog/Cursor_logo.svg';
+  if (t.includes('windsurf') && !t.includes('أفضل')) return '/blog/Cursor_logo.svg';
+  if (t.includes('notebooklm')) return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('chatgpt') && !t.includes('أفضل')) return '/blog/ChatGPT-Logo.svg';
+  if (t.includes('claude') && !t.includes('أفضل')) return '/blog/Claude_AI_logo.svg';
+  if (t.includes('gemini') && !t.includes('أفضل')) return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('perplexity') && !t.includes('أفضل')) return '/blog/Perplexity_AI_logo.svg';
+  // مقالات "أفضل أدوات" العامة → لا لوغو، نستخدم smart art
+  return null;
+}
+
+/* الأيقونة والنص المناسب لكل نوع مقال */
+function getSmartArt(title) {
+  const t = String(title || '').toLowerCase();
+  if (t.includes('يوتيوب') || t.includes('youtube')) return { icon: '▶️', label: 'محتوى يوتيوب بالذكاء الاصطناعي' };
+  if (t.includes('صور') || t.includes('image'))      return { icon: '🎨', label: 'أدوات توليد الصور' };
+  if (t.includes('فيديو') || t.includes('video'))    return { icon: '🎬', label: 'أدوات توليد الفيديو' };
+  if (t.includes('مواقع') || t.includes('تطبيق'))   return { icon: '🚀', label: 'أدوات بناء المواقع' };
+  if (t.includes('برمج') || t.includes('كود'))       return { icon: '💻', label: 'أدوات البرمجة' };
+  if (t.includes('بحث') || t.includes('علمي'))       return { icon: '🔬', label: 'أدوات البحث العلمي' };
+  if (t.includes('طلاب') || t.includes('تعلم'))      return { icon: '📚', label: 'أدوات الطلاب' };
+  if (t.includes('تسويق'))                            return { icon: '📈', label: 'أدوات التسويق الرقمي' };
+  if (t.includes('أفضل أدوات'))                      return { icon: '✦', label: 'أفضل أدوات الذكاء الاصطناعي' };
+  return { icon: '✦', label: 'NEORA — أدوات الذكاء الاصطناعي' };
 }
 
 function buildHero(title, imgSrc) {
@@ -306,7 +320,14 @@ function buildHero(title, imgSrc) {
       <img src="${src}" alt="${String(title||'')}"/>
     </div>`;
   }
-  return '<div class="post-hero-art"><div class="post-hero-art-inner"><div class="post-hero-art-mark">✦</div><div class="post-hero-art-title">NEORA</div></div></div>';
+  // smart art عند عدم وجود لوغو مطابق
+  const art = getSmartArt(title);
+  return `<div class="post-hero-art">
+    <div class="post-hero-art-inner">
+      <div class="post-hero-art-mark">${art.icon}</div>
+      <div class="post-hero-art-title">${art.label}</div>
+    </div>
+  </div>`;
 }
 
 (async () => {
