@@ -316,18 +316,15 @@ function escapeHTML(value) {
 
 function getVisualMeta(post) {
   const title = (post.title || '').toLowerCase();
-  if (title.includes('lovable') && title.includes('bolt')) return { icon: '⚡', label: 'Lovable vs Bolt' };
-  if (title.includes('windsurf') || title.includes('cursor')) return { icon: '💻', label: 'Windsurf vs Cursor' };
-  if (title.includes('notebook')) return { icon: '📓', label: 'NotebookLM Review' };
-  if (title.includes('يوتيوب') || title.includes('youtube')) return { icon: '▶️', label: 'YouTube AI' };
-  if (title.includes('صور') || title.includes('image')) return { icon: '🎨', label: 'AI Image Tools' };
-  if (title.includes('فيديو') || title.includes('video')) return { icon: '🎬', label: 'AI Video Tools' };
-  if (title.includes('برمج') || title.includes('كود')) return { icon: '💻', label: 'AI Coding' };
-  if (title.includes('بحث')) return { icon: '🔬', label: 'AI Research' };
-  if (title.includes('طلاب')) return { icon: '📚', label: 'AI for Students' };
-  if (title.includes('تسويق')) return { icon: '📈', label: 'AI Marketing' };
-  if (title.includes('chatgpt') || title.includes('claude') || title.includes('gemini')) return { icon: '🤖', label: 'AI Comparison' };
-  if (title.includes('مواقع') || title.includes('تطبيق')) return { icon: '🚀', label: 'AI Web Tools' };
+  if (title.includes('يوتيوب') || title.includes('youtube')) return { icon: '▶️', label: 'محتوى يوتيوب بالذكاء الاصطناعي' };
+  if (title.includes('صور') || title.includes('image'))      return { icon: '🎨', label: 'أدوات توليد الصور' };
+  if (title.includes('فيديو') || title.includes('video'))    return { icon: '🎬', label: 'أدوات توليد الفيديو' };
+  if (title.includes('مواقع') || title.includes('تطبيق'))   return { icon: '🚀', label: 'أدوات بناء المواقع' };
+  if (title.includes('برمج') || title.includes('كود'))       return { icon: '💻', label: 'أدوات البرمجة' };
+  if (title.includes('بحث') || title.includes('علمي'))       return { icon: '🔬', label: 'أدوات البحث العلمي' };
+  if (title.includes('طلاب'))                                 return { icon: '📚', label: 'أدوات الطلاب' };
+  if (title.includes('تسويق'))                                return { icon: '📈', label: 'أدوات التسويق الرقمي' };
+  if (title.includes('أفضل أدوات'))                          return { icon: '✦', label: 'أفضل أدوات الذكاء الاصطناعي' };
   return { icon: '✦', label: 'NEORA Insight' };
 }
 
@@ -373,12 +370,32 @@ function getCategory(post) {
   return 'مقال';
 }
 
+/* صورة ثابتة لكل مقال بناءً على عنوانه — لا تعتمد على posts-index.json */
+function getPostImage(title) {
+  const t = String(title || '').toLowerCase();
+  if (t.includes('lovable') && t.includes('bolt'))      return '/blog/lovable-wordmark-light.svg';
+  if (t.includes('lovable') && !t.includes('أفضل'))     return '/blog/lovable-wordmark-light.svg';
+  if (t.includes('bolt') && !t.includes('أفضل'))        return '/blog/bolt-logo.png';
+  if (t.includes('windsurf') && t.includes('cursor'))   return '/blog/Cursor_logo.svg';
+  if (t.includes('cursor') && !t.includes('أفضل'))      return '/blog/Cursor_logo.svg';
+  if (t.includes('windsurf') && !t.includes('أفضل'))    return '/blog/Cursor_logo.svg';
+  if (t.includes('notebooklm'))                         return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('chatgpt') && t.includes('claude'))    return '/blog/Claude_AI_logo.svg';
+  if (t.includes('chatgpt') && !t.includes('أفضل'))     return '/blog/ChatGPT-Logo.svg';
+  if (t.includes('claude') && !t.includes('أفضل'))      return '/blog/Claude_AI_logo.svg';
+  if (t.includes('gemini') && !t.includes('أفضل'))      return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('perplexity') && !t.includes('أفضل')) return '/blog/Perplexity_AI_logo.svg';
+  return null; // مقالات عامة → smart art
+}
+
 /* بناء صورة البطاقة */
 function buildCardImg(post, title, large) {
-  const src = post.featuredImage || post.image;
-  if (src) {
-    return `<img src="${escapeHTML(src)}" alt="${title}" loading="${large ? 'eager' : 'lazy'}" />`;
+  // أولاً: لوغو مطابق بناءً على العنوان مباشرة
+  const logoSrc = getPostImage(post.title || '');
+  if (logoSrc) {
+    return `<img src="${escapeHTML(logoSrc)}" alt="${title}" loading="${large ? 'eager' : 'lazy'}" />`;
   }
+  // ثانياً: smart art للمقالات العامة
   return smartArt(post);
 }
 
