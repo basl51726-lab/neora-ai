@@ -257,8 +257,20 @@ function getSmartArt(title) {
   return { icon: '✦', label: 'أدوات الذكاء الاصطناعي' };
 }
 
+/* صور ثابتة بناءً على slug المقال */
+function getImageBySlug(slug) {
+  const s = String(slug || '').toLowerCase();
+  if (s.includes('devin-ai') || s.includes('devin')) return '/images/uploads/1600-بيكسل-دون-عنوان-x-900.jpg';
+  return null;
+}
+
 /* بناء الهيرو — الأولوية: صورة حقيقية ← لوغو ← smart art */
-function buildHero(title, realImg) {
+function buildHero(title, realImg, slug) {
+  // 0. صورة ثابتة بناءً على slug
+  const slugImg = getImageBySlug(slug);
+  if (slugImg) {
+    return `<div class="post-hero-real"><img src="${escapeHTML(slugImg)}" alt="${escapeHTML(title)}" /></div>`;
+  }
   // 1. صورة حقيقية من الـ CMS
   if (realImg) {
     return `<div class="post-hero-real"><img src="${escapeHTML(realImg)}" alt="${escapeHTML(title)}" /></div>`;
@@ -325,7 +337,7 @@ function extractImage(data) {
 
     // استخراج الصورة من كل الحقول الممكنة
     const imgSrc = extractImage(data);
-    document.getElementById('hero-wrap').innerHTML = buildHero(title, imgSrc);
+    document.getElementById('hero-wrap').innerHTML = buildHero(title, imgSrc, slugFromURL);
 
     marked.setOptions({ breaks: true, gfm: true });
     document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
