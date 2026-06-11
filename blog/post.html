@@ -13,8 +13,6 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #fafaf8; color: #0f0f0f; font-family: 'Cairo', sans-serif; min-height: 100vh; }
-
-    /* NAV */
     nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem; border-bottom: 1px solid rgba(212,175,55,0.25);
@@ -34,18 +32,12 @@
       padding: 6px 14px; border-radius: 8px; transition: all 0.2s;
     }
     .nav-back:hover { background: rgba(212,175,55,0.14); }
-
-    /* LAYOUT */
     .page-wrap { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem 6rem; }
-
-    /* STATES */
     .loading { text-align: center; padding: 6rem 2rem; color: #94a3b8; font-size: 1.1rem; }
     .error-box { text-align: center; padding: 6rem 2rem; }
     .error-box h2 { color: #0f0f0f; margin-bottom: 1rem; }
     .error-box p { color: #475569; margin-bottom: 2rem; }
     .error-box a { color: #b8962e; text-decoration: none; font-weight: 700; }
-
-    /* BREADCRUMB */
     .breadcrumb {
       display: flex; align-items: center; gap: 8px;
       font-size: 0.78rem; color: #94a3b8; margin-bottom: 2rem;
@@ -53,21 +45,24 @@
     .breadcrumb a { color: #b8962e; text-decoration: none; font-weight: 700; }
     .breadcrumb span { color: #cbd5e1; }
 
-    /* HERO IMAGE WRAP */
+    /* HERO */
     .post-hero-wrap {
       width: 100%; border-radius: 18px; overflow: hidden; margin-bottom: 2rem;
       border: 1px solid rgba(212,175,55,0.15);
       box-shadow: 0 8px 40px rgba(0,0,0,0.12);
       background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, #1a1a1a 60%, #111111 100%);
-      aspect-ratio: 16/8;
-      position: relative;
-    }
-    .post-hero-wrap img.hero-real-img {
-      width: 100%; height: 100%; object-fit: cover;
-      position: absolute; inset: 0;
+      aspect-ratio: 16/8; position: relative;
     }
 
-    /* لوغو الأداة — هيرو المقال */
+    /* صورة حقيقية من المقال */
+    .post-hero-real {
+      position: absolute; inset: 0;
+    }
+    .post-hero-real img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* لوغو أداة */
     .post-hero-logo {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -86,7 +81,7 @@
     }
     .post-hero-logo img:hover { transform: scale(1.04); }
 
-    /* Fallback art (عند عدم وجود لوغو) */
+    /* Smart art fallback */
     .post-hero-art {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
       background:
@@ -110,7 +105,6 @@
     }
     .post-hero-art-title { font-size: 1.25rem; font-weight: 900; line-height: 1.6; max-width: 620px; }
 
-    /* TITLE & META */
     .post-category {
       display: inline-block; background: rgba(212,175,55,0.1); color: #9a7d24;
       font-size: 0.7rem; font-weight: 800; padding: 3px 12px; border-radius: 50px;
@@ -125,21 +119,13 @@
     }
     .meta-item { display: flex; align-items: center; gap: 5px; }
     .meta-divider { color: rgba(212,175,55,0.3); }
-
-    /* PROGRESS BAR */
     #reading-progress {
       position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200;
       background: linear-gradient(90deg, #d4af37, #b8962e);
       transform-origin: left; transform: scaleX(0); transition: transform 0.1s linear;
     }
-
-    /* ARTICLE BODY */
     .post-body { font-size: 1.06rem; line-height: 2.05; color: #334155; }
-    .post-body h2 {
-      font-size: 1.5rem; font-weight: 900; color: #b8962e;
-      margin: 2.75rem 0 1rem; padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(212,175,55,0.15);
-    }
+    .post-body h2 { font-size: 1.5rem; font-weight: 900; color: #b8962e; margin: 2.75rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(212,175,55,0.15); }
     .post-body h3 { font-size: 1.18rem; font-weight: 800; color: #0f0f0f; margin: 2rem 0 0.75rem; }
     .post-body p { margin-bottom: 1.35rem; }
     .post-body ul, .post-body ol { padding-right: 1.5rem; margin-bottom: 1.25rem; }
@@ -147,53 +133,23 @@
     .post-body a { color: #b8962e; text-decoration: underline; }
     .post-body strong { color: #0f0f0f; font-weight: 800; }
     .post-body hr { border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 2rem 0; }
-    .post-body blockquote {
-      border-right: 4px solid #d4af37; padding: 1rem 1.5rem;
-      background: rgba(212,175,55,0.06); border-radius: 0 12px 12px 0;
-      margin: 1.5rem 0; color: #475569; font-style: italic;
-    }
-    .post-body code {
-      background: rgba(212,175,55,0.1); padding: 2px 7px;
-      border-radius: 5px; font-family: monospace; font-size: 0.9rem; color: #9a7d24;
-    }
-    .post-body pre {
-      background: #f8f5ee; padding: 1.25rem; border-radius: 12px;
-      overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(212,175,55,0.2);
-    }
+    .post-body blockquote { border-right: 4px solid #d4af37; padding: 1rem 1.5rem; background: rgba(212,175,55,0.06); border-radius: 0 12px 12px 0; margin: 1.5rem 0; color: #475569; font-style: italic; }
+    .post-body code { background: rgba(212,175,55,0.1); padding: 2px 7px; border-radius: 5px; font-family: monospace; font-size: 0.9rem; color: #9a7d24; }
+    .post-body pre { background: #f8f5ee; padding: 1.25rem; border-radius: 12px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(212,175,55,0.2); }
     .post-body pre code { background: none; color: #334155; padding: 0; }
     .post-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 10px; overflow: hidden; }
     .post-body th { background: rgba(212,175,55,0.12); color: #b8962e; padding: 12px 16px; text-align: right; font-weight: 800; border-bottom: 2px solid rgba(212,175,55,0.25); }
     .post-body td { padding: 11px 16px; border-bottom: 1px solid rgba(212,175,55,0.1); }
     .post-body tr:hover td { background: rgba(212,175,55,0.04); }
     .post-body img { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(212,175,55,0.1); }
-
-    /* POST FOOTER */
-    .post-footer {
-      margin-top: 3.5rem; padding-top: 2rem;
-      border-top: 1px solid rgba(212,175,55,0.2);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
-    .back-btn {
-      display: inline-flex; align-items: center; gap: 6px; color: #b8962e;
-      text-decoration: none; font-weight: 800; font-size: 0.88rem;
-      background: rgba(212,175,55,0.08); padding: 10px 20px; border-radius: 10px;
-      border: 1px solid rgba(212,175,55,0.2); transition: all 0.2s;
-    }
+    .post-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: 6px; color: #b8962e; text-decoration: none; font-weight: 800; font-size: 0.88rem; background: rgba(212,175,55,0.08); padding: 10px 20px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.2); transition: all 0.2s; }
     .back-btn:hover { background: rgba(212,175,55,0.15); }
     .share-actions { display: flex; align-items: center; gap: 10px; }
-    .share-btn {
-      font-size: 0.78rem; color: #64748b; cursor: pointer;
-      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08);
-      padding: 7px 14px; border-radius: 8px; transition: all 0.2s; font-family: inherit; font-weight: 700;
-    }
+    .share-btn { font-size: 0.78rem; color: #64748b; cursor: pointer; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); padding: 7px 14px; border-radius: 8px; transition: all 0.2s; font-family: inherit; font-weight: 700; }
     .share-btn:hover { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.25); color: #b8962e; }
-
-    footer {
-      text-align: center; padding: 2rem; margin-top: 2rem;
-      border-top: 1px solid rgba(212,175,55,0.15); color: #94a3b8; font-size: 0.85rem; background: #fff;
-    }
+    footer { text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid rgba(212,175,55,0.15); color: #94a3b8; font-size: 0.85rem; background: #fff; }
     footer a { color: #b8962e; text-decoration: none; font-weight: 700; }
-
     @media (max-width: 768px) {
       .page-wrap { padding: 1.5rem 1rem 4rem; }
       .post-title { font-size: 1.5rem; }
@@ -207,7 +163,6 @@
 <body>
 
 <div id="reading-progress"></div>
-
 <nav>
   <a href="/" class="logo">NEORA</a>
   <a href="/blog" class="nav-back">← المدونة</a>
@@ -215,29 +170,22 @@
 
 <div class="page-wrap">
   <div class="loading" id="loading">⏳ جاري تحميل المقال...</div>
-
   <div class="error-box" id="error-box" style="display:none;">
     <h2>😕 المقال غير موجود</h2>
     <p>تعذّر تحميل هذا المقال.</p>
     <a href="/blog">← العودة للمدونة</a>
   </div>
-
   <div id="post-content" style="display:none;">
     <div class="breadcrumb">
-      <a href="/">NEORA</a>
-      <span>›</span>
-      <a href="/blog">المدونة</a>
-      <span>›</span>
+      <a href="/">NEORA</a><span>›</span>
+      <a href="/blog">المدونة</a><span>›</span>
       <span id="breadcrumb-title"></span>
     </div>
-
     <div class="post-hero-wrap" id="hero-wrap"></div>
-
     <div class="post-category" id="post-category">مقال</div>
     <h1 class="post-title" id="post-title-el"></h1>
     <div class="post-meta" id="post-meta"></div>
     <div class="post-body" id="post-body"></div>
-
     <div class="post-footer">
       <a href="/blog" class="back-btn">← اقرأ المزيد</a>
       <div class="share-actions">
@@ -277,50 +225,50 @@ function escapeHTML(v) {
   return String(v || '').replace(/[&<>'"]/g, c => m[c]);
 }
 
-/* صورة فقط عند وجود لوغو مطابق للأداة المذكورة في المقال */
-function getPostImage(title) {
+/* لوغو مطابق فقط للأدوات المذكورة بالاسم */
+function getPostLogo(title) {
   const t = String(title || '').toLowerCase();
-  // مقالات مقارنة محددة
-  if (t.includes('lovable') && t.includes('bolt')) return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('windsurf') && t.includes('cursor')) return '/blog/Cursor_logo.svg';
+  if (t.includes('lovable') && t.includes('bolt'))               return '/blog/lovable-wordmark-light.svg';
+  if (t.includes('windsurf') && t.includes('cursor'))            return '/blog/Cursor_logo.svg';
   if (t.includes('chatgpt') && t.includes('claude') && t.includes('gemini')) return '/blog/Claude_AI_logo.svg';
-  // أداة واحدة محددة بالاسم
-  if (t.includes('lovable') && !t.includes('أفضل')) return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('bolt') && !t.includes('أفضل')) return '/blog/bolt-logo.png';
-  if (t.includes('cursor') && !t.includes('أفضل')) return '/blog/Cursor_logo.svg';
-  if (t.includes('windsurf') && !t.includes('أفضل')) return '/blog/Cursor_logo.svg';
-  if (t.includes('notebooklm')) return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('chatgpt') && !t.includes('أفضل')) return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('claude') && !t.includes('أفضل')) return '/blog/Claude_AI_logo.svg';
-  if (t.includes('gemini') && !t.includes('أفضل')) return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('perplexity') && !t.includes('أفضل')) return '/blog/Perplexity_AI_logo.svg';
-  // مقالات "أفضل أدوات" العامة → لا لوغو، نستخدم smart art
+  if (t.includes('lovable') && !t.includes('أفضل'))              return '/blog/lovable-wordmark-light.svg';
+  if (t.includes('bolt') && !t.includes('أفضل'))                 return '/blog/bolt-logo.png';
+  if (t.includes('cursor') && !t.includes('أفضل'))               return '/blog/Cursor_logo.svg';
+  if (t.includes('windsurf') && !t.includes('أفضل'))             return '/blog/Cursor_logo.svg';
+  if (t.includes('notebooklm'))                                  return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('chatgpt') && !t.includes('أفضل'))              return '/blog/ChatGPT-Logo.svg';
+  if (t.includes('claude') && !t.includes('أفضل'))               return '/blog/Claude_AI_logo.svg';
+  if (t.includes('gemini') && !t.includes('أفضل'))               return '/blog/Gemini_Advanced_logo.svg';
+  if (t.includes('perplexity') && !t.includes('أفضل'))           return '/blog/Perplexity_AI_logo.svg';
   return null;
 }
 
-/* الأيقونة والنص المناسب لكل نوع مقال */
+/* smart art للمقالات العامة */
 function getSmartArt(title) {
   const t = String(title || '').toLowerCase();
   if (t.includes('يوتيوب') || t.includes('youtube')) return { icon: '▶️', label: 'محتوى يوتيوب بالذكاء الاصطناعي' };
   if (t.includes('صور') || t.includes('image'))      return { icon: '🎨', label: 'أدوات توليد الصور' };
   if (t.includes('فيديو') || t.includes('video'))    return { icon: '🎬', label: 'أدوات توليد الفيديو' };
   if (t.includes('مواقع') || t.includes('تطبيق'))   return { icon: '🚀', label: 'أدوات بناء المواقع' };
-  if (t.includes('برمج') || t.includes('كود'))       return { icon: '💻', label: 'أدوات البرمجة' };
+  if (t.includes('برمج') || t.includes('كود') || t.includes('devin')) return { icon: '💻', label: 'أدوات البرمجة' };
   if (t.includes('بحث') || t.includes('علمي'))       return { icon: '🔬', label: 'أدوات البحث العلمي' };
-  if (t.includes('طلاب') || t.includes('تعلم'))      return { icon: '📚', label: 'أدوات الطلاب' };
+  if (t.includes('طلاب'))                             return { icon: '📚', label: 'أدوات الطلاب' };
   if (t.includes('تسويق'))                            return { icon: '📈', label: 'أدوات التسويق الرقمي' };
-  if (t.includes('أفضل أدوات'))                      return { icon: '✦', label: 'أفضل أدوات الذكاء الاصطناعي' };
-  return { icon: '✦', label: 'NEORA — أدوات الذكاء الاصطناعي' };
+  return { icon: '✦', label: 'أدوات الذكاء الاصطناعي' };
 }
 
-function buildHero(title, imgSrc) {
-  const src = imgSrc || getPostImage(title);
-  if (src) {
-    return `<div class="post-hero-logo">
-      <img src="${src}" alt="${String(title||'')}"/>
-    </div>`;
+/* بناء الهيرو — الأولوية: صورة حقيقية ← لوغو ← smart art */
+function buildHero(title, realImg) {
+  // 1. صورة حقيقية من الـ CMS
+  if (realImg) {
+    return `<div class="post-hero-real"><img src="${escapeHTML(realImg)}" alt="${escapeHTML(title)}" /></div>`;
   }
-  // smart art عند عدم وجود لوغو مطابق
+  // 2. لوغو مطابق للأداة
+  const logo = getPostLogo(title);
+  if (logo) {
+    return `<div class="post-hero-logo"><img src="${escapeHTML(logo)}" alt="${escapeHTML(title)}" /></div>`;
+  }
+  // 3. smart art
   const art = getSmartArt(title);
   return `<div class="post-hero-art">
     <div class="post-hero-art-inner">
@@ -328,6 +276,18 @@ function buildHero(title, imgSrc) {
       <div class="post-hero-art-title">${art.label}</div>
     </div>
   </div>`;
+}
+
+/* استخراج الصورة من كل الحقول الممكنة */
+function extractImage(data) {
+  // كل الأسماء التي يستخدمها Netlify CMS
+  return data.featuredImage
+      || data.featured_image
+      || data.image
+      || data.thumbnail
+      || data.cover
+      || data.hero
+      || null;
 }
 
 (async () => {
@@ -363,7 +323,9 @@ function buildHero(title, imgSrc) {
       data.author ? `<span class="meta-divider">·</span><span class="meta-item">✍ ${data.author}</span>` : ''
     ].filter(Boolean).join('');
 
-    document.getElementById('hero-wrap').innerHTML = buildHero(title, data.featuredImage || data.image || null);
+    // استخراج الصورة من كل الحقول الممكنة
+    const imgSrc = extractImage(data);
+    document.getElementById('hero-wrap').innerHTML = buildHero(title, imgSrc);
 
     marked.setOptions({ breaks: true, gfm: true });
     document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
