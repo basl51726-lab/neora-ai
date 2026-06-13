@@ -1,1 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Claude vs Gemini 2026: أيهما أفضل للكتابة والبرمجة وتحليل الملفات؟ | Neora AI</title>
+<meta name="description" content="مقارنة شاملة بين Claude و Gemini في 2026 من حيث الكتابة، البرمجة، تحليل الملفات، البحث، الإنتاجية، والمميزات والعيوب مع التوصية النهائية.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://neora-ai.com/compare/claude-vs-gemini/">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude vs Gemini 2026: أيهما أفضل؟">
+<meta property="og:description" content="مقارنة شاملة بين Claude وGemini في الكتابة، البرمجة، تحليل الملفات، البحث، والإنتاجية.">
+<meta property="og:url" content="https://neora-ai.com/compare/claude-vs-gemini/">
+<meta property="og:site_name" content="Neora AI">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fafaf8;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#475569;
+  --gold:#b8962e;
+  --gold2:#d4af37;
+  --border:rgba(212,175,55,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+a{color:var(--gold);text-decoration:none}
+.header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-weight:900;
+  letter-spacing:2px;
+  color:var(--gold);
+  font-size:22px;
+}
+.nav a{
+  margin-inline-start:16px;
+  font-weight:700;
+  color:var(--muted);
+}
+.hero{
+  max-width:1050px;
+  margin:60px auto 30px;
+  padding:0 20px;
+  text-align:center;
+}
+.badge{
+  display:inline-block;
+  background:rgba(212,175,55,.12);
+  border:1px solid var(--border);
+  color:#8a6d1d;
+  padding:6px 16px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.25;
+  margin-bottom:18px;
+}
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  max-width:760px;
+  margin:auto;
+}
+.container{
+  max-width:1050px;
+  margin:30px auto 80px;
+  padding:0 20px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:24px;
+  box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+h2{
+  color:var(--gold);
+  font-size:26px;
+  margin-bottom:14px;
+}
+h3{
+  font-size:20px;
+  margin:20px 0 10px;
+}
+p{margin-bottom:14px}
+ul{padding-right:22px;margin-bottom:14px}
+li{margin-bottom:8px}
+.table-wrap{overflow-x:auto}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  overflow:hidden;
+  border-radius:16px;
+}
+th,td{
+  border:1px solid #eadca8;
+  padding:14px;
+  text-align:center;
+}
+th{
+  background:linear-gradient(135deg,#d4af37,#b8962e);
+  color:#fff;
+}
+td:first-child{
+  font-weight:800;
+  color:#8a6d1d;
+}
+.winner{
+  background:rgba(212,175,55,.12);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  margin-top:16px;
+  font-weight:800;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+.small-card{
+  background:#fffdf5;
+  border:1px solid #eadca8;
+  border-radius:18px;
+  padding:20px;
+}
+.faq details{
+  background:#fffdf5;
+  border:1px solid #eadca8;
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.faq summary{
+  cursor:pointer;
+  font-weight:800;
+  color:#8a6d1d;
+}
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(184,150,46,.08));
+}
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  background:linear-gradient(135deg,#d4af37,#b8962e);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:12px;
+  font-weight:900;
+}
+.footer{
+  text-align:center;
+  color:var(--muted);
+  padding:30px 20px;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+@media(max-width:650px){
+  .header{display:block;text-align:center}
+  .nav{margin-top:10px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"هل Claude أفضل من Gemini؟",
+      "acceptedAnswer":{"@type":"Answer","text":"Claude يتفوق غالباً في الكتابة الطويلة، تحليل المستندات، والبرمجة المتقدمة، بينما يتفوق Gemini في البحث والمعلومات الحديثة والتكامل مع خدمات Google."}
+    },
+    {
+      "@type":"Question",
+      "name":"أيهما أفضل للبرمجة Claude أم Gemini؟",
+      "acceptedAnswer":{"@type":"Answer","text":"Claude غالباً أفضل في شرح الأكواد وتحليل المشاريع البرمجية الطويلة، بينما Gemini جيد جداً خصوصاً للمستخدمين داخل منظومة Google."}
+    },
+    {
+      "@type":"Question",
+      "name":"أيهما أفضل للبحث Claude أم Gemini؟",
+      "acceptedAnswer":{"@type":"Answer","text":"Gemini أفضل غالباً في البحث والمعلومات الحديثة بسبب ارتباطه القوي بمنظومة Google، بينما Claude أفضل في تحليل النصوص والملفات الطويلة."}
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header class="header">
+  <a class="logo" href="/">NEORA</a>
+  <nav class="nav">
+    <a href="/">الرئيسية</a>
+    <a href="/compare/">المقارنات</a>
+    <a href="/blog/">المدونة</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="badge">مقارنة أدوات الذكاء الاصطناعي</div>
+  <h1>Claude vs Gemini 2026: أيهما أفضل للكتابة والبرمجة وتحليل الملفات؟</h1>
+  <p>
+    مقارنة عملية بين Claude وGemini لمساعدتك على اختيار الأداة الأنسب حسب استخدامك:
+    الكتابة الطويلة، البرمجة، تحليل الملفات، البحث، والإنتاجية اليومية.
+  </p>
+</section>
+
+<main class="container">
+
+<section class="card">
+  <h2>نظرة سريعة</h2>
+  <p>
+    يعتبر كل من Claude وGemini من أقوى أدوات الذكاء الاصطناعي المتاحة حالياً.
+    كلاهما قادر على الكتابة، التلخيص، التحليل، البرمجة، ومساعدة المستخدمين في العمل اليومي.
+  </p>
+  <p>
+    لكن الفرق الحقيقي يظهر عند الاستخدام العملي: Claude يتفوق غالباً في الكتابة الطويلة،
+    تحليل المستندات الكبيرة، وفهم السياق العميق، بينما Gemini يتفوق في البحث، المعلومات الحديثة،
+    والتكامل مع خدمات Google مثل Gmail وDocs وDrive.
+  </p>
+</section>
+
+<section class="card">
+  <h2>جدول مقارنة سريع</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>المعيار</th>
+          <th>Claude</th>
+          <th>Gemini</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>الكتابة الطويلة</td><td>ممتاز جداً</td><td>ممتاز</td></tr>
+        <tr><td>البرمجة</td><td>ممتاز جداً</td><td>ممتاز</td></tr>
+        <tr><td>تحليل الملفات</td><td>ممتاز جداً</td><td>ممتاز</td></tr>
+        <tr><td>البحث والمعلومات الحديثة</td><td>ممتاز</td><td>ممتاز جداً</td></tr>
+        <tr><td>التكامل مع الخدمات</td><td>جيد</td><td>ممتاز جداً</td></tr>
+        <tr><td>سهولة الاستخدام</td><td>ممتاز</td><td>ممتاز</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="card">
+  <h2>الكتابة وصناعة المحتوى</h2>
+  <p>
+    إذا كان استخدامك الأساسي هو كتابة المقالات الطويلة، التقارير، النصوص التسويقية، أو تحليل محتوى كبير،
+    فإن Claude يقدم تجربة قوية جداً. يتميز بأسلوب طبيعي، تنظيم واضح، وقدرة عالية على الحفاظ على السياق
+    في النصوص الطويلة.
+  </p>
+  <p>
+    Gemini جيد جداً في الكتابة أيضاً، خصوصاً عندما تحتاج إلى أفكار سريعة، تلخيص معلومات، أو ربط المحتوى
+    بسياق بحثي حديث. لكنه غالباً يحتاج إلى توجيه أدق للحصول على نفس مستوى العمق والتنظيم الذي يقدمه Claude.
+  </p>
+  <div class="winner">الفائز في الكتابة الطويلة: Claude</div>
+</section>
+
+<section class="card">
+  <h2>البرمجة وتطوير المواقع</h2>
+  <p>
+    في البرمجة، يقدم Claude أداءً قوياً خصوصاً عند التعامل مع ملفات طويلة، شرح منطق الكود،
+    تحليل الأخطاء، وفهم بنية المشروع. لذلك يناسب المطورين الذين يريدون مساعداً قادراً على قراءة السياق
+    وتقديم حلول مفصلة.
+  </p>
+  <p>
+    Gemini قوي أيضاً في البرمجة، خاصة في الشرح السريع والاقتراحات العامة، وقد يكون مفيداً للمستخدمين
+    الذين يعملون داخل بيئة Google. لكن عند المقارنة العميقة في تحليل المشاريع الطويلة، يميل Claude إلى التفوق.
+  </p>
+  <div class="winner">الفائز في البرمجة: Claude</div>
+</section>
+
+<section class="card">
+  <h2>تحليل الملفات والمستندات</h2>
+  <p>
+    Claude من أقوى الخيارات عند التعامل مع المستندات الطويلة، العقود، التقارير، ملفات البحث،
+    والمحتوى الذي يحتاج إلى قراءة دقيقة وسياق طويل. إذا كنت تحتاج إلى تلخيص مستند كبير أو استخراج نقاط مهمة منه،
+    فغالباً سيكون Claude خياراً ممتازاً.
+  </p>
+  <p>
+    Gemini يقدم أداءً جيداً جداً في تحليل الملفات أيضاً، خاصة عند ارتباط الملفات بمنظومة Google Drive وDocs.
+    لكنه يكون أقوى عندما يكون الهدف هو الوصول إلى المعلومات وتنظيمها، بينما Claude يتفوق في التحليل العميق للنص.
+  </p>
+  <div class="winner">الفائز في تحليل المستندات: Claude</div>
+</section>
+
+<section class="card">
+  <h2>البحث والمعلومات الحديثة</h2>
+  <p>
+    يتفوق Gemini في البحث والمعلومات الحديثة بفضل ارتباطه القوي بمنظومة Google. إذا كنت تريد إجابات مرتبطة
+    بمعلومات حديثة، أو تبحث عن محتوى من الويب، أو تعتمد على خدمات Google في عملك اليومي، فسيكون Gemini خياراً قوياً.
+  </p>
+  <p>
+    Claude يستطيع تقديم تحليلات ممتازة، لكنه ليس دائماً الخيار الأول عندما يكون الهدف الأساسي هو البحث السريع
+    أو متابعة المعلومات الحديثة. قوته الأكبر تظهر في فهم النصوص وتحليلها وليس في كونه محرك بحث.
+  </p>
+  <div class="winner">الفائز في البحث والمعلومات الحديثة: Gemini</div>
+</section>
+
+<section class="card">
+  <h2>المميزات والعيوب</h2>
+  <div class="grid">
+    <div class="small-card">
+      <h3>مميزات Claude</h3>
+      <ul>
+        <li>ممتاز في الكتابة الطويلة.</li>
+        <li>قوي جداً في تحليل الملفات والمستندات.</li>
+        <li>أسلوبه طبيعي ومنظم.</li>
+        <li>مناسب للباحثين والكتاب وصناع المحتوى.</li>
+        <li>جيد جداً في فهم السياق الطويل.</li>
+      </ul>
+      <h3>عيوبه</h3>
+      <ul>
+        <li>تكامله مع الخدمات الخارجية أقل من Gemini.</li>
+        <li>ليس الخيار الأقوى إذا كان هدفك الأساسي البحث الفوري عبر الويب.</li>
+      </ul>
+    </div>
+
+    <div class="small-card">
+      <h3>مميزات Gemini</h3>
+      <ul>
+        <li>قوي في البحث والمعلومات الحديثة.</li>
+        <li>تكامل ممتاز مع خدمات Google.</li>
+        <li>مناسب لمستخدمي Gmail وDocs وDrive.</li>
+        <li>جيد جداً في الإنتاجية اليومية.</li>
+        <li>مفيد في تلخيص وتنظيم المعلومات بسرعة.</li>
+      </ul>
+      <h3>عيوبه</h3>
+      <ul>
+        <li>قد يحتاج توجيهاً أكثر في الكتابة الطويلة.</li>
+        <li>تحليل النصوص الطويلة قد لا يكون بنفس عمق Claude في بعض الحالات.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>من يستخدم Claude؟</h2>
+  <p>اختر Claude إذا كنت:</p>
+  <ul>
+    <li>كاتب محتوى أو باحث.</li>
+    <li>تتعامل مع تقارير ومستندات طويلة.</li>
+    <li>تحتاج إلى تحليل عميق للنصوص والملفات.</li>
+    <li>تريد كتابة طبيعية ومنظمة.</li>
+    <li>تعمل على مشاريع برمجية تحتاج إلى شرح وتحليل دقيق.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>من يستخدم Gemini؟</h2>
+  <p>اختر Gemini إذا كنت:</p>
+  <ul>
+    <li>تعتمد كثيراً على خدمات Google.</li>
+    <li>تستخدم Gmail وGoogle Docs وGoogle Drive في عملك اليومي.</li>
+    <li>تحتاج إلى بحث سريع ومعلومات حديثة.</li>
+    <li>تريد أداة مساعدة للإنتاجية اليومية.</li>
+    <li>تحتاج إلى تنظيم المعلومات وربطها بسياق حديث.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>التقييم النهائي</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>الفئة</th>
+          <th>الفائز</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>الكتابة الطويلة</td><td>Claude</td></tr>
+        <tr><td>البرمجة</td><td>Claude</td></tr>
+        <tr><td>تحليل المستندات</td><td>Claude</td></tr>
+        <tr><td>البحث والمعلومات الحديثة</td><td>Gemini</td></tr>
+        <tr><td>التكامل مع خدمات Google</td><td>Gemini</td></tr>
+        <tr><td>الاستخدام العام</td><td>حسب احتياجك</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="winner">
+    النتيجة: Claude هو الخيار الأفضل للكتابة الاحترافية، تحليل الملفات، والبرمجة المتقدمة.
+    أما Gemini فهو الخيار الأفضل للمستخدمين الذين يعتمدون على Gmail وGoogle Docs وGoogle Drive
+    ويحتاجون إلى بحث سريع ومعلومات حديثة.
+  </p>
+</section>
+
+<section class="card faq">
+  <h2>الأسئلة الشائعة</h2>
+
+  <details>
+    <summary>هل Claude أفضل من Gemini؟</summary>
+    <p>يعتمد على الاستخدام. Claude أفضل غالباً في الكتابة الطويلة، تحليل المستندات، والبرمجة المتقدمة، بينما Gemini أفضل في البحث والتكامل مع خدمات Google.</p>
+  </details>
+
+  <details>
+    <summary>أيهما أفضل للبرمجة؟</summary>
+    <p>Claude أفضل غالباً في تحليل الأكواد الطويلة وفهم المشاريع، بينما Gemini جيد جداً للشرح السريع والاقتراحات العامة.</p>
+  </details>
+
+  <details>
+    <summary>أيهما أفضل للكتابة؟</summary>
+    <p>Claude أفضل في الكتابة الطويلة والمنظمة، بينما Gemini جيد في الأفكار السريعة والمحتوى المرتبط بمعلومات حديثة.</p>
+  </details>
+
+  <details>
+    <summary>أيهما أفضل للبحث؟</summary>
+    <p>Gemini أفضل للبحث والمعلومات الحديثة، خاصة للمستخدمين الذين يعتمدون على منظومة Google.</p>
+  </details>
+</section>
+
+<section class="card cta">
+  <h2>اكتشف المزيد من المقارنات</h2>
+  <p>راجع مقارنات Neora لاختيار أفضل أدوات الذكاء الاصطناعي حسب استخدامك.</p>
+  <a class="btn" href="/compare/">العودة إلى قسم المقارنات</a>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 NEORA AI — دليل أدوات الذكاء الاصطناعي</p>
+</footer>
+
+</body>
+</html>
