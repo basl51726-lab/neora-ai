@@ -1,41 +1,184 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مقارنات أدوات الذكاء الاصطناعي | NEORA</title>
- <meta name="description" content="مقارنات احترافية بين أشهر أدوات الذكاء الاصطناعي: ChatGPT vs Claude، Claude vs Gemini، Gemini vs ChatGPT، Cursor vs Windsurf، Perplexity vs ChatGPT، Lovable vs Bolt.new." />
+
+  <meta name="description" content="مقارنات احترافية بين أشهر أدوات الذكاء الاصطناعي: ChatGPT vs Claude، Claude vs Gemini، Gemini vs ChatGPT، Cursor vs Windsurf، Perplexity vs ChatGPT، Lovable vs Bolt.new." />
   <meta name="robots" content="index, follow" />
+
   <link rel="canonical" href="https://neora-ai.com/compare/" />
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#fafaf8;--card:#fff;--border:rgba(212,175,55,.22);--accent:#b8962e;--accent2:#d4af37;--text:#0f0f0f;--muted:#475569;}
+    :root{
+      --bg:#fafaf8;
+      --card:#fff;
+      --border:rgba(212,175,55,.22);
+      --accent:#b8962e;
+      --accent2:#d4af37;
+      --text:#0f0f0f;
+      --muted:#475569;
+    }
+
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Cairo,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+
+    body{
+      font-family:Cairo,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+
     a{text-decoration:none;color:inherit}
-    nav{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:16px 32px;display:flex;justify-content:space-between;align-items:center;z-index:5}
-    .logo{font-family:'Space Mono',monospace;font-weight:700;letter-spacing:3px;color:var(--accent)}
-    .back{font-weight:700;color:var(--accent)}
-    .hero{max-width:1050px;margin:auto;text-align:center;padding:80px 20px 45px}
-    .badge{display:inline-block;border:1px solid var(--border);background:rgba(212,175,55,.09);color:#9a7d24;border-radius:50px;padding:6px 16px;font-weight:700;font-size:13px;margin-bottom:18px}
-    h1{font-size:clamp(34px,5vw,58px);line-height:1.2;margin-bottom:16px}
-    .hero p{max-width:720px;margin:auto;color:var(--muted);font-size:17px}
-    .grid{max-width:1150px;margin:0 auto 80px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:26px;box-shadow:0 2px 14px rgba(0,0,0,.04);transition:.2s}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 35px rgba(212,175,55,.15)}
-    .card h2{font-size:20px;margin-bottom:10px;color:var(--accent)}
-    .card p{font-size:14px;color:#334155;margin-bottom:18px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-    .tag{font-size:11px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:50px;padding:3px 10px;color:#475569}
-    .btn{display:inline-block;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border-radius:12px;padding:10px 18px;font-weight:800;font-size:13px}
-    .note{max-width:900px;margin:0 auto 70px;padding:24px 28px;background:#fff;border:1px solid var(--border);border-radius:18px;color:#334155}
-    .note strong{color:var(--accent)}
-    footer{border-top:1px solid var(--border);padding:30px;text-align:center;color:var(--muted);font-size:13px;background:#fff}
+
+    nav{
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+      padding:16px 32px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:5;
+    }
+
+    .logo{
+      font-family:'Space Mono',monospace;
+      font-weight:700;
+      letter-spacing:3px;
+      color:var(--accent);
+    }
+
+    .back{
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .hero{
+      max-width:1050px;
+      margin:auto;
+      text-align:center;
+      padding:80px 20px 45px;
+    }
+
+    .badge{
+      display:inline-block;
+      border:1px solid var(--border);
+      background:rgba(212,175,55,.09);
+      color:#9a7d24;
+      border-radius:50px;
+      padding:6px 16px;
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(34px,5vw,58px);
+      line-height:1.2;
+      margin-bottom:16px;
+    }
+
+    .hero p{
+      max-width:720px;
+      margin:auto;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .grid{
+      direction:rtl;
+      max-width:1150px;
+      margin:0 auto 80px;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:26px;
+      box-shadow:0 2px 14px rgba(0,0,0,.04);
+      transition:.2s;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 35px rgba(212,175,55,.15);
+    }
+
+    .card h2{
+      font-size:20px;
+      margin-bottom:10px;
+      color:var(--accent);
+    }
+
+    .card p{
+      font-size:14px;
+      color:#334155;
+      margin-bottom:18px;
+    }
+
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .tag{
+      font-size:11px;
+      background:#f8fafc;
+      border:1px solid #e2e8f0;
+      border-radius:50px;
+      padding:3px 10px;
+      color:#475569;
+    }
+
+    .btn{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      color:#fff;
+      border-radius:12px;
+      padding:10px 18px;
+      font-weight:800;
+      font-size:13px;
+    }
+
+    .note{
+      max-width:900px;
+      margin:0 auto 70px;
+      padding:24px 28px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      color:#334155;
+    }
+
+    .note strong{
+      color:var(--accent);
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:30px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      background:#fff;
+    }
   </style>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"AI Tools Comparisons","url":"https://neora-ai.com/compare/","description":"Professional comparisons between popular AI tools."}
-  </script>
 </head>
+
 <body>
 
 <nav>
@@ -53,7 +196,7 @@
 
   <a class="card" href="/compare/chatgpt-vs-claude/">
     <h2>ChatGPT vs Claude</h2>
-    <p>مقارنة عملية للكتابة الطويلة، التحليل، البرمجة، وصناعة المحتوى.</p>
+    <p>مقارنة عملية للكتابة الطويلة والتحليل والبرمجة وصناعة المحتوى.</p>
     <div class="tags">
       <span class="tag">كتابة</span>
       <span class="tag">تحليل</span>
@@ -64,11 +207,22 @@
 
   <a class="card" href="/compare/claude-vs-gemini/">
     <h2>Claude vs Gemini</h2>
-    <p>مقارنة بين Claude و Gemini من حيث الكتابة، البرمجة، تحليل الملفات، البحث، والإنتاجية.</p>
+    <p>مقارنة بين Claude و Gemini من حيث الكتابة والبرمجة وتحليل الملفات والبحث.</p>
     <div class="tags">
       <span class="tag">كتابة</span>
       <span class="tag">برمجة</span>
       <span class="tag">بحث</span>
+    </div>
+    <span class="btn">اقرأ المقارنة</span>
+  </a>
+
+  <a class="card" href="/compare/gemini-vs-chatgpt/">
+    <h2>Gemini vs ChatGPT</h2>
+    <p>مقارنة شاملة بين Gemini و ChatGPT من حيث البحث والكتابة والبرمجة والإنتاجية.</p>
+    <div class="tags">
+      <span class="tag">بحث</span>
+      <span class="tag">كتابة</span>
+      <span class="tag">إنتاجية</span>
     </div>
     <span class="btn">اقرأ المقارنة</span>
   </a>
@@ -95,23 +249,27 @@
     <span class="btn">اقرأ المقارنة</span>
   </a>
 
-<a class="card" href="/compare/gemini-vs-chatgpt/">
-  <h2>Gemini vs ChatGPT</h2>
-  <p>مقارنة شاملة بين Gemini و ChatGPT من حيث البحث، الكتابة، البرمجة، تحليل الملفات، والإنتاجية.</p>
+  <a class="card" href="/compare/lovable-vs-bolt-new/">
+    <h2>Lovable vs Bolt.new</h2>
+    <p>مقارنة بين Lovable و Bolt.new لإنشاء التطبيقات والمواقع باستخدام الذكاء الاصطناعي.</p>
+    <div class="tags">
+      <span class="tag">No-code</span>
+      <span class="tag">Startups</span>
+      <span class="tag">Apps</span>
+    </div>
+    <span class="btn">اقرأ المقارنة</span>
+  </a>
 
-  <div class="tags">
-    <span class="tag">بحث</span>
-    <span class="tag">كتابة</span>
-    <span class="tag">إنتاجية</span>
-  </div>
+</section>
 
-  <span class="btn">اقرأ المقارنة</span>
-</a>
 <div class="note">
-  <strong>ملاحظة:</strong> هذه الصفحة تجمع مقارنات Neora لاختيار أفضل أدوات الذكاء الاصطناعي حسب الاستخدام.
+  <strong>ملاحظة:</strong> هذه الصفحة تجمع أفضل مقارنات Neora لاختيار أداة الذكاء الاصطناعي المناسبة حسب الاستخدام.
 </div>
 
-<footer>© NEORA AI — AI Tools Directory</footer>
+<footer>
+  © NEORA AI — AI Tools Directory
+</footer>
 
 </body>
 </html>
+```
