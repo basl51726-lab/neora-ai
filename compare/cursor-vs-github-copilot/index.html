@@ -4,220 +4,308 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Cursor vs GitHub Copilot: أي أداة برمجة بالذكاء الاصطناعي أفضل؟</title>
-  <meta name="description" content="مقارنة شاملة بين Cursor و GitHub Copilot من حيث كتابة الكود، فهم المشروع، التصحيح، الإنتاجية، دعم GitHub، وتجربة المطور." />
+  <title>Cursor vs GitHub Copilot: أي أداة أفضل للمبرمجين؟ | Neora</title>
+  <meta name="description" content="مقارنة شاملة بين Cursor و GitHub Copilot من حيث كتابة الكود، فهم المشروع، تعديل الملفات، تصحيح الأخطاء، Pull Requests، ومراجعة الكود." />
 
   <style>
+    :root {
+      --bg: #faf9f5;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --gold: #c99a20;
+      --gold-dark: #a87912;
+      --border: #ead9aa;
+      --soft: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1115;
-      color: #f5f5f5;
-      line-height: 1.8;
+      font-family: Arial, Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eadfbd;
+      padding: 22px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--gold-dark);
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #1f2937;
+      margin-left: 28px;
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .page {
-      max-width: 1100px;
+      max-width: 1080px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 42px 20px 70px;
+    }
+
+    .breadcrumb {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
     }
 
     .hero {
-      background: linear-gradient(135deg, #171a21, #242016);
-      border: 1px solid #2b2f38;
-      border-radius: 22px;
-      padding: 42px;
-      margin-bottom: 34px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 42px;
     }
 
     .badge {
       display: inline-block;
-      background: #d6a84f;
-      color: #111;
-      padding: 7px 14px;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
       border-radius: 999px;
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 16px;
+      color: var(--gold-dark);
+      background: var(--soft);
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 40px;
-      line-height: 1.3;
-      margin: 0 0 18px;
+      font-size: 48px;
+      line-height: 1.25;
+      margin: 0 0 20px;
+      color: #111827;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 8px 0;
     }
 
     h2 {
-      color: #f1c76a;
-      margin-top: 42px;
-      font-size: 28px;
+      color: var(--gold-dark);
+      font-size: 30px;
+      margin: 0 0 18px;
     }
 
     h3 {
-      color: #fff;
-      margin-top: 28px;
-      font-size: 22px;
+      color: var(--gold-dark);
+      font-size: 23px;
+      margin-top: 0;
     }
 
     p, li {
-      color: #d8d8d8;
       font-size: 17px;
+      color: #1f2937;
     }
 
-    a {
-      color: #f1c76a;
-      text-decoration: none;
-    }
-
-    .back {
-      display: inline-block;
-      margin-bottom: 24px;
-      color: #f1c76a;
-      font-weight: bold;
-    }
-
-    .summary {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 18px;
-      margin: 28px 0;
+      margin: 35px 0;
     }
 
-    .box {
-      background: #171a21;
-      border: 1px solid #2b2f38;
-      border-radius: 18px;
-      padding: 22px;
+    .mini-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
     }
 
-    .box strong {
-      color: #f1c76a;
+    .mini-card strong {
       display: block;
+      color: #111827;
       margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .mini-card span {
+      color: var(--gold-dark);
+      font-weight: 800;
+    }
+
+    .section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 34px;
+      margin: 28px 0;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.035);
+    }
+
+    .note {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-top: 20px;
+      color: #1f2937;
+      font-weight: 600;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 28px 0;
-      background: #171a21;
-      border-radius: 16px;
       overflow: hidden;
-    }
-
-    th, td {
-      border: 1px solid #2b2f38;
-      padding: 16px;
-      text-align: right;
-      vertical-align: top;
+      border-radius: 16px;
+      margin-top: 22px;
+      background: #fff;
     }
 
     th {
-      background: #20242d;
-      color: #f1c76a;
+      background: linear-gradient(135deg, #d5aa2a, #b8860b);
+      color: #fff;
+      padding: 16px;
+      border: 1px solid #e6c766;
+      font-size: 16px;
     }
 
     td {
-      color: #dddddd;
+      padding: 16px;
+      border: 1px solid #eadfbd;
+      color: #1f2937;
+      vertical-align: top;
     }
 
     .winner {
-      color: #7ee787;
-      font-weight: bold;
+      color: #111827;
+      font-weight: 800;
     }
 
-    .note {
-      background: #151b23;
-      border-right: 4px solid #f1c76a;
-      padding: 18px 22px;
-      border-radius: 12px;
-      margin: 28px 0;
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
     }
 
-    .cta {
-      margin-top: 44px;
-      background: #1b1f27;
-      border: 1px solid #333946;
-      border-radius: 20px;
-      padding: 30px;
+    .tool-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .final {
       text-align: center;
+      background: linear-gradient(135deg, #fffaf0, #ffffff);
     }
 
-    .cta h2 {
-      margin-top: 0;
+    .final strong {
+      color: var(--gold-dark);
     }
 
     @media (max-width: 700px) {
-      h1 {
-        font-size: 30px;
+      header {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 14px;
       }
 
-      .hero {
-        padding: 28px;
+      nav a {
+        margin: 0 10px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .section {
+        padding: 24px;
       }
 
       th, td {
+        font-size: 14px;
         padding: 12px;
-        font-size: 15px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
 
-    <a class="back" href="/compare/">← العودة إلى المقارنات</a>
+<header>
+  <div class="logo">NEORA</div>
+  <nav>
+    <a href="/">الرئيسية</a>
+    <a href="/compare/">المقارنات</a>
+    <a href="/blog/">المدونة</a>
+  </nav>
+</header>
 
-    <section class="hero">
-      <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
-      <h1>Cursor vs GitHub Copilot: أي أداة أفضل للمبرمجين؟</h1>
-      <p>
-        يعتبر كل من Cursor و GitHub Copilot من أقوى أدوات البرمجة المدعومة بالذكاء الاصطناعي.
-        كلاهما يساعد المطورين على كتابة الكود بسرعة أكبر، فهم الأخطاء، توليد الدوال، وتحسين الإنتاجية.
-        لكن الفرق الحقيقي بينهما يظهر في طريقة الاستخدام وسير العمل.
-      </p>
-      <p>
-        Cursor أقرب إلى محرر برمجي كامل مبني حول الذكاء الاصطناعي، بينما GitHub Copilot هو مساعد برمجي قوي
-        مدمج بعمق مع GitHub و VS Code وسير عمل الفرق البرمجية.
-      </p>
-    </section>
+<main class="page">
 
-    <section class="summary">
-      <div class="box">
-        <strong>الأفضل للمطور الفردي</strong>
-        Cursor
-      </div>
-      <div class="box">
-        <strong>الأفضل للشركات والفرق</strong>
-        GitHub Copilot
-      </div>
-      <div class="box">
-        <strong>الأفضل لفهم المشروع كاملًا</strong>
-        Cursor
-      </div>
-      <div class="box">
-        <strong>الأفضل مع GitHub</strong>
-        GitHub Copilot
-      </div>
-    </section>
+  <div class="breadcrumb">
+    <a href="/">الرئيسية</a> ← <a href="/compare/">المقارنات</a> ← Cursor vs GitHub Copilot
+  </div>
 
-    <h2>الخلاصة السريعة</h2>
+  <section class="hero">
+    <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
+    <h1>Cursor vs GitHub Copilot: أي أداة أفضل للمبرمجين؟</h1>
     <p>
-      اختر <strong>Cursor</strong> إذا كنت تريد بيئة تطوير ذكية تفهم مشروعك بالكامل،
-      وتساعدك في تعديل أكثر من ملف، تصحيح الأخطاء، وبناء التطبيقات بسرعة.
+      مقارنة عملية بين Cursor و GitHub Copilot لمساعدتك على اختيار الأداة الأنسب حسب طريقة عملك:
+      كتابة الكود، فهم المشروع، تصحيح الأخطاء، تعديل الملفات، ومراجعة Pull Requests.
+    </p>
+  </section>
+
+  <section class="cards">
+    <div class="mini-card">
+      <strong>الأفضل للمطور الفردي</strong>
+      <span>Cursor</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للشركات والفرق</strong>
+      <span>GitHub Copilot</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل لفهم المشروع</strong>
+      <span>Cursor</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل مع GitHub</strong>
+      <span>GitHub Copilot</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>نظرة سريعة</h2>
+    <p>
+      يعتبر كل من Cursor و GitHub Copilot من أقوى أدوات البرمجة المدعومة بالذكاء الاصطناعي.
+      كلاهما يساعد على كتابة الكود بسرعة أكبر، فهم الأخطاء، توليد الدوال، وتحسين الإنتاجية.
     </p>
     <p>
-      اختر <strong>GitHub Copilot</strong> إذا كنت تريد مساعدًا قويًا لكتابة الكود داخل VS Code،
-      مع تكامل ممتاز مع GitHub وطلبات السحب ومراجعة الكود.
+      لكن الفرق الحقيقي يظهر في أسلوب العمل. Cursor أقرب إلى محرر برمجي ذكي يفهم المشروع كاملًا،
+      بينما GitHub Copilot مساعد برمجي قوي ومناسب جدًا لمن يعتمد على VS Code و GitHub.
     </p>
 
     <div class="note">
-      <strong>الخلاصة:</strong> Cursor أقوى في بناء المشاريع وتعديلها بعمق.
-      GitHub Copilot أفضل للفرق التي تعتمد على GitHub و VS Code.
+      الخلاصة: Cursor أفضل لبناء وتعديل المشاريع بعمق، بينما GitHub Copilot أفضل للفرق التي تعتمد على GitHub و VS Code.
     </div>
+  </section>
 
-    <h2>جدول المقارنة</h2>
+  <section class="section">
+    <h2>جدول المقارنة السريع</h2>
 
     <table>
       <thead>
@@ -244,7 +332,7 @@
         <tr>
           <td>تعديل عدة ملفات</td>
           <td>قوي جدًا في تعديل أكثر من ملف من أمر واحد.</td>
-          <td>جيد، لكنه أقل مرونة من Cursor في المشاريع الكبيرة.</td>
+          <td>جيد، لكنه أقل مرونة في المشاريع الكبيرة.</td>
           <td class="winner">Cursor</td>
         </tr>
         <tr>
@@ -254,8 +342,8 @@
           <td class="winner">Cursor</td>
         </tr>
         <tr>
-          <td>طلبات السحب Pull Requests</td>
-          <td>مفيد، لكن ليس مدمجًا بعمق مثل GitHub.</td>
+          <td>Pull Requests</td>
+          <td>مفيد، لكنه ليس مدمجًا بعمق مع GitHub.</td>
           <td>ممتاز لأنه جزء من بيئة GitHub.</td>
           <td class="winner">GitHub Copilot</td>
         </tr>
@@ -267,68 +355,82 @@
         </tr>
         <tr>
           <td>سهولة الاستخدام</td>
-          <td>يحتاج أن تستخدم Cursor كمحرر أساسي.</td>
+          <td>يتطلب استخدام Cursor كمحرر أساسي.</td>
           <td>أسهل لمن يستخدم VS Code بالفعل.</td>
           <td class="winner">GitHub Copilot</td>
         </tr>
       </tbody>
     </table>
+  </section>
 
-    <h2>ما هو Cursor؟</h2>
-    <p>
-      Cursor هو محرر كود مدعوم بالذكاء الاصطناعي، مصمم لمساعدة المطور على فهم المشروع كاملًا،
-      تعديل الملفات، بناء الميزات، تصحيح الأخطاء، وإعادة هيكلة الكود بطريقة أسرع.
-    </p>
-    <p>
-      قوته الأساسية ليست فقط في اقتراح الكود، بل في قدرته على التعامل مع المشروع ككل.
-      لذلك يعتبر خيارًا قويًا للمطورين المستقلين، أصحاب المشاريع، وبناء تطبيقات MVP.
-    </p>
+  <section class="section">
+    <div class="two-col">
+      <div class="tool-box">
+        <h3>ما هو Cursor؟</h3>
+        <p>
+          Cursor هو محرر كود مدعوم بالذكاء الاصطناعي، مصمم لمساعدة المطور على فهم المشروع كاملًا،
+          تعديل الملفات، بناء الميزات، تصحيح الأخطاء، وإعادة هيكلة الكود بطريقة أسرع.
+        </p>
+        <p>
+          قوته الأساسية ليست فقط في اقتراح الكود، بل في قدرته على التعامل مع المشروع ككل.
+        </p>
+      </div>
 
-    <h3>مميزات Cursor</h3>
+      <div class="tool-box">
+        <h3>ما هو GitHub Copilot؟</h3>
+        <p>
+          GitHub Copilot هو مساعد برمجي من GitHub يساعد المطورين في كتابة الكود،
+          إكمال الأسطر، توليد الدوال، كتابة الاختبارات، وشرح الأكواد.
+        </p>
+        <p>
+          يتميز بتكامله القوي مع VS Code و GitHub، لذلك يناسب الفرق والشركات.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>متى تختار Cursor؟</h2>
     <ul>
-      <li>فهم قوي للمشروع والملفات.</li>
-      <li>تعديل أكثر من ملف بأمر واحد.</li>
-      <li>ممتاز في تصحيح الأخطاء.</li>
-      <li>مناسب لبناء التطبيقات بسرعة.</li>
-      <li>تجربة AI-first داخل المحرر.</li>
+      <li>إذا كنت تبني مشروعًا كاملًا وتحتاج إلى فهم الملفات معًا.</li>
+      <li>إذا كنت تريد تعديل أكثر من ملف من خلال أمر واحد.</li>
+      <li>إذا كنت تعمل على MVP أو موقع أو تطبيق وتريد إنجازًا أسرع.</li>
+      <li>إذا كنت تحتاج إلى تصحيح أخطاء مرتبطة بأكثر من جزء في المشروع.</li>
     </ul>
+  </section>
 
-    <h2>ما هو GitHub Copilot؟</h2>
-    <p>
-      GitHub Copilot هو مساعد برمجي من GitHub يساعد المطورين في كتابة الكود، إكمال الأسطر،
-      توليد الدوال، كتابة الاختبارات، وشرح الأكواد.
-    </p>
-    <p>
-      يتميز Copilot بتكامله القوي مع VS Code و GitHub، لذلك يناسب الفرق والشركات التي تعتمد
-      على GitHub في إدارة المستودعات وطلبات السحب ومراجعة الكود.
-    </p>
-
-    <h3>مميزات GitHub Copilot</h3>
+  <section class="section">
+    <h2>متى تختار GitHub Copilot؟</h2>
     <ul>
-      <li>إكمال كود ممتاز وسريع.</li>
-      <li>تكامل قوي مع VS Code و GitHub.</li>
-      <li>مناسب للفرق البرمجية.</li>
-      <li>يدعم مراجعة الكود و Pull Requests.</li>
-      <li>سهل الاعتماد داخل الشركات.</li>
+      <li>إذا كنت تستخدم VS Code بشكل يومي.</li>
+      <li>إذا كان فريقك يعتمد على GitHub و Pull Requests.</li>
+      <li>إذا كنت تريد إكمال كود سريع وعملي أثناء الكتابة.</li>
+      <li>إذا كنت تعمل داخل شركة وتحتاج أداة سهلة الاعتماد للفريق.</li>
     </ul>
+  </section>
 
+  <section class="section">
     <h2>من الأفضل للمبتدئين؟</h2>
     <p>
       GitHub Copilot قد يكون أسهل للمبتدئ لأنه يعمل داخل VS Code ولا يحتاج تغيير بيئة العمل بالكامل.
       لكن Cursor قد يكون أفضل لمن يريد بناء مشروع كامل بمساعدة الذكاء الاصطناعي خطوة بخطوة.
     </p>
+  </section>
 
+  <section class="section">
     <h2>من الأفضل للمطورين المحترفين؟</h2>
     <p>
       المطور المحترف الذي يعمل على بناء مشاريع كاملة أو تعديل كود كبير سيستفيد كثيرًا من Cursor.
       أما الفرق التي تعتمد على GitHub و Pull Requests فغالبًا ستجد GitHub Copilot أكثر عملية.
     </p>
+  </section>
 
+  <section class="section">
     <h2>العيوب</h2>
 
     <h3>عيوب Cursor</h3>
     <ul>
-      <li>يتطلب استخدام محرر Cursor بدلًا من المحرر المعتاد.</li>
+      <li>يتطلب استخدام Cursor كمحرر أساسي.</li>
       <li>قد يجري تعديلات كبيرة تحتاج مراجعة دقيقة.</li>
       <li>قد لا يكون الخيار الأفضل للفرق الكبيرة التي تعتمد كليًا على GitHub.</li>
     </ul>
@@ -339,29 +441,22 @@
       <li>يعتمد بشكل أكبر على بيئة GitHub و VS Code.</li>
       <li>يشعر أحيانًا كمساعد كتابة كود أكثر من كونه بيئة تطوير ذكية كاملة.</li>
     </ul>
+  </section>
 
-    <h2>الحكم النهائي</h2>
+  <section class="section final">
+    <h2>الخلاصة النهائية</h2>
     <p>
-      إذا كنت مطورًا فرديًا أو تبني مشروعًا ناشئًا أو تريد أداة تفهم الكود وتعدله بعمق،
-      فإن <strong>Cursor</strong> هو الخيار الأقوى.
+      <strong>Cursor</strong> هو الخيار الأفضل إذا كنت تريد أداة تساعدك في بناء وتعديل المشاريع بعمق.
     </p>
     <p>
-      أما إذا كنت تعمل ضمن فريق يستخدم GitHub و VS Code وتحتاج إلى إكمال كود ممتاز ومراجعة Pull Requests،
-      فإن <strong>GitHub Copilot</strong> هو الخيار الأنسب.
+      <strong>GitHub Copilot</strong> هو الخيار الأفضل إذا كنت تعمل مع فريق يستخدم GitHub و VS Code وتحتاج إلى مساعد قوي لإكمال الكود ومراجعة Pull Requests.
     </p>
+    <p>
+      للمطور الفردي: <strong>Cursor</strong> — للفرق والشركات: <strong>GitHub Copilot</strong>
+    </p>
+  </section>
 
-    <div class="cta">
-      <h2>الخلاصة النهائية</h2>
-      <p>
-        Cursor أفضل لبناء وتعديل المشاريع بعمق باستخدام الذكاء الاصطناعي.
-        GitHub Copilot أفضل لإكمال الكود، الفرق البرمجية، وبيئة GitHub.
-      </p>
-      <p>
-        للمطور الفردي: <strong>Cursor</strong><br />
-        للفرق والشركات: <strong>GitHub Copilot</strong>
-      </p>
-    </div>
+</main>
 
-  </main>
 </body>
 </html>
