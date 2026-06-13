@@ -1,261 +1,331 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Perplexity vs ChatGPT 2026: أيهما أفضل للبحث والإنتاجية؟ | Neora AI</title>
+  <title>Perplexity vs ChatGPT 2026: أيهما أفضل للبحث والإنتاجية؟ | Neora AI</title>
+  <meta name="description" content="مقارنة شاملة بين Perplexity و ChatGPT من حيث البحث، المصادر، الدقة، الكتابة، البرمجة، الإنتاجية، والاستخدام اليومي." />
 
-<meta name="description" content="مقارنة شاملة بين Perplexity و ChatGPT من حيث البحث، الدقة، المصادر، الكتابة، الإنتاجية، والأسعار لمعرفة أي مساعد ذكاء اصطناعي أفضل في 2026.">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f1115;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
 
-<style>
-body{
-margin:0;
-font-family:Cairo,Arial,sans-serif;
-background:#0f1115;
-color:#f5f5f5;
-line-height:1.8;
-}
+    .page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+    .hero {
+      background: linear-gradient(135deg, #171a21, #242016);
+      border: 1px solid #3a2f16;
+      border-radius: 22px;
+      padding: 45px;
+      margin-bottom: 35px;
+    }
 
-.hero{
-background:linear-gradient(135deg,#171a21,#242016);
-border:1px solid #a97d24;
-border-radius:22px;
-padding:45px;
-margin-bottom:35px;
-}
+    .badge {
+      display: inline-block;
+      color: #d6a94a;
+      background: rgba(214,169,74,0.12);
+      border: 1px solid rgba(214,169,74,0.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
 
-.badge{
-display:inline-block;
-padding:8px 16px;
-border-radius:50px;
-border:1px solid #a97d24;
-color:#d8aa45;
-margin-bottom:15px;
-}
+    h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      margin: 0 0 18px;
+    }
 
-h1{
-font-size:42px;
-margin:0 0 15px;
-}
+    h2 {
+      font-size: 28px;
+      margin-top: 45px;
+      color: #f0c66a;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-margin:30px 0;
-}
+    h3 {
+      font-size: 21px;
+      color: #ffffff;
+      margin-top: 25px;
+    }
 
-.card{
-background:#131823;
-border:1px solid #252c3b;
-border-radius:20px;
-padding:25px;
-}
+    p {
+      color: #d7d7d7;
+      font-size: 17px;
+    }
 
-.card h2{
-color:#f4c55f;
-margin-top:0;
-}
+    .summary {
+      font-size: 19px;
+      color: #e8e8e8;
+      max-width: 850px;
+    }
 
-.section{
-margin-top:40px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin: 30px 0;
+    }
 
-.section h2{
-color:#f4c55f;
-}
+    .card {
+      background: #171a21;
+      border: 1px solid #2b2f3a;
+      border-radius: 18px;
+      padding: 25px;
+    }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
+    .card strong {
+      color: #f0c66a;
+    }
 
-th,td{
-border:1px solid #333;
-padding:12px;
-text-align:center;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      background: #171a21;
+      border-radius: 16px;
+      overflow: hidden;
+    }
 
-th{
-background:#1c2230;
-}
+    th, td {
+      padding: 18px;
+      border-bottom: 1px solid #2b2f3a;
+      text-align: right;
+      vertical-align: top;
+    }
 
-.verdict{
-background:#171a21;
-border:1px solid #a97d24;
-padding:25px;
-border-radius:20px;
-margin-top:30px;
-}
+    th {
+      background: #211c12;
+      color: #f0c66a;
+    }
 
-.score{
-font-size:24px;
-font-weight:bold;
-color:#f4c55f;
-}
+    td {
+      color: #ddd;
+    }
 
-a{
-color:#f4c55f;
-text-decoration:none;
-}
-</style>
+    .winner {
+      background: rgba(214,169,74,0.12);
+      border: 1px solid rgba(214,169,74,0.35);
+      border-radius: 18px;
+      padding: 28px;
+      margin: 35px 0;
+    }
+
+    .cta {
+      margin-top: 45px;
+      padding: 35px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #201b10, #111318);
+      border: 1px solid rgba(214,169,74,0.35);
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 13px 22px;
+      background: #d6a94a;
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      color: #d7d7d7;
+      font-size: 17px;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .hero {
+        padding: 30px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        border-bottom: 1px solid #2b2f3a;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
 
-<div class="container">
+    <section class="hero">
+      <span class="badge">مقارنة أدوات الذكاء الاصطناعي</span>
+      <h1>Perplexity vs ChatGPT: أيهما أفضل للبحث والإنتاجية في 2026؟</h1>
+      <p class="summary">
+        Perplexity و ChatGPT من أشهر أدوات الذكاء الاصطناعي، لكن كل أداة تخدم هدفًا مختلفًا.
+        Perplexity أقوى في البحث السريع وجلب المصادر، بينما ChatGPT أفضل في الكتابة، البرمجة، التفكير، والإنتاجية اليومية.
+      </p>
+    </section>
 
-<div class="hero">
-<span class="badge">مقارنة أدوات الذكاء الاصطناعي</span>
+    <section class="grid">
+      <div class="card">
+        <h3>الأفضل لاستخدام Perplexity</h3>
+        <p>
+          <strong>Perplexity</strong> مناسب للباحثين، الطلاب، الصحفيين، وصناع المحتوى الذين يريدون إجابات سريعة مع مصادر وروابط مباشرة.
+        </p>
+      </div>
 
-<h1>Perplexity vs ChatGPT 2026: أيهما أفضل للبحث والإنتاجية؟</h1>
+      <div class="card">
+        <h3>الأفضل لاستخدام ChatGPT</h3>
+        <p>
+          <strong>ChatGPT</strong> مناسب لمن يريد مساعدًا شاملًا للكتابة، البرمجة، الترجمة، تحليل الأفكار، إعداد الخطط، وتحسين الإنتاجية.
+        </p>
+      </div>
+    </section>
 
-<p>
-يُعد كل من ChatGPT وPerplexity من أشهر أدوات الذكاء الاصطناعي في العالم.
-لكن رغم التشابه بينهما، فإن طريقة الاستخدام والنتائج التي يقدمها كل منهما مختلفة بشكل واضح.
-في هذه المقارنة سنقارن بين البحث، الدقة، المصادر، الكتابة، الإنتاجية، والأسعار لمعرفة أيهما الأنسب لك.
-</p>
-</div>
+    <h2>الخلاصة السريعة</h2>
+    <div class="winner">
+      <p>
+        اختر <strong>Perplexity</strong> إذا كان هدفك الأساسي هو البحث، التحقق من المعلومات، والوصول إلى مصادر مباشرة.
+        واختر <strong>ChatGPT</strong> إذا كنت تريد أداة أقوى للكتابة، التفكير، البرمجة، وصناعة المحتوى.
+      </p>
+    </div>
 
-<div class="grid">
+    <h2>مقارنة Perplexity vs ChatGPT</h2>
 
-<div class="card">
-<h2>متى تختار Perplexity؟</h2>
-<p>
-يُعتبر Perplexity خياراً ممتازاً للباحثين والطلاب والمهنيين الذين يحتاجون إلى معلومات حديثة مدعومة بمصادر وروابط مباشرة من الإنترنت.
-</p>
-</div>
+    <table>
+      <thead>
+        <tr>
+          <th>الفئة</th>
+          <th>Perplexity</th>
+          <th>ChatGPT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>أفضل استخدام</td>
+          <td>البحث، المصادر، التحقق من المعلومات</td>
+          <td>الكتابة، البرمجة، الإنتاجية، التفكير</td>
+        </tr>
+        <tr>
+          <td>البحث عبر الإنترنت</td>
+          <td>ممتاز</td>
+          <td>جيد جدًا</td>
+        </tr>
+        <tr>
+          <td>المصادر والمراجع</td>
+          <td>أقوى</td>
+          <td>جيد عند استخدام البحث</td>
+        </tr>
+        <tr>
+          <td>كتابة المقالات</td>
+          <td>متوسط إلى جيد</td>
+          <td>ممتاز</td>
+        </tr>
+        <tr>
+          <td>البرمجة</td>
+          <td>جيد للبحث التقني</td>
+          <td>أقوى في الشرح والتطبيق</td>
+        </tr>
+        <tr>
+          <td>الإبداع والعصف الذهني</td>
+          <td>محدود نسبيًا</td>
+          <td>ممتاز</td>
+        </tr>
+        <tr>
+          <td>الاستخدام اليومي</td>
+          <td>ممتاز للأسئلة السريعة</td>
+          <td>أفضل كمساعد شامل</td>
+        </tr>
+      </tbody>
+    </table>
 
-<div class="card">
-<h2>متى تختار ChatGPT؟</h2>
-<p>
-يُعد ChatGPT أفضل للمحتوى الطويل، البرمجة، العصف الذهني، الترجمة، إنشاء الأفكار، وإدارة المهام اليومية.
-</p>
-</div>
+    <h2>ما هو Perplexity؟</h2>
+    <p>
+      Perplexity هو محرك إجابات يعتمد على الذكاء الاصطناعي، ويركز على البحث عبر الإنترنت وتقديم إجابات مدعومة بالمصادر.
+      قوته الأساسية أنه يساعدك على الوصول إلى معلومات حديثة بسرعة مع روابط يمكنك الرجوع إليها.
+    </p>
 
-</div>
+    <h2>ما هو ChatGPT؟</h2>
+    <p>
+      ChatGPT هو مساعد ذكاء اصطناعي عام يمكن استخدامه في الكتابة، البرمجة، الترجمة، التعلم، تحليل الأفكار، إعداد الخطط،
+      وبناء المحتوى. قوته الأساسية أنه أكثر مرونة وشمولية من مجرد أداة بحث.
+    </p>
 
-<div class="section">
-<h2>مقارنة سريعة</h2>
+    <h2>أين يتفوق Perplexity؟</h2>
+    <ul>
+      <li>البحث السريع عبر الإنترنت.</li>
+      <li>عرض المصادر والروابط بوضوح.</li>
+      <li>متابعة الأخبار والمعلومات الحديثة.</li>
+      <li>مناسب للطلاب والباحثين.</li>
+      <li>مفيد عند التحقق من معلومة معينة.</li>
+    </ul>
 
-<table>
-<tr>
-<th>الفئة</th>
-<th>الفائز</th>
-</tr>
+    <h2>أين يتفوق ChatGPT؟</h2>
+    <ul>
+      <li>كتابة المقالات والمحتوى الطويل.</li>
+      <li>البرمجة وشرح الأكواد.</li>
+      <li>العصف الذهني وتوليد الأفكار.</li>
+      <li>التعلم خطوة بخطوة.</li>
+      <li>إدارة المهام والإنتاجية اليومية.</li>
+    </ul>
 
-<tr>
-<td>البحث عبر الإنترنت</td>
-<td>Perplexity</td>
-</tr>
+    <h2>أيهما أفضل للبحث؟</h2>
+    <p>
+      إذا كان هدفك البحث فقط، فغالبًا <strong>Perplexity هو الخيار الأفضل</strong>.
+      لأنه مصمم أساسًا لتقديم إجابات مرتبطة بالمصادر، وهذا يجعله مناسبًا للبحث السريع والتحقق من المعلومات.
+    </p>
 
-<tr>
-<td>المصادر والمراجع</td>
-<td>Perplexity</td>
-</tr>
+    <h2>أيهما أفضل لصناعة المحتوى؟</h2>
+    <p>
+      في صناعة المحتوى، يتفوق <strong>ChatGPT</strong> لأنه أكثر قدرة على كتابة مقالات طويلة، تحسين النصوص،
+      صياغة العناوين، إعداد خطط محتوى، وتغيير الأسلوب حسب الجمهور المستهدف.
+    </p>
 
-<tr>
-<td>كتابة المحتوى</td>
-<td>ChatGPT</td>
-</tr>
+    <h2>أيهما أفضل للبرمجة؟</h2>
+    <p>
+      ChatGPT أفضل للمبرمجين لأنه يستطيع شرح الأخطاء، كتابة الأكواد، بناء هياكل مشاريع، وتحسين الحلول البرمجية.
+      Perplexity مفيد في البحث عن حلول تقنية أو توثيق حديث، لكنه ليس بنفس قوة ChatGPT في التطبيق العملي.
+    </p>
 
-<tr>
-<td>الإبداع والأفكار</td>
-<td>ChatGPT</td>
-</tr>
+    <h2>الحكم النهائي</h2>
+    <p>
+      Perplexity و ChatGPT ليسا بديلين متطابقين. Perplexity أقرب إلى محرك بحث ذكي مدعوم بالمصادر،
+      بينما ChatGPT أقرب إلى مساعد شامل يمكنه التفكير معك، الكتابة لك، البرمجة، وتطوير أفكارك.
+    </p>
 
-<tr>
-<td>البرمجة</td>
-<td>ChatGPT</td>
-</tr>
+    <p>
+      إذا كنت تريد البحث والمصادر، اختر Perplexity. وإذا كنت تريد أداة واحدة تساعدك في معظم أعمالك اليومية،
+      فإن ChatGPT هو الخيار الأقوى.
+    </p>
 
-<tr>
-<td>الإنتاجية</td>
-<td>ChatGPT</td>
-</tr>
+    <section class="cta">
+      <h2>استكشف المزيد من مقارنات أدوات الذكاء الاصطناعي</h2>
+      <p>
+        قارن بين أفضل أدوات الذكاء الاصطناعي للكتابة، البحث، البرمجة، التصميم، والإنتاجية.
+      </p>
+      <a href="/compare/">العودة إلى صفحة المقارنات</a>
+    </section>
 
-<tr>
-<td>البحث الأكاديمي</td>
-<td>Perplexity</td>
-</tr>
-
-<tr>
-<td>القيمة الإجمالية</td>
-<td>ChatGPT</td>
-</tr>
-
-</table>
-</div>
-
-<div class="section">
-<h2>البحث والمصادر</h2>
-
-<p>
-يتفوق Perplexity في البحث المباشر عبر الإنترنت وإظهار المصادر بشكل فوري.
-إذا كنت تحتاج إلى جمع معلومات حديثة أو التحقق من الأخبار والبيانات فإن Perplexity غالباً سيكون الخيار الأفضل.
-</p>
-
-<p>
-أما ChatGPT فأصبح يوفر البحث عبر الإنترنت أيضاً، لكنه يركز بشكل أكبر على تحليل المعلومات وتقديم إجابات أكثر تفصيلاً وتنظيماً.
-</p>
-</div>
-
-<div class="section">
-<h2>كتابة المحتوى</h2>
-
-<p>
-عندما يتعلق الأمر بكتابة المقالات الطويلة أو إعداد التقارير أو إنشاء محتوى تسويقي فإن ChatGPT يتفوق بشكل واضح بفضل جودة الكتابة والقدرة على التخصيص.
-</p>
-
-<p>
-بينما يركز Perplexity بشكل أكبر على البحث والإجابات المباشرة أكثر من إنشاء المحتوى الاحترافي.
-</p>
-</div>
-
-<div class="section">
-<h2>البرمجة</h2>
-
-<p>
-ChatGPT يقدم تجربة أقوى للمطورين بفضل قدرته على شرح الأكواد وتصحيح الأخطاء وإنشاء مشاريع كاملة.
-</p>
-
-<p>
-أما Perplexity فيبقى جيداً للبحث التقني السريع لكنه ليس بنفس قوة ChatGPT في البرمجة.
-</p>
-</div>
-
-<div class="verdict">
-
-<h2>الحكم النهائي</h2>
-
-<p>
-اختر Perplexity إذا كان هدفك الأساسي البحث السريع والوصول إلى المصادر الموثوقة.
-</p>
-
-<p>
-اختر ChatGPT إذا كنت تريد مساعد ذكاء اصطناعي متكاملاً للكتابة والبرمجة والتعلم والإنتاجية اليومية.
-</p>
-
-<p class="score">
-ChatGPT: 9.4 / 10
-</p>
-
-<p class="score">
-Perplexity: 9.0 / 10
-</p>
-
-</div>
-
-</div>
-
+  </main>
 </body>
 </html>
