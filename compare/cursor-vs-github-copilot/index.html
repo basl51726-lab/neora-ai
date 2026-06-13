@@ -6,21 +6,7 @@
 
   <title>مقارنة Cursor و GitHub Copilot: أي أداة أفضل للمبرمجين؟ | Neora AI</title>
   <meta name="description" content="مقارنة شاملة بين Cursor و GitHub Copilot من حيث كتابة الكود، فهم المشاريع، تصحيح الأخطاء، تعديل الملفات، مراجعة الكود، والإنتاجية للمطورين." />
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #6b7280;
-  font-size: 14px;
-}
 
-.last-updated {
-  color: #6b7280;
-  font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-</style>
   <style>
     body {
       margin: 0;
@@ -101,6 +87,13 @@ footer {
       color: #374151;
     }
 
+    .last-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
     .section {
       background: #ffffff;
       border: 1px solid #eadfbd;
@@ -146,6 +139,25 @@ footer {
       color: #111827;
     }
 
+    details {
+      background: #fffaf0;
+      border: 1px solid #eadfbd;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-bottom: 0;
+    }
+
     .cta {
       text-align: center;
       background: #fff8e6;
@@ -169,24 +181,7 @@ footer {
       color: #6b7280;
       font-size: 14px;
     }
-details {
-  background: #fffaf0;
-  border: 1px solid #eadfbd;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin: 14px 0;
-}
 
-summary {
-  cursor: pointer;
-  font-weight: 800;
-  color: #111827;
-  font-size: 17px;
-}
-
-details p {
-  margin-bottom: 0;
-}
     @media (max-width: 700px) {
       header {
         flex-direction: column;
@@ -226,18 +221,21 @@ details p {
 </header>
 
 <main class="page">
-<section class="hero">
-  <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
-<h1>مقارنة Cursor و GitHub Copilot: أي أداة أفضل للمبرمجين؟</h1>
 
-<p class="last-updated">
-آخر تحديث: يونيو 2026
-</p>
+  <section class="hero">
+    <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
 
-<p>
-مقارنة عملية بين Cursor و GitHub Copilot لمساعدتك على اختيار الأداة الأنسب حسب طريقة عملك:
-كتابة الكود، فهم المشاريع، تصحيح الأخطاء، تعديل الملفات، مراجعة الكود، والإنتاجية اليومية للمطورين.
-</p>
+    <h1>مقارنة Cursor و GitHub Copilot: أي أداة أفضل للمبرمجين؟</h1>
+
+    <p class="last-updated">
+      آخر تحديث: يونيو 2026
+    </p>
+
+    <p>
+      مقارنة عملية بين Cursor و GitHub Copilot لمساعدتك على اختيار الأداة الأنسب حسب طريقة عملك:
+      كتابة الكود، فهم المشاريع، تصحيح الأخطاء، تعديل الملفات، مراجعة الكود، والإنتاجية اليومية للمطورين.
+    </p>
+  </section>
 
   <section class="section">
     <h2>نظرة سريعة</h2>
@@ -515,49 +513,51 @@ details p {
   </section>
 
   <section class="section">
-  <h2>الأسئلة الشائعة</h2>
+    <h2>الأسئلة الشائعة</h2>
 
-  <details>
-    <summary>هل Cursor أفضل من GitHub Copilot؟</summary>
-    <p>
-      يعتمد على الاستخدام. Cursor أفضل لفهم المشاريع وتعديل عدة ملفات، بينما GitHub Copilot أفضل في إكمال الكود والتكامل مع GitHub.
-    </p>
-  </details>
+    <details>
+      <summary>هل Cursor أفضل من GitHub Copilot؟</summary>
+      <p>
+        يعتمد على الاستخدام. Cursor أفضل لفهم المشاريع وتعديل عدة ملفات، بينما GitHub Copilot أفضل في إكمال الكود والتكامل مع GitHub.
+      </p>
+    </details>
 
-  <details>
-    <summary>أيهما أفضل للمبتدئين؟</summary>
-    <p>
-      GitHub Copilot قد يكون أسهل في البداية لمن يستخدم VS Code، لكن Cursor أفضل لمن يريد بناء مشروع كامل بمساعدة الذكاء الاصطناعي.
-    </p>
-  </details>
+    <details>
+      <summary>أيهما أفضل للمبتدئين؟</summary>
+      <p>
+        GitHub Copilot قد يكون أسهل في البداية لمن يستخدم VS Code، لكن Cursor أفضل لمن يريد بناء مشروع كامل بمساعدة الذكاء الاصطناعي.
+      </p>
+    </details>
 
-  <details>
-    <summary>أيهما أفضل للفرق البرمجية؟</summary>
-    <p>
-      GitHub Copilot أفضل غالبًا للفرق لأنه يعمل بشكل طبيعي مع GitHub و Pull Requests ومراجعة الكود.
-    </p>
-  </details>
+    <details>
+      <summary>أيهما أفضل للفرق البرمجية؟</summary>
+      <p>
+        GitHub Copilot أفضل غالبًا للفرق لأنه يعمل بشكل طبيعي مع GitHub و Pull Requests ومراجعة الكود.
+      </p>
+    </details>
 
-  <details>
-    <summary>أيهما أفضل لبناء تطبيق كامل؟</summary>
-    <p>
-      Cursor أفضل غالبًا لأنه يفهم المشروع كاملًا ويساعد في تعديل عدة ملفات وبناء الميزات بشكل أعمق.
-    </p>
- <details>
-  <summary>هل Cursor مناسب للمشاريع الكبيرة؟</summary>
-  <p>
-    نعم، يعتبر Cursor من أفضل الأدوات لفهم المشاريع الكبيرة لأنه يستطيع تحليل عدة ملفات وربطها معًا، مما يجعله مفيدًا في التطبيقات المعقدة.
-  </p>
-</details>
+    <details>
+      <summary>أيهما أفضل لبناء تطبيق كامل؟</summary>
+      <p>
+        Cursor أفضل غالبًا لأنه يفهم المشروع كاملًا ويساعد في تعديل عدة ملفات وبناء الميزات بشكل أعمق.
+      </p>
+    </details>
 
-<details>
-  <summary>هل GitHub Copilot يستحق الاشتراك؟</summary>
-  <p>
-    إذا كنت تستخدم VS Code و GitHub بشكل يومي، فإن GitHub Copilot يوفر وقتًا كبيرًا في كتابة الكود ويعتبر من أفضل أدوات الإكمال البرمجي المتاحة حاليًا.
-  </p>
-</details>
-  </details>
-</section>
+    <details>
+      <summary>هل Cursor مناسب للمشاريع الكبيرة؟</summary>
+      <p>
+        نعم، يعتبر Cursor من أفضل الأدوات لفهم المشاريع الكبيرة لأنه يستطيع تحليل عدة ملفات وربطها معًا، مما يجعله مفيدًا في التطبيقات المعقدة.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل GitHub Copilot يستحق الاشتراك؟</summary>
+      <p>
+        إذا كنت تستخدم VS Code و GitHub بشكل يومي، فإن GitHub Copilot يوفر وقتًا كبيرًا في كتابة الكود ويعتبر من أفضل أدوات الإكمال البرمجي المتاحة حاليًا.
+      </p>
+    </details>
+  </section>
+
   <section class="cta">
     <h2>اكتشف المزيد من المقارنات</h2>
     <p>
