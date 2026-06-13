@@ -1,1 +1,680 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>مقارنة Claude Code و GitHub Copilot: أي أداة أفضل للمبرمجين؟ | Neora AI</title>
+  <meta name="description" content="مقارنة شاملة بين Claude Code و GitHub Copilot من حيث البرمجة، الوكلاء البرمجيون، Terminal، مراجعة الكود، والإنتاجية للمطورين في 2026." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f4ec;
+      color: #1f2937;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5dcc7;
+      padding: 22px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #b8860b;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-right: 22px;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .page {
+      max-width: 1050px;
+      margin: auto;
+      padding: 50px 22px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff8e6;
+      color: #a87912;
+      border: 1px solid #e5c76b;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.35;
+      margin: 0 0 18px;
+      color: #111827;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #a87912;
+      margin-top: 44px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #111827;
+      margin-top: 28px;
+    }
+
+    p, li {
+      font-size: 17px;
+      color: #374151;
+    }
+
+    a {
+      color: #a87912;
+    }
+
+    .last-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .mini-card {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .mini-card span {
+      color: #a87912;
+      font-weight: 800;
+    }
+
+    .note {
+      background: #fff8e6;
+      border-right: 4px solid #b8860b;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 24px 0;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      margin: 24px 0;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #b8860b;
+      color: #ffffff;
+      padding: 15px;
+      text-align: right;
+    }
+
+    td {
+      border: 1px solid #eadfbd;
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    .winner {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    details {
+      background: #fffaf0;
+      border: 1px solid #eadfbd;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-bottom: 0;
+    }
+
+    .cta {
+      text-align: center;
+      background: #fff8e6;
+      border: 1px solid #e5c76b;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 35px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 18px;
+      color: #a87912;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      th, td {
+        font-size: 14px;
+        padding: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="/">NEORA</a>
+  <nav>
+    <a href="/">الرئيسية</a>
+    <a href="/compare/">المقارنات</a>
+    <a href="/blog/">المدونة</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
+
+    <h1>مقارنة Claude Code و GitHub Copilot: أي أداة أفضل للمبرمجين؟</h1>
+
+    <p class="last-updated">
+      آخر تحديث: يونيو 2026
+    </p>
+
+    <p>
+      مقارنة عملية بين Claude Code و GitHub Copilot لمساعدة المطورين على اختيار الأداة الأنسب حسب طريقة العمل:
+      الوكلاء البرمجيون، كتابة الكود، مراجعة الكود، Terminal، GitHub workflow، والمشاريع الكبيرة.
+    </p>
+  </section>
+
+  <section class="cards">
+    <div class="mini-card">
+      <strong>الأفضل للـ Terminal</strong>
+      <span>Claude Code</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل لمراجعة الكود</strong>
+      <span>GitHub Copilot</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للمهام المعقدة</strong>
+      <span>Claude Code</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للفرق البرمجية</strong>
+      <span>GitHub Copilot</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>نظرة سريعة</h2>
+    <p>
+      Claude Code و GitHub Copilot يمثلان اتجاهين مختلفين في أدوات البرمجة بالذكاء الاصطناعي.
+      Claude Code يركز على فكرة الوكيل البرمجي الذي يعمل داخل Terminal، يقرأ ملفات المشروع، يقترح تعديلات،
+      يشغل أوامر، ويساعد في تنفيذ مهام متعددة الخطوات.
+    </p>
+    <p>
+      أما GitHub Copilot فهو أقرب إلى مساعد برمجي متكامل داخل بيئة GitHub و VS Code. قوته تظهر في إكمال الكود،
+      مراجعة Pull Requests، اقتراح إصلاحات، والعمل مع الفرق التي تعتمد على GitHub بشكل يومي.
+    </p>
+
+    <div class="note">
+      توصيتنا: اختر GitHub Copilot إذا كان عملك اليومي داخل GitHub و VS Code. واختر Claude Code إذا كنت مطورًا متقدمًا وتريد وكيلًا برمجيًا قويًا داخل Terminal.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>جدول مقارنة سريع</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>المعيار</th>
+          <th>Claude Code</th>
+          <th>GitHub Copilot</th>
+          <th>الأفضل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>إكمال الكود</td>
+          <td>قوي، لكنه ليس مخصصًا فقط للإكمال اللحظي.</td>
+          <td>ممتاز جدًا في الإكمال أثناء الكتابة داخل VS Code.</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>Agent Workflow</td>
+          <td>ممتاز في تنفيذ مهام متعددة الخطوات داخل المشروع.</td>
+          <td>قوي خصوصًا مع cloud agent وGitHub workflow.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>Terminal</td>
+          <td>مصمم أساسًا للعمل من Terminal.</td>
+          <td>يركز أكثر على IDE وGitHub، مع إمكانيات مرتبطة بالأدوات.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>Pull Requests</td>
+          <td>يمكنه المساعدة، لكنه ليس GitHub-native بنفس القوة.</td>
+          <td>ممتاز في مراجعة Pull Requests واقتراح إصلاحات.</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>مراجعة الكود</td>
+          <td>قوي في تحليل الكود داخل المشروع.</td>
+          <td>أقوى للفرق بسبب تكامله مع GitHub code review.</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>المشاريع الكبيرة</td>
+          <td>قوي جدًا للمهام العميقة وفهم الملفات وتشغيل الأوامر.</td>
+          <td>قوي عندما يكون المشروع على GitHub وسير العمل منظمًا.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>الفرق والشركات</td>
+          <td>مفيد للفرق التقنية المتقدمة.</td>
+          <td>أسهل في الاعتماد داخل فرق تستخدم GitHub.</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>ما هو Claude Code؟</h2>
+    <p>
+      Claude Code هو وكيل برمجي من Anthropic يعمل داخل بيئة التطوير، خصوصًا من خلال Terminal.
+      هدفه ليس فقط اقتراح أسطر كود، بل مساعدة المطور في قراءة المشروع، تعديل الملفات، تشغيل الأوامر،
+      وتنفيذ مهام برمجية متعددة الخطوات.
+    </p>
+    <p>
+      لذلك يناسب Claude Code المطورين الذين يريدون أداة تتعامل مع المشروع ككل، وتساعد في الإصلاحات،
+      إعادة الهيكلة، تشغيل الاختبارات، وفهم العلاقات بين الملفات.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>ما هو GitHub Copilot؟</h2>
+    <p>
+      GitHub Copilot هو مساعد برمجي من GitHub يساعد في كتابة الكود، إكمال الأسطر، شرح الأكواد،
+      اقتراح الاختبارات، مراجعة Pull Requests، ودعم سير العمل داخل GitHub.
+    </p>
+    <p>
+      قوته الكبيرة تأتي من تكامله مع GitHub وVS Code. لذلك يعتبر خيارًا عمليًا جدًا للفرق التي تستخدم GitHub يوميًا
+      وتحتاج أداة تقلل وقت كتابة الكود والمراجعة.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>إكمال الكود أثناء الكتابة</h2>
+    <p>
+      في هذه النقطة يتفوق GitHub Copilot. إذا كان هدفك الأساسي هو الحصول على اقتراحات سريعة أثناء كتابة الكود،
+      أو إكمال دوال وأسطر بشكل مستمر داخل VS Code، فإن Copilot يقدم تجربة قوية وسريعة ومناسبة لمعظم المطورين.
+    </p>
+    <p>
+      Claude Code يستطيع كتابة الكود، لكنه ليس مجرد أداة autocomplete. قوته تظهر عندما تعطيه مهمة أكبر:
+      افهم هذا المشروع، أصلح هذا الخطأ، عدل هذه الميزة، أو نفذ سلسلة خطوات.
+    </p>
+
+    <div class="note">
+      الفائز في إكمال الكود: GitHub Copilot
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Agent Workflow والمهام متعددة الخطوات</h2>
+    <p>
+      Claude Code يتفوق عندما تتحول المهمة من "اكتب لي دالة" إلى "افهم المشكلة ونفذ الحل".
+      يمكنه التعامل مع ملفات متعددة، اقتراح خطوات، وتشغيل أوامر ضمن بيئة التطوير، مما يجعله أقرب إلى وكيل برمجي.
+    </p>
+    <p>
+      GitHub Copilot تطور كثيرًا أيضًا في هذا الجانب، خصوصًا مع cloud agent وagent workflows داخل GitHub.
+      لكنه يبقى أكثر ارتباطًا بسير عمل GitHub، بينما Claude Code يشعر أقرب إلى أداة عميقة داخل بيئة التطوير نفسها.
+    </p>
+
+    <div class="note">
+      الفائز في Agent Workflow: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Terminal وسير العمل المتقدم</h2>
+    <p>
+      إذا كنت تعمل كثيرًا داخل Terminal، فإن Claude Code هو الخيار الأقوى. يمكن استخدامه للتعامل مع المشروع
+      بطريقة طبيعية للمطورين المتقدمين: قراءة ملفات، تشغيل أوامر، اختبار تغييرات، وتنفيذ خطوات متتابعة.
+    </p>
+    <p>
+      GitHub Copilot مناسب أكثر لمن يريد تجربة داخل VS Code وGitHub. هو ممتاز للمطورين والفرق،
+      لكنه ليس متمركزًا حول Terminal بنفس أسلوب Claude Code.
+    </p>
+
+    <div class="note">
+      الفائز في Terminal: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Pull Requests ومراجعة الكود</h2>
+    <p>
+      هنا يتفوق GitHub Copilot بوضوح. لأنه جزء من بيئة GitHub، يستطيع مساعدة الفرق في مراجعة Pull Requests،
+      اكتشاف مشاكل، واقتراح إصلاحات قابلة للتطبيق. هذا مهم جدًا للشركات والفرق التي تعتمد على GitHub في دورة التطوير.
+    </p>
+    <p>
+      Claude Code يمكنه مراجعة الكود وتحليل المشاكل داخل المشروع، لكنه ليس بنفس طبيعة التكامل المباشر مع GitHub Pull Requests.
+    </p>
+
+    <div class="note">
+      الفائز في Pull Requests ومراجعة الكود: GitHub Copilot
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>المشاريع الكبيرة والمعقدة</h2>
+    <p>
+      في المشاريع الكبيرة، لا يكفي أن تقترح الأداة أسطر كود جميلة. المهم أن تفهم بنية المشروع،
+      تعرف أين يجب إجراء التعديل، تراجع أكثر من ملف، وتساعد المطور في التحقق من النتيجة.
+    </p>
+    <p>
+      Claude Code قوي جدًا في هذه البيئة لأنه يعمل كوكيل قادر على التعامل مع ملفات وأوامر ومهام طويلة.
+      GitHub Copilot قوي أيضًا، خاصة إذا كان المشروع منظمًا داخل GitHub، لكن Claude Code يتفوق في العمق التقني داخل بيئة التطوير.
+    </p>
+
+    <div class="note">
+      الفائز في المشاريع الكبيرة والمعقدة: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>الفرق البرمجية والشركات</h2>
+    <p>
+      GitHub Copilot غالبًا الخيار الأسهل للفرق، خصوصًا إذا كانت الشركة تستخدم GitHub وVS Code.
+      السبب أن الفريق لا يحتاج لتغيير كبير في طريقة العمل، ويمكن إدخال Copilot داخل الإكمال، المراجعة، وPull Requests.
+    </p>
+    <p>
+      Claude Code مناسب أيضًا للفرق التقنية المتقدمة، لكنه يتطلب نضجًا أعلى في التعامل مع Terminal ومراجعة التغييرات،
+      لذلك قد يكون أفضل لفرق هندسية قوية وليس لكل فريق مبتدئ.
+    </p>
+
+    <div class="note">
+      الفائز للفرق والشركات: GitHub Copilot
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>المميزات والعيوب</h2>
+
+    <h3>مميزات Claude Code</h3>
+    <ul>
+      <li>قوي جدًا داخل Terminal.</li>
+      <li>مناسب للمهام البرمجية متعددة الخطوات.</li>
+      <li>يفهم الملفات ويتعامل مع المشروع بعمق.</li>
+      <li>ممتاز للمطورين المتقدمين والمشاريع الكبيرة.</li>
+      <li>أقرب إلى وكيل برمجي وليس مجرد مساعد كتابة كود.</li>
+    </ul>
+
+    <h3>عيوب Claude Code</h3>
+    <ul>
+      <li>قد يكون أقل سهولة للمبتدئين.</li>
+      <li>يتطلب فهمًا جيدًا للـ Terminal ومراجعة التغييرات.</li>
+      <li>قد يكون أكثر من اللازم لمن يريد فقط إكمال كود سريع.</li>
+    </ul>
+
+    <h3>مميزات GitHub Copilot</h3>
+    <ul>
+      <li>ممتاز في إكمال الكود أثناء الكتابة.</li>
+      <li>تكامل قوي مع GitHub وVS Code.</li>
+      <li>مناسب للفرق والشركات.</li>
+      <li>قوي في مراجعة Pull Requests.</li>
+      <li>أسهل في الاعتماد داخل بيئات العمل اليومية.</li>
+    </ul>
+
+    <h3>عيوب GitHub Copilot</h3>
+    <ul>
+      <li>أقل عمقًا من Claude Code في مهام Terminal المتقدمة.</li>
+      <li>أفضل تجربة له تكون داخل GitHub workflow.</li>
+      <li>قد لا يكون الخيار الأقوى للمهام البرمجية الطويلة متعددة الخطوات.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم Claude Code؟</h2>
+    <p>اختر Claude Code إذا كنت:</p>
+    <ul>
+      <li>مطورًا متقدمًا وتعمل كثيرًا داخل Terminal.</li>
+      <li>تريد وكيلًا برمجيًا ينفذ مهام متعددة الخطوات.</li>
+      <li>تتعامل مع مشاريع كبيرة أو معقدة.</li>
+      <li>تحتاج أداة تقرأ الملفات وتشغل الأوامر وتساعد في الإصلاحات العميقة.</li>
+      <li>تعرف كيف تراجع التغييرات وتتحقق من النتائج بدقة.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم GitHub Copilot؟</h2>
+    <p>اختر GitHub Copilot إذا كنت:</p>
+    <ul>
+      <li>تستخدم VS Code وGitHub يوميًا.</li>
+      <li>تعمل ضمن فريق يعتمد على Pull Requests.</li>
+      <li>تريد إكمال كود سريع وعملي أثناء الكتابة.</li>
+      <li>تحتاج مراجعة كود واقتراحات داخل GitHub.</li>
+      <li>تريد أداة سهلة الاعتماد داخل شركة أو فريق.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>التقييم النهائي</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>الفئة</th>
+          <th>الفائز</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>إكمال الكود</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>مراجعة الكود</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>Pull Requests</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>Agent Workflow</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>Terminal</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>المشاريع الكبيرة</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>الفرق البرمجية</td>
+          <td class="winner">GitHub Copilot</td>
+        </tr>
+        <tr>
+          <td>المطور المحترف المتقدم</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      الخلاصة: إذا كنت تستخدم GitHub وVS Code يوميًا وتعمل ضمن فريق برمجي، فإن
+      <strong>GitHub Copilot</strong> هو الخيار الأفضل لمعظم حالات العمل اليومية.
+    </p>
+    <p>
+      أما إذا كنت مطورًا متقدمًا وتريد وكيلًا برمجيًا قويًا قادرًا على تنفيذ مهام متعددة الخطوات داخل Terminal
+      وفهم المشاريع الكبيرة بعمق، فإن <strong>Claude Code</strong> يتفوق بوضوح.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>المصادر</h2>
+
+    <ul>
+      <li><a href="https://www.anthropic.com/claude-code" target="_blank">Claude Code Official Website</a></li>
+      <li><a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">Claude Code Documentation</a></li>
+      <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot Official Website</a></li>
+      <li><a href="https://docs.github.com/copilot" target="_blank">GitHub Copilot Documentation</a></li>
+      <li><a href="https://docs.github.com/en/copilot/concepts/agents/code-review" target="_blank">GitHub Copilot Code Review Documentation</a></li>
+    </ul>
+
+    <p>
+      تم إعداد هذه المقارنة بالاعتماد على الوثائق الرسمية للأدوات والمعلومات المتاحة حتى يونيو 2026.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>الأسئلة الشائعة</h2>
+
+    <details>
+      <summary>هل Claude Code أفضل من GitHub Copilot؟</summary>
+      <p>
+        Claude Code أفضل للمهام المتقدمة داخل Terminal والمشاريع الكبيرة، بينما GitHub Copilot أفضل لإكمال الكود ومراجعة Pull Requests داخل GitHub.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للمبتدئين؟</summary>
+      <p>
+        GitHub Copilot أسهل غالبًا للمبتدئين لأنه يعمل داخل VS Code ويوفر اقتراحات مباشرة أثناء كتابة الكود.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للمطورين المحترفين؟</summary>
+      <p>
+        Claude Code قد يكون أفضل للمطورين المتقدمين الذين يعتمدون على Terminal ويحتاجون وكيلًا برمجيًا لتنفيذ مهام متعددة الخطوات.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للفرق البرمجية؟</summary>
+      <p>
+        GitHub Copilot أفضل غالبًا للفرق لأنه يتكامل مع GitHub وPull Requests ومراجعة الكود.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل يمكن استخدام Claude Code و GitHub Copilot معًا؟</summary>
+      <p>
+        نعم، يمكن استخدام GitHub Copilot للإكمال والمراجعة اليومية، واستخدام Claude Code للمهام العميقة داخل Terminal.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للمشاريع الكبيرة؟</summary>
+      <p>
+        Claude Code أقوى غالبًا في المشاريع الكبيرة التي تحتاج قراءة ملفات متعددة وتشغيل أوامر وتنفيذ مهام طويلة داخل بيئة التطوير.
+      </p>
+    </details>
+  </section>
+
+  <section class="cta">
+    <h2>اكتشف المزيد من المقارنات</h2>
+    <p>
+      راجع مقارنات Neora لاختيار أفضل أدوات الذكاء الاصطناعي حسب استخدامك.
+    </p>
+    <a class="back" href="/compare/">العودة إلى قسم المقارنات</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 NEORA AI — دليل أدوات الذكاء الاصطناعي
+</footer>
+
+</body>
+</html>
