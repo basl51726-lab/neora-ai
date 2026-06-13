@@ -1,1 +1,740 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>مقارنة Cursor و Claude Code: أي أداة أفضل للمبرمجين؟ | Neora AI</title>
+  <meta name="description" content="مقارنة شاملة بين Cursor و Claude Code من حيث البرمجة، فهم المشاريع، الوكلاء البرمجيون، تعديل الملفات، Terminal، والإنتاجية للمطورين في 2026." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f4ec;
+      color: #1f2937;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5dcc7;
+      padding: 22px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #b8860b;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-right: 22px;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .page {
+      max-width: 1050px;
+      margin: auto;
+      padding: 50px 22px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff8e6;
+      color: #a87912;
+      border: 1px solid #e5c76b;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.35;
+      margin: 0 0 18px;
+      color: #111827;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #a87912;
+      margin-top: 44px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #111827;
+      margin-top: 28px;
+    }
+
+    p, li {
+      font-size: 17px;
+      color: #374151;
+    }
+
+    a {
+      color: #a87912;
+    }
+
+    .last-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .mini-card {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .mini-card span {
+      color: #a87912;
+      font-weight: 800;
+    }
+
+    .note {
+      background: #fff8e6;
+      border-right: 4px solid #b8860b;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 24px 0;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      margin: 24px 0;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #b8860b;
+      color: #ffffff;
+      padding: 15px;
+      text-align: right;
+    }
+
+    td {
+      border: 1px solid #eadfbd;
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    .winner {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    details {
+      background: #fffaf0;
+      border: 1px solid #eadfbd;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-bottom: 0;
+    }
+
+    .cta {
+      text-align: center;
+      background: #fff8e6;
+      border: 1px solid #e5c76b;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 35px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 18px;
+      color: #a87912;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      th, td {
+        font-size: 14px;
+        padding: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="/">NEORA</a>
+  <nav>
+    <a href="/">الرئيسية</a>
+    <a href="/compare/">المقارنات</a>
+    <a href="/blog/">المدونة</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
+
+    <h1>مقارنة Cursor و Claude Code: أي أداة أفضل للمبرمجين؟</h1>
+
+    <p class="last-updated">
+      آخر تحديث: يونيو 2026
+    </p>
+
+    <p>
+      مقارنة عملية بين Cursor و Claude Code لمساعدة المطورين على اختيار الأداة الأنسب:
+      بيئة تطوير ذكية داخل محرر الكود، أم وكيل برمجي قوي يعمل من خلال Terminal وينفذ مهام معقدة داخل المشروع.
+    </p>
+  </section>
+
+  <section class="cards">
+    <div class="mini-card">
+      <strong>الأفضل لمعظم المطورين</strong>
+      <span>Cursor</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للـ Terminal</strong>
+      <span>Claude Code</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للمبتدئين</strong>
+      <span>Cursor</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للمهام المعقدة</strong>
+      <span>Claude Code</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>نظرة سريعة</h2>
+    <p>
+      يمثل كل من Cursor و Claude Code مرحلة متقدمة من أدوات البرمجة بالذكاء الاصطناعي.
+      لم تعد هذه الأدوات مجرد إكمال تلقائي للكود، بل أصبحت قادرة على فهم الملفات، اقتراح تعديلات،
+      تنفيذ خطوات متعددة، ومساعدة المطور في بناء الميزات وتصحيح الأخطاء.
+    </p>
+    <p>
+      الفرق الأساسي بينهما أن Cursor يقدم تجربة أقرب إلى محرر كود ذكي وسهل الاستخدام، بينما Claude Code
+      يقدم تجربة أقوى للمطورين المتقدمين الذين يفضلون العمل داخل Terminal ويريدون وكيلًا برمجيًا قادرًا
+      على تنفيذ أوامر وفهم المشروع من الداخل.
+    </p>
+
+    <div class="note">
+      توصيتنا: اختر Cursor إذا كنت تريد أفضل تجربة يومية لمعظم أعمال البرمجة. واختر Claude Code إذا كنت مطورًا متقدمًا وتحتاج وكيلًا برمجيًا قويًا داخل Terminal.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>جدول مقارنة سريع</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>المعيار</th>
+          <th>Cursor</th>
+          <th>Claude Code</th>
+          <th>الأفضل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>سهولة الاستخدام</td>
+          <td>واجهة محرر واضحة ومناسبة لمعظم المطورين.</td>
+          <td>يتطلب راحة أكبر مع Terminal وسير العمل البرمجي المتقدم.</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>فهم المشروع</td>
+          <td>قوي جدًا في فهم الملفات والعمل داخل محرر الكود.</td>
+          <td>قوي في قراءة الكود والتعامل مع المشروع عبر الأوامر.</td>
+          <td class="winner">تعادل</td>
+        </tr>
+        <tr>
+          <td>Agent Workflow</td>
+          <td>ممتاز للمهام اليومية وتعديل الملفات.</td>
+          <td>أقوى في المهام المتقدمة وتنفيذ خطوات متعددة من Terminal.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>تعديل عدة ملفات</td>
+          <td>ممتاز وسهل المراجعة داخل المحرر.</td>
+          <td>قوي جدًا، لكن يحتاج مراجعة دقيقة للنتائج.</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>العمل داخل Terminal</td>
+          <td>يدعم سير عمل برمجي حديث، لكنه ليس متمركزًا حول Terminal.</td>
+          <td>مصمم أساسًا للعمل من Terminal.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>بناء تطبيقات كاملة</td>
+          <td>أفضل لمعظم المستخدمين لبناء مواقع وتطبيقات بسرعة.</td>
+          <td>قوي للمطورين المتقدمين والمهام المعقدة.</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>المطور الفردي</td>
+          <td>مناسب جدًا للمطور المستقل وصاحب المشروع.</td>
+          <td>ممتاز إذا كان المطور مرتاحًا مع Terminal.</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>المطور المحترف</td>
+          <td>قوي وعملي في المشاريع اليومية.</td>
+          <td>أقوى للمهام العميقة وسير العمل المتقدم.</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>ما هو Cursor؟</h2>
+    <p>
+      Cursor هو محرر كود مدعوم بالذكاء الاصطناعي، يركز على جعل الذكاء الاصطناعي جزءًا طبيعيًا من تجربة التطوير.
+      يمكنه مساعدتك في فهم ملفات المشروع، كتابة كود جديد، تعديل كود موجود، تصحيح الأخطاء، وإعادة هيكلة أجزاء من التطبيق.
+    </p>
+    <p>
+      قوة Cursor الحقيقية تظهر عندما تريد بناء مشروع أو تعديل ميزة داخل تطبيق قائم. بدل أن تسأل الذكاء الاصطناعي
+      خارج المحرر ثم تنسخ الإجابات، تستطيع العمل مباشرة داخل نفس بيئة التطوير.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>ما هو Claude Code؟</h2>
+    <p>
+      Claude Code هو وكيل برمجي من Anthropic مصمم للعمل داخل Terminal. الفكرة ليست فقط أن يكتب لك الكود،
+      بل أن يعمل معك داخل مشروعك، يقرأ الملفات، ينفذ أوامر، يقترح تعديلات، ويساعد في تنفيذ مهام برمجية متعددة الخطوات.
+    </p>
+    <p>
+      هذا يجعله مناسبًا جدًا للمطورين المحترفين الذين يعملون على مشاريع أكبر ويحتاجون أداة تفهم بيئة المشروع
+      وتتعامل مع الأوامر وسير العمل البرمجي بشكل مباشر.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>سهولة الاستخدام</h2>
+    <p>
+      إذا كنت تريد تجربة مباشرة وسهلة، فإن Cursor هو الخيار الأفضل. تفتح المشروع داخل المحرر،
+      تكتب ما تريد، وتراجع التعديلات بصريًا داخل الملفات. هذا الأسلوب مناسب لمعظم المطورين،
+      خصوصًا من يبنون مواقع، تطبيقات، أدوات داخلية، أو مشاريع SaaS صغيرة.
+    </p>
+    <p>
+      Claude Code أقوى من ناحية التحكم، لكنه يتطلب مستوى أعلى من الراحة مع Terminal.
+      لذلك قد يشعر المبتدئ أنه أقل بساطة في البداية، بينما سيجده المطور المتقدم أكثر مرونة في المهام المعقدة.
+    </p>
+
+    <div class="note">
+      الفائز في سهولة الاستخدام: Cursor
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>فهم المشاريع الكبيرة</h2>
+    <p>
+      كلا الأداتين قادرتان على التعامل مع مشاريع حقيقية وليست مجرد ملفات صغيرة.
+      Cursor مناسب جدًا عندما تريد فهم الكود داخل المحرر، رؤية الملفات، مراجعة التعديلات، والتنقل بين أجزاء المشروع بسهولة.
+    </p>
+    <p>
+      Claude Code يبرز عندما تكون المهمة مرتبطة بسير عمل أعمق: قراءة ملفات، تنفيذ أوامر، التعامل مع Git،
+      تشغيل اختبارات، أو تنفيذ خطوات متتابعة داخل المشروع.
+    </p>
+
+    <div class="note">
+      النتيجة: Cursor أفضل للتجربة البصرية داخل المحرر، وClaude Code أفضل للمهام العميقة داخل Terminal.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Agent Workflow</h2>
+    <p>
+      في Cursor، تجربة الوكيل البرمجي مناسبة جدًا للمهام اليومية: أضف ميزة، أصلح خطأ، عدل تصميمًا،
+      حسّن ملفًا، أو اشرح جزءًا من المشروع. كل ذلك يتم بطريقة قريبة من تجربة المطور العادي داخل المحرر.
+    </p>
+    <p>
+      في Claude Code، فكرة الوكيل البرمجي أكثر وضوحًا داخل Terminal. يمكنك طلب مهمة أكبر،
+      ثم يقوم Claude Code بقراءة الملفات وتنفيذ الخطوات المناسبة. هذا النوع من العمل يناسب المطورين
+      الذين يريدون أداة تتصرف كزميل تقني ينفذ سلسلة من الخطوات، وليس فقط مساعد كتابة كود.
+    </p>
+
+    <div class="note">
+      الفائز في Agent Workflow: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>العمل داخل Terminal</h2>
+    <p>
+      إذا كان Terminal جزءًا أساسيًا من يومك، فغالبًا ستجد Claude Code أكثر قوة. الأداة مصممة أساسًا
+      للعمل من خلال الأوامر، وهذا يعطيها مرونة عالية في المهام التي تشمل تشغيل سكربتات، مراجعة ملفات،
+      التعامل مع Git، أو تنفيذ أوامر تطوير متقدمة.
+    </p>
+    <p>
+      Cursor ليس ضعيفًا في هذا الجانب، لكنه ليس مبنيًا حول Terminal بنفس الطريقة.
+      قوته الرئيسية هي أنه يجمع بين المحرر والذكاء الاصطناعي وتجربة مرئية أسهل.
+    </p>
+
+    <div class="note">
+      الفائز في Terminal: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>تعديل الملفات المتعددة</h2>
+    <p>
+      Cursor ممتاز في تعديل عدة ملفات معًا بطريقة واضحة. يمكنك رؤية التغييرات، مراجعتها، وقبولها أو رفضها.
+      هذه نقطة مهمة جدًا لأن الذكاء الاصطناعي قد يقترح تعديلات كبيرة، والمراجعة البصرية تجعل التحكم أسهل.
+    </p>
+    <p>
+      Claude Code يستطيع أيضًا تعديل ملفات متعددة، لكنه مناسب أكثر لمن يعرف كيف يراجع التغييرات عبر Git أو Terminal.
+      لذلك هو قوي، لكنه يحتاج حذرًا أكبر من المستخدم.
+    </p>
+
+    <div class="note">
+      الفائز في تعديل الملفات المتعددة لمعظم المستخدمين: Cursor
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>بناء تطبيقات كاملة</h2>
+    <p>
+      لبناء تطبيق كامل من الصفر أو تطوير MVP بسرعة، نوصي بـ Cursor لمعظم المستخدمين.
+      السبب أن التجربة أسهل: تكتب الفكرة، تراجع الملفات، تعدل الواجهة، وتختبر النتيجة خطوة بخطوة.
+    </p>
+    <p>
+      Claude Code يمكن أن يكون قويًا جدًا في بناء أجزاء معقدة من التطبيق، لكنه يصبح أكثر فائدة عندما يكون المستخدم
+      قادرًا على توجيهه بدقة ومراجعة التغييرات بوعي.
+    </p>
+
+    <div class="note">
+      الفائز في بناء التطبيقات لمعظم المستخدمين: Cursor
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>الأداء في المشاريع الحقيقية</h2>
+    <p>
+      في المشاريع الحقيقية، لا يكفي أن تكون الأداة قادرة على كتابة دالة أو مكوّن صغير.
+      المهم هو هل تستطيع فهم بنية المشروع؟ هل تستطيع تعديل أكثر من ملف؟ هل يمكن مراجعة نتائجها بسهولة؟
+      وهل تساعد المطور بدل أن تضيف عليه عبئًا جديدًا؟
+    </p>
+    <p>
+      Cursor يتفوق في سهولة المراجعة وسرعة العمل داخل المحرر. Claude Code يتفوق في المهام التي تحتاج تنفيذًا
+      أعمق داخل بيئة التطوير، خاصة للمطورين الذين يحبون العمل عبر الأوامر.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>الأفضل للمبتدئين</h2>
+    <p>
+      للمبتدئين أو المطورين الذين لا يريدون تعقيدًا كبيرًا، Cursor هو الخيار الأفضل.
+      واجهته أقرب إلى محرر كود عادي، والتعامل معه أسهل، والنتائج يمكن مراجعتها داخل الملفات بشكل واضح.
+    </p>
+    <p>
+      Claude Code ليس مخصصًا فقط للخبراء، لكنه يعطي أفضل قيمة عندما يكون المستخدم مرتاحًا مع Terminal
+      ويفهم كيف يراجع الأوامر والتغييرات والملفات.
+    </p>
+
+    <div class="note">
+      الفائز للمبتدئين: Cursor
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>الأفضل للمطورين المحترفين</h2>
+    <p>
+      للمطور المحترف، الاختيار يصبح أكثر دقة. إذا كان يريد إنتاجية يومية داخل محرر كود ذكي،
+      فـ Cursor خيار ممتاز. أما إذا كان يريد وكيلًا برمجيًا يعمل داخل Terminal وينفذ مهامًا متعددة الخطوات،
+      فـ Claude Code قد يكون أقوى.
+    </p>
+    <p>
+      لذلك لا يمكن القول إن أداة واحدة أفضل في كل شيء. Cursor أفضل كخيار عام لمعظم المطورين،
+      بينما Claude Code أفضل للمطور المحترف الذي يعرف كيف يستفيد من Terminal والوكيل البرمجي المتقدم.
+    </p>
+
+    <div class="note">
+      الفائز للمطورين المحترفين: Claude Code
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>المميزات والعيوب</h2>
+
+    <h3>مميزات Cursor</h3>
+    <ul>
+      <li>سهل الاستخدام مقارنة بالأدوات المتمركزة حول Terminal.</li>
+      <li>ممتاز لبناء التطبيقات والمواقع بسرعة.</li>
+      <li>مناسب للمطور الفردي وأصحاب المشاريع.</li>
+      <li>يسهل مراجعة التعديلات داخل المحرر.</li>
+      <li>قوي في فهم المشروع وتعديل عدة ملفات.</li>
+    </ul>
+
+    <h3>عيوب Cursor</h3>
+    <ul>
+      <li>يتطلب استخدام Cursor كمحرر أساسي.</li>
+      <li>قد لا يناسب من يفضلون العمل بالكامل من Terminal.</li>
+      <li>التعديلات الكبيرة تحتاج مراجعة دقيقة مثل أي أداة AI.</li>
+    </ul>
+
+    <h3>مميزات Claude Code</h3>
+    <ul>
+      <li>قوي جدًا للمطورين الذين يعملون داخل Terminal.</li>
+      <li>مناسب للمهام البرمجية متعددة الخطوات.</li>
+      <li>يستطيع التعامل مع ملفات وأوامر وسير عمل أعمق.</li>
+      <li>مفيد في المشاريع الكبيرة والمهام المعقدة.</li>
+      <li>يشبه وكيلًا برمجيًا أكثر من مجرد مساعد كود.</li>
+    </ul>
+
+    <h3>عيوب Claude Code</h3>
+    <ul>
+      <li>أقل سهولة للمبتدئين مقارنة بـ Cursor.</li>
+      <li>يتطلب فهمًا أفضل للـ Terminal وسير العمل البرمجي.</li>
+      <li>قد يكون زائدًا عن الحاجة للمشاريع الصغيرة أو التعديلات البسيطة.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم Cursor؟</h2>
+    <p>اختر Cursor إذا كنت:</p>
+    <ul>
+      <li>تريد أداة سهلة ومباشرة داخل محرر الكود.</li>
+      <li>تبني موقعًا أو تطبيقًا أو MVP.</li>
+      <li>تحتاج تعديل ملفات متعددة مع مراجعة واضحة.</li>
+      <li>تريد تجربة AI مناسبة لمعظم أعمال التطوير اليومية.</li>
+      <li>لا تريد الاعتماد الكامل على Terminal.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم Claude Code؟</h2>
+    <p>اختر Claude Code إذا كنت:</p>
+    <ul>
+      <li>مطورًا متقدمًا وتعمل كثيرًا داخل Terminal.</li>
+      <li>تحتاج وكيلًا برمجيًا ينفذ مهام متعددة الخطوات.</li>
+      <li>تتعامل مع مشاريع كبيرة أو معقدة.</li>
+      <li>تريد أداة تقرأ الملفات وتشغل الأوامر وتساعد في سير العمل.</li>
+      <li>تعرف كيف تراجع التغييرات وتتحقق من النتائج بعناية.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>التقييم النهائي</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>الفئة</th>
+          <th>الفائز</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>سهولة الاستخدام</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>فهم المشروع داخل المحرر</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>Agent Workflow المتقدم</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>العمل داخل Terminal</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>تعديل عدة ملفات</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>بناء تطبيقات بسرعة</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>المشاريع الكبيرة والمعقدة</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+        <tr>
+          <td>المطور الفردي</td>
+          <td class="winner">Cursor</td>
+        </tr>
+        <tr>
+          <td>المطور المحترف المتقدم</td>
+          <td class="winner">Claude Code</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      الخلاصة واضحة: إذا كنت تبحث عن أفضل أداة برمجة بالذكاء الاصطناعي لمعظم الاستخدامات اليومية،
+      فإن <strong>Cursor</strong> هو الخيار الذي نوصي به.
+    </p>
+    <p>
+      أما إذا كنت مطورًا متقدمًا تعمل باستمرار داخل Terminal وتريد وكيلًا برمجيًا قويًا قادرًا على تنفيذ مهام معقدة،
+      فقد يكون <strong>Claude Code</strong> هو الخيار الأفضل لك.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>المصادر</h2>
+
+    <ul>
+      <li><a href="https://cursor.com" target="_blank">Cursor Official Website</a></li>
+      <li><a href="https://cursor.com/docs" target="_blank">Cursor Documentation</a></li>
+      <li><a href="https://code.claude.com" target="_blank">Claude Code Official Website</a></li>
+      <li><a href="https://code.claude.com/docs" target="_blank">Claude Code Documentation</a></li>
+      <li><a href="https://platform.claude.com/docs" target="_blank">Anthropic Documentation</a></li>
+    </ul>
+
+    <p>
+      تم إعداد هذه المقارنة بالاعتماد على الوثائق الرسمية للأدوات والمعلومات المتاحة حتى يونيو 2026.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>الأسئلة الشائعة</h2>
+
+    <details>
+      <summary>هل Cursor أفضل من Claude Code؟</summary>
+      <p>
+        لمعظم المستخدمين نعم، Cursor أفضل لأنه أسهل وأوضح داخل محرر الكود. لكن Claude Code قد يكون أفضل للمطورين المتقدمين الذين يعتمدون على Terminal.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل Claude Code مناسب للمبتدئين؟</summary>
+      <p>
+        يمكن استخدامه، لكنه ليس الخيار الأسهل للمبتدئين. Cursor غالبًا أفضل كبداية لأنه يقدم تجربة مرئية أوضح وأسهل في مراجعة التعديلات.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل لبناء تطبيق كامل؟</summary>
+      <p>
+        Cursor أفضل لمعظم المستخدمين عند بناء تطبيق كامل أو MVP لأنه يجمع بين سهولة الاستخدام وفهم المشروع وتعديل الملفات داخل المحرر.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للمطورين المحترفين؟</summary>
+      <p>
+        Claude Code قد يكون أفضل للمطور المحترف الذي يعمل كثيرًا داخل Terminal ويحتاج وكيلًا برمجيًا متقدمًا، بينما Cursor أفضل للإنتاجية اليومية داخل المحرر.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل يمكن استخدام Cursor و Claude Code معًا؟</summary>
+      <p>
+        نعم، يمكن للمطور استخدام Cursor كمحرر أساسي، واستخدام Claude Code للمهام المتقدمة داخل Terminal عند الحاجة.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أنسب لموقع أو مشروع صغير؟</summary>
+      <p>
+        Cursor غالبًا أنسب للمشاريع الصغيرة والمتوسطة لأنه أسرع وأسهل، ولا يتطلب إعدادًا متقدمًا أو اعتمادًا كبيرًا على Terminal.
+      </p>
+    </details>
+  </section>
+
+  <section class="cta">
+    <h2>اكتشف المزيد من المقارنات</h2>
+    <p>
+      راجع مقارنات Neora لاختيار أفضل أدوات الذكاء الاصطناعي حسب استخدامك.
+    </p>
+    <a class="back" href="/compare/">العودة إلى قسم المقارنات</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 NEORA AI — دليل أدوات الذكاء الاصطناعي
+</footer>
+
+</body>
+</html>
