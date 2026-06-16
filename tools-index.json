@@ -324,6 +324,18 @@
     "pricing_ar": "مجاني"
   },
   {
+    "slug": "lovable",
+    "title": "Lovable",
+    "url": "https://lovable.dev",
+    "category": "code",
+    "badge": "pro",
+    "rating": "4",
+    "icon": "🌊",
+    "desc_ar": "منصة ذكاء اصطناعي لإنشاء المواقع والتطبيقات من خلال الأوامر النصية،",
+    "desc_en": "AI-powered platform for building websites and web applications using",
+    "pricing_ar": "Freemium"
+  },
+  {
     "slug": "luma-ai",
     "title": "Luma AI",
     "url": "https://lumalabs.ai",
