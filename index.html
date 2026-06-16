@@ -218,13 +218,23 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:50
 
 <nav>
   <div class="logo" onclick="showPage('home')" style="font-family:monospace,sans-serif;letter-spacing:3px">NEORA</div>
+
   <ul>
     <li><a onclick="showPage('home');scrollToSection('tools-section')" data-key="nav_tools">الأدوات</a></li>
-    <li><a onclick="showPage('home');scrollToSection('categories-section')" data-key="nav_categories">التصنيفات</a></li> <li><a href="/blog">المدونة</a></li>
+
+    <li><a onclick="showPage('home');scrollToSection('categories-section')" data-key="nav_categories">التصنيفات</a></li>
+
+    <li><a href="/compare/">المقارنات</a></li>
+
+    <li><a href="/blog">المدونة</a></li>
+
     <li><a onclick="showPage('about')" data-key="nav_about">من نحن</a></li>
+
     <li><a onclick="showPage('contact')" data-key="nav_contact">تواصل معنا</a></li>
+
     <li><a onclick="showPage('home');scrollToSection('tools-section')" class="nav-cta" data-key="nav_cta">ابدأ مجاناً</a></li>
   </ul>
+
   <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('ar')" id="btnAr">🇸🇦 العربية</button>
     <button class="lang-btn" onclick="setLang('en')" id="btnEn">🇺🇸 English</button>
