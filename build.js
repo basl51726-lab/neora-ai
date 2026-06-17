@@ -1,10 +1,10 @@
 // build.js — Netlify Build Script
-// يقرأ كل ملفات _tools/*.md ويبني tools-index.json تلقائياً
+// يقرأ ملفات .md من الجذر ومن _tools/ ويبني tools-index.json
 
 const fs   = require('fs');
 const path = require('path');
 
-// ---- قراءة frontmatter بدون مكتبات خارجية ----
+// ---- قراءة frontmatter ----
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return {};
@@ -19,12 +19,12 @@ function parseFrontmatter(content) {
   return obj;
 }
 
-// ---- تحويل الأرقام العربية إلى إنجليزية ----
+// ---- تحويل الأرقام العربية ----
 function toLatinDigits(str) {
   return String(str || '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 }
 
-// ---- هل القيمة مسار صورة؟ (يكشف URL خارجي + مسار داخلي) ----
+// ---- هل القيمة مسار صورة؟ ----
 function isImageSrc(str) {
   if (!str) return false;
   const s = str.trim();
@@ -38,7 +38,7 @@ function isImageSrc(str) {
   );
 }
 
-// ---- بناء الـ slug من اسم الملف ----
+// ---- slug ----
 function slugify(str) {
   return (str || '')
     .toLowerCase()
@@ -55,129 +55,123 @@ const DEFAULT_ICONS = {
   research: '🔬', data: '📊',
 };
 
-// ---- قراءة الأدوات الأصلية ----
-const TOOLS_JSON = path.join(__dirname, 'tools-index.json');
-let baseTools = [];
-try {
-  baseTools = JSON.parse(fs.readFileSync(TOOLS_JSON, 'utf8'));
-  console.log(`[build] قراءة ${baseTools.length} أداة أصلية من tools-index.json`);
-} catch(e) {
-  console.warn('[build] tools-index.json غير موجود، سيتم إنشاؤه من _tools فقط');
+// ---- ملفات يجب تجاهلها في الجذر ----
+const IGNORE_FILES = new Set([
+  'README.md', 'CHANGELOG.md', 'LICENSE.md',
+  'ads.txt', '_redirects',
+]);
+
+// ---- جمع ملفات .md من مسار معين ----
+function collectMdFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter(f =>
+      f.endsWith('.md') &&
+      !IGNORE_FILES.has(f) &&
+      !f.startsWith('_') &&
+      !f.startsWith('.')
+    )
+    .map(f => path.join(dir, f));
 }
 
-// ---- قراءة ملفات _tools/*.md ----
-const TOOLS_DIR = path.join(__dirname, '_tools');
-let cmsTools = [];
+// ---- تحويل ملف .md إلى كائن أداة ----
+function mdFileToTool(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const fm = parseFrontmatter(content);
 
-if (fs.existsSync(TOOLS_DIR)) {
-  const files = fs.readdirSync(TOOLS_DIR).filter(f => f.endsWith('.md'));
-  console.log(`[build] وجدت ${files.length} أداة في _tools/`);
+  // تجاهل الملفات التي ليس فيها title أو url
+  if (!fm.title && !fm.url) return null;
 
-  cmsTools = files.map(file => {
-    const content = fs.readFileSync(path.join(TOOLS_DIR, file), 'utf8');
-    const fm = parseFrontmatter(content);
-    const fileSlug = path.basename(file, '.md');
-    const id  = fm.id || slugify(fm.title || fileSlug) || fileSlug;
-    const cat = fm.category || 'chat';
+  const fileSlug = path.basename(filePath, '.md');
+  const id  = fm.id || slugify(fm.title || fileSlug) || fileSlug;
+  const cat = fm.category || 'chat';
 
-    // تصحيح التقييم
-    const ratingRaw = toLatinDigits(fm.rating || '4.5');
-    const rating    = parseFloat(ratingRaw) || 4.5;
+  const ratingRaw = toLatinDigits(fm.rating || '4.5');
+  const rating    = parseFloat(ratingRaw) || 4.5;
 
-    // ── معالجة الأيقونة ──────────────────────────────────────
-    // icon  = مسار صورة مرفوعة: /images/uploads/tool.png
-    //       أو URL خارجي:       https://example.com/icon.png
-    //       أو إيموجي:           🤖
-    // icon_emoji = إيموجي احتياطي (الحقل الجديد في config.yml)
-    const iconRaw   = (fm.icon || '').trim();
-    const emojiRaw  = (fm.icon_emoji || '').trim();
-    const fallback  = emojiRaw || DEFAULT_ICONS[cat] || '🤖';
+  // ── معالجة الأيقونة ──
+  const iconRaw  = (fm.icon || '').trim();
+  const emojiRaw = (fm.icon_emoji || '').trim();
+  const fallback = emojiRaw || DEFAULT_ICONS[cat] || '🤖';
 
-    let iconFinal;   // ما يُعرض في الأيقونة (إيموجي أو مسار)
-    let iconImgFinal; // مسار الصورة إن وُجدت
+  let iconFinal, iconImgFinal;
+  if (isImageSrc(iconRaw)) {
+    iconFinal    = iconRaw;
+    iconImgFinal = iconRaw;
+  } else if (iconRaw) {
+    iconFinal    = iconRaw;
+    iconImgFinal = '';
+  } else {
+    iconFinal    = fallback;
+    iconImgFinal = '';
+  }
 
-    if (isImageSrc(iconRaw)) {
-      // صورة حقيقية مرفوعة
-      iconFinal    = iconRaw;   // نمرر المسار كاملاً لـ buildToolCard
-      iconImgFinal = iconRaw;
-    } else if (iconRaw) {
-      // إيموجي أو رمز نصي
-      iconFinal    = iconRaw;
-      iconImgFinal = '';
-    } else {
-      // فارغ — نستخدم الإيموجي الاحتياطي
-      iconFinal    = fallback;
-      iconImgFinal = '';
-    }
-    // ─────────────────────────────────────────────────────────
-
-    return {
-      id,
-      slug:    fileSlug,
-      name:    fm.title || '',
-      title:   fm.title || '',
-      cat,
-      ar:      fm.keywords_ar || fm.title || '',
-      en:      fm.keywords_en || fm.title || '',
-      badge:   fm.badge  || 'free',
-      icon:    iconFinal,
-      icon_img: iconImgFinal,
-      icon_emoji: fallback,
-      icon_bg: 'background:rgba(212,175,55,0.1)',
-      desc_ar: fm.desc_ar  || fm.description || '',
-      desc_en: fm.desc_en  || fm.description || '',
-      stars:   String(rating),
-      tags_ar: [cat],
-      aff_badge:        fm.commission ? `💰 ${fm.commission}` : '',
-      commission:       fm.commission || '',
-      url:              fm.affiliate_url || fm.url || '#',
-      rel:              fm.affiliate_url ? 'nofollow sponsored' : 'noopener',
-      official_partner: false,
-      pricing_ar:       fm.pricing_ar || '',
-      _source:          'cms',
-    };
-  });
-} else {
-  console.log('[build] مجلد _tools غير موجود بعد');
+  return {
+    id,
+    slug:    fileSlug,
+    name:    fm.title || '',
+    title:   fm.title || '',
+    cat,
+    ar:      fm.keywords_ar || fm.title || '',
+    en:      fm.keywords_en || fm.title || '',
+    badge:   fm.badge  || 'free',
+    icon:    iconFinal,
+    icon_img: iconImgFinal,
+    icon_emoji: fallback,
+    icon_bg: 'background:rgba(212,175,55,0.1)',
+    desc_ar: fm.desc_ar  || fm.description || '',
+    desc_en: fm.desc_en  || fm.description || '',
+    stars:   String(rating),
+    tags_ar: [cat],
+    aff_badge:        fm.commission ? `💰 ${fm.commission}` : '',
+    commission:       fm.commission || '',
+    url:              fm.affiliate_url || fm.url || '#',
+    rel:              fm.affiliate_url ? 'nofollow sponsored' : 'noopener',
+    official_partner: false,
+    pricing_ar:       fm.pricing_ar || '',
+    _source:          'cms',
+  };
 }
 
-// ---- دمج: الأدوات الأصلية + أدوات CMS ----
-const baseIds   = new Set(baseTools.map(t => t.id));
-const baseNames = new Set(baseTools.map(t => (t.name || t.title || '').toLowerCase().trim()));
+// ================================================================
+// التنفيذ الرئيسي
+// ================================================================
 
-function isDuplicate(ct) {
-  const ctName = (ct.name || ct.title || '').toLowerCase().trim();
-  return baseIds.has(ct.id) || baseNames.has(ctName);
-}
+const ROOT       = __dirname;
+const TOOLS_JSON = path.join(ROOT, 'tools-index.json');
 
-const newCmsTools = cmsTools.filter(t => !isDuplicate(t));
-const updatedCms  = cmsTools.filter(t =>  isDuplicate(t));
+// 1. اجمع ملفات .md من الجذر + من _tools/ إن وُجد
+const rootFiles  = collectMdFiles(ROOT);
+const toolsFiles = collectMdFiles(path.join(ROOT, '_tools'));
 
-const mergedBase = baseTools.map(bt => {
-  const btName = (bt.name || bt.title || '').toLowerCase().trim();
-  const updated = updatedCms.find(ct =>
-    ct.id === bt.id ||
-    (ct.name || ct.title || '').toLowerCase().trim() === btName
-  );
-  return updated ? { ...bt, ...updated } : bt;
-});
+// ادمجهم وأزل التكرار بالاسم
+const allFiles = [...new Map(
+  [...rootFiles, ...toolsFiles].map(f => [path.basename(f), f])
+).values()];
 
-const allTools = [...mergedBase, ...newCmsTools];
+console.log(`[build] ملفات .md: ${rootFiles.length} في الجذر + ${toolsFiles.length} في _tools/ = ${allFiles.length} إجمالاً`);
 
-// تأكد نهائي — احذف أي تكرار في id
-const seenIds = new Set();
-const deduped = allTools.filter(t => {
-  if (seenIds.has(t.id)) {
+// 2. حوّل كل ملف إلى كائن أداة
+const cmsTools = allFiles
+  .map(mdFileToTool)
+  .filter(Boolean);
+
+console.log(`[build] أدوات صالحة: ${cmsTools.length}`);
+
+// 3. إزالة التكرار بالـ id
+const seenIds   = new Set();
+const seenNames = new Set();
+const deduped   = cmsTools.filter(t => {
+  const name = (t.name || '').toLowerCase().trim();
+  if (seenIds.has(t.id) || seenNames.has(name)) {
     console.warn(`[build] ⚠️ تكرار محذوف: ${t.id}`);
     return false;
   }
   seenIds.add(t.id);
+  if (name) seenNames.add(name);
   return true;
 });
 
+// 4. اكتب الملف
 fs.writeFileSync(TOOLS_JSON, JSON.stringify(deduped, null, 2), 'utf8');
-
-console.log(`[build] ✅ tools-index.json محدّث: ${deduped.length} أداة`);
-console.log(`  - أدوات أصلية:        ${mergedBase.length}`);
-console.log(`  - أدوات جديدة من CMS: ${newCmsTools.length}`);
-console.log(`  - أدوات محدّثة:       ${updatedCms.length}`);
+console.log(`[build] ✅ tools-index.json: ${deduped.length} أداة`);
