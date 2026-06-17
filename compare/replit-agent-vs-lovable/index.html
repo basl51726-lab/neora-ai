@@ -1,1 +1,643 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>مقارنة Replit Agent و Lovable: أيهما أفضل لبناء التطبيقات؟ | Neora AI</title>
+  <meta name="description" content="مقارنة شاملة بين Replit Agent و Lovable من حيث بناء التطبيقات، إنشاء المواقع، تطوير MVP، سهولة الاستخدام، التحكم بالكود، النشر، والإنتاجية في 2026." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f7f4ec;
+      color: #1f2937;
+      line-height: 1.9;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5dcc7;
+      padding: 22px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #b8860b;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-right: 22px;
+      color: #1f2937;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .page {
+      max-width: 1050px;
+      margin: auto;
+      padding: 50px 22px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff8e6;
+      color: #a87912;
+      border: 1px solid #e5c76b;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.35;
+      margin: 0 0 18px;
+      color: #111827;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #a87912;
+      margin-top: 44px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #111827;
+      margin-top: 28px;
+    }
+
+    p, li {
+      font-size: 17px;
+      color: #374151;
+    }
+
+    a {
+      color: #a87912;
+    }
+
+    .last-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 1px solid #eadfbd;
+      margin: 28px 0 0;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+    }
+
+    .section {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .mini-card {
+      background: #ffffff;
+      border: 1px solid #eadfbd;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .mini-card span {
+      color: #a87912;
+      font-weight: 800;
+    }
+
+    .note {
+      background: #fff8e6;
+      border-right: 4px solid #b8860b;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin: 24px 0;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      margin: 24px 0;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #b8860b;
+      color: #ffffff;
+      padding: 15px;
+      text-align: right;
+    }
+
+    td {
+      border: 1px solid #eadfbd;
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    .winner {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    details {
+      background: #fffaf0;
+      border: 1px solid #eadfbd;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-bottom: 0;
+    }
+
+    .cta {
+      text-align: center;
+      background: #fff8e6;
+      border: 1px solid #e5c76b;
+      border-radius: 18px;
+      padding: 32px;
+      margin-top: 35px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 18px;
+      color: #a87912;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      th, td {
+        font-size: 14px;
+        padding: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="/">NEORA</a>
+  <nav>
+    <a href="/">الرئيسية</a>
+    <a href="/compare/">المقارنات</a>
+    <a href="/blog/">المدونة</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <span class="badge">مقارنة أدوات بناء التطبيقات بالذكاء الاصطناعي</span>
+
+    <h1>مقارنة Replit Agent و Lovable: أيهما أفضل لبناء التطبيقات والمواقع بالذكاء الاصطناعي؟</h1>
+
+    <p class="last-updated">
+      آخر تحديث: يونيو 2026
+    </p>
+
+    <p>
+      مقارنة شاملة بين Replit Agent و Lovable لمساعدة المطورين ورواد الأعمال على اختيار الأداة الأنسب لبناء التطبيقات،
+      إنشاء مواقع الويب، تطوير النماذج الأولية، إطلاق MVP، والتحكم في الكود وسير العمل.
+    </p>
+
+    <img class="hero-image" src="/images/replit-agent-vs-lovable.jpg" alt="Replit Agent vs Lovable comparison">
+  </section>
+
+  <section class="cards">
+    <div class="mini-card">
+      <strong>الأفضل للمطورين</strong>
+      <span>Replit Agent</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للمبتدئين</strong>
+      <span>Lovable</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل لبناء MVP بسرعة</strong>
+      <span>Lovable</span>
+    </div>
+    <div class="mini-card">
+      <strong>الأفضل للتحكم بالكود</strong>
+      <span>Replit Agent</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>نظرة سريعة</h2>
+    <p>
+      Replit Agent و Lovable من أبرز الأدوات الحديثة التي تساعد على بناء التطبيقات والمواقع باستخدام الذكاء الاصطناعي.
+      كلاهما يسمح لك بتحويل فكرة مكتوبة بلغة طبيعية إلى مشروع عملي، لكن الفرق بينهما يظهر في نوع المستخدم وطريقة العمل.
+    </p>
+    <p>
+      Replit Agent أقرب إلى بيئة تطوير كاملة مدعومة بوكيل ذكي، حيث يمكن إنشاء المشروع، تعديل الكود، تشغيل التطبيق، وإدارته من منصة واحدة.
+      أما Lovable فيركز على السرعة والبساطة وبناء واجهات وتطبيقات ويب بسرعة كبيرة، خصوصًا للمستخدمين غير التقنيين ورواد الأعمال.
+    </p>
+
+    <div class="note">
+      توصيتنا: اختر Replit Agent إذا كنت تريد مشروعًا قابلًا للتطوير والتحكم بالكود. واختر Lovable إذا كنت تريد بناء نموذج أولي أو تطبيق بسيط بسرعة وبدون تعقيد.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>جدول مقارنة سريع</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>المعيار</th>
+          <th>Replit Agent</th>
+          <th>Lovable</th>
+          <th>الأفضل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>سهولة الاستخدام</td>
+          <td>سهل نسبيًا، لكنه أفضل لمن لديهم فهم أساسي للتطوير.</td>
+          <td>سهل جدًا للمبتدئين ورواد الأعمال غير التقنيين.</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>بناء تطبيق MVP</td>
+          <td>قوي لبناء MVP قابل للتطوير لاحقًا.</td>
+          <td>ممتاز لبناء نموذج أولي سريع بواجهة جميلة.</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>التحكم بالكود</td>
+          <td>يوفر تحكمًا أكبر في الكود والبنية التقنية.</td>
+          <td>تحكم أقل مقارنة ببيئات التطوير الكاملة.</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>للمطورين</td>
+          <td>مناسب جدًا للمطورين والفرق التقنية.</td>
+          <td>مناسب أكثر للمؤسسين والمستخدمين غير التقنيين.</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>لغير المبرمجين</td>
+          <td>يمكن استخدامه، لكنه يتطلب معرفة تقنية أكثر.</td>
+          <td>مصمم ليكون بسيطًا وسريعًا لغير المبرمجين.</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>النشر والاستضافة</td>
+          <td>قوي بفضل بيئة Replit المتكاملة للتشغيل والنشر.</td>
+          <td>يوفر تجربة نشر سهلة وسريعة للمشاريع البسيطة.</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>المشاريع المعقدة</td>
+          <td>أفضل للمشاريع التي تحتاج backend وتعديلات تقنية.</td>
+          <td>أفضل للمشاريع الأبسط والواجهات السريعة.</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>ما هو Replit Agent؟</h2>
+    <p>
+      Replit Agent هو وكيل برمجي داخل منصة Replit يساعد المستخدم على بناء التطبيقات والمواقع من خلال الأوامر النصية.
+      يمكنه إنشاء ملفات المشروع، كتابة الكود، إصلاح الأخطاء، تشغيل التطبيق، والمساعدة في نشره من مكان واحد.
+    </p>
+    <p>
+      قوة Replit Agent أنه لا يعمل كمولد واجهات فقط، بل كجزء من بيئة تطوير كاملة. لذلك يناسب المطورين ورواد الأعمال الذين يريدون بناء مشروع حقيقي يمكن تطويره لاحقًا.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>ما هو Lovable؟</h2>
+    <p>
+      Lovable هي أداة لبناء التطبيقات والمواقع باستخدام الذكاء الاصطناعي، وتشتهر بقدرتها على تحويل وصف بسيط إلى واجهة تطبيق جاهزة بسرعة.
+      تركز الأداة على تجربة سهلة وبصرية تجعلها مناسبة للمبتدئين ورواد الأعمال الذين يريدون اختبار فكرة بسرعة.
+    </p>
+    <p>
+      إذا كان هدفك بناء صفحة هبوط أو نموذج أولي أو تطبيق ويب بسيط خلال وقت قصير، فإن Lovable يقدم تجربة ممتازة وسريعة مقارنة بكثير من الأدوات التقليدية.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>سهولة الاستخدام</h2>
+    <p>
+      Lovable يتفوق من ناحية البساطة. يمكنك كتابة وصف للفكرة، وسيبدأ في إنشاء واجهة وتدفق عمل واضح بسرعة.
+      هذا يجعله مناسبًا للمستخدمين غير التقنيين الذين لا يريدون الدخول في تفاصيل الكود أو إعداد بيئة التطوير.
+    </p>
+    <p>
+      Replit Agent سهل أيضًا، لكنه أقرب إلى بيئة تطوير حقيقية. لذلك قد يحتاج المستخدم إلى فهم بعض المفاهيم مثل الملفات، التشغيل، الأخطاء، والنشر.
+    </p>
+
+    <div class="note">
+      الفائز في سهولة الاستخدام: Lovable
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>بناء التطبيقات والـ MVP</h2>
+    <p>
+      إذا كنت تريد إطلاق نموذج أولي بسرعة، فإن Lovable ممتاز جدًا. يمكنه إنشاء واجهات جميلة وتجربة استخدام واضحة خلال وقت قصير، وهذا يجعله مفيدًا لاختبار الأفكار أمام العملاء أو المستثمرين.
+    </p>
+    <p>
+      Replit Agent مناسب أكثر عندما تريد أن يتحول النموذج الأولي إلى مشروع حقيقي. لأنه يمنحك تحكمًا أكبر في البنية التقنية والكود والتشغيل.
+    </p>
+
+    <div class="note">
+      الفائز لبناء MVP بسرعة: Lovable — والفائز للمشروع القابل للتوسع: Replit Agent
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>التحكم بالكود والتخصيص</h2>
+    <p>
+      Replit Agent يتفوق بوضوح في التحكم بالكود. لأنه يعمل داخل منصة Replit، ويمكنك مراجعة الملفات وتعديلها وتشغيل المشروع وفهم ما يحدث خلف الواجهة.
+    </p>
+    <p>
+      Lovable يقدم تجربة أسهل، لكنه لا يمنح نفس مستوى التحكم العميق في الكود مثل Replit Agent. لذلك قد يكون أقل مناسبة للمشاريع التي تحتاج تخصيصًا تقنيًا كبيرًا.
+    </p>
+
+    <div class="note">
+      الفائز في التحكم بالكود: Replit Agent
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>النشر والاستضافة</h2>
+    <p>
+      Replit لديه ميزة قوية لأنه يجمع بين الكتابة والتشغيل والنشر في منصة واحدة. هذا مناسب للمطورين الذين يريدون اختبار المشروع وتشغيله بسرعة دون إعدادات معقدة.
+    </p>
+    <p>
+      Lovable يقدم تجربة نشر سهلة أيضًا، لكنه يظل أقوى عندما يكون المشروع بسيطًا أو متوسط التعقيد. أما في المشاريع التي تحتاج تحكمًا كاملًا بالبنية الخلفية، فإن Replit Agent يكون أكثر مرونة.
+    </p>
+
+    <div class="note">
+      الفائز في النشر للمشاريع التقنية: Replit Agent
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>المميزات والعيوب</h2>
+
+    <h3>مميزات Replit Agent</h3>
+    <ul>
+      <li>مناسب للمطورين والمشاريع الجدية.</li>
+      <li>يوفر تحكمًا أفضل في الكود.</li>
+      <li>يدعم بناء وتشغيل ونشر المشروع من منصة واحدة.</li>
+      <li>مفيد لبناء تطبيقات قابلة للتطوير.</li>
+      <li>يناسب المشاريع التي تحتاج backend أو منطق برمجي أعمق.</li>
+    </ul>
+
+    <h3>عيوب Replit Agent</h3>
+    <ul>
+      <li>قد يكون أقل سهولة للمبتدئين مقارنة بـ Lovable.</li>
+      <li>يتطلب فهمًا أساسيًا للتطوير للاستفادة الكاملة.</li>
+      <li>قد يكون زائدًا عن الحاجة للمشاريع البسيطة جدًا.</li>
+    </ul>
+
+    <h3>مميزات Lovable</h3>
+    <ul>
+      <li>سهل جدًا للمبتدئين ورواد الأعمال.</li>
+      <li>ممتاز لإنشاء MVP بسرعة.</li>
+      <li>ينتج واجهات جميلة بسرعة.</li>
+      <li>مناسب لاختبار الأفكار قبل بناء المنتج النهائي.</li>
+      <li>لا يحتاج خبرة تقنية عميقة للبدء.</li>
+    </ul>
+
+    <h3>عيوب Lovable</h3>
+    <ul>
+      <li>تحكم أقل في الكود مقارنة بـ Replit Agent.</li>
+      <li>قد لا يكون الأفضل للمشاريع المعقدة.</li>
+      <li>قد تحتاج لاحقًا لنقل المشروع أو إعادة تنظيمه إذا كبر المنتج.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم Replit Agent؟</h2>
+    <p>اختر Replit Agent إذا كنت:</p>
+    <ul>
+      <li>مطورًا أو لديك معرفة تقنية أساسية.</li>
+      <li>تريد بناء تطبيق حقيقي قابل للتطوير.</li>
+      <li>تحتاج تحكمًا أكبر في الكود والملفات.</li>
+      <li>تريد تشغيل ونشر المشروع من نفس المنصة.</li>
+      <li>تعمل على فكرة SaaS أو مشروع تقني جدي.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>من يستخدم Lovable؟</h2>
+    <p>اختر Lovable إذا كنت:</p>
+    <ul>
+      <li>رائد أعمال يريد اختبار فكرة بسرعة.</li>
+      <li>تريد بناء MVP أو صفحة هبوط أو تطبيق بسيط.</li>
+      <li>لا تريد التعامل مع تفاصيل الكود في البداية.</li>
+      <li>تحتاج واجهة جميلة بسرعة.</li>
+      <li>تريد تحويل فكرة إلى نموذج قابل للعرض خلال وقت قصير.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>التقييم النهائي</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>الفئة</th>
+          <th>الفائز</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>سهولة الاستخدام</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>بناء MVP بسرعة</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>التحكم بالكود</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>المطورون</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>غير المبرمجين</td>
+          <td class="winner">Lovable</td>
+        </tr>
+        <tr>
+          <td>المشاريع القابلة للتوسع</td>
+          <td class="winner">Replit Agent</td>
+        </tr>
+        <tr>
+          <td>اختبار الأفكار بسرعة</td>
+          <td class="winner">Lovable</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      الخلاصة: إذا كنت تريد بناء نموذج أولي أو تطبيق سريع بدون تعقيد، فإن <strong>Lovable</strong> هو الخيار الأسهل والأسرع.
+    </p>
+    <p>
+      أما إذا كنت تريد مشروعًا أكثر جدية وقابلًا للتطوير مع تحكم أفضل في الكود والتشغيل والنشر، فإن <strong>Replit Agent</strong> هو الخيار الأقوى.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>المصادر</h2>
+
+    <ul>
+      <li><a href="https://replit.com/" target="_blank">Replit Official Website</a></li>
+      <li><a href="https://docs.replit.com/" target="_blank">Replit Documentation</a></li>
+      <li><a href="https://lovable.dev/" target="_blank">Lovable Official Website</a></li>
+      <li><a href="https://docs.lovable.dev/" target="_blank">Lovable Documentation</a></li>
+    </ul>
+
+    <p>
+      تم إعداد هذه المقارنة بالاعتماد على الوثائق الرسمية للأدوات والمعلومات المتاحة حتى يونيو 2026.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>الأسئلة الشائعة</h2>
+
+    <details>
+      <summary>هل Replit Agent أفضل من Lovable؟</summary>
+      <p>
+        Replit Agent أفضل للمطورين والمشاريع القابلة للتوسع، بينما Lovable أفضل للمبتدئين وبناء النماذج الأولية بسرعة.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل لغير المبرمجين؟</summary>
+      <p>
+        Lovable غالبًا أفضل لغير المبرمجين لأنه يركز على البساطة وإنشاء واجهات وتطبيقات بسرعة من خلال الوصف النصي.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للمطورين؟</summary>
+      <p>
+        Replit Agent أفضل للمطورين لأنه يوفر تحكمًا أكبر بالكود وبيئة تشغيل ونشر متكاملة داخل Replit.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل يمكن بناء تطبيق SaaS باستخدام Lovable؟</summary>
+      <p>
+        يمكن استخدام Lovable لبناء نموذج أولي أو نسخة أولى من تطبيق SaaS، لكن المشاريع الكبيرة قد تحتاج لاحقًا إلى تطوير أعمق وتحكم أكبر في البنية التقنية.
+      </p>
+    </details>
+
+    <details>
+      <summary>هل يمكن استخدام Replit Agent و Lovable معًا؟</summary>
+      <p>
+        نعم، يمكن استخدام Lovable لتصميم نموذج أولي سريع، ثم استخدام Replit Agent لتطوير المشروع بشكل أعمق وتحسين الكود والتشغيل.
+      </p>
+    </details>
+
+    <details>
+      <summary>أيهما أفضل للشركات الناشئة؟</summary>
+      <p>
+        إذا كان الهدف اختبار فكرة بسرعة فـ Lovable مناسب جدًا. أما إذا كان الهدف بناء منتج قابل للتوسع فـ Replit Agent أقوى.
+      </p>
+    </details>
+  </section>
+
+  <section class="cta">
+    <h2>اكتشف المزيد من المقارنات</h2>
+    <p>
+      راجع مقارنات Neora لاختيار أفضل أدوات الذكاء الاصطناعي حسب استخدامك.
+    </p>
+    <a class="back" href="/compare/">العودة إلى قسم المقارنات</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 NEORA AI — دليل أدوات الذكاء الاصطناعي
+</footer>
+
+</body>
+</html>
 
