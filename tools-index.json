@@ -420,6 +420,18 @@
     "pricing_ar": "مجاني"
   },
   {
+    "slug": "openai-codex",
+    "title": "OpenAI Codex",
+    "url": "https://openai.com/codex/",
+    "category": "code",
+    "badge": "new",
+    "rating": "4",
+    "icon": "https://openai.com/favicon.ico",
+    "desc_ar": "OpenAI Codex هو وكيل برمجي مدعوم بالذكاء الاصطناعي من OpenAI يساعد",
+    "desc_en": "OpenAI Codex is an AI coding agent developed by OpenAI that helps",
+    "pricing_ar": "حسب خطة OpenAI"
+  },
+  {
     "slug": "otter-ai",
     "title": "Otter.ai",
     "url": "https://otter.ai",
