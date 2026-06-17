@@ -3,8 +3,8 @@ title: Claude Code
 url: https://www.anthropic.com/claude-code
 category: code
 badge: new
-rating: 3
-icon: /images/uploads/
+rating: 4
+icon: 💻
 desc_ar: Claude Code هو وكيل برمجي من Anthropic يعمل مباشرة من سطر الأوامر،
   ويساعد المطورين على كتابة الأكواد، تحليل المشاريع الكبيرة، إصلاح الأخطاء،
   إنشاء الملفات، وتنفيذ المهام البرمجية باستخدام الذكاء الاصطناعي.
