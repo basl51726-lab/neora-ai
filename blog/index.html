@@ -1021,7 +1021,17 @@ async function loadToolsFromJSON() {
       ...t,
       _cat: normalizeCategory(t.cat || t.category || '')
     }));
-    // Sort: put CMS tools (no aff_badge) after main tools, then alphabetically
+    // Deduplicate: منع ظهور نفس الأداة مرتين بأي id أو name مكرر
+    const _seenIds   = new Set();
+    const _seenNames = new Set();
+    allTools = allTools.filter(t => {
+      const tid   = (t.id || '').toLowerCase().trim();
+      const tname = (t.name || t.title || '').toLowerCase().trim();
+      if (_seenIds.has(tid) || _seenNames.has(tname)) return false;
+      _seenIds.add(tid);
+      if (tname) _seenNames.add(tname);
+      return true;
+    });
     renderTools(allTools);
     reinitSearch();
     console.log('[NEORA] Loaded', allTools.length, 'tools from tools-index.json');
