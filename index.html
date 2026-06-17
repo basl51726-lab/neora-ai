@@ -217,693 +217,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:50
   </div>
   <div class="no-results" id="noResults" data-key="no_res">لا توجد نتائج. جرّب كلمة أخرى.</div>
   <div class="tools-grid" id="toolsGrid">
-
-    <!-- ChatGPT -->
-    <div class="tool-card" data-cat="chat" data-name="ChatGPT Plus" data-ar="دردشة كتابة تحليل ذكاء" data-en="chat writing analysis ai openai" onclick="openTool('chatgpt')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🤖</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="aff-badge">💰 20%</div>
-      <div class="tool-name">ChatGPT Plus</div>
-      <div class="tool-desc" data-desc-ar="أشهر نموذج دردشة ذكاء اصطناعي في العالم. يجيب على الأسئلة ويساعد في الكتابة والتحليل." data-desc-en="">أشهر نموذج دردشة ذكاء اصطناعي في العالم. يجيب على الأسئلة ويساعد في الكتابة والتحليل.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Chat">دردشة</span><span class="tag" data-key-tag="Writing">كتابة</span></div><div class="tool-stars">★ 4.9</div></div>
-      <a href="https://openai.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$4 لكل اشتراك</div>
-    </div>
-
-    <!-- Midjourney -->
-    <div class="tool-card" data-cat="image" data-name="Midjourney" data-ar="صور فن تصميم توليد إبداع" data-en="images art design generation creative" onclick="openTool('midjourney')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎨</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="aff-badge">💰 30%</div>
-      <div class="tool-name">Midjourney</div>
-      <div class="tool-desc" data-desc-ar="توليد صور فنية مذهلة من النص. من أبرز أدوات الذكاء الاصطناعي في توليد الصور الإبداعية." data-desc-en="Generate stunning AI art from text. One of the leading AI tools for creative image quality.">توليد صور فنية مذهلة من النص. من أبرز أدوات الذكاء الاصطناعي في توليد الصور الإبداعية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Art">فن</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://midjourney.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$9 لكل اشتراك</div>
-    </div>
-
-    <!-- GitHub Copilot -->
-    <div class="tool-card" data-cat="code" data-name="GitHub Copilot" data-ar="كود برمجة مطورين تطوير" data-en="code programming developers github" onclick="openTool('github-copilot')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">💻</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="aff-badge">💰 25%</div>
-      <div class="tool-name">GitHub Copilot</div>
-      <div class="tool-desc" data-desc-ar="مساعد برمجة ذكي يكتب الكود معك في الوقت الفعلي." data-desc-en="Smart coding assistant that writes code with you in real-time.">مساعد برمجة ذكي يكتب الكود معك في الوقت الفعلي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag" data-key-tag="Dev">برمجة</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$2.5 لكل اشتراك</div>
-    </div>
-
-    <!-- Jasper AI -->
-    <div class="tool-card" data-cat="writing" data-name="Jasper AI" data-ar="كتابة تسويق محتوى مقالات" data-en="writing marketing content articles" onclick="openTool('jasper')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✍️</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="aff-badge">💰 30%</div>
-      <div class="tool-name">Jasper AI</div>
-      <div class="tool-desc" data-desc-ar="منصة كتابة محتوى تسويقي بالذكاء الاصطناعي." data-desc-en="AI-powered marketing content platform.">منصة كتابة محتوى تسويقي بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Writing">كتابة</span><span class="tag" data-key-tag="Marketing">تسويق</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://jasper.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$14 لكل اشتراك</div>
-    </div>
-
-    <!-- Runway ML -->
-    <div class="tool-card" data-cat="video" data-name="Runway ML" data-ar="فيديو إبداع تحرير توليد" data-en="video creative editing generation" onclick="openTool('runway')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎬</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="aff-badge">💰 20%</div>
-      <div class="tool-name">Runway ML</div>
-      <div class="tool-desc" data-desc-ar="توليد وتحرير فيديو بالذكاء الاصطناعي." data-desc-en="AI video generation and editing.">توليد وتحرير فيديو بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Creative">إبداع</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://runwayml.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$3 لكل اشتراك</div>
-    </div>
-
-    <!-- ElevenLabs -->
-    <div class="tool-card" data-cat="voice" data-name="ElevenLabs" data-affiliate="true" data-ar="صوت تعليق لغات نطق" data-en="voice narration languages text-speech" onclick="openTool('elevenlabs')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎙️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="aff-badge">💰 22% متكررة</div>
-      <div style="display:inline-flex;align-items:center;gap:4px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:2px 10px;border-radius:50px;font-size:10px;font-weight:700;margin-bottom:8px">✅ شريك رسمي</div>
-      <div class="tool-name">ElevenLabs</div>
-      <div class="tool-desc" data-desc-ar="تحويل النص إلى صوت بشري طبيعي بأكثر من 30 لغة." data-desc-en="Convert text to natural human voice in 30+ languages.">تحويل النص إلى صوت بشري طبيعي بأكثر من 30 لغة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Voice">صوت</span><span class="tag" data-key-tag="Narration">تعليق</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://try.elevenlabs.io/s9z9n5g72f7s" target="_blank" rel="nofollow sponsored" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$2.2 لكل اشتراك</div>
-    </div>
-
-    <!-- DALL-E 3 -->
-    <div class="tool-card" data-cat="image" data-name="DALL-E 3" data-ar="صور توليد openai رسم" data-en="images generation openai drawing" onclick="openTool('dalle3')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🖼️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="aff-badge">💰 20%</div>
-      <div class="tool-name">DALL-E 3</div>
-      <div class="tool-desc" data-desc-ar="نموذج OpenAI لتوليد الصور المتكامل مع ChatGPT." data-desc-en="">نموذج OpenAI لتوليد الصور المتكامل مع ChatGPT.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="OpenAI">OpenAI</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://openai.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$4 لكل اشتراك</div>
-    </div>
-
-    <!-- Julius AI -->
-    <div class="tool-card" data-cat="data" data-name="Julius AI" data-ar="بيانات تحليل جداول اكسل" data-en="data analysis spreadsheets excel" onclick="openTool('julius')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📊</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="aff-badge">💰 25%</div>
-      <div class="tool-name">Julius AI</div>
-      <div class="tool-desc" data-desc-ar="تحليل البيانات والجداول بالذكاء الاصطناعي." data-desc-en="AI data analysis and spreadsheet tool.">تحليل البيانات والجداول بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Data">بيانات</span><span class="tag" data-key-tag="Analysis">تحليل</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://julius.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-      <div class="aff-commission">$5 لكل اشتراك</div>
-    </div>
-
-    <!-- Claude -->
-    <div class="tool-card" data-cat="code" data-name="Claude" data-ar="كود تحليل كتابة anthropic" data-en="code analysis writing anthropic" onclick="openTool('claude')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">⚡</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="tool-name">Claude</div>
-      <div class="tool-desc" data-desc-ar="مساعد ذكاء اصطناعي من Anthropic متميز في التحليل العميق." data-desc-en="AI assistant by Anthropic. Exceptional in deep analysis.">مساعد ذكاء اصطناعي من Anthropic متميز في التحليل العميق.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Analysis">تحليل</span><span class="tag" data-key-tag="Code">كود</span></div><div class="tool-stars">★ 4.9</div></div>
-      <a href="https://claude.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Google Gemini -->
-    <div class="tool-card" data-cat="chat" data-name="Google Gemini" data-ar="دردشة بحث جوجل ذكاء" data-en="chat google search ai assistant" onclick="openTool('gemini')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌟</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Google Gemini</div>
-      <div class="tool-desc" data-desc-ar="مساعد الذكاء الاصطناعي من Google. متكامل مع خدمات Google ويدعم البحث الفوري." data-desc-en="">مساعد الذكاء الاصطناعي من Google. متكامل مع خدمات Google ويدعم البحث الفوري.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Chat">دردشة</span><span class="tag" data-key-tag="Search">بحث</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://gemini.google.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Perplexity -->
-    <div class="tool-card" data-cat="chat" data-name="Perplexity AI" data-ar="بحث ذكاء اجابات مصادر" data-en="search ai answers sources research" onclick="openTool('perplexity')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🔍</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Perplexity AI</div>
-      <div class="tool-desc" data-desc-ar="محرك بحث ذكي يجيب على أسئلتك مع مصادر موثوقة فورية." data-desc-en="AI search engine that answers questions with verified sources.">محرك بحث ذكي يجيب على أسئلتك مع مصادر موثوقة فورية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Search">بحث</span><span class="tag" data-key-tag="Sources">مصادر</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://perplexity.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Microsoft Copilot -->
-    <div class="tool-card" data-cat="chat" data-name="Microsoft Copilot" data-ar="مايكروسوفت ذكاء دردشة" data-en="microsoft copilot chat ai windows" onclick="openTool('copilot-ms')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🪟</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Microsoft Copilot</div>
-      <div class="tool-desc" data-desc-ar="مساعد Microsoft المدعوم بـ GPT-4. مدمج في Windows وOffice." data-desc-en="Microsoft assistant powered by GPT-4, integrated in Windows and Office.">مساعد Microsoft المدعوم بـ GPT-4. مدمج في Windows وOffice.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Chat">دردشة</span><span class="tag" data-key-tag="Microsoft">مايكروسوفت</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://copilot.microsoft.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Grok -->
-    <div class="tool-card" data-cat="chat" data-name="Grok" data-ar="تويتر اكس دردشة ذكاء" data-en="twitter x chat ai grok" onclick="openTool('grok')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">𝕏</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Grok</div>
-      <div class="tool-desc" data-desc-ar="مساعد الذكاء الاصطناعي من xAI. يتميز بالوصول الفوري لأخبار X/Twitter." data-desc-en="xAI assistant with real-time access to X/Twitter news.">مساعد الذكاء الاصطناعي من xAI. يتميز بالوصول الفوري لأخبار X/Twitter.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Chat">دردشة</span><span class="tag" data-key-tag="News">أخبار</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://x.com/grok" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- DeepSeek -->
-    <div class="tool-card" data-cat="chat" data-name="DeepSeek" data-ar="دردشة ذكاء اصطناعي صيني مجاني" data-en="chat ai chinese free deepseek" onclick="openTool('deepseek')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🔵</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">DeepSeek</div>
-      <div class="tool-desc" data-desc-ar="نموذج ذكاء اصطناعي صيني قوي ومجاني. يتفوق على كثير من النماذج في البرمجة والتحليل." data-desc-en="Powerful free Chinese AI model. Outperforms many models in coding and analysis.">نموذج ذكاء اصطناعي صيني قوي ومجاني. يتفوق على كثير من النماذج في البرمجة والتحليل.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">دردشة</span><span class="tag">كود</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://chat.deepseek.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Mistral -->
-    <div class="tool-card" data-cat="chat" data-name="Mistral AI" data-ar="دردشة ذكاء اصطناعي أوروبي مفتوح المصدر" data-en="chat ai european open source mistral" onclick="openTool('mistral')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌊</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Mistral AI</div>
-      <div class="tool-desc" data-desc-ar="نموذج ذكاء اصطناعي أوروبي مفتوح المصدر. سريع ودقيق مع احترام الخصوصية." data-desc-en="European open-source AI model. Fast and accurate with privacy-first approach.">نموذج ذكاء اصطناعي أوروبي مفتوح المصدر. سريع ودقيق مع احترام الخصوصية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">دردشة</span><span class="tag">مفتوح المصدر</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://chat.mistral.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Poe -->
-    <div class="tool-card" data-cat="chat" data-name="Poe" data-ar="دردشة منصة نماذج متعددة quora" data-en="chat platform multiple models quora poe" onclick="openTool('poe')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🤹</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Poe</div>
-      <div class="tool-desc" data-desc-ar="منصة من Quora تجمع ChatGPT وClaude وGemini وغيرها في مكان واحد." data-desc-en="Quora's platform combining ChatGPT, Claude, Gemini and more in one place.">منصة من Quora تجمع ChatGPT وClaude وGemini وغيرها في مكان واحد.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">دردشة</span><span class="tag">متعدد النماذج</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://poe.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Pi AI -->
-    <div class="tool-card" data-cat="chat" data-name="Pi AI" data-ar="دردشة مساعد شخصي inflection pi" data-en="chat personal assistant inflection pi" onclick="openTool('pi-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">π</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Pi AI</div>
-      <div class="tool-desc" data-desc-ar="مساعد شخصي من Inflection AI. يركز على المحادثة الطبيعية والدعم العاطفي." data-desc-en="Personal assistant from Inflection AI. Focuses on natural conversation and emotional support.">مساعد شخصي من Inflection AI. يركز على المحادثة الطبيعية والدعم العاطفي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">دردشة</span><span class="tag">مساعد شخصي</span></div><div class="tool-stars">★ 4.3</div></div>
-      <a href="https://pi.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Stable Diffusion -->
-    <div class="tool-card" data-cat="image" data-name="Stable Diffusion" data-ar="صور توليد مجاني مفتوح المصدر" data-en="images generation free open source" onclick="openTool('stable-diffusion')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌊</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Stable Diffusion</div>
-      <div class="tool-desc" data-desc-ar="نموذج توليد صور مفتوح المصدر. يمكن تشغيله محلياً أو عبر الإنترنت مجاناً." data-desc-en="Open-source image generation model. Run locally or online for free.">نموذج توليد صور مفتوح المصدر. يمكن تشغيله محلياً أو عبر الإنترنت مجاناً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Free">مجاني</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://stability.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Adobe Firefly -->
-    <div class="tool-card" data-cat="image" data-name="Adobe Firefly" data-ar="أدوبي صور تصميم إبداع" data-en="adobe images design creative firefly" onclick="openTool('adobe-firefly')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🔥</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Adobe Firefly</div>
-      <div class="tool-desc" data-desc-ar="أداة توليد الصور من Adobe. مصممة للمصممين المحترفين ومتكاملة مع Photoshop." data-desc-en="">أداة توليد الصور من Adobe. مصممة للمصممين المحترفين ومتكاملة مع Photoshop.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Design">تصميم</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://firefly.adobe.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Ideogram -->
-    <div class="tool-card" data-cat="image" data-name="Ideogram" data-ar="صور نصوص تصميم شعار" data-en="images text design logo ideogram" onclick="openTool('ideogram')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">💡</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Ideogram</div>
-      <div class="tool-desc" data-desc-ar="أداة متميزة لتوليد صور تحتوي على نصوص واضحة وشعارات." data-desc-en="A great tool for generating images with clear text and logos.">أداة متميزة لتوليد صور تحتوي على نصوص واضحة وشعارات.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Text">نصوص</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://ideogram.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Leonardo AI -->
-    <div class="tool-card" data-cat="image" data-name="Leonardo AI" data-ar="صور فن شخصيات ألعاب" data-en="images art characters games" onclick="openTool('leonardo')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🦁</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Leonardo AI</div>
-      <div class="tool-desc" data-desc-ar="منصة توليد صور متقدمة للمبدعين ومطوري الألعاب." data-desc-en="Advanced image generation platform for creators and game developers.">منصة توليد صور متقدمة للمبدعين ومطوري الألعاب.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Games">ألعاب</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://leonardo.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Flux AI -->
-    <div class="tool-card" data-cat="image" data-name="Flux AI" data-ar="صور توليد flux جديد قوي" data-en="images generation flux ai new powerful" onclick="openTool('flux-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">⚡</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="tool-name">Flux AI</div>
-      <div class="tool-desc" data-desc-ar="نموذج توليد صور متقدم وقوي. يتميز بجودة عالية في الواقعية والتفاصيل." data-desc-en="Powerful image generation model with high realism and detail.">نموذج توليد صور متقدم وقوي. يتميز بجودة عالية في الواقعية والتفاصيل.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">واقعية</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://flux1.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Playground AI -->
-    <div class="tool-card" data-cat="image" data-name="Playground AI" data-ar="صور توليد مجاني سهل playground" data-en="images generation free easy playground" onclick="openTool('playground-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎮</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Playground AI</div>
-      <div class="tool-desc" data-desc-ar="منصة توليد صور مجانية وسهلة الاستخدام. مثالية للمبتدئين مع نتائج احترافية." data-desc-en="Free and easy image generation platform. Perfect for beginners with professional results.">منصة توليد صور مجانية وسهلة الاستخدام. مثالية للمبتدئين مع نتائج احترافية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">مجاني</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://playground.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Bing Image Creator -->
-    <div class="tool-card" data-cat="image" data-name="Bing Image Creator" data-ar="صور مايكروسوفت بينج مجاني توليد" data-en="images microsoft bing free generation creator" onclick="openTool('bing-image')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🪟</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Bing Image Creator</div>
-      <div class="tool-desc" data-desc-ar="أداة توليد الصور المجانية من Microsoft. مدعومة بـ DALL-E ومتاحة للجميع بدون اشتراك." data-desc-en="Free image generation tool from Microsoft. Powered by DALL-E and available to everyone.">أداة توليد الصور المجانية من Microsoft. مدعومة بـ DALL-E ومتاحة للجميع بدون اشتراك.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">مجاني</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://www.bing.com/images/create" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Freepik AI -->
-    <div class="tool-card" data-cat="image" data-name="Freepik AI" data-ar="صور تصميم فريبيك توليد قوالب" data-en="images design freepik generation templates" onclick="openTool('freepik-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎨</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Freepik AI</div>
-      <div class="tool-desc" data-desc-ar="منصة Freepik الشهيرة مع ذكاء اصطناعي لتوليد الصور والتصاميم الاحترافية." data-desc-en="Famous Freepik platform with AI for generating professional images and designs.">منصة Freepik الشهيرة مع ذكاء اصطناعي لتوليد الصور والتصاميم الاحترافية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">تصميم</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://www.freepik.com/ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- NightCafe -->
-    <div class="tool-card" data-cat="image" data-name="NightCafe" data-ar="صور فني إبداعي nightcafe توليد" data-en="images art creative nightcafe generation" onclick="openTool('nightcafe')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌙</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">NightCafe</div>
-      <div class="tool-desc" data-desc-ar="منصة توليد صور فنية وإبداعية. تدعم أنماطاً فنية متعددة مع مجتمع نشط." data-desc-en="Artistic and creative image generation platform with active community.">منصة توليد صور فنية وإبداعية. تدعم أنماطاً فنية متعددة مع مجتمع نشط.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">فن</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://nightcafe.studio" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Artbreeder -->
-    <div class="tool-card" data-cat="image" data-name="Artbreeder" data-ar="صور دمج تعديل إبداع artbreeder" data-en="images blend edit creative artbreeder" onclick="openTool('artbreeder')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🧬</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Artbreeder</div>
-      <div class="tool-desc" data-desc-ar="أداة فريدة لدمج وتعديل الصور بالذكاء الاصطناعي. أنشئ وجوهاً وشخصيات ومناظر طبيعية مذهلة." data-desc-en="Unique tool for blending and editing images with AI.">أداة فريدة لدمج وتعديل الصور بالذكاء الاصطناعي. أنشئ وجوهاً وشخصيات ومناظر طبيعية مذهلة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">دمج</span></div><div class="tool-stars">★ 4.3</div></div>
-      <a href="https://artbreeder.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Fotor AI -->
-    <div class="tool-card" data-cat="image" data-name="Fotor AI" data-ar="صور تحرير توليد fotor تصميم" data-en="images edit generation fotor design" onclick="openTool('fotor-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📸</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Fotor AI</div>
-      <div class="tool-desc" data-desc-ar="منصة شاملة لتحرير وتوليد الصور بالذكاء الاصطناعي. تجمع بين التحرير الاحترافي والتوليد." data-desc-en="Comprehensive platform for AI photo editing and generation.">منصة شاملة لتحرير وتوليد الصور بالذكاء الاصطناعي. تجمع بين التحرير الاحترافي والتوليد.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">تحرير</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://fotor.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Picsart AI -->
-    <div class="tool-card" data-cat="image" data-name="Picsart AI" data-ar="صور موبايل تحرير picsart إبداع" data-en="images mobile edit picsart creative" onclick="openTool('picsart-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🖌️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Picsart AI</div>
-      <div class="tool-desc" data-desc-ar="تطبيق تحرير صور شهير مع ميزات ذكاء اصطناعي قوية. مناسب للموبايل وسوشيال ميديا." data-desc-en="Popular photo editing app with powerful AI features. Best for mobile and social media.">تطبيق تحرير صور شهير مع ميزات ذكاء اصطناعي قوية. مناسب للموبايل وسوشيال ميديا.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">موبايل</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://picsart.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Clipdrop -->
-    <div class="tool-card" data-cat="image" data-name="Clipdrop" data-ar="صور أدوات متعددة clipdrop تحرير" data-en="images multiple tools clipdrop edit" onclick="openTool('clipdrop')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✂️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Clipdrop</div>
-      <div class="tool-desc" data-desc-ar="مجموعة أدوات صور AI من Stability AI. إزالة الخلفية وتحسين الجودة وتوليد الصور في مكان واحد." data-desc-en="AI image tools suite from Stability AI.">مجموعة أدوات صور AI من Stability AI. إزالة الخلفية وتحسين الجودة وتوليد الصور في مكان واحد.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">صور</span><span class="tag">أدوات</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://clipdrop.co" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Sora -->
-    <div class="tool-card" data-cat="video" data-name="Sora" data-ar="فيديو أوبن اي توليد" data-en="video openai generation sora" onclick="openTool('sora')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎥</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Sora</div>
-      <div class="tool-desc" data-desc-ar="نموذج توليد الفيديو من OpenAI. ينتج فيديوهات واقعية مذهلة من النص." data-desc-en="OpenAI video generation model producing realistic videos from text.">نموذج توليد الفيديو من OpenAI. ينتج فيديوهات واقعية مذهلة من النص.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="OpenAI">OpenAI</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://sora.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Kling AI -->
-    <div class="tool-card" data-cat="video" data-name="Kling AI" data-ar="فيديو صيني توليد" data-en="video generation kling chinese" onclick="openTool('kling')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎞️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Kling AI</div>
-      <div class="tool-desc" data-desc-ar="منصة توليد فيديو صينية متقدمة بجودة عالية ومجانية جزئياً." data-desc-en="Advanced Chinese video generation platform with high quality.">منصة توليد فيديو صينية متقدمة بجودة عالية ومجانية جزئياً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Generation">توليد</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://klingai.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- HeyGen -->
-    <div class="tool-card" data-cat="video" data-name="HeyGen" data-ar="فيديو أفاتار تقديم" data-en="video avatar presentation heygen" onclick="openTool('heygen')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">👤</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">HeyGen</div>
-      <div class="tool-desc" data-desc-ar="إنشاء فيديوهات تقديمية بأفاتار واقعي يتحدث بصوتك." data-desc-en="Create presentation videos with realistic AI avatars.">إنشاء فيديوهات تقديمية بأفاتار واقعي يتحدث بصوتك.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Avatar">أفاتار</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://heygen.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Veo 2 -->
-    <div class="tool-card" data-cat="video" data-name="Veo 2" data-ar="فيديو جوجل توليد سينمائي deepmind" data-en="video google generation cinematic deepmind veo" onclick="openTool('veo2')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎬</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Veo 2</div>
-      <div class="tool-desc" data-desc-ar="نموذج توليد الفيديو من Google DeepMind. ينتج فيديوهات واقعية بجودة سينمائية مذهلة." data-desc-en="Google DeepMind video generation model. Produces cinematic quality realistic videos.">نموذج توليد الفيديو من Google DeepMind. ينتج فيديوهات واقعية بجودة سينمائية مذهلة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">فيديو</span><span class="tag">Google</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://deepmind.google/technologies/veo" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Hailuo AI -->
-    <div class="tool-card" data-cat="video" data-name="Hailuo AI" data-ar="فيديو صيني توليد minimax hailuo" data-en="video chinese generation minimax hailuo" onclick="openTool('hailuo-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌊</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Hailuo AI</div>
-      <div class="tool-desc" data-desc-ar="منصة توليد فيديو صينية انتشرت بقوة على السوشيال ميديا. جودة عالية ومجانية جزئياً." data-desc-en="Chinese AI video generator that went viral on social media. High quality with a free tier.">منصة توليد فيديو صينية انتشرت بقوة على السوشيال ميديا. جودة عالية ومجانية جزئياً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">فيديو</span><span class="tag">توليد</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://hailuoai.video" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Cursor -->
-    <div class="tool-card" data-cat="code" data-name="Cursor" data-ar="كود محرر ذكاء برمجة" data-en="code editor ai programming cursor" onclick="openTool('cursor')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">⌨️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Cursor</div>
-      <div class="tool-desc" data-desc-ar="محرر كود ذكي مبني على VS Code مع ذكاء اصطناعي متقدم." data-desc-en="AI-powered code editor built on VS Code.">محرر كود ذكي مبني على VS Code مع ذكاء اصطناعي متقدم.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag" data-key-tag="Editor">محرر</span></div><div class="tool-stars">★ 4.9</div></div>
-      <a href="https://cursor.sh" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Replit AI -->
-    <div class="tool-card" data-cat="code" data-name="Replit AI" data-ar="كود سحابة برمجة تشغيل" data-en="code cloud programming run replit" onclick="openTool('replit')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">♻️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Replit AI</div>
-      <div class="tool-desc" data-desc-ar="بيئة تطوير سحابية مع مساعد ذكاء اصطناعي لتشغيل الكود فوراً." data-desc-en="Cloud development environment with AI assistant.">بيئة تطوير سحابية مع مساعد ذكاء اصطناعي لتشغيل الكود فوراً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag" data-key-tag="Cloud">سحابة</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://replit.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- v0 by Vercel -->
-    <div class="tool-card" data-cat="code" data-name="v0 by Vercel" data-ar="كود واجهة تصميم ويب" data-en="code ui design web vercel" onclick="openTool('v0')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">▲</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">v0 by Vercel</div>
-      <div class="tool-desc" data-desc-ar="أداة توليد واجهات UI بالذكاء الاصطناعي من Vercel." data-desc-en="AI UI generation tool by Vercel.">أداة توليد واجهات UI بالذكاء الاصطناعي من Vercel.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag" data-key-tag="UI">واجهة</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://v0.dev" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Lovable -->
-    <div class="tool-card" data-cat="code" data-name="Lovable" data-ar="كود مواقع تطبيقات بدون برمجة بناء" data-en="code website app builder no-code lovable" onclick="openTool('lovable')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🚀</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="tool-name">Lovable</div>
-      <div class="tool-desc" data-desc-ar="منصة ذكاء اصطناعي متقدمة لإنشاء مواقع وتطبيقات كاملة من الأوامر النصية بسرعة." data-desc-en="Advanced AI platform for building complete websites and apps from natural language prompts.">منصة ذكاء اصطناعي متقدمة لإنشاء مواقع وتطبيقات كاملة من الأوامر النصية بسرعة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag">مواقع</span></div><div class="tool-stars">★ 5.0</div></div>
-      <a href="https://lovable.dev" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Bolt.new -->
-    <div class="tool-card" data-cat="code" data-name="Bolt.new" data-ar="كود مواقع تطبيقات متصفح تطوير" data-en="code web apps browser development bolt" onclick="openTool('bolt-new')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">⚡</div><span class="tool-badge badge-new" data-badge="new">جديد</span></div>
-      <div class="tool-name">Bolt.new</div>
-      <div class="tool-desc" data-desc-ar="أداة ذكاء اصطناعي قوية لإنشاء وتعديل وتشغيل تطبيقات الويب مباشرة من المتصفح." data-desc-en="Powerful AI development platform for building, editing, and running web apps directly in the browser.">أداة ذكاء اصطناعي قوية لإنشاء وتعديل وتشغيل تطبيقات الويب مباشرة من المتصفح.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag">تطبيقات</span></div><div class="tool-stars">★ 5.0</div></div>
-      <a href="https://bolt.new" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Windsurf -->
-    <div class="tool-card" data-cat="code" data-name="Windsurf" data-ar="كود برمجة محرر تطوير ذكاء" data-en="code programming editor ai development windsurf" onclick="openTool('windsurf')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌊</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Windsurf</div>
-      <div class="tool-desc" data-desc-ar="بيئة تطوير ومحرر أكواد مدعوم بالذكاء الاصطناعي يساعد على كتابة وفهم وتصحيح الكود." data-desc-en="AI-powered coding editor and development environment for writing, understanding, and debugging code faster.">بيئة تطوير ومحرر أكواد مدعوم بالذكاء الاصطناعي يساعد على كتابة وفهم وتصحيح الكود.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Code">كود</span><span class="tag">برمجة</span></div><div class="tool-stars">★ 4.9</div></div>
-      <a href="https://windsurf.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Writesonic -->
-    <div class="tool-card" data-cat="writing" data-name="Writesonic" data-ar="كتابة محتوى مقالات SEO" data-en="writing content articles seo" onclick="openTool('writesonic')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✒️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Writesonic</div>
-      <div class="tool-desc" data-desc-ar="أداة كتابة محتوى ذكية متخصصة في SEO والتسويق الرقمي." data-desc-en="AI writing tool specialized in SEO and digital marketing.">أداة كتابة محتوى ذكية متخصصة في SEO والتسويق الرقمي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Writing">كتابة</span><span class="tag" data-key-tag="SEO">SEO</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://writesonic.com?fp_ref=yousef10" target="_blank" rel="nofollow sponsored" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Copy.ai -->
-    <div class="tool-card" data-cat="writing" data-name="Copy.ai" data-ar="كتابة تسويق إعلانات" data-en="writing marketing ads copywriting" onclick="openTool('copy-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📝</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Copy.ai</div>
-      <div class="tool-desc" data-desc-ar="أداة كتابة إعلانية وتسويقية بالذكاء الاصطناعي." data-desc-en="AI copywriting and marketing tool.">أداة كتابة إعلانية وتسويقية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Writing">كتابة</span><span class="tag" data-key-tag="Ads">إعلانات</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://copy.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Notion AI -->
-    <div class="tool-card" data-cat="writing" data-name="Notion AI" data-ar="نوشن كتابة ملاحظات إنتاجية" data-en="notion writing notes productivity" onclick="openTool('notion-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📓</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Notion AI</div>
-      <div class="tool-desc" data-desc-ar="ذكاء اصطناعي مدمج في Notion لتحسين الكتابة وتلخيص الملاحظات." data-desc-en="AI integrated in Notion for writing and note summarization.">ذكاء اصطناعي مدمج في Notion لتحسين الكتابة وتلخيص الملاحظات.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Writing">كتابة</span><span class="tag" data-key-tag="Notes">ملاحظات</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://notion.so/product/ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- QuillBot -->
-    <div class="tool-card" data-cat="writing" data-name="QuillBot" data-ar="كتابة اعادة صياغة تدقيق quillbot" data-en="writing paraphrase grammar check quillbot" onclick="openTool('quillbot')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✏️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">QuillBot</div>
-      <div class="tool-desc" data-desc-ar="أشهر أداة لإعادة صياغة النصوص وتحسينها بالذكاء الاصطناعي. يدعم العربية والإنجليزية." data-desc-en="The most popular AI paraphrasing and text improvement tool.">أشهر أداة لإعادة صياغة النصوص وتحسينها بالذكاء الاصطناعي. يدعم العربية والإنجليزية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">كتابة</span><span class="tag">صياغة</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://quillbot.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Murf AI -->
-    <div class="tool-card" data-cat="voice" data-name="Murf AI" data-ar="صوت تعليق بودكاست" data-en="voice narration podcast tts" onclick="openTool('murf')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎤</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Murf AI</div>
-      <div class="tool-desc" data-desc-ar="منصة تحويل النص إلى صوت احترافي لصنّاع المحتوى." data-desc-en="Professional text-to-speech platform for content creators.">منصة تحويل النص إلى صوت احترافي لصنّاع المحتوى.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Voice">صوت</span><span class="tag" data-key-tag="Podcast">بودكاست</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://murf.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Descript -->
-    <div class="tool-card" data-cat="voice" data-name="Descript" data-ar="صوت بودكاست تحرير فيديو" data-en="voice podcast editing video" onclick="openTool('descript')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎵</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Descript</div>
-      <div class="tool-desc" data-desc-ar="تحرير الصوت والفيديو عن طريق تعديل النص فقط." data-desc-en="Edit audio and video by editing the transcript.">تحرير الصوت والفيديو عن طريق تعديل النص فقط.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Voice">صوت</span><span class="tag" data-key-tag="Editing">تحرير</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://descript.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Suno AI — تصنيف: voice (موسيقى وأغاني) — صحيح -->
-    <div class="tool-card" data-cat="voice" data-name="Suno AI" data-ar="موسيقى أغاني إبداع صوت" data-en="music songs creative audio suno" onclick="openTool('suno')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎶</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Suno AI</div>
-      <div class="tool-desc" data-desc-ar="منصة متخصصة في إنشاء الموسيقى والأغاني باستخدام الذكاء الاصطناعي. تتيح للمستخدم إنشاء مقاطع موسيقية كاملة مع كلمات وغناء من خلال وصف نصي بسيط." data-desc-en="AI music and song creation platform. Generate complete musical tracks with lyrics and vocals from a simple text prompt.">منصة متخصصة في إنشاء الموسيقى والأغاني باستخدام الذكاء الاصطناعي. تتيح للمستخدم إنشاء مقاطع موسيقية كاملة مع كلمات وغناء من خلال وصف نصي بسيط.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Music">موسيقى</span><span class="tag" data-key-tag="Songs">أغاني</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://suno.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Udio -->
-    <div class="tool-card" data-cat="voice" data-name="Udio" data-ar="موسيقى توليد إبداع صوت" data-en="music generation creative audio" onclick="openTool('udio')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎸</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Udio</div>
-      <div class="tool-desc" data-desc-ar="منافس قوي لـ Suno في توليد الموسيقى بالذكاء الاصطناعي." data-desc-en="Strong competitor to Suno in AI music generation.">منافس قوي لـ Suno في توليد الموسيقى بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Music">موسيقى</span><span class="tag" data-key-tag="Generation">توليد</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://udio.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Soundraw -->
-    <div class="tool-card" data-cat="voice" data-name="Soundraw" data-ar="موسيقى خلفية إنتاج" data-en="music background production royalty" onclick="openTool('soundraw')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎼</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Soundraw</div>
-      <div class="tool-desc" data-desc-ar="توليد موسيقى خلفية مجانية من حقوق الملكية للمحتوى." data-desc-en="Generate royalty-free background music for content.">توليد موسيقى خلفية مجانية من حقوق الملكية للمحتوى.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Music">موسيقى</span><span class="tag" data-key-tag="Background">خلفية</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://soundraw.io" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Notion -->
-    <div class="tool-card" data-cat="productivity" data-name="Notion" data-ar="إنتاجية ملاحظات إدارة" data-en="productivity notes management workspace" onclick="openTool('notion')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📋</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Notion</div>
-      <div class="tool-desc" data-desc-ar="مساحة عمل متكاملة مع ذكاء اصطناعي للملاحظات وإدارة المشاريع." data-desc-en="All-in-one workspace with AI for notes and project management.">مساحة عمل متكاملة مع ذكاء اصطناعي للملاحظات وإدارة المشاريع.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Productivity">إنتاجية</span><span class="tag" data-key-tag="Notes">ملاحظات</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://notion.so" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Otter.ai -->
-    <div class="tool-card" data-cat="productivity" data-name="Otter.ai" data-ar="اجتماعات تفريغ ملاحظات" data-en="meetings transcription notes otter" onclick="openTool('otter')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🦦</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Otter.ai</div>
-      <div class="tool-desc" data-desc-ar="تفريغ الاجتماعات تلقائياً وإنشاء ملاحظات ذكية." data-desc-en="Automatic meeting transcription and smart notes.">تفريغ الاجتماعات تلقائياً وإنشاء ملاحظات ذكية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Meetings">اجتماعات</span><span class="tag" data-key-tag="Transcription">تفريغ</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://otter.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Reclaim AI -->
-    <div class="tool-card" data-cat="productivity" data-name="Reclaim AI" data-ar="جدول أعمال تقويم وقت" data-en="schedule calendar time management" onclick="openTool('reclaim')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📅</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Reclaim AI</div>
-      <div class="tool-desc" data-desc-ar="إدارة التقويم وجدولة المهام تلقائياً بالذكاء الاصطناعي." data-desc-en="AI calendar management and automatic task scheduling.">إدارة التقويم وجدولة المهام تلقائياً بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Schedule">جدول</span><span class="tag" data-key-tag="Time">وقت</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://reclaim.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Beautiful.ai -->
-    <div class="tool-card" data-cat="productivity" data-name="Beautiful.ai" data-ar="عروض شرائح تصميم" data-en="presentations slides design powerpoint" onclick="openTool('beautiful-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✨</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Beautiful.ai</div>
-      <div class="tool-desc" data-desc-ar="إنشاء عروض تقديمية احترافية بالذكاء الاصطناعي." data-desc-en="Create professional presentations with AI.">إنشاء عروض تقديمية احترافية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Presentations">عروض</span><span class="tag" data-key-tag="Slides">شرائح</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://beautiful.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- ClickUp AI -->
-    <div class="tool-card" data-cat="productivity" data-name="ClickUp AI" data-ar="انتاجية مشاريع فريق clickup ادارة" data-en="productivity projects team clickup management" onclick="openTool('clickup-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✅</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">ClickUp AI</div>
-      <div class="tool-desc" data-desc-ar="منصة إدارة مشاريع شاملة مع ذكاء اصطناعي مدمج. منافس قوي لـ Notion مع ميزات أكثر." data-desc-en="Comprehensive project management platform with built-in AI.">منصة إدارة مشاريع شاملة مع ذكاء اصطناعي مدمج. منافس قوي لـ Notion مع ميزات أكثر.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">إنتاجية</span><span class="tag">مشاريع</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://clickup.com/ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Taskade -->
-    <div class="tool-card" data-cat="productivity" data-name="Taskade" data-ar="إنتاجية مشاريع فريق" data-en="productivity projects team collaboration" onclick="openTool('taskade')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✅</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Taskade</div>
-      <div class="tool-desc" data-desc-ar="منصة إنتاجية متكاملة مع ذكاء اصطناعي للأفراد والفرق." data-desc-en="Integrated productivity platform with AI for individuals and teams.">منصة إنتاجية متكاملة مع ذكاء اصطناعي للأفراد والفرق.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Projects">مشاريع</span><span class="tag" data-key-tag="Team">فريق</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://taskade.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Gamma -->
-    <div class="tool-card" data-cat="productivity" data-name="Gamma" data-ar="عروض تقديمية ويب" data-en="presentations web documents gamma" onclick="openTool('gamma')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">γ</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Gamma</div>
-      <div class="tool-desc" data-desc-ar="إنشاء عروض تقديمية ومستندات ومواقع ويب بالذكاء الاصطناعي." data-desc-en="Create presentations, documents and websites with AI.">إنشاء عروض تقديمية ومستندات ومواقع ويب بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Presentations">عروض</span><span class="tag" data-key-tag="Web">ويب</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://gamma.app" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Fireflies.ai -->
-    <div class="tool-card" data-cat="productivity" data-name="Fireflies.ai" data-ar="اجتماعات تسجيل ملاحظات" data-en="meetings recording notes summary" onclick="openTool('fireflies')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🦟</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Fireflies.ai</div>
-      <div class="tool-desc" data-desc-ar="تسجيل وتفريغ وتلخيص الاجتماعات تلقائياً." data-desc-en="Automatically record, transcribe and summarize meetings.">تسجيل وتفريغ وتلخيص الاجتماعات تلقائياً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Meetings">اجتماعات</span><span class="tag" data-key-tag="Summary">تلخيص</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://fireflies.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Tome -->
-    <div class="tool-card" data-cat="productivity" data-name="Tome" data-ar="عروض قصص سرد" data-en="presentations stories narrative tome" onclick="openTool('tome')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📜</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Tome</div>
-      <div class="tool-desc" data-desc-ar="أداة إنشاء عروض تقديمية سردية بالذكاء الاصطناعي." data-desc-en="AI narrative presentation creation tool.">أداة إنشاء عروض تقديمية سردية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Presentations">عروض</span><span class="tag" data-key-tag="Narrative">سرد</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://tome.app" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Consensus -->
-    <div class="tool-card" data-cat="research" data-name="Consensus" data-ar="بحث أكاديمي علمي دراسات" data-en="research academic scientific studies" onclick="openTool('consensus')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🔬</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Consensus</div>
-      <div class="tool-desc" data-desc-ar="محرك بحث أكاديمي يلخص الدراسات العلمية بالذكاء الاصطناعي." data-desc-en="Academic search engine that summarizes scientific studies.">محرك بحث أكاديمي يلخص الدراسات العلمية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Research">بحث</span><span class="tag" data-key-tag="Academic">أكاديمي</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://consensus.app" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Elicit -->
-    <div class="tool-card" data-cat="research" data-name="Elicit" data-ar="بحث أوراق علمية تحليل" data-en="research papers analysis scientific" onclick="openTool('elicit')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📚</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Elicit</div>
-      <div class="tool-desc" data-desc-ar="مساعد بحث علمي يحلل الأوراق البحثية ويستخرج النتائج." data-desc-en="Scientific research assistant analyzing papers and extracting findings.">مساعد بحث علمي يحلل الأوراق البحثية ويستخرج النتائج.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Research">بحث</span><span class="tag" data-key-tag="Scientific">علمي</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://elicit.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- NotebookLM -->
-    <div class="tool-card" data-cat="research" data-name="NotebookLM" data-ar="بحث مستندات PDF تحليل جوجل" data-en="research documents pdf analysis google notebooklm">
-      <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(0,212,255,0.1)"><img src="https://notebooklm.google.com/favicon.ico" style="width:28px;height:28px;border-radius:6px" onerror="this.parentElement.textContent='📓'"/></div>
-        <span class="tool-badge badge-free" data-badge="free">مجاني</span>
-      </div>
-      <div class="tool-name">NotebookLM</div>
-      <div class="tool-desc" data-desc-ar="يساعدك على تحليل المستندات وملفات PDF وإنشاء الملخصات والإجابة عن الأسئلة اعتماداً على مصادرك الخاصة." data-desc-en="Google's AI research assistant that helps analyze documents, PDFs, and notes.">يساعدك على تحليل المستندات وملفات PDF وإنشاء الملخصات والإجابة عن الأسئلة اعتماداً على مصادرك الخاصة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">بحث</span><span class="tag">PDF</span></div><div class="tool-stars">★ 4.0</div></div>
-      <a href="https://notebooklm.google.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- You.com -->
-    <div class="tool-card" data-cat="research" data-name="You.com" data-ar="بحث ذكاء اصطناعي انترنت" data-en="search ai internet research" onclick="openTool('you-com')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌐</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">You.com</div>
-      <div class="tool-desc" data-desc-ar="محرك بحث بالذكاء الاصطناعي مع إجابات فورية ومصادر." data-desc-en="AI search engine with instant answers and sources.">محرك بحث بالذكاء الاصطناعي مع إجابات فورية ومصادر.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Search">بحث</span><span class="tag" data-key-tag="Internet">إنترنت</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://you.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Synthesia -->
-    <div class="tool-card" data-cat="video" data-name="Synthesia" data-ar="فيديو أفاتار تدريب" data-en="video avatar training corporate" onclick="openTool('synthesia')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎭</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Synthesia</div>
-      <div class="tool-desc" data-desc-ar="إنشاء فيديوهات تدريبية وتعليمية بأفاتار AI احترافي." data-desc-en="Create training and educational videos with AI avatars.">إنشاء فيديوهات تدريبية وتعليمية بأفاتار AI احترافي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Training">تدريب</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://synthesia.io" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Luma AI -->
-    <div class="tool-card" data-cat="video" data-name="Luma AI" data-ar="فيديو ثلاثي أبعاد" data-en="video 3d generation luma" onclick="openTool('luma')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">💎</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Luma AI</div>
-      <div class="tool-desc" data-desc-ar="توليد فيديو ثلاثي الأبعاد واقعي بالذكاء الاصطناعي." data-desc-en="Generate realistic 3D video with AI.">توليد فيديو ثلاثي الأبعاد واقعي بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="3D">ثلاثي أبعاد</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://lumalabs.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Pictory -->
-    <div class="tool-card" data-cat="video" data-name="Pictory" data-ar="فيديو نص مقاطع" data-en="video text clips content" onclick="openTool('pictory')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📹</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Pictory</div>
-      <div class="tool-desc" data-desc-ar="تحويل المقالات والنصوص إلى فيديوهات تلقائياً." data-desc-en="Convert articles and text to videos automatically.">تحويل المقالات والنصوص إلى فيديوهات تلقائياً.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Text">نص</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://pictory.ai" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Canva AI -->
-    <div class="tool-card" data-cat="image" data-name="Canva AI" data-ar="تصميم كانفا صور قوالب" data-en="design canva templates graphics" onclick="openTool('canva-ai')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🎨</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Canva AI</div>
-      <div class="tool-desc" data-desc-ar="منصة التصميم الشهيرة مع ميزات ذكاء اصطناعي متكاملة." data-desc-en="Popular design platform with integrated AI features.">منصة التصميم الشهيرة مع ميزات ذكاء اصطناعي متكاملة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Design">تصميم</span><span class="tag" data-key-tag="Templates">قوالب</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://canva.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Remove.bg -->
-    <div class="tool-card" data-cat="image" data-name="Remove.bg" data-ar="إزالة خلفية صورة" data-en="remove background image photo" onclick="openTool('remove-bg')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">✂️</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Remove.bg</div>
-      <div class="tool-desc" data-desc-ar="إزالة خلفية الصور تلقائياً بدقة عالية." data-desc-en="Remove image backgrounds automatically with high accuracy.">إزالة خلفية الصور تلقائياً بدقة عالية.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Images">صور</span><span class="tag" data-key-tag="Background">خلفية</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://remove.bg" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- InVideo AI -->
-    <div class="tool-card" data-cat="video" data-name="InVideo AI" data-ar="فيديو يوتيوب محتوى" data-en="video youtube content creation" onclick="openTool('invideo')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📱</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">InVideo AI</div>
-      <div class="tool-desc" data-desc-ar="إنشاء فيديوهات YouTube ووسائل التواصل بالذكاء الاصطناعي." data-desc-en="Create YouTube and social media videos with AI.">إنشاء فيديوهات YouTube ووسائل التواصل بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="YouTube">يوتيوب</span></div><div class="tool-stars">★ 4.5</div></div>
-      <a href="https://invideo.io" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Brandmark -->
-    <div class="tool-card" data-cat="image" data-name="Brandmark" data-ar="شعار علامة تجارية تصميم" data-en="logo brand design identity" onclick="openTool('brandmark')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🏷️</div><span class="tool-badge badge-pro" data-badge="pro">احترافي</span></div>
-      <div class="tool-name">Brandmark</div>
-      <div class="tool-desc" data-desc-ar="إنشاء شعارات وهوية بصرية احترافية بالذكاء الاصطناعي." data-desc-en="Create professional logos and visual identity with AI.">إنشاء شعارات وهوية بصرية احترافية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Logo">شعار</span><span class="tag" data-key-tag="Brand">هوية</span></div><div class="tool-stars">★ 4.4</div></div>
-      <a href="https://brandmark.io" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- DeepL -->
-    <div class="tool-card" data-cat="writing" data-name="DeepL" data-ar="ترجمة لغات نص" data-en="translation languages text deepl" onclick="openTool('deepl')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🌍</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">DeepL</div>
-      <div class="tool-desc" data-desc-ar="أداة ترجمة متقدمة بدقة عالية تدعم أكثر من 30 لغة." data-desc-en="Advanced translation tool with high accuracy supporting 30+ languages.">أداة ترجمة متقدمة بدقة عالية تدعم أكثر من 30 لغة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Translation">ترجمة</span><span class="tag" data-key-tag="Languages">لغات</span></div><div class="tool-stars">★ 4.8</div></div>
-      <a href="https://deepl.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Grammarly -->
-    <div class="tool-card" data-cat="writing" data-name="Grammarly" data-ar="كتابة تدقيق نحو إنجليزي" data-en="writing grammar check english editing" onclick="openTool('grammarly')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">📖</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Grammarly</div>
-      <div class="tool-desc" data-desc-ar="أداة متميزة لتدقيق الكتابة الإنجليزية وتحسين الأسلوب." data-desc-en="A great tool for checking English writing and improving style.">أداة متميزة لتدقيق الكتابة الإنجليزية وتحسين الأسلوب.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Writing">كتابة</span><span class="tag" data-key-tag="Grammar">تدقيق</span></div><div class="tool-stars">★ 4.7</div></div>
-      <a href="https://grammarly.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Pika Labs -->
-    <div class="tool-card" data-cat="video" data-name="Pika Labs" data-ar="فيديو توليد قصير" data-en="video generation short clips pika" onclick="openTool('pika')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">⚡</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Pika Labs</div>
-      <div class="tool-desc" data-desc-ar="توليد فيديوهات قصيرة إبداعية بالذكاء الاصطناعي." data-desc-en="Generate short creative videos with AI.">توليد فيديوهات قصيرة إبداعية بالذكاء الاصطناعي.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag" data-key-tag="Video">فيديو</span><span class="tag" data-key-tag="Short">قصير</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://pika.art" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
-    <!-- Llama -->
-    <div class="tool-card" data-cat="chat" data-name="Llama" data-ar="دردشة مفتوح المصدر meta llama ذكاء" data-en="chat open source meta llama ai free" onclick="openTool('llama')">
-      <div class="tool-header"><div class="tool-icon" style="background:rgba(0,212,255,0.1)">🦙</div><span class="tool-badge badge-free" data-badge="free">مجاني</span></div>
-      <div class="tool-name">Llama</div>
-      <div class="tool-desc" data-desc-ar="نموذج الذكاء الاصطناعي مفتوح المصدر من Meta. الأقوى بين النماذج المجانية المفتوحة." data-desc-en="Meta open-source AI model. Powerful among free open-source AI models.">نموذج الذكاء الاصطناعي مفتوح المصدر من Meta. الأقوى بين النماذج المجانية المفتوحة.</div>
-      <div class="tool-footer"><div class="tool-tags"><span class="tag">دردشة</span><span class="tag">مفتوح المصدر</span></div><div class="tool-stars">★ 4.6</div></div>
-      <a href="https://llama.meta.com" target="_blank" rel="noopener" class="aff-btn" onclick="event.stopPropagation()" data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
-    </div>
-
+    <!-- أدوات تُحمَّل ديناميكياً من tools-index.json -->
   </div><!-- /toolsGrid -->
 </section>
 
@@ -1489,6 +803,250 @@ function handleFormSubmit(e){
   }).catch(()=>{alert(T[lang].frm_ok);form.reset();});
 }
 
+
+// ============================================================
+// DYNAMIC TOOLS LOADER — يقرأ الأدوات من tools-index.json
+// أي أداة تضاف عبر CMS تظهر تلقائياً بدون تعديل هذا الملف
+// ============================================================
+
+// خريطة التصنيفات: قيمة category في JSON → data-cat في الفلتر
+const CAT_MAP = {
+  // English keys (what Decap CMS might use)
+  'chat': 'chat', 'writing': 'writing', 'image': 'image',
+  'images': 'image', 'code': 'code', 'coding': 'code',
+  'video': 'video', 'voice': 'voice', 'audio': 'voice',
+  'music': 'voice', 'data': 'data', 'analytics': 'data',
+  'productivity': 'productivity', 'research': 'research',
+  // Arabic keys (in case CMS uses Arabic)
+  'دردشة': 'chat', 'كتابة': 'writing', 'صور': 'image',
+  'كود': 'code', 'برمجة': 'code', 'فيديو': 'video',
+  'صوت': 'voice', 'موسيقى': 'voice', 'بيانات': 'data',
+  'إنتاجية': 'productivity', 'بحث': 'research',
+  // مساعدي الكود — اسم شائع في Decap
+  'مساعدي الكود': 'code', 'code assistant': 'code',
+  'code-assistant': 'code', 'ai coding': 'code',
+};
+
+function normalizeCategory(cat) {
+  if (!cat) return 'chat';
+  const lower = cat.toLowerCase().trim();
+  return CAT_MAP[lower] || CAT_MAP[cat] || lower;
+}
+
+function getBadgeClass(badge) {
+  const b = (badge || 'free').toLowerCase();
+  if (b === 'pro' || b === 'احترافي') return 'badge-pro';
+  if (b === 'new' || b === 'جديد') return 'badge-new';
+  return 'badge-free';
+}
+
+function getBadgeLabel(badge, lang) {
+  const b = (badge || 'free').toLowerCase();
+  if (lang === 'en') {
+    if (b === 'pro' || b === 'احترافي') return 'Pro';
+    if (b === 'new' || b === 'جديد') return 'New';
+    return 'Free';
+  } else {
+    if (b === 'pro') return 'احترافي';
+    if (b === 'new') return 'جديد';
+    if (b === 'احترافي' || b === 'جديد' || b === 'مجاني') return b;
+    return 'مجاني';
+  }
+}
+
+function buildToolCard(t) {
+  const cat = normalizeCategory(t.cat || t.category || '');
+  const id  = t.id || (t.name || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const badgeClass = getBadgeClass(t.badge || t.tier || 'free');
+  const badgeLabelAr = getBadgeLabel(t.badge || t.tier || 'free', 'ar');
+  const badgeLabelEn = getBadgeLabel(t.badge || t.tier || 'free', 'en');
+  const icon    = t.icon || '🤖';
+  const iconBg  = t.icon_bg || 'background:rgba(0,212,255,0.1)';
+  const descAr  = t.desc_ar || t.description_ar || t.description || '';
+  const descEn  = t.desc_en || t.description_en || t.description || '';
+  const stars   = t.stars || t.rating || '4.5';
+  const url     = t.url || t.website || '#';
+  const rel     = t.rel || 'noopener';
+  const tagsAr  = Array.isArray(t.tags_ar) ? t.tags_ar : (t.tags || []);
+  const affBadge    = t.aff_badge || '';
+  const commission  = t.commission || '';
+  const officialPartner = t.official_partner || false;
+  
+  // Search keywords
+  const nameAr  = t.ar || t.keywords_ar || '';
+  const nameEn  = t.en || t.keywords_en || '';
+
+  const tagsHtml = tagsAr.slice(0,2).map(tag => `<span class="tag">${tag}</span>`).join('');
+  const affBadgeHtml = affBadge ? `<div class="aff-badge">${affBadge}</div>` : '';
+  const partnerHtml  = officialPartner
+    ? `<div style="display:inline-flex;align-items:center;gap:4px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:2px 10px;border-radius:50px;font-size:10px;font-weight:700;margin-bottom:8px">✅ شريك رسمي</div>`
+    : '';
+  const commissionHtml = commission ? `<div class="aff-commission">${commission}</div>` : '';
+
+  return `
+    <div class="tool-card" data-cat="${cat}" data-name="${t.name}" data-ar="${nameAr}" data-en="${nameEn}" onclick="openTool('${id}')">
+      <div class="tool-header">
+        <div class="tool-icon" style="${iconBg}">${icon}</div>
+        <span class="tool-badge ${badgeClass}" data-badge-ar="${badgeLabelAr}" data-badge-en="${badgeLabelEn}">${badgeLabelAr}</span>
+      </div>
+      ${affBadgeHtml}
+      ${partnerHtml}
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc" data-desc-ar="${descAr}" data-desc-en="${descEn}">${descAr}</div>
+      <div class="tool-footer">
+        <div class="tool-tags">${tagsHtml}</div>
+        <div class="tool-stars">★ ${stars}</div>
+      </div>
+      <a href="${url}" target="_blank" rel="${rel}" class="aff-btn" onclick="event.stopPropagation()"
+         data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
+      ${commissionHtml}
+    </div>`;
+}
+
+// State
+let allTools = [];
+let currentLang = lang;
+
+function renderTools(toolsList) {
+  const grid = document.getElementById('toolsGrid');
+  if (!grid) return;
+  grid.innerHTML = toolsList.map(buildToolCard).join('');
+  // re-apply current language to newly rendered cards
+  applyLangToCards(currentLang);
+}
+
+function applyLangToCards(l) {
+  document.querySelectorAll('.tool-card').forEach(card => {
+    // desc
+    const descEl = card.querySelector('.tool-desc');
+    if (descEl) {
+      const ar = descEl.getAttribute('data-desc-ar');
+      const en = descEl.getAttribute('data-desc-en');
+      if (ar || en) descEl.textContent = l === 'ar' ? (ar || en) : (en || ar);
+    }
+    // badge
+    const badgeEl = card.querySelector('.tool-badge');
+    if (badgeEl) {
+      const ar = badgeEl.getAttribute('data-badge-ar');
+      const en = badgeEl.getAttribute('data-badge-en');
+      if (ar || en) badgeEl.textContent = l === 'ar' ? (ar || en) : (en || ar);
+    }
+    // btn
+    const btn = card.querySelector('.aff-btn');
+    if (btn) {
+      const ar = btn.getAttribute('data-btn-ar');
+      const en = btn.getAttribute('data-btn-en');
+      if (ar || en) btn.textContent = l === 'ar' ? (ar || en) : (en || ar);
+    }
+  });
+}
+
+// Override setLang to also update cards
+const _origSetLang = setLang;
+setLang = function(l) {
+  currentLang = l;
+  _origSetLang(l);
+  applyLangToCards(l);
+};
+
+// Override filterCat to work with dynamic tools
+const _origFilterCat = filterCat;
+filterCat = function(btn, cat) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  var si = document.getElementById('searchInput'); if (si) si.value = '';
+  var nr = document.getElementById('noResults'); if (nr) nr.classList.remove('show');
+  
+  if (cat === 'all') {
+    renderTools(allTools);
+  } else {
+    renderTools(allTools.filter(t => normalizeCategory(t.cat || t.category || '') === cat));
+  }
+};
+
+// Override doSearch to work with dynamic tools
+doSearch = function() {
+  const input = document.getElementById('searchInput');
+  const q = (input ? input.value : '').toLowerCase().trim();
+  const noRes = document.getElementById('noResults');
+  
+  if (!q) {
+    renderTools(allTools);
+    if (noRes) noRes.classList.remove('show');
+    return;
+  }
+  
+  const filtered = allTools.filter(t => {
+    const haystack = [
+      t.name, t.ar, t.en, t.keywords_ar, t.keywords_en,
+      t.desc_ar, t.desc_en, t.description, t.cat, t.category,
+      t.id
+    ].filter(Boolean).join(' ').toLowerCase();
+    return haystack.includes(q);
+  });
+  
+  renderTools(filtered);
+  if (noRes) noRes.classList.toggle('show', filtered.length === 0);
+};
+
+// Re-init search input to use new doSearch
+function reinitSearch() {
+  const el = document.getElementById('searchInput');
+  if (!el) return;
+  el.removeEventListener('input', el._searchHandler);
+  el._searchHandler = function() {
+    if (this.value.trim() === '') {
+      renderTools(allTools);
+      const nr = document.getElementById('noResults');
+      if (nr) nr.classList.remove('show');
+    } else {
+      doSearch();
+    }
+  };
+  el.addEventListener('input', el._searchHandler);
+}
+
+// Load tools from JSON
+async function loadToolsFromJSON() {
+  try {
+    const res = await fetch('/tools-index.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    allTools = await res.json();
+    // Normalize categories on load
+    allTools = allTools.map(t => ({
+      ...t,
+      _cat: normalizeCategory(t.cat || t.category || '')
+    }));
+    // Sort: put CMS tools (no aff_badge) after main tools, then alphabetically
+    renderTools(allTools);
+    reinitSearch();
+    console.log('[NEORA] Loaded', allTools.length, 'tools from tools-index.json');
+  } catch (err) {
+    console.warn('[NEORA] Could not load tools-index.json, using static HTML fallback:', err.message);
+    // Static fallback — collect from existing DOM
+    allTools = Array.from(document.querySelectorAll('#toolsGrid .tool-card')).map(card => ({
+      id: (card.getAttribute('onclick') || '').match(/'([^']+)'/)?.[1] || '',
+      name: card.querySelector('.tool-name')?.textContent || '',
+      cat: card.dataset.cat || '',
+      ar: card.dataset.ar || '',
+      en: card.dataset.en || '',
+      badge: card.querySelector('.tool-badge')?.dataset.badge || 'free',
+      icon: card.querySelector('.tool-icon')?.textContent || '🤖',
+      icon_bg: card.querySelector('.tool-icon')?.getAttribute('style') || '',
+      desc_ar: card.querySelector('.tool-desc')?.dataset.descAr || '',
+      desc_en: card.querySelector('.tool-desc')?.dataset.descEn || '',
+      stars: card.querySelector('.tool-stars')?.textContent?.replace('★', '').trim() || '4.5',
+      tags_ar: Array.from(card.querySelectorAll('.tag')).map(t => t.textContent),
+      aff_badge: card.querySelector('.aff-badge')?.textContent || '',
+      commission: card.querySelector('.aff-commission')?.textContent || '',
+      url: card.querySelector('.aff-btn')?.href || '#',
+      rel: card.querySelector('.aff-btn')?.rel || 'noopener',
+      official_partner: !!card.querySelector('[style*="10b981"]'),
+    }));
+    reinitSearch();
+  }
+}
+
 // Initialize
 setLang(lang);
 initSearch();
@@ -1498,6 +1056,9 @@ initSearch();
   var nr=document.getElementById('noResults');
   if(nr){nr.classList.remove('show');nr.style.display='none';}
 })();
+
+// Load tools dynamically from tools-index.json
+loadToolsFromJSON();
 
 // Handle direct URL navigation
 (function handleDirectUrl(){
