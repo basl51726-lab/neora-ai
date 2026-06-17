@@ -47,10 +47,6 @@ function slugify(str) {
     .replace(/^-|-$/g, '');
 }
 
-// ---- slug الجذر: أول كلمة فقط (claude-code → claude) ----
-function baseSlug(str) {
-  return slugify(str).split('-')[0];
-}
 
 // ---- أيقونة افتراضية حسب التصنيف ----
 const DEFAULT_ICONS = {
@@ -138,14 +134,11 @@ if (fs.existsSync(TOOLS_DIR)) {
 // ---- دمج: الأدوات الأصلية + أدوات CMS ----
 const baseIds    = new Set(baseTools.map(t => t.id));
 const baseNames  = new Set(baseTools.map(t => (t.name || t.title || '').toLowerCase().trim()));
-const baseSlugs  = new Set(baseTools.map(t => slugify(t.name || t.title || '')));
 
-// أداة CMS مكررة = نفس الـ id أو نفس الاسم أو نفس الـ slug أو نفس الجذر
+// أداة CMS مكررة = نفس الـ id تماماً أو نفس الاسم تماماً
 function isDuplicate(ct) {
-  const ctSlug     = slugify(ct.name || ct.title || '');
-  const ctName     = (ct.name || ct.title || '').toLowerCase().trim();
-  const ctBaseSlug = baseSlug(ct.name || ct.title || '');
-  return baseIds.has(ct.id) || baseNames.has(ctName) || baseSlugs.has(ctSlug) || baseSlugs.has(ctBaseSlug);
+  const ctName = (ct.name || ct.title || '').toLowerCase().trim();
+  return baseIds.has(ct.id) || baseNames.has(ctName);
 }
 
 const newCmsTools = cmsTools.filter(t => !isDuplicate(t));
@@ -154,11 +147,9 @@ const updatedCms  = cmsTools.filter(t => isDuplicate(t));
 // حدّث الأدوات الموجودة (مطابقة بـ id أو name أو slug)
 const mergedBase = baseTools.map(bt => {
   const btName = (bt.name || bt.title || '').toLowerCase().trim();
-  const btSlug = slugify(bt.name || bt.title || '');
   const updated = updatedCms.find(ct =>
     ct.id === bt.id ||
-    (ct.name || ct.title || '').toLowerCase().trim() === btName ||
-    slugify(ct.name || ct.title || '') === btSlug
+    (ct.name || ct.title || '').toLowerCase().trim() === btName
   );
   return updated ? { ...bt, ...updated } : bt;
 });
