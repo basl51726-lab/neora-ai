@@ -47,6 +47,11 @@ function slugify(str) {
     .replace(/^-|-$/g, '');
 }
 
+// ---- slug الجذر: أول كلمة فقط (claude-code → claude) ----
+function baseSlug(str) {
+  return slugify(str).split('-')[0];
+}
+
 // ---- أيقونة افتراضية حسب التصنيف ----
 const DEFAULT_ICONS = {
   chat: '💬', image: '🎨', video: '🎬', code: '💻',
@@ -131,20 +136,46 @@ if (fs.existsSync(TOOLS_DIR)) {
 }
 
 // ---- دمج: الأدوات الأصلية + أدوات CMS ----
-const baseIds      = new Set(baseTools.map(t => t.id));
-const newCmsTools  = cmsTools.filter(t => !baseIds.has(t.id));
-const updatedCms   = cmsTools.filter(t => baseIds.has(t.id));
+const baseIds    = new Set(baseTools.map(t => t.id));
+const baseNames  = new Set(baseTools.map(t => (t.name || t.title || '').toLowerCase().trim()));
+const baseSlugs  = new Set(baseTools.map(t => slugify(t.name || t.title || '')));
 
+// أداة CMS مكررة = نفس الـ id أو نفس الاسم أو نفس الـ slug أو نفس الجذر
+function isDuplicate(ct) {
+  const ctSlug     = slugify(ct.name || ct.title || '');
+  const ctName     = (ct.name || ct.title || '').toLowerCase().trim();
+  const ctBaseSlug = baseSlug(ct.name || ct.title || '');
+  return baseIds.has(ct.id) || baseNames.has(ctName) || baseSlugs.has(ctSlug) || baseSlugs.has(ctBaseSlug);
+}
+
+const newCmsTools = cmsTools.filter(t => !isDuplicate(t));
+const updatedCms  = cmsTools.filter(t => isDuplicate(t));
+
+// حدّث الأدوات الموجودة (مطابقة بـ id أو name أو slug)
 const mergedBase = baseTools.map(bt => {
-  const updated = updatedCms.find(ct => ct.id === bt.id);
+  const btName = (bt.name || bt.title || '').toLowerCase().trim();
+  const btSlug = slugify(bt.name || bt.title || '');
+  const updated = updatedCms.find(ct =>
+    ct.id === bt.id ||
+    (ct.name || ct.title || '').toLowerCase().trim() === btName ||
+    slugify(ct.name || ct.title || '') === btSlug
+  );
   return updated ? { ...bt, ...updated } : bt;
 });
 
 const allTools = [...mergedBase, ...newCmsTools];
 
-fs.writeFileSync(TOOLS_JSON, JSON.stringify(allTools, null, 2), 'utf8');
+// تأكد نهائي — احذف أي تكرار في id
+const seenIds = new Set();
+const deduped = allTools.filter(t => {
+  if (seenIds.has(t.id)) { console.warn(`[build] ⚠️ تكرار محذوف: ${t.id}`); return false; }
+  seenIds.add(t.id);
+  return true;
+});
 
-console.log(`[build] ✅ tools-index.json محدّث: ${allTools.length} أداة`);
+fs.writeFileSync(TOOLS_JSON, JSON.stringify(deduped, null, 2), 'utf8');
+
+console.log(`[build] ✅ tools-index.json محدّث: ${deduped.length} أداة`);
 console.log(`  - أدوات أصلية:        ${mergedBase.length}`);
 console.log(`  - أدوات جديدة من CMS: ${newCmsTools.length}`);
 console.log(`  - أدوات محدّثة:       ${updatedCms.length}`);
