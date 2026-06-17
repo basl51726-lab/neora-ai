@@ -854,33 +854,57 @@ function getBadgeLabel(badge, lang) {
   }
 }
 
+function isImageSrc(str) {
+  if (!str) return false;
+  const s = str.trim();
+  return (
+    s.startsWith('http://') ||
+    s.startsWith('https://') ||
+    s.startsWith('/images/') ||
+    s.startsWith('/uploads/') ||
+    s.startsWith('/static/') ||
+    /\.(png|jpg|jpeg|gif|webp|svg|ico)(\?.*)?$/i.test(s)
+  );
+}
+
 function buildToolCard(t) {
   const cat = normalizeCategory(t.cat || t.category || t.type || '');
-  const id  = t.id || (t.name || t.title || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-  const badgeClass = getBadgeClass(t.badge || t.tier || 'free');
+  const id = t.id || t.slug || (t.name || t.title || '')
+    .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const badgeClass   = getBadgeClass(t.badge || t.tier || 'free');
   const badgeLabelAr = getBadgeLabel(t.badge || t.tier || 'free', 'ar');
   const badgeLabelEn = getBadgeLabel(t.badge || t.tier || 'free', 'en');
-  const icon    = t.icon || '🤖';
-  const iconBg  = t.icon_bg || 'background:rgba(0,212,255,0.1)';
-  const iconHTML = t.icon_img
-    ? `<img src="${t.icon_img}" style="width:28px;height:28px;border-radius:6px;object-fit:contain" onerror="this.parentElement.textContent='${icon}'">`
-    : icon;
-  const descAr  = t.desc_ar || t.description_ar || t.description || t.desc || '';
-  const descEn  = t.desc_en || t.description_en || t.description || t.desc || '';
-  const starsRaw = String(t.stars || t.rating || '4.5').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-  const stars    = parseFloat(starsRaw) >= 1 ? parseFloat(starsRaw).toFixed(1) : '4.5';
-  const url     = t.url || t.website || '#';
-  const rel     = t.rel || 'noopener';
-  const tagsAr  = Array.isArray(t.tags_ar) ? t.tags_ar : (t.tags || []);
-  const affBadge    = t.aff_badge || '';
-  const commission  = t.commission || '';
-  const officialPartner = t.official_partner || false;
-  
-  // Search keywords
-  const nameAr  = t.ar || t.keywords_ar || '';
-  const nameEn  = t.en || t.keywords_en || '';
 
-  const tagsHtml = tagsAr.slice(0,2).map(tag => `<span class="tag">${tag}</span>`).join('');
+  const iconRaw   = t.icon || t.icon_img || t.icon_emoji || '🤖';
+  const iconBg    = t.icon_bg || 'background:rgba(212,175,55,0.1)';
+  const safeEmoji = (t.icon_emoji || '🤖').replace(/'/g, "\\'");
+
+  let iconHTML;
+  if (isImageSrc(iconRaw)) {
+    const safeName = (t.name || t.title || '').replace(/"/g, '&quot;');
+    iconHTML = `<img src="${iconRaw}"
+      alt="${safeName}"
+      style="width:36px;height:36px;border-radius:8px;object-fit:contain;display:block"
+      onerror="this.style.display='none';this.parentElement.insertAdjacentText('beforeend','${safeEmoji}')">`;
+  } else {
+    iconHTML = iconRaw || '🤖';
+  }
+
+  const descAr = t.desc_ar  || t.description_ar || t.description || t.desc || '';
+  const descEn = t.desc_en  || t.description_en || t.description || t.desc || '';
+  const starsRaw = String(t.stars || t.rating || '4.5')
+    .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  const stars = parseFloat(starsRaw) >= 1 ? parseFloat(starsRaw).toFixed(1) : '4.5';
+  const url  = t.url || t.website || '#';
+  const rel  = t.rel || 'noopener';
+  const tagsAr = Array.isArray(t.tags_ar) ? t.tags_ar : (t.tags || []);
+  const affBadge        = t.aff_badge || '';
+  const commission      = t.commission || '';
+  const officialPartner = t.official_partner || false;
+  const nameAr = t.ar || t.keywords_ar || '';
+  const nameEn = t.en || t.keywords_en || '';
+
+  const tagsHtml     = tagsAr.slice(0,2).map(tag => `<span class="tag">${tag}</span>`).join('');
   const affBadgeHtml = affBadge ? `<div class="aff-badge">${affBadge}</div>` : '';
   const partnerHtml  = officialPartner
     ? `<div style="display:inline-flex;align-items:center;gap:4px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:2px 10px;border-radius:50px;font-size:10px;font-weight:700;margin-bottom:8px">✅ شريك رسمي</div>`
@@ -906,8 +930,6 @@ function buildToolCard(t) {
       ${commissionHtml}
     </div>`;
 }
-
-// State
 let allTools = [];
 let currentLang = lang;
 
