@@ -60,18 +60,6 @@
     "pricing_ar": "$20/شهر"
   },
   {
-    "slug": "claude-code",
-    "title": "Claude Code",
-    "url": "https://www.anthropic.com/claude-code",
-    "category": "code",
-    "badge": "new",
-    "rating": "4",
-    "icon": "💻",
-    "desc_ar": "Claude Code هو وكيل برمجي من Anthropic يعمل مباشرة من سطر الأوامر،",
-    "desc_en": "Claude Code is an AI coding agent by Anthropic that works directly from",
-    "pricing_ar": "يتوفر ضمن خطط Claude المدفوعة"
-  },
-  {
     "slug": "claude",
     "title": "Claude",
     "url": "https://claude.ai",
