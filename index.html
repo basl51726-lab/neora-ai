@@ -862,9 +862,13 @@ function buildToolCard(t) {
   const badgeLabelEn = getBadgeLabel(t.badge || t.tier || 'free', 'en');
   const icon    = t.icon || '🤖';
   const iconBg  = t.icon_bg || 'background:rgba(0,212,255,0.1)';
+  const iconHTML = t.icon_img
+    ? `<img src="${t.icon_img}" style="width:28px;height:28px;border-radius:6px;object-fit:contain" onerror="this.parentElement.textContent='${icon}'">`
+    : icon;
   const descAr  = t.desc_ar || t.description_ar || t.description || t.desc || '';
   const descEn  = t.desc_en || t.description_en || t.description || t.desc || '';
-  const stars   = t.stars || t.rating || '4.5';
+  const starsRaw = String(t.stars || t.rating || '4.5').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  const stars    = parseFloat(starsRaw) >= 1 ? parseFloat(starsRaw).toFixed(1) : '4.5';
   const url     = t.url || t.website || '#';
   const rel     = t.rel || 'noopener';
   const tagsAr  = Array.isArray(t.tags_ar) ? t.tags_ar : (t.tags || []);
@@ -886,7 +890,7 @@ function buildToolCard(t) {
   return `
     <div class="tool-card" data-cat="${cat}" data-name="${t.name || t.title || ''}" data-ar="${nameAr}" data-en="${nameEn}" onclick="openTool('${id}')">
       <div class="tool-header">
-        <div class="tool-icon" style="${iconBg}">${icon}</div>
+        <div class="tool-icon" style="${iconBg}">${iconHTML}</div>
         <span class="tool-badge ${badgeClass}" data-badge-ar="${badgeLabelAr}" data-badge-en="${badgeLabelEn}">${badgeLabelAr}</span>
       </div>
       ${affBadgeHtml}
@@ -1017,7 +1021,17 @@ async function loadToolsFromJSON() {
       ...t,
       _cat: normalizeCategory(t.cat || t.category || '')
     }));
-    // Sort: put CMS tools (no aff_badge) after main tools, then alphabetically
+    // Deduplicate: منع ظهور نفس الأداة مرتين بأي id أو name مكرر
+    const _seenIds   = new Set();
+    const _seenNames = new Set();
+    allTools = allTools.filter(t => {
+      const tid   = (t.id || '').toLowerCase().trim();
+      const tname = (t.name || t.title || '').toLowerCase().trim();
+      if (_seenIds.has(tid) || _seenNames.has(tname)) return false;
+      _seenIds.add(tid);
+      if (tname) _seenNames.add(tname);
+      return true;
+    });
     renderTools(allTools);
     reinitSearch();
     console.log('[NEORA] Loaded', allTools.length, 'tools from tools-index.json');
