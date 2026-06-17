@@ -930,6 +930,27 @@ function buildToolCard(t) {
       ${commissionHtml}
     </div>`;
 }
+  const commissionHtml = commission ? `<div class="aff-commission">${commission}</div>` : '';
+
+  return `
+    <div class="tool-card" data-cat="${cat}" data-name="${t.name || t.title || ''}" data-ar="${nameAr}" data-en="${nameEn}" onclick="openTool('${id}')">
+      <div class="tool-header">
+        <div class="tool-icon" style="${iconBg}">${iconHTML}</div>
+        <span class="tool-badge ${badgeClass}" data-badge-ar="${badgeLabelAr}" data-badge-en="${badgeLabelEn}">${badgeLabelAr}</span>
+      </div>
+      ${affBadgeHtml}
+      ${partnerHtml}
+      <div class="tool-name">${t.name || t.title || ''}</div>
+      <div class="tool-desc" data-desc-ar="${descAr}" data-desc-en="${descEn}">${descAr}</div>
+      <div class="tool-footer">
+        <div class="tool-tags">${tagsHtml}</div>
+        <div class="tool-stars">★ ${stars}</div>
+      </div>
+      <a href="${url}" target="_blank" rel="${rel}" class="aff-btn" onclick="event.stopPropagation()"
+         data-btn-ar="🚀 زيارة الموقع" data-btn-en="🚀 Visit Website">🚀 زيارة الموقع</a>
+      ${commissionHtml}
+    </div>`;
+}
 let allTools = [];
 let currentLang = lang;
 
