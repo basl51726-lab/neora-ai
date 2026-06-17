@@ -24,17 +24,18 @@ function toLatinDigits(str) {
   return String(str || '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 }
 
-// ---- هل القيمة رابط URL؟ ----
-function isURL(str) {
-  return /^https?:\/\//i.test(str || '');
-}
-
-// ---- هل القيمة إيموجي حقيقي؟ ----
-function isEmoji(str) {
+// ---- هل القيمة مسار صورة؟ (يكشف URL خارجي + مسار داخلي) ----
+function isImageSrc(str) {
   if (!str) return false;
-  if (isURL(str)) return false;
-  // إيموجي عادةً أقل من 5 أحرف وليس URL
-  return str.trim().length <= 8;
+  const s = str.trim();
+  return (
+    s.startsWith('http://') ||
+    s.startsWith('https://') ||
+    s.startsWith('/images/') ||
+    s.startsWith('/uploads/') ||
+    s.startsWith('/static/') ||
+    /\.(png|jpg|jpeg|gif|webp|svg|ico)(\?.*)?$/i.test(s)
+  );
 }
 
 // ---- بناء الـ slug من اسم الملف ----
@@ -47,25 +48,12 @@ function slugify(str) {
     .replace(/^-|-$/g, '');
 }
 
-
 // ---- أيقونة افتراضية حسب التصنيف ----
 const DEFAULT_ICONS = {
   chat: '💬', image: '🎨', video: '🎬', code: '💻',
   writing: '✍️', voice: '🎙️', productivity: '⚡',
   research: '🔬', data: '📊',
 };
-
-// ---- إذا كانت الأيقونة URL → نبني img tag ----
-function buildIconHTML(iconVal, cat) {
-  if (!iconVal || iconVal.trim() === '') {
-    return DEFAULT_ICONS[cat] || '🤖';
-  }
-  if (isURL(iconVal)) {
-    // نرجع object خاص يعرف buildToolCard أنه صورة
-    return { type: 'img', src: iconVal };
-  }
-  return iconVal; // إيموجي عادي
-}
 
 // ---- قراءة الأدوات الأصلية ----
 const TOOLS_JSON = path.join(__dirname, 'tools-index.json');
@@ -92,39 +80,61 @@ if (fs.existsSync(TOOLS_DIR)) {
     const id  = fm.id || slugify(fm.title || fileSlug) || fileSlug;
     const cat = fm.category || 'chat';
 
-    // تصحيح التقييم — يقبل أرقام عربية وإنجليزية
+    // تصحيح التقييم
     const ratingRaw = toLatinDigits(fm.rating || '4.5');
     const rating    = parseFloat(ratingRaw) || 4.5;
 
-    // تصحيح الأيقونة — يقبل إيموجي أو URL أو فارغ
-    const iconRaw  = (fm.icon || '').trim();
-    const iconData = buildIconHTML(iconRaw, cat);
+    // ── معالجة الأيقونة ──────────────────────────────────────
+    // icon  = مسار صورة مرفوعة: /images/uploads/tool.png
+    //       أو URL خارجي:       https://example.com/icon.png
+    //       أو إيموجي:           🤖
+    // icon_emoji = إيموجي احتياطي (الحقل الجديد في config.yml)
+    const iconRaw   = (fm.icon || '').trim();
+    const emojiRaw  = (fm.icon_emoji || '').trim();
+    const fallback  = emojiRaw || DEFAULT_ICONS[cat] || '🤖';
 
-    // إذا كانت الأيقونة صورة نبني icon و icon_img
-    const isImgIcon = typeof iconData === 'object' && iconData.type === 'img';
+    let iconFinal;   // ما يُعرض في الأيقونة (إيموجي أو مسار)
+    let iconImgFinal; // مسار الصورة إن وُجدت
+
+    if (isImageSrc(iconRaw)) {
+      // صورة حقيقية مرفوعة
+      iconFinal    = iconRaw;   // نمرر المسار كاملاً لـ buildToolCard
+      iconImgFinal = iconRaw;
+    } else if (iconRaw) {
+      // إيموجي أو رمز نصي
+      iconFinal    = iconRaw;
+      iconImgFinal = '';
+    } else {
+      // فارغ — نستخدم الإيموجي الاحتياطي
+      iconFinal    = fallback;
+      iconImgFinal = '';
+    }
+    // ─────────────────────────────────────────────────────────
 
     return {
       id,
+      slug:    fileSlug,
       name:    fm.title || '',
       title:   fm.title || '',
       cat,
       ar:      fm.keywords_ar || fm.title || '',
       en:      fm.keywords_en || fm.title || '',
       badge:   fm.badge  || 'free',
-      icon:    isImgIcon ? (DEFAULT_ICONS[cat] || '🤖') : (iconData || DEFAULT_ICONS[cat] || '🤖'),
-      icon_img: isImgIcon ? iconData.src : '',   // رابط الصورة إن وُجد
-      icon_bg: 'background:rgba(0,212,255,0.1)',
-      desc_ar: fm.desc_ar     || fm.description || '',
-      desc_en: fm.desc_en     || fm.description || '',
+      icon:    iconFinal,
+      icon_img: iconImgFinal,
+      icon_emoji: fallback,
+      icon_bg: 'background:rgba(212,175,55,0.1)',
+      desc_ar: fm.desc_ar  || fm.description || '',
+      desc_en: fm.desc_en  || fm.description || '',
       stars:   String(rating),
       tags_ar: [cat],
-      aff_badge:       fm.commission ? `💰 ${fm.commission}` : '',
-      commission:      fm.commission || '',
-      url:             fm.affiliate_url || fm.url || '#',
-      rel:             fm.affiliate_url ? 'nofollow sponsored' : 'noopener',
+      aff_badge:        fm.commission ? `💰 ${fm.commission}` : '',
+      commission:       fm.commission || '',
+      url:              fm.affiliate_url || fm.url || '#',
+      rel:              fm.affiliate_url ? 'nofollow sponsored' : 'noopener',
       official_partner: false,
-      pricing_ar:      fm.pricing_ar || '',
-      _source:         'cms',
+      pricing_ar:       fm.pricing_ar || '',
+      _source:          'cms',
     };
   });
 } else {
@@ -132,19 +142,17 @@ if (fs.existsSync(TOOLS_DIR)) {
 }
 
 // ---- دمج: الأدوات الأصلية + أدوات CMS ----
-const baseIds    = new Set(baseTools.map(t => t.id));
-const baseNames  = new Set(baseTools.map(t => (t.name || t.title || '').toLowerCase().trim()));
+const baseIds   = new Set(baseTools.map(t => t.id));
+const baseNames = new Set(baseTools.map(t => (t.name || t.title || '').toLowerCase().trim()));
 
-// أداة CMS مكررة = نفس الـ id تماماً أو نفس الاسم تماماً
 function isDuplicate(ct) {
   const ctName = (ct.name || ct.title || '').toLowerCase().trim();
   return baseIds.has(ct.id) || baseNames.has(ctName);
 }
 
 const newCmsTools = cmsTools.filter(t => !isDuplicate(t));
-const updatedCms  = cmsTools.filter(t => isDuplicate(t));
+const updatedCms  = cmsTools.filter(t =>  isDuplicate(t));
 
-// حدّث الأدوات الموجودة (مطابقة بـ id أو name أو slug)
 const mergedBase = baseTools.map(bt => {
   const btName = (bt.name || bt.title || '').toLowerCase().trim();
   const updated = updatedCms.find(ct =>
@@ -159,7 +167,10 @@ const allTools = [...mergedBase, ...newCmsTools];
 // تأكد نهائي — احذف أي تكرار في id
 const seenIds = new Set();
 const deduped = allTools.filter(t => {
-  if (seenIds.has(t.id)) { console.warn(`[build] ⚠️ تكرار محذوف: ${t.id}`); return false; }
+  if (seenIds.has(t.id)) {
+    console.warn(`[build] ⚠️ تكرار محذوف: ${t.id}`);
+    return false;
+  }
   seenIds.add(t.id);
   return true;
 });
