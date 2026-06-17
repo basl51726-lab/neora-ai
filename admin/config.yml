@@ -35,7 +35,17 @@ collections:
           - {label: "احترافي", value: "pro"}
           - {label: "جديد", value: "new"}
       - {label: "التقييم", name: "rating", widget: "number", min: 1, max: 5, step: 0.1}
-      - {label: "الأيقونة", name: "icon", widget: "string"}
+      - label: "الأيقونة"
+        name: "icon"
+        widget: "image"
+        required: false
+        hint: "ارفع أيقونة الأداة (PNG أو SVG أو WebP، مربعة، 128×128 على الأقل). إذا تركته فارغاً يظهر رمز افتراضي."
+      - label: "إيموجي احتياطي"
+        name: "icon_emoji"
+        widget: "string"
+        required: false
+        hint: "إيموجي يظهر إذا لم ترفع أيقونة — مثال: 🤖"
+        default: "🤖"
       - {label: "الوصف عربي", name: "desc_ar", widget: "text"}
       - {label: "الوصف إنجليزي", name: "desc_en", widget: "text"}
       - {label: "السعر", name: "pricing_ar", widget: "string"}
@@ -53,6 +63,7 @@ collections:
         name: "featuredImage"
         widget: "image"
         required: false
+        hint: "ارفع صورة المقال (أفضل أبعاد: 1200×630 بكسل)"
       - label: "تصنيف المقال"
         name: "category"
         widget: "select"
