@@ -855,15 +855,15 @@ function getBadgeLabel(badge, lang) {
 }
 
 function buildToolCard(t) {
-  const cat = normalizeCategory(t.cat || t.category || '');
-  const id  = t.id || (t.name || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const cat = normalizeCategory(t.cat || t.category || t.type || '');
+  const id  = t.id || (t.name || t.title || '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   const badgeClass = getBadgeClass(t.badge || t.tier || 'free');
   const badgeLabelAr = getBadgeLabel(t.badge || t.tier || 'free', 'ar');
   const badgeLabelEn = getBadgeLabel(t.badge || t.tier || 'free', 'en');
   const icon    = t.icon || '🤖';
   const iconBg  = t.icon_bg || 'background:rgba(0,212,255,0.1)';
-  const descAr  = t.desc_ar || t.description_ar || t.description || '';
-  const descEn  = t.desc_en || t.description_en || t.description || '';
+  const descAr  = t.desc_ar || t.description_ar || t.description || t.desc || '';
+  const descEn  = t.desc_en || t.description_en || t.description || t.desc || '';
   const stars   = t.stars || t.rating || '4.5';
   const url     = t.url || t.website || '#';
   const rel     = t.rel || 'noopener';
@@ -884,14 +884,14 @@ function buildToolCard(t) {
   const commissionHtml = commission ? `<div class="aff-commission">${commission}</div>` : '';
 
   return `
-    <div class="tool-card" data-cat="${cat}" data-name="${t.name}" data-ar="${nameAr}" data-en="${nameEn}" onclick="openTool('${id}')">
+    <div class="tool-card" data-cat="${cat}" data-name="${t.name || t.title || ''}" data-ar="${nameAr}" data-en="${nameEn}" onclick="openTool('${id}')">
       <div class="tool-header">
         <div class="tool-icon" style="${iconBg}">${icon}</div>
         <span class="tool-badge ${badgeClass}" data-badge-ar="${badgeLabelAr}" data-badge-en="${badgeLabelEn}">${badgeLabelAr}</span>
       </div>
       ${affBadgeHtml}
       ${partnerHtml}
-      <div class="tool-name">${t.name}</div>
+      <div class="tool-name">${t.name || t.title || ''}</div>
       <div class="tool-desc" data-desc-ar="${descAr}" data-desc-en="${descEn}">${descAr}</div>
       <div class="tool-footer">
         <div class="tool-tags">${tagsHtml}</div>
@@ -978,7 +978,7 @@ doSearch = function() {
   
   const filtered = allTools.filter(t => {
     const haystack = [
-      t.name, t.ar, t.en, t.keywords_ar, t.keywords_en,
+      t.name, t.title, t.ar, t.en, t.keywords_ar, t.keywords_en,
       t.desc_ar, t.desc_en, t.description, t.cat, t.category,
       t.id
     ].filter(Boolean).join(' ').toLowerCase();
