@@ -1750,5 +1750,30 @@
     "official_partner": false,
     "pricing_ar": "مجاني محدود، وخطط مدفوعة حسب الاستخدام",
     "_source": "cms"
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "title": "Claude Code",
+    "cat": "code",
+    "ar": "Claude Code",
+    "en": "Claude Code",
+    "badge": "new",
+    "icon": "⚡",
+    "icon_img": "",
+    "icon_bg": "background:rgba(0,212,255,0.1)",
+    "desc_ar": "مساعد برمجة من Anthropic يعمل مباشرة في terminal ويكتب الكود معك.",
+    "desc_en": "Anthropic coding assistant that works directly in terminal.",
+    "stars": "4.9",
+    "tags_ar": [
+      "code"
+    ],
+    "aff_badge": "",
+    "commission": "",
+    "url": "https://claude.ai/code",
+    "rel": "noopener",
+    "official_partner": false,
+    "pricing_ar": "مجاني جزئياً",
+    "_source": "cms"
   }
 ]
