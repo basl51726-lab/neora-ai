@@ -1705,8 +1705,8 @@
     "id": "openai-codex",
     "name": "OpenAI Codex",
     "cat": "code",
-    "ar": "كود برمجة openai ذكاء اصطناعي",
-    "en": "code programming openai ai codex",
+    "ar": "OpenAI Codex",
+    "en": "OpenAI Codex",
     "badge": "pro",
     "icon": "🧠",
     "icon_bg": "background:rgba(0,212,255,0.1)",
@@ -1714,14 +1714,15 @@
     "desc_en": "OpenAI's AI model specialized in programming and code generation in multiple languages.",
     "stars": "4.7",
     "tags_ar": [
-      "كود",
-      "برمجة"
+      "code"
     ],
     "aff_badge": "",
     "commission": "",
     "url": "https://openai.com/codex",
     "rel": "noopener",
     "official_partner": false,
-    "title": "OpenAI Codex"
+    "title": "OpenAI Codex",
+    "pricing_ar": "مدفوع",
+    "_source": "cms"
   }
 ]
