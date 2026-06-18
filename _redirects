@@ -1,2 +1,16 @@
+# ── Static JSON files — must NOT be caught by the SPA wildcard ───────────────
+/_posts-json/*    /_posts-json/:splat    200
+/tools-index.json    /tools-index.json    200
+/posts-index.json    /posts-index.json    200
+/sitemap.xml         /sitemap.xml         200
+/robots.txt          /robots.txt          200
+
+# ── Tool-specific SPA routes (404 fixes) ─────────────────────────────────────
+/tool/lovable     /index.html    200
+/tool/windsurf    /index.html    200
+
+# ── Blog post pages ───────────────────────────────────────────────────────────
 /blog/*    /blog/post.html    200
+
+# ── SPA fallback (must be last) ───────────────────────────────────────────────
 /*    /index.html    200
