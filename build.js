@@ -1,5 +1,5 @@
 // build.js — Netlify Build Script
-// يقرأ ملفات .md من الجذر ومن _tools/ ويبني tools-index.json
+// يقرأ ملفات .md من الجذر ومن _tools/ ويبني tools-index.json + sitemap.xml
 
 const fs   = require('fs');
 const path = require('path');
@@ -172,6 +172,93 @@ const deduped   = cmsTools.filter(t => {
   return true;
 });
 
-// 4. اكتب الملف
+// 4. اكتب ملف tools-index.json
 fs.writeFileSync(TOOLS_JSON, JSON.stringify(deduped, null, 2), 'utf8');
 console.log(`[build] ✅ tools-index.json: ${deduped.length} أداة`);
+
+// ================================================================
+// توليد sitemap.xml تلقائياً
+// ================================================================
+function generateSitemap() {
+  const BASE = 'https://neora-ai.com';
+  const postsPath = path.join(ROOT, 'posts-index.json');
+  const posts = fs.existsSync(postsPath)
+    ? JSON.parse(fs.readFileSync(postsPath, 'utf8'))
+    : [];
+
+  const compareDir  = path.join(ROOT, 'compare');
+  const compareDirs = fs.existsSync(compareDir)
+    ? fs.readdirSync(compareDir).filter(d =>
+        fs.statSync(path.join(compareDir, d)).isDirectory()
+      )
+    : [];
+
+  const lines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    '',
+    '  <url>',
+    `    <loc>${BASE}/</loc>`,
+    `    <xhtml:link rel="alternate" hreflang="ar" href="${BASE}/"/>`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${BASE}/?lang=en"/>`,
+    '    <changefreq>daily</changefreq>',
+    '    <priority>1.0</priority>',
+    '  </url>',
+    '',
+    '  <url>',
+    `    <loc>${BASE}/blog/</loc>`,
+    '    <changefreq>daily</changefreq>',
+    '    <priority>0.9</priority>',
+    '  </url>',
+    '',
+  ];
+
+  posts.forEach(p => {
+    if (!p.slug) return;
+    const enc = encodeURIComponent(p.slug).replace(/%2F/g, '/');
+    lines.push('  <url>');
+    lines.push(`    <loc>${BASE}/blog/${enc}</loc>`);
+    if (p.date) lines.push(`    <lastmod>${p.date}</lastmod>`);
+    lines.push('    <changefreq>monthly</changefreq>');
+    lines.push('    <priority>0.8</priority>');
+    lines.push('  </url>');
+  });
+
+  lines.push('');
+  lines.push('  <url>');
+  lines.push(`    <loc>${BASE}/compare/</loc>`);
+  lines.push('    <changefreq>weekly</changefreq>');
+  lines.push('    <priority>0.85</priority>');
+  lines.push('  </url>');
+
+  compareDirs.forEach(d => {
+    lines.push('  <url>');
+    lines.push(`    <loc>${BASE}/compare/${d}/</loc>`);
+    lines.push('    <changefreq>monthly</changefreq>');
+    lines.push('    <priority>0.75</priority>');
+    lines.push('  </url>');
+  });
+
+  lines.push('');
+
+  deduped.forEach(t => {
+    const tid = t.id || t.slug;
+    if (!tid) return;
+    lines.push('  <url>');
+    lines.push(`    <loc>${BASE}/tool/${tid}</loc>`);
+    lines.push('    <changefreq>monthly</changefreq>');
+    lines.push('    <priority>0.7</priority>');
+    lines.push('  </url>');
+  });
+
+  lines.push('');
+  lines.push('</urlset>');
+
+  const sitemapPath = path.join(ROOT, 'sitemap.xml');
+  fs.writeFileSync(sitemapPath, lines.join('\n'), 'utf8');
+  const total = 2 + posts.length + 1 + compareDirs.length + deduped.length;
+  console.log(`[build] ✅ sitemap.xml: ${total} URLs`);
+}
+
+generateSitemap();
