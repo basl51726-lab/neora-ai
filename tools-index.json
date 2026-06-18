@@ -9,9 +9,7 @@
     "icon": "🔥",
     "desc_ar": "أداة توليد الصور من Adobe مصممة للمصممين المحترفين.",
     "desc_en": "Adobe's image generation tool for professionals.",
-    "pricing_ar": "مع اشتراك Adobe",
-    "id": "adobe-firefly",
-    "name": "Adobe Firefly"
+    "pricing_ar": "مع اشتراك Adobe"
   },
   {
     "slug": "beautiful-ai",
@@ -23,9 +21,7 @@
     "icon": "✨",
     "desc_ar": "إنشاء عروض تقديمية احترافية بالذكاء الاصطناعي.",
     "desc_en": "Create professional presentations with AI.",
-    "pricing_ar": "$12/شهر",
-    "id": "beautiful-ai",
-    "name": "Beautiful.ai"
+    "pricing_ar": "$12/شهر"
   },
   {
     "slug": "brandmark",
@@ -37,9 +33,7 @@
     "icon": "🏷️",
     "desc_ar": "إنشاء شعارات وهوية بصرية احترافية بالذكاء الاصطناعي.",
     "desc_en": "Create professional logos and visual identity with AI.",
-    "pricing_ar": "$25",
-    "id": "brandmark",
-    "name": "Brandmark"
+    "pricing_ar": "$25"
   },
   {
     "slug": "canva-ai",
@@ -51,9 +45,7 @@
     "icon": "🎨",
     "desc_ar": "منصة التصميم الشهيرة مع ميزات ذكاء اصطناعي متكاملة.",
     "desc_en": "Popular design platform with integrated AI features.",
-    "pricing_ar": "مجاني",
-    "id": "canva-ai",
-    "name": "Canva AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "chatgpt-plus",
@@ -65,9 +57,7 @@
     "icon": "💬",
     "desc_ar": "أشهر نموذج دردشة ذكاء اصطناعي في العالم. يجيب على الأسئلة ويساعد في الكتابة والتحليل.",
     "desc_en": "The world's most popular AI chat model.",
-    "pricing_ar": "$20/شهر",
-    "id": "chatgpt-plus",
-    "name": "ChatGPT Plus"
+    "pricing_ar": "$20/شهر"
   },
   {
     "slug": "claude-code",
@@ -77,11 +67,9 @@
     "badge": "new",
     "rating": "4",
     "icon": "💻",
-    "desc_ar": "Claude Code هو وكيل برمجي من Anthropic يعمل مباشرة من سطر الأوامر.",
-    "desc_en": "Claude Code is an AI coding agent by Anthropic that works directly from the command line.",
-    "pricing_ar": "يتوفر ضمن خطط Claude المدفوعة",
-    "id": "claude-code",
-    "name": "Claude Code"
+    "desc_ar": "Claude Code هو وكيل برمجي من Anthropic يعمل مباشرة من سطر الأوامر،",
+    "desc_en": "Claude Code is an AI coding agent by Anthropic that works directly from",
+    "pricing_ar": "يتوفر ضمن خطط Claude المدفوعة"
   },
   {
     "slug": "claude",
@@ -93,9 +81,7 @@
     "icon": "🌟",
     "desc_ar": "مساعد ذكاء اصطناعي من Anthropic متميز في التحليل العميق.",
     "desc_en": "Anthropic's AI assistant for deep analysis.",
-    "pricing_ar": "مجاني",
-    "id": "claude",
-    "name": "Claude"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "consensus",
@@ -107,9 +93,7 @@
     "icon": "🔬",
     "desc_ar": "محرك بحث أكاديمي يلخص الدراسات العلمية بالذكاء الاصطناعي.",
     "desc_en": "Academic search engine summarizing scientific studies.",
-    "pricing_ar": "مجاني",
-    "id": "consensus",
-    "name": "Consensus"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "copy-ai",
@@ -121,9 +105,7 @@
     "icon": "📝",
     "desc_ar": "أداة كتابة إعلانية وتسويقية بالذكاء الاصطناعي.",
     "desc_en": "AI copywriting and marketing tool.",
-    "pricing_ar": "مجاني",
-    "id": "copy-ai",
-    "name": "Copy.ai"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "cursor",
@@ -135,9 +117,7 @@
     "icon": "⌨️",
     "desc_ar": "محرر كود ذكي مبني على VS Code مع ذكاء اصطناعي متقدم.",
     "desc_en": "Smart code editor built on VS Code with advanced AI.",
-    "pricing_ar": "مجاني",
-    "id": "cursor",
-    "name": "Cursor"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "dall-e-3",
@@ -149,9 +129,7 @@
     "icon": "🖼️",
     "desc_ar": "نموذج OpenAI لتوليد الصور المتكامل مع ChatGPT.",
     "desc_en": "OpenAI image generation integrated with ChatGPT.",
-    "pricing_ar": "مضمن مع ChatGPT",
-    "id": "dall-e-3",
-    "name": "DALL-E 3"
+    "pricing_ar": "مضمن مع ChatGPT"
   },
   {
     "slug": "deepl",
@@ -163,9 +141,7 @@
     "icon": "🌍",
     "desc_ar": "أفضل أداة ترجمة في العالم بدقة استثنائية.",
     "desc_en": "World's best translation tool with exceptional accuracy.",
-    "pricing_ar": "مجاني",
-    "id": "deepl",
-    "name": "DeepL"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "descript",
@@ -177,9 +153,7 @@
     "icon": "🎵",
     "desc_ar": "تحرير الصوت والفيديو عن طريق تعديل النص فقط.",
     "desc_en": "Edit audio and video by editing text.",
-    "pricing_ar": "مجاني",
-    "id": "descript",
-    "name": "Descript"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "devin-ai",
@@ -189,11 +163,9 @@
     "badge": "new",
     "rating": "4",
     "icon": "🤖",
-    "desc_ar": "Devin AI هو وكيل برمجي ذكي من شركة Cognition AI قادر على كتابة الأكواد وتطوير التطبيقات.",
-    "desc_en": "Devin AI is an AI software engineering agent developed by Cognition AI.",
-    "pricing_ar": "حسب خطة Devin AI",
-    "id": "devin-ai",
-    "name": "Devin AI"
+    "desc_ar": "Devin AI هو وكيل برمجي ذكي من شركة Cognition AI قادر على كتابة الأكواد،",
+    "desc_en": "Devin AI is an AI software engineering agent developed by Cognition AI",
+    "pricing_ar": "حسب خطة Devin AI"
   },
   {
     "slug": "elevenlabs",
@@ -205,9 +177,7 @@
     "icon": "🎙️",
     "desc_ar": "تحويل النص إلى صوت بشري طبيعي بأكثر من 30 لغة.",
     "desc_en": "Text to natural human voice in 30+ languages.",
-    "pricing_ar": "مجاني",
-    "id": "elevenlabs",
-    "name": "ElevenLabs"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "elicit",
@@ -219,9 +189,7 @@
     "icon": "📚",
     "desc_ar": "مساعد بحث علمي يحلل الأوراق البحثية ويستخرج النتائج.",
     "desc_en": "Scientific research assistant analyzing papers.",
-    "pricing_ar": "مجاني",
-    "id": "elicit",
-    "name": "Elicit"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "fireflies-ai",
@@ -233,9 +201,7 @@
     "icon": "🦟",
     "desc_ar": "تسجيل وتفريغ وتلخيص الاجتماعات تلقائياً.",
     "desc_en": "Automatically record, transcribe and summarize meetings.",
-    "pricing_ar": "مجاني",
-    "id": "fireflies-ai",
-    "name": "Fireflies.ai"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "gamma",
@@ -247,9 +213,7 @@
     "icon": "γ",
     "desc_ar": "إنشاء عروض تقديمية ومستندات ومواقع ويب بالذكاء الاصطناعي.",
     "desc_en": "Create presentations, docs and websites with AI.",
-    "pricing_ar": "مجاني",
-    "id": "gamma",
-    "name": "Gamma"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "github-copilot",
@@ -261,9 +225,7 @@
     "icon": "💻",
     "desc_ar": "مساعد برمجة ذكي يكتب الكود معك في الوقت الفعلي.",
     "desc_en": "AI coding assistant that writes code with you.",
-    "pricing_ar": "$10/شهر",
-    "id": "github-copilot",
-    "name": "GitHub Copilot"
+    "pricing_ar": "$10/شهر"
   },
   {
     "slug": "google-gemini",
@@ -275,9 +237,7 @@
     "icon": "🔍",
     "desc_ar": "مساعد الذكاء الاصطناعي من Google متكامل مع خدمات Google.",
     "desc_en": "Google's AI assistant integrated with Google services.",
-    "pricing_ar": "مجاني",
-    "id": "google-gemini",
-    "name": "Google Gemini"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "grammarly",
@@ -289,9 +249,7 @@
     "icon": "📖",
     "desc_ar": "أفضل أداة لتدقيق الكتابة الإنجليزية وتحسين الأسلوب.",
     "desc_en": "Best English writing checker and style improver.",
-    "pricing_ar": "مجاني",
-    "id": "grammarly",
-    "name": "Grammarly"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "grok",
@@ -303,9 +261,7 @@
     "icon": "𝕏",
     "desc_ar": "مساعد الذكاء الاصطناعي من xAI يتميز بالوصول الفوري لأخبار X/Twitter.",
     "desc_en": "xAI assistant with real-time X/Twitter access.",
-    "pricing_ar": "مع اشتراك X Premium",
-    "id": "grok",
-    "name": "Grok"
+    "pricing_ar": "مع اشتراك X Premium"
   },
   {
     "slug": "heygen",
@@ -317,9 +273,7 @@
     "icon": "👤",
     "desc_ar": "إنشاء فيديوهات تقديمية بأفاتار واقعي يتحدث بصوتك.",
     "desc_en": "Create presentation videos with realistic AI avatar.",
-    "pricing_ar": "$29/شهر",
-    "id": "heygen",
-    "name": "HeyGen"
+    "pricing_ar": "$29/شهر"
   },
   {
     "slug": "ideogram",
@@ -331,9 +285,7 @@
     "icon": "💡",
     "desc_ar": "أفضل أداة لتوليد صور تحتوي على نصوص واضحة وشعارات.",
     "desc_en": "Best tool for generating images with clear text.",
-    "pricing_ar": "مجاني",
-    "id": "ideogram",
-    "name": "Ideogram"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "invideo-ai",
@@ -345,9 +297,7 @@
     "icon": "📱",
     "desc_ar": "إنشاء فيديوهات YouTube ووسائل التواصل بالذكاء الاصطناعي.",
     "desc_en": "Create YouTube and social media videos with AI.",
-    "pricing_ar": "مجاني",
-    "id": "invideo-ai",
-    "name": "InVideo AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "jasper-ai",
@@ -359,9 +309,7 @@
     "icon": "✍️",
     "desc_ar": "منصة كتابة محتوى تسويقي بالذكاء الاصطناعي.",
     "desc_en": "AI marketing content writing platform.",
-    "pricing_ar": "$49/شهر",
-    "id": "jasper-ai",
-    "name": "Jasper AI"
+    "pricing_ar": "$49/شهر"
   },
   {
     "slug": "julius-ai",
@@ -373,9 +321,7 @@
     "icon": "📊",
     "desc_ar": "تحليل البيانات والجداول بالذكاء الاصطناعي.",
     "desc_en": "AI data and spreadsheet analysis.",
-    "pricing_ar": "مجاني",
-    "id": "julius-ai",
-    "name": "Julius AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "kling-ai",
@@ -387,9 +333,7 @@
     "icon": "🎞️",
     "desc_ar": "منصة توليد فيديو صينية متقدمة بجودة عالية.",
     "desc_en": "Advanced Chinese video generation platform.",
-    "pricing_ar": "مجاني",
-    "id": "kling-ai",
-    "name": "Kling AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "leonardo-ai",
@@ -401,9 +345,7 @@
     "icon": "🦁",
     "desc_ar": "منصة توليد صور متقدمة للمبدعين ومطوري الألعاب.",
     "desc_en": "Advanced image generation for creators and game developers.",
-    "pricing_ar": "مجاني",
-    "id": "leonardo-ai",
-    "name": "Leonardo AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "lovable",
@@ -413,11 +355,9 @@
     "badge": "pro",
     "rating": "4",
     "icon": "🌊",
-    "desc_ar": "منصة ذكاء اصطناعي لإنشاء المواقع والتطبيقات من خلال الأوامر النصية.",
-    "desc_en": "AI-powered platform for building websites and web applications using natural language.",
-    "pricing_ar": "Freemium",
-    "id": "lovable",
-    "name": "Lovable"
+    "desc_ar": "منصة ذكاء اصطناعي لإنشاء المواقع والتطبيقات من خلال الأوامر النصية،",
+    "desc_en": "AI-powered platform for building websites and web applications using",
+    "pricing_ar": "Freemium"
   },
   {
     "slug": "luma-ai",
@@ -429,9 +369,7 @@
     "icon": "💎",
     "desc_ar": "توليد فيديو ثلاثي الأبعاد واقعي بالذكاء الاصطناعي.",
     "desc_en": "Generate realistic 3D video with AI.",
-    "pricing_ar": "مجاني",
-    "id": "luma-ai",
-    "name": "Luma AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "microsoft-copilot",
@@ -443,9 +381,7 @@
     "icon": "🪟",
     "desc_ar": "مساعد Microsoft المدعوم بـ GPT-4 مدمج في Windows وOffice.",
     "desc_en": "Microsoft's GPT-4 assistant built into Windows and Office.",
-    "pricing_ar": "مجاني",
-    "id": "microsoft-copilot",
-    "name": "Microsoft Copilot"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "midjourney",
@@ -457,9 +393,7 @@
     "icon": "🎨",
     "desc_ar": "توليد صور فنية مذهلة من النص. الأفضل عالمياً لجودة الصور الإبداعية.",
     "desc_en": "Generate stunning artistic images from text.",
-    "pricing_ar": "$10/شهر",
-    "id": "midjourney",
-    "name": "Midjourney"
+    "pricing_ar": "$10/شهر"
   },
   {
     "slug": "murf-ai",
@@ -471,9 +405,7 @@
     "icon": "🎤",
     "desc_ar": "منصة تحويل النص إلى صوت احترافي لصنّاع المحتوى.",
     "desc_en": "Professional text-to-voice platform for content creators.",
-    "pricing_ar": "مجاني",
-    "id": "murf-ai",
-    "name": "Murf AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "notebooklm",
@@ -482,12 +414,10 @@
     "category": "research",
     "badge": "free",
     "rating": "4",
-    "icon": "📓",
-    "desc_ar": "NotebookLM هو مساعد بحثي ذكي من Google يساعدك على تحليل المستندات.",
-    "desc_en": "Google's AI-powered research assistant that helps users analyze documents.",
-    "pricing_ar": "مجاني",
-    "id": "notebooklm",
-    "name": "NotebookLM"
+    "icon": "https://notebooklm.google.com/favicon.ico",
+    "desc_ar": "NotebookLM هو مساعد بحثي ذكي من Google يساعدك على تحليل المستندات",
+    "desc_en": "NotebookLM is Google's AI-powered research assistant that helps users",
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "notion-ai",
@@ -496,12 +426,10 @@
     "category": "writing",
     "badge": "pro",
     "rating": "4.6",
-    "icon": "📝",
+    "icon": "📓",
     "desc_ar": "ذكاء اصطناعي مدمج في Notion لتحسين الكتابة وتلخيص الملاحظات.",
     "desc_en": "AI built into Notion for writing and note summarization.",
-    "pricing_ar": "$10/شهر",
-    "id": "notion-ai",
-    "name": "Notion AI"
+    "pricing_ar": "$10/شهر"
   },
   {
     "slug": "notion",
@@ -513,9 +441,7 @@
     "icon": "📋",
     "desc_ar": "مساحة عمل متكاملة مع ذكاء اصطناعي للملاحظات وإدارة المشاريع.",
     "desc_en": "All-in-one workspace with AI for notes and project management.",
-    "pricing_ar": "مجاني",
-    "id": "notion",
-    "name": "Notion"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "openai-codex",
@@ -524,12 +450,10 @@
     "category": "code",
     "badge": "new",
     "rating": "4",
-    "icon": "⚙️",
-    "desc_ar": "OpenAI Codex هو وكيل برمجي مدعوم بالذكاء الاصطناعي من OpenAI.",
-    "desc_en": "OpenAI Codex is an AI coding agent developed by OpenAI.",
-    "pricing_ar": "حسب خطة OpenAI",
-    "id": "openai-codex",
-    "name": "OpenAI Codex"
+    "icon": "https://openai.com/favicon.ico",
+    "desc_ar": "OpenAI Codex هو وكيل برمجي مدعوم بالذكاء الاصطناعي من OpenAI يساعد",
+    "desc_en": "OpenAI Codex is an AI coding agent developed by OpenAI that helps",
+    "pricing_ar": "حسب خطة OpenAI"
   },
   {
     "slug": "otter-ai",
@@ -541,9 +465,19 @@
     "icon": "🦦",
     "desc_ar": "تفريغ الاجتماعات تلقائياً وإنشاء ملاحظات ذكية.",
     "desc_en": "Automatically transcribe meetings and create smart notes.",
-    "pricing_ar": "مجاني",
-    "id": "otter-ai",
-    "name": "Otter.ai"
+    "pricing_ar": "مجاني"
+  },
+  {
+    "slug": "perplexity-ai-1",
+    "title": "Perplexity AI",
+    "url": "https://www.perplexity.ai",
+    "category": "research",
+    "badge": "pro",
+    "rating": "4",
+    "icon": "https://www.perplexity.ai/favicon.ico",
+    "desc_ar": "محرك بحث مدعوم بالذكاء الاصطناعي يقدم إجابات دقيقة مع ذكر المصادر والمراجع.",
+    "desc_en": "AI-powered search engine that provides accurate answers with cited sources.",
+    "pricing_ar": "Free / Paid"
   },
   {
     "slug": "perplexity-ai",
@@ -555,9 +489,7 @@
     "icon": "🔎",
     "desc_ar": "محرك بحث ذكي يجيب على أسئلتك مع مصادر موثوقة فورية.",
     "desc_en": "Smart search engine with instant verified sources.",
-    "pricing_ar": "مجاني",
-    "id": "perplexity-ai",
-    "name": "Perplexity AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "pictory",
@@ -569,9 +501,7 @@
     "icon": "📹",
     "desc_ar": "تحويل المقالات والنصوص إلى فيديوهات تلقائياً.",
     "desc_en": "Convert articles and text to videos automatically.",
-    "pricing_ar": "$19/شهر",
-    "id": "pictory",
-    "name": "Pictory"
+    "pricing_ar": "$19/شهر"
   },
   {
     "slug": "pika-labs",
@@ -583,9 +513,7 @@
     "icon": "⚡",
     "desc_ar": "توليد فيديوهات قصيرة إبداعية بالذكاء الاصطناعي.",
     "desc_en": "Generate creative short videos with AI.",
-    "pricing_ar": "مجاني",
-    "id": "pika-labs",
-    "name": "Pika Labs"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "reclaim-ai",
@@ -597,9 +525,7 @@
     "icon": "📅",
     "desc_ar": "إدارة التقويم وجدولة المهام تلقائياً بالذكاء الاصطناعي.",
     "desc_en": "AI-powered calendar management and task scheduling.",
-    "pricing_ar": "مجاني",
-    "id": "reclaim-ai",
-    "name": "Reclaim AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "remove-bg",
@@ -611,9 +537,19 @@
     "icon": "✂️",
     "desc_ar": "إزالة خلفية الصور تلقائياً بدقة استثنائية.",
     "desc_en": "Automatically remove image backgrounds with exceptional accuracy.",
-    "pricing_ar": "مجاني",
-    "id": "remove-bg",
-    "name": "Remove.bg"
+    "pricing_ar": "مجاني"
+  },
+  {
+    "slug": "replit-agent",
+    "title": "Replit Agent",
+    "url": "https://replit.com/",
+    "category": "code",
+    "badge": "new",
+    "rating": "4",
+    "icon": "https://replit.com/favicon.ico",
+    "desc_ar": "Replit Agent هو وكيل برمجي بالذكاء الاصطناعي داخل منصة Replit يساعد",
+    "desc_en": "Replit Agent is an AI coding agent inside Replit that helps users build",
+    "pricing_ar": "مجاني محدود، وخطط مدفوعة حسب استخدام Replit"
   },
   {
     "slug": "replit-ai",
@@ -625,9 +561,7 @@
     "icon": "♻️",
     "desc_ar": "بيئة تطوير سحابية مع مساعد ذكاء اصطناعي لتشغيل الكود فوراً.",
     "desc_en": "Cloud development environment with AI assistant.",
-    "pricing_ar": "مجاني",
-    "id": "replit-ai",
-    "name": "Replit AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "runway-ml",
@@ -639,9 +573,7 @@
     "icon": "🎬",
     "desc_ar": "توليد وتحرير فيديو بالذكاء الاصطناعي.",
     "desc_en": "AI video generation and editing.",
-    "pricing_ar": "مجاني",
-    "id": "runway-ml",
-    "name": "Runway ML"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "sora",
@@ -653,9 +585,7 @@
     "icon": "🎥",
     "desc_ar": "نموذج توليد الفيديو من OpenAI ينتج فيديوهات واقعية مذهلة.",
     "desc_en": "OpenAI's video generation model.",
-    "pricing_ar": "مع ChatGPT Plus",
-    "id": "sora",
-    "name": "Sora"
+    "pricing_ar": "مع ChatGPT Plus"
   },
   {
     "slug": "soundraw",
@@ -667,9 +597,7 @@
     "icon": "🎼",
     "desc_ar": "توليد موسيقى خلفية مجانية من حقوق الملكية للمحتوى.",
     "desc_en": "Generate royalty-free background music for content.",
-    "pricing_ar": "مجاني",
-    "id": "soundraw",
-    "name": "Soundraw"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "stable-diffusion",
@@ -681,9 +609,7 @@
     "icon": "🌊",
     "desc_ar": "نموذج توليد صور مفتوح المصدر يمكن تشغيله محلياً أو عبر الإنترنت.",
     "desc_en": "Open source image generation model.",
-    "pricing_ar": "مجاني",
-    "id": "stable-diffusion",
-    "name": "Stable Diffusion"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "suno-ai",
@@ -695,9 +621,7 @@
     "icon": "🎶",
     "desc_ar": "توليد أغاني ومقطوعات موسيقية كاملة بالذكاء الاصطناعي.",
     "desc_en": "Generate complete songs and music with AI.",
-    "pricing_ar": "مجاني",
-    "id": "suno-ai",
-    "name": "Suno AI"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "synthesia",
@@ -709,9 +633,7 @@
     "icon": "🎭",
     "desc_ar": "إنشاء فيديوهات تدريبية وتعليمية بأفاتار AI احترافي.",
     "desc_en": "Create training and educational videos with professional AI avatar.",
-    "pricing_ar": "$22/شهر",
-    "id": "synthesia",
-    "name": "Synthesia"
+    "pricing_ar": "$22/شهر"
   },
   {
     "slug": "taskade",
@@ -723,9 +645,7 @@
     "icon": "✅",
     "desc_ar": "منصة إنتاجية متكاملة مع ذكاء اصطناعي للأفراد والفرق.",
     "desc_en": "All-in-one productivity platform with AI for teams.",
-    "pricing_ar": "مجاني",
-    "id": "taskade",
-    "name": "Taskade"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "tome",
@@ -737,9 +657,7 @@
     "icon": "📜",
     "desc_ar": "أداة إنشاء عروض تقديمية سردية بالذكاء الاصطناعي.",
     "desc_en": "AI narrative presentation creation tool.",
-    "pricing_ar": "مجاني",
-    "id": "tome",
-    "name": "Tome"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "udio",
@@ -751,9 +669,7 @@
     "icon": "🎸",
     "desc_ar": "منافس قوي لـ Suno في توليد الموسيقى بالذكاء الاصطناعي.",
     "desc_en": "Strong competitor to Suno for AI music generation.",
-    "pricing_ar": "مجاني",
-    "id": "udio",
-    "name": "Udio"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "v0-by-vercel",
@@ -765,9 +681,19 @@
     "icon": "▲",
     "desc_ar": "أداة توليد واجهات UI بالذكاء الاصطناعي من Vercel.",
     "desc_en": "Vercel's AI UI generation tool.",
-    "pricing_ar": "مجاني",
-    "id": "v0-by-vercel",
-    "name": "v0 by Vercel"
+    "pricing_ar": "مجاني"
+  },
+  {
+    "slug": "windsurf",
+    "title": "Windsurf",
+    "url": "https://codeium.com/windsurf",
+    "category": "code",
+    "badge": "free",
+    "rating": "4.6",
+    "icon": "🏄",
+    "desc_ar": "محرر كود بالذكاء الاصطناعي من Codeium، يتميز بمساعد Cascade المتكامل الذي يفهم سياق المشروع كاملاً ويكتب الكود بشكل تعاوني معك.",
+    "desc_en": "AI-first code editor by Codeium with integrated Cascade agent that understands your full project context and codes alongside you.",
+    "pricing_ar": "مجاني جزئياً"
   },
   {
     "slug": "writesonic",
@@ -779,9 +705,7 @@
     "icon": "✒️",
     "desc_ar": "أداة كتابة محتوى ذكية متخصصة في SEO والتسويق الرقمي.",
     "desc_en": "Smart content writing tool for SEO and digital marketing.",
-    "pricing_ar": "مجاني",
-    "id": "writesonic",
-    "name": "Writesonic"
+    "pricing_ar": "مجاني"
   },
   {
     "slug": "you-com",
@@ -793,22 +717,6 @@
     "icon": "🌐",
     "desc_ar": "محرك بحث بالذكاء الاصطناعي مع إجابات فورية ومصادر.",
     "desc_en": "AI search engine with instant answers and sources.",
-    "pricing_ar": "مجاني",
-    "id": "you-com",
-    "name": "You.com"
-  },
-  {
-    "slug": "windsurf",
-    "title": "Windsurf",
-    "name": "Windsurf",
-    "url": "https://codeium.com/windsurf",
-    "category": "code",
-    "badge": "free",
-    "rating": "4.6",
-    "icon": "🏄",
-    "desc_ar": "محرر كود بالذكاء الاصطناعي من Codeium، يتميز بمساعد Cascade المتكامل الذي يفهم سياق المشروع كاملاً.",
-    "desc_en": "AI-first code editor by Codeium with integrated Cascade agent that understands your full project context.",
-    "pricing_ar": "مجاني جزئياً",
-    "id": "windsurf"
+    "pricing_ar": "مجاني"
   }
 ]
