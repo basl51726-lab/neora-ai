@@ -188,20 +188,18 @@ function generateSitemap() {
 
   const compareDir  = path.join(ROOT, 'compare');
   const compareDirs = fs.existsSync(compareDir)
-    ? fs.readdirSync(compareDir).filter(d =>
-        fs.statSync(path.join(compareDir, d)).isDirectory()
-      )
+    ? fs.readdirSync(compareDir)
+        .filter(d => fs.statSync(path.join(compareDir, d)).isDirectory())
+        .sort()
     : [];
 
+  // Clean sitemap without xhtml namespace for maximum compatibility
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     '',
     '  <url>',
     `    <loc>${BASE}/</loc>`,
-    `    <xhtml:link rel="alternate" hreflang="ar" href="${BASE}/"/>`,
-    `    <xhtml:link rel="alternate" hreflang="en" href="${BASE}/?lang=en"/>`,
     '    <changefreq>daily</changefreq>',
     '    <priority>1.0</priority>',
     '  </url>',
@@ -258,7 +256,7 @@ function generateSitemap() {
   const sitemapPath = path.join(ROOT, 'sitemap.xml');
   fs.writeFileSync(sitemapPath, lines.join('\n'), 'utf8');
   const total = 2 + posts.length + 1 + compareDirs.length + deduped.length;
-  console.log(`[build] ✅ sitemap.xml: ${total} URLs`);
+  console.log(`[build] ✅ sitemap.xml: ${total} URLs (no xhtml namespace)`);
 }
 
 generateSitemap();
