@@ -24,6 +24,18 @@
     "pricing_ar": "$12/شهر"
   },
   {
+    "slug": "bolt-new",
+    "title": "Bolt.new",
+    "url": "https://bolt.new",
+    "category": "code",
+    "badge": "new",
+    "rating": "4.5",
+    "icon": "⚡",
+    "desc_ar": "منصة ذكاء اصطناعي لبناء التطبيقات والمواقع مباشرة من المتصفح.",
+    "desc_en": "AI platform for building apps and websites directly in the browser.",
+    "pricing_ar": "مجاني ومدفوع"
+  },
+  {
     "slug": "brandmark",
     "title": "Brandmark",
     "url": "https://brandmark.io",
@@ -718,17 +730,5 @@
     "desc_ar": "محرك بحث بالذكاء الاصطناعي مع إجابات فورية ومصادر.",
     "desc_en": "AI search engine with instant answers and sources.",
     "pricing_ar": "مجاني"
-  },
-  {
-    "slug": "bolt-new",
-    "title": "Bolt.new",
-    "url": "https://bolt.new",
-    "category": "code",
-    "badge": "new",
-    "rating": "4.5",
-    "icon": "⚡",
-    "desc_ar": "منصة ذكاء اصطناعي لبناء التطبيقات والمواقع مباشرة من المتصفح.",
-    "desc_en": "AI platform for building apps and websites directly in the browser.",
-    "pricing_ar": "مجاني ومدفوع"
   }
 ]
