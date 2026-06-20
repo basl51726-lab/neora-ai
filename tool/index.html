@@ -325,22 +325,29 @@ function showError() {
 
 // ── Main ───────────────────────────────────────────────────────────
 async function init() {
-  // Extract slug from URL: /tool/gamma → "gamma"
-  const slug = decodeURIComponent(
-    window.location.pathname.replace(/^\/tool\//, '').replace(/\/+$/, '').trim()
-  );
-  if (!slug) { showError(); return; }
+  const params = new URLSearchParams(window.location.search);
+
+  let slug = params.get('slug') || params.get('name') || '';
+
+  if (!slug) {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const toolIndex = parts.indexOf('tool');
+    slug = toolIndex >= 0 ? (parts[toolIndex + 1] || '') : '';
+  }
+
+  slug = decodeURIComponent(slug).replace(/\/+$/, '').trim().toLowerCase();
+
+  if (!slug || slug === 'index.html') { showError(); return; }
 
   try {
     const res = await fetch('/tools-index.json?v=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const tools = await res.json();
 
-    // Match by id, slug, or name (case-insensitive)
     const tool = tools.find(t =>
-      (t.id   || '').toLowerCase() === slug.toLowerCase() ||
-      (t.slug || '').toLowerCase() === slug.toLowerCase() ||
-      (t.name || '').toLowerCase() === slug.toLowerCase()
+      String(t.id || '').toLowerCase() === slug ||
+      String(t.slug || '').toLowerCase() === slug ||
+      String(t.name || t.title || '').toLowerCase() === slug
     );
 
     if (!tool) { showError(); return; }
@@ -350,8 +357,3 @@ async function init() {
     showError();
   }
 }
-
-init();
-</script>
-</body>
-</html>
