@@ -43,6 +43,13 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .page{display:none;}.page.active{display:block;}
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.25);flex-wrap:wrap;gap:10px;box-shadow:0 1px 20px rgba(212,175,55,0.08);}
 .logo{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px;text-shadow:0 0 20px rgba(212,175,55,0.3);cursor:pointer;}
+
+.site-logo{
+  height:42px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
 .logo span{color:var(--text);}
 nav ul{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap;}
 nav ul li a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color 0.2s;cursor:pointer;}
@@ -170,7 +177,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:50
 <div class="orb orb2"></div>
 
 <nav>
-  <div class="logo" onclick="showPage('home')" style="font-family:monospace,sans-serif;letter-spacing:3px">NEORA</div>
+ <div class="logo" onclick="showPage('home')">
+  <img src="/assets/images/logos/neora-logo.png" alt="Neora AI" class="site-logo">
+</div>
   <ul>
     <li><a onclick="showPage('home');scrollToSection('tools-section')" data-key="nav_tools">الأدوات</a></li>
     <li><a onclick="showPage('home');scrollToSection('categories-section')" data-key="nav_categories">التصنيفات</a></li>
