@@ -206,16 +206,68 @@
 
 <script>
   const popularTools=[
-    {name:'ChatGPT',cat:'AI Assistant',key:'chatgpt'},{name:'Claude',cat:'Writing & Research',key:'claude'},{name:'Gemini',cat:'AI Assistant',key:'gemini'},{name:'Perplexity',cat:'AI Search',key:'perplexity'},{name:'Cursor',cat:'AI Coding',key:'coding'},{name:'Windsurf',cat:'AI Coding',key:'coding'},{name:'Lovable',cat:'App Builder',key:'coding'},{name:'Bolt.new',cat:'App Builder',key:'coding'},{name:'Replit Agent',cat:'AI Development',key:'coding'},{name:'Claude Code',cat:'AI Coding',key:'coding'},{name:'OpenAI Codex',cat:'AI Coding',key:'coding'},{name:'Canva AI',cat:'Design',key:'image'}
+    {name:'ChatGPT Plus',cat:'AI Assistant',slug:'chatgpt-plus'},
+    {name:'Claude',cat:'Writing & Research',slug:'claude'},
+    {name:'Google Gemini',cat:'AI Assistant',slug:'google-gemini'},
+    {name:'Perplexity AI',cat:'AI Search',slug:'perplexity-ai'},
+    {name:'Cursor',cat:'AI Coding',slug:'cursor'},
+    {name:'Windsurf',cat:'AI Coding',slug:'windsurf'},
+    {name:'Lovable',cat:'App Builder',slug:'lovable'},
+    {name:'Bolt.new',cat:'App Builder',slug:'bolt-new'},
+    {name:'Replit Agent',cat:'AI Development',slug:'replit-agent'},
+    {name:'Claude Code',cat:'AI Coding',slug:'claude-code'},
+    {name:'OpenAI Codex',cat:'AI Coding',slug:'openai-codex'},
+    {name:'Canva AI',cat:'Design',slug:'canva-ai'}
   ];
-  const grid=document.getElementById('cleanToolsGrid'); const noResults=document.getElementById('noResults');
-  function initials(name){return name.split(/\s|\./).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()}
-  function renderTools(list){grid.innerHTML=list.map(t=>`<a class="tool-mini" href="/tool/?name=${encodeURIComponent(t.name)}"><div class="tool-logo-box">${initials(t.name)}</div><h3>${t.name}</h3><p>${t.cat}</p></a>`).join(''); noResults.classList.toggle('show',list.length===0)}
-  function searchTools(){const q=document.getElementById('searchInput').value.trim().toLowerCase(); if(!q){renderTools(popularTools);return} renderTools(popularTools.filter(t=>(t.name+' '+t.cat+' '+t.key).toLowerCase().includes(q))); document.getElementById('tools').scrollIntoView({behavior:'smooth'});}
-  function quickSearch(q){document.getElementById('searchInput').value=q; searchTools();}
-  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchTools()});
-  function generateStudio(){const topic=document.getElementById('studioTopic').value.trim()||'أفضل أدوات الذكاء الاصطناعي';document.getElementById('studioOutput').innerHTML=`<div class="studio-label">معاينة سريعة</div><div class="preview-row"><strong>عنوان يوتيوب:</strong> ${topic}: دليل عملي لاختيار الأداة المناسبة</div><div class="preview-row"><strong>وصف SEO:</strong> تعرف على أفضل الطرق لاستخدام ${topic} مع أمثلة وتوصيات واضحة.</div><div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>`}
+
+  const grid=document.getElementById('cleanToolsGrid');
+  const noResults=document.getElementById('noResults');
+
+  function initials(name){
+    return name.split(/\s|\./).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  }
+
+  function renderTools(list){
+    grid.innerHTML=list.map(t=>`
+      <a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/">
+        <div class="tool-logo-box">${initials(t.name)}</div>
+        <h3>${t.name}</h3>
+        <p>${t.cat}</p>
+      </a>
+    `).join('');
+    noResults.classList.toggle('show',list.length===0);
+  }
+
+  function searchTools(){
+    const q=document.getElementById('searchInput').value.trim().toLowerCase();
+    if(!q){
+      renderTools(popularTools);
+      return;
+    }
+    renderTools(popularTools.filter(t=>
+      (t.name+' '+t.cat+' '+t.slug).toLowerCase().includes(q)
+    ));
+    document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+  }
+
+  function quickSearch(q){
+    document.getElementById('searchInput').value=q;
+    searchTools();
+  }
+
+  document.getElementById('searchInput').addEventListener('keydown',e=>{
+    if(e.key==='Enter')searchTools();
+  });
+
+  function generateStudio(){
+    const topic=document.getElementById('studioTopic').value.trim()||'أفضل أدوات الذكاء الاصطناعي';
+    document.getElementById('studioOutput').innerHTML=`
+      <div class="studio-label">معاينة سريعة</div>
+      <div class="preview-row"><strong>عنوان يوتيوب:</strong> ${topic}: دليل عملي لاختيار الأداة المناسبة</div>
+      <div class="preview-row"><strong>وصف SEO:</strong> تعرف على أفضل الطرق لاستخدام ${topic} مع أمثلة وتوصيات واضحة.</div>
+      <div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>
+    `;
+  }
+
   renderTools(popularTools);
 </script>
-</body>
-</html>
