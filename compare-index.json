@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "chatgpt-vs-claude",
+    "title": "ChatGPT vs Claude",
+    "tool_a": "ChatGPT",
+    "tool_b": "Claude",
+    "tool_a_name": "ChatGPT",
+    "tool_b_name": "Claude",
+    "tool_a_logo": "/images/logos/chatgpt.svg",
+    "tool_b_logo": "/images/logos/claude.svg",
+    "category": "Most Read",
+    "description": "Which AI is better for your workflow in 2026?",
+    "url": "/compare/chatgpt-vs-claude/",
+    "date": "2026-06-01"
+  },
+  {
+    "slug": "cursor-vs-windsurf",
+    "title": "Cursor vs Windsurf",
+    "tool_a": "Cursor",
+    "tool_b": "Windsurf",
+    "tool_a_name": "Cursor",
+    "tool_b_name": "Windsurf",
+    "tool_a_logo": "/images/logos/cursor.svg",
+    "tool_b_logo": "/images/logos/windsurf.svg",
+    "category": "Coding",
+    "description": "Cursor code editor vs Windsurf — which delivers more in 2026?",
+    "url": "/compare/cursor-vs-windsurf/",
+    "date": "2026-05-28"
+  },
+  {
+    "slug": "claude-vs-gemini",
+    "title": "Claude vs Gemini",
+    "tool_a": "Claude",
+    "tool_b": "Gemini",
+    "tool_a_name": "Claude",
+    "tool_b_name": "Gemini",
+    "tool_a_logo": "/images/logos/claude.svg",
+    "tool_b_logo": "/images/logos/gemini.svg",
+    "category": "LLMs",
+    "description": "Which model is best for reasoning & accuracy?",
+    "url": "/compare/claude-vs-gemini/",
+    "date": "2026-05-20"
+  },
+  {
+    "slug": "lovable-vs-replit",
+    "title": "Lovable vs Replit Agent",
+    "tool_a": "Lovable",
+    "tool_b": "Replit Agent",
+    "tool_a_name": "Lovable",
+    "tool_b_name": "Replit Agent",
+    "tool_a_logo": "/images/logos/lovable.svg",
+    "tool_b_logo": "/images/logos/replit.svg",
+    "category": "App Builders",
+    "description": "Build apps faster with AI — side by side",
+    "url": "/compare/lovable-vs-replit/",
+    "date": "2026-05-15"
+  }
+]
