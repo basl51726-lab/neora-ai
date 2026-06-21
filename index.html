@@ -165,7 +165,11 @@
             <p>أدخل موضوعاً واحداً، وسيقترح لك Neora Studio عنوان يوتيوب، سكربت، وصف، كلمات مفتاحية، منشورات للسوشيال ميديا، وبرومبت لصورة مصغرة.</p>
             <div class="studio-input">
               <input id="studioTopic" placeholder="مثال: أفضل أدوات الذكاء الاصطناعي للتسويق">
-              <button onclick="generateStudio()">جرّب مجاناً</button>
+              <button onclick="generateStudio()">توليد ✨</button>
+            </div>
+            <div class="studio-input" style="margin-top:10px;background:#1e293b;">
+              <input id="studioApiKey" type="password" placeholder="🔑 Claude API Key" style="color:#f1f5f9;background:transparent;">
+              <a href="https://console.anthropic.com/settings/keys" target="_blank" style="border:0;background:rgba(212,175,55,.2);color:#f5d778;border-radius:12px;padding:12px 14px;font-weight:900;font-size:12px;white-space:nowrap;text-decoration:none;">احصل عليه
             </div>
             <div class="studio-features">
               <div class="studio-feature">🎬 عنوان وسكربت يوتيوب</div>
@@ -510,13 +514,72 @@
     if(e.key==='Enter') searchTools();
   });
 
-  function generateStudio() {
-    const topic = document.getElementById('studioTopic').value.trim() || 'أفضل أدوات الذكاء الاصطناعي';
-    document.getElementById('studioOutput').innerHTML = `
-      <div class="studio-label">معاينة سريعة</div>
-      <div class="preview-row"><strong>عنوان يوتيوب:</strong> ${escapeAttr(topic)}: دليل عملي لاختيار الأداة المناسبة</div>
-      <div class="preview-row"><strong>وصف SEO:</strong> تعرف على أفضل الطرق لاستخدام ${escapeAttr(topic)} مع أمثلة وتوصيات واضحة.</div>
-      <div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>`;
+  /* ========== NEORA STUDIO — Claude API ========== */
+  const STUDIO_KEY = window.__NEORA_KEY__ || '';
+
+  async function generateStudio() {
+    const topic = document.getElementById('studioTopic').value.trim();
+    if (!topic) { document.getElementById('studioTopic').focus(); return; }
+
+    const out = document.getElementById('studioOutput');
+    out.innerHTML = `
+      <div class="studio-label">✨ جارٍ التوليد...</div>
+      <div style="display:flex;align-items:center;justify-content:center;height:120px;">
+        <div style="width:36px;height:36px;border:3px solid rgba(212,175,55,.3);border-top-color:#d4af37;border-radius:50%;animation:spin .8s linear infinite;"></div>
+      </div>`;
+
+    if (!document.getElementById('spin-style')) {
+      const s = document.createElement('style');
+      s.id = 'spin-style';
+      s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+      document.head.appendChild(s);
+    }
+
+    try {
+      const key = document.getElementById('studioApiKey') ? document.getElementById('studioApiKey').value.trim() : STUDIO_KEY;
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': key,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          messages: [{
+            role: 'user',
+            content: `أنت مساعد محتوى عربي محترف. بناءً على الموضوع: "${topic}" أنتج JSON فقط بدون أي نص إضافي:\n{\n  "youtube_title": "عنوان يوتيوب جذاب أقل من 70 حرف",\n  "youtube_desc": "وصف يوتيوب SEO احترافي 2-3 جمل",\n  "script_intro": "مقدمة سكريبت قوية للفيديو 3-4 جمل",\n  "linkedin": "منشور LinkedIn احترافي 3-4 جمل",\n  "keywords": "5 كلمات مفتاحية مفصولة بفاصلة",\n  "thumbnail_prompt": "وصف بالعربية لصورة مصغرة جذابة"\n}`
+          }]
+        })
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error?.message || 'API error ' + res.status);
+      }
+
+      const data = await res.json();
+      const text = data.content?.[0]?.text || '';
+      const clean = text.replace(/```json|```/g, '').trim();
+      const result = JSON.parse(clean);
+
+      out.innerHTML = `
+        <div class="studio-label">✅ جاهز!</div>
+        <div class="preview-row"><strong>🎬 عنوان يوتيوب:</strong><br>${escapeAttr(result.youtube_title)}</div>
+        <div class="preview-row"><strong>📝 وصف SEO:</strong><br>${escapeAttr(result.youtube_desc)}</div>
+        <div class="preview-row"><strong>🎤 مقدمة السكريبت:</strong><br>${escapeAttr(result.script_intro)}</div>
+        <div class="preview-row"><strong>💼 منشور LinkedIn:</strong><br>${escapeAttr(result.linkedin)}</div>
+        <div class="preview-row"><strong>🔎 كلمات مفتاحية:</strong><br>${escapeAttr(result.keywords)}</div>
+        <div class="preview-row"><strong>🎨 Prompt الصورة:</strong><br>${escapeAttr(result.thumbnail_prompt)}</div>`;
+
+    } catch (err) {
+      out.innerHTML = `
+        <div class="studio-label">⚠️ خطأ</div>
+        <div class="preview-row" style="color:#dc2626;"><strong>تعذّر الاتصال:</strong><br>${err.message}</div>
+        <div class="preview-row">تأكد من إضافة API Key الصحيح.</div>`;
+    }
   }
 
   /* الأدوات المميزة التي تظهر في الصفحة الرئيسية */
