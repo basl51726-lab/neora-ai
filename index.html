@@ -594,14 +594,40 @@
       const result = JSON.parse(clean);
 
       incrementUsage();
+      const remaining = getUsageCount() < FREE_LIMIT ? `(${FREE_LIMIT - getUsageCount()} تجارب مجانية متبقية)` : '';
+
+      function copyRow(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          event.target.textContent = '✅';
+          setTimeout(() => event.target.textContent = '📋', 1500);
+        });
+      }
+
+      function makeRow(label, value) {
+        const id = 'r_' + Math.random().toString(36).slice(2);
+        return `<div class="preview-row" style="position:relative;">
+          <strong>${label}</strong>
+          <button onclick="navigator.clipboard.writeText(document.getElementById('${id}').textContent).then(()=>{this.textContent='✅';setTimeout(()=>this.textContent='📋',1500)})"
+            style="position:absolute;top:8px;left:8px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:3px 8px;cursor:pointer;font-size:12px;">📋</button>
+          <div id="${id}" style="margin-top:6px;">${escapeAttr(value)}</div>
+        </div>`;
+      }
+
       out.innerHTML = `
-        <div class="studio-label">✅ جاهز! ${getUsageCount() < FREE_LIMIT ? `(${FREE_LIMIT - getUsageCount()} تجارب مجانية متبقية)` : ''}</div>
-        <div class="preview-row"><strong>🎬 عنوان يوتيوب:</strong><br>${escapeAttr(result.youtube_title)}</div>
-        <div class="preview-row"><strong>📝 وصف SEO:</strong><br>${escapeAttr(result.youtube_desc)}</div>
-        <div class="preview-row"><strong>🎤 مقدمة السكريبت:</strong><br>${escapeAttr(result.script_intro)}</div>
-        <div class="preview-row"><strong>💼 منشور LinkedIn:</strong><br>${escapeAttr(result.linkedin)}</div>
-        <div class="preview-row"><strong>🔎 كلمات مفتاحية:</strong><br>${escapeAttr(result.keywords)}</div>
-        <div class="preview-row"><strong>🎨 Prompt الصورة:</strong><br>${escapeAttr(result.thumbnail_prompt)}</div>`;
+        <div class="studio-label">✅ جاهز! ${remaining}</div>
+        ${makeRow('🎬 عنوان يوتيوب:', result.youtube_title)}
+        ${makeRow('📝 وصف SEO:', result.youtube_desc)}
+        ${makeRow('🎤 مقدمة السكريبت:', result.script_intro)}
+        ${makeRow('💼 منشور LinkedIn:', result.linkedin)}
+        ${makeRow('🔎 كلمات مفتاحية:', result.keywords)}
+        ${makeRow('🎨 Prompt الصورة:', result.thumbnail_prompt)}
+        <button onclick="
+          const all = [
+            document.querySelectorAll('.preview-row div')
+          ][0];
+          const text = Array.from(document.querySelectorAll('#studioOutput .preview-row div')).map(d=>d.textContent).join('\n\n');
+          navigator.clipboard.writeText(text).then(()=>{this.textContent='✅ تم نسخ الكل!';setTimeout(()=>this.textContent='📋 نسخ الكل',2000)})
+        " style="width:100%;margin-top:10px;background:linear-gradient(135deg,#d4af37,#b89125);color:#fff;border:none;border-radius:12px;padding:12px;font-weight:900;cursor:pointer;font-family:Cairo,sans-serif;font-size:14px;">📋 نسخ الكل</button>`;
 
     } catch (err) {
       out.innerHTML = `
