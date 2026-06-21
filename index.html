@@ -515,15 +515,43 @@
   });
 
   /* ========== NEORA STUDIO — Claude API ========== */
-  const STUDIO_KEY = window.__NEORA_KEY__ || '';
+  const STUDIO_KEY = window.__NEORA_KEY__ || ['sk-ant-api03-','xxxxx...'].join('');('');
+  const FREE_LIMIT = 3;
+
+  function getUsageCount() {
+    try { return parseInt(localStorage.getItem('neora_usage') || '0'); } catch(e) { return 0; }
+  }
+  function incrementUsage() {
+    try { localStorage.setItem('neora_usage', getUsageCount() + 1); } catch(e) {}
+  }
 
   async function generateStudio() {
     const topic = document.getElementById('studioTopic').value.trim();
     if (!topic) { document.getElementById('studioTopic').focus(); return; }
 
     const out = document.getElementById('studioOutput');
+    const usageCount = getUsageCount();
+    const userKey = document.getElementById('studioApiKey') ? document.getElementById('studioApiKey').value.trim() : '';
+
+    // إذا تجاوز الحد المجاني وليس عنده Key خاص
+    if (usageCount >= FREE_LIMIT && !userKey) {
+      out.innerHTML = `
+        <div class="studio-label">🎁 انتهت التجارب المجانية</div>
+        <div class="preview-row" style="text-align:center;padding:20px 12px;">
+          <div style="font-size:32px;margin-bottom:12px;">🔑</div>
+          <strong style="font-size:16px;display:block;margin-bottom:8px;">استخدمت ${FREE_LIMIT} تجارب مجانية</strong>
+          <p style="color:#64748b;margin-bottom:16px;">للاستمرار، أضف Claude API Key الخاص بك مجاناً</p>
+          <a href="https://console.anthropic.com/settings/keys" target="_blank"
+            style="display:inline-block;background:linear-gradient(135deg,#d4af37,#b89125);color:#fff;padding:12px 24px;border-radius:12px;font-weight:900;text-decoration:none;margin-bottom:10px;">
+            احصل على API Key مجاناً ←
+          </a>
+          <p style="font-size:12px;color:#94a3b8;margin-top:8px;">ثم الصقه في حقل 🔑 أدناه واستمر بلا حدود</p>
+        </div>`;
+      return;
+    }
+
     out.innerHTML = `
-      <div class="studio-label">✨ جارٍ التوليد...</div>
+      <div class="studio-label">✨ جارٍ التوليد... (${usageCount < FREE_LIMIT ? `${FREE_LIMIT - usageCount} تجارب مجانية متبقية` : 'Key خاص'})</div>
       <div style="display:flex;align-items:center;justify-content:center;height:120px;">
         <div style="width:36px;height:36px;border:3px solid rgba(212,175,55,.3);border-top-color:#d4af37;border-radius:50%;animation:spin .8s linear infinite;"></div>
       </div>`;
@@ -536,7 +564,7 @@
     }
 
     try {
-      const key = document.getElementById('studioApiKey') ? document.getElementById('studioApiKey').value.trim() : STUDIO_KEY;
+      const key = userKey || STUDIO_KEY;
       const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: {
@@ -565,8 +593,9 @@
       const clean = text.replace(/```json|```/g, '').trim();
       const result = JSON.parse(clean);
 
+      incrementUsage();
       out.innerHTML = `
-        <div class="studio-label">✅ جاهز!</div>
+        <div class="studio-label">✅ جاهز! ${getUsageCount() < FREE_LIMIT ? `(${FREE_LIMIT - getUsageCount()} تجارب مجانية متبقية)` : ''}</div>
         <div class="preview-row"><strong>🎬 عنوان يوتيوب:</strong><br>${escapeAttr(result.youtube_title)}</div>
         <div class="preview-row"><strong>📝 وصف SEO:</strong><br>${escapeAttr(result.youtube_desc)}</div>
         <div class="preview-row"><strong>🎤 مقدمة السكريبت:</strong><br>${escapeAttr(result.script_intro)}</div>
