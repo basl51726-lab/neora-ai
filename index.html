@@ -289,9 +289,7 @@ function searchTools() {
     return;
   }
 
-  const sourceTools = (typeof allTools !== 'undefined' && Array.isArray(allTools))
-    ? allTools
-    : popularTools;
+  const sourceTools = popularTools;
 
   renderTools(
     sourceTools.filter(t =>
@@ -305,7 +303,6 @@ function searchTools() {
 
   document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
 }
-  }
 
   function quickSearch(q) {
     document.getElementById('searchInput').value = q;
