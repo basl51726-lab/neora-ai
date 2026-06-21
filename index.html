@@ -205,7 +205,7 @@
 </footer>
 
 <script>
-  const popularTools=[
+  const popularTools = [
     {name:'ChatGPT Plus',cat:'AI Assistant',slug:'chatgpt-plus'},
     {name:'Claude',cat:'Writing & Research',slug:'claude'},
     {name:'Google Gemini',cat:'AI Assistant',slug:'google-gemini'},
@@ -219,66 +219,105 @@
     {name:'OpenAI Codex',cat:'AI Coding',slug:'openai-codex'},
     {name:'Canva AI',cat:'Design',slug:'canva-ai'}
   ];
-  const grid=document.getElementById('cleanToolsGrid');
-  const noResults=document.getElementById('noResults');
-  function initials(name){return name.split(/\s|\./).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+
   const toolLogos = {
-  'chatgpt-plus': 'chatgpt.svg',
-  'claude': 'claude.svg',
-  'google-gemini': 'gemini.svg',
-  'perplexity-ai': 'perplexity.svg',
-  'cursor': 'cursor.svg',
-  'windsurf': 'windsurf.svg',
-  'lovable': 'lovable.svg',
-  'bolt-new': 'bolt-new.svg',
-  'replit-agent': 'replit-color.svg',
-  'claude-code': 'claude-code.svg',
-  'openai-codex': 'codex-color.svg',
-  'canva-ai': 'canva.svg'
-};
+    'chatgpt-plus': 'chatgpt.svg',
+    'claude': 'claude.svg',
+    'google-gemini': 'gemini.svg',
+    'perplexity-ai': 'perplexity.svg',
+    'cursor': 'cursor.svg',
+    'windsurf': 'windsurf.svg',
+    'lovable': 'lovable.svg',
+    'bolt-new': 'bolt-new.svg',
+    'replit-agent': 'replit-color.svg',
+    'claude-code': 'claude-code.svg',
+    'openai-codex': 'codex-color.svg',
+    'canva-ai': 'canva.svg'
+  };
 
-function renderTools(list){
-  grid.innerHTML = list.map(function(t){
-    var logo = toolLogos[t.slug] || (t.slug + '.svg');
+  const grid = document.getElementById('cleanToolsGrid');
+  const noResults = document.getElementById('noResults');
 
-    return '<a class="tool-mini" href="/tool/' + encodeURIComponent(t.slug) + '/">' +
-      '<div class="tool-logo-box">' +
-        '<img src="/assets/images/tools/' + logo + '" alt="' + t.name + '" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'' + initials(t.name) + '\';">' +
-      '</div>' +
-      '<h3>' + t.name + '</h3>' +
-      '<p>' + t.cat + '</p>' +
-    '</a>';
-  }).join('');
+  function initials(name) {
+    return String(name || '')
+      .split(/\s|\./)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(w => w[0])
+      .join('')
+      .toUpperCase();
+  }
 
-  noResults.classList.toggle('show', list.length === 0);
-}
-  grid.innerHTML=list.map(t=>{
-    const logo = toolLogos[t.slug] || `${t.slug}.svg`;
-    return `
-<a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/">
-  <div class="tool-logo-box">
-    <img src="/assets/images/tools/${logo}"
-         alt="${t.name}"
-         onerror="this.style.display='none';this.parentNode.innerHTML='${initials(t.name)}';">
-  </div>
-  <h3>${t.name}</h3>
-  <p>${t.cat}</p>
-</a>`;
-  }).join('');
+  function escapeAttr(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
 
-  noResults.classList.toggle('show',list.length===0);
-}
-    const q=document.getElementById('searchInput').value.trim().toLowerCase();
-    if(!q){renderTools(popularTools);return;}
-    renderTools(popularTools.filter(t=>(t.name+' '+t.cat+' '+t.slug).toLowerCase().includes(q)));
+  function renderTools(list) {
+    grid.innerHTML = list.map(t => {
+      const logo = toolLogos[t.slug] || `${t.slug}.svg`;
+      const fallback = initials(t.name);
+
+      return `
+        <a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/">
+          <div class="tool-logo-box">
+            <img
+              src="/assets/images/tools/${escapeAttr(logo)}"
+              alt="${escapeAttr(t.name)}"
+              loading="lazy"
+              onerror="this.remove(); this.parentNode.textContent='${escapeAttr(fallback)}';"
+              style="width:52px;height:52px;object-fit:contain;display:block;"
+            >
+          </div>
+          <h3>${escapeAttr(t.name)}</h3>
+          <p>${escapeAttr(t.cat)}</p>
+        </a>
+      `;
+    }).join('');
+
+    noResults.classList.toggle('show', list.length === 0);
+  }
+
+  function searchTools() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    if (!q) {
+      renderTools(popularTools);
+      return;
+    }
+
+    renderTools(
+      popularTools.filter(t =>
+        (t.name + ' ' + t.cat + ' ' + t.slug).toLowerCase().includes(q)
+      )
+    );
+
     document.getElementById('tools').scrollIntoView({behavior:'smooth'});
   }
-  function quickSearch(q){document.getElementById('searchInput').value=q;searchTools();}
-  document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchTools();});
-  function generateStudio(){
-    const topic=document.getElementById('studioTopic').value.trim()||'أفضل أدوات الذكاء الاصطناعي';
-    document.getElementById('studioOutput').innerHTML=`<div class="studio-label">معاينة سريعة</div><div class="preview-row"><strong>عنوان يوتيوب:</strong> ${topic}: دليل عملي لاختيار الأداة المناسبة</div><div class="preview-row"><strong>وصف SEO:</strong> تعرف على أفضل الطرق لاستخدام ${topic} مع أمثلة وتوصيات واضحة.</div><div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>`;
+
+  function quickSearch(q) {
+    document.getElementById('searchInput').value = q;
+    searchTools();
   }
+
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') searchTools();
+  });
+
+  function generateStudio() {
+    const topic = document.getElementById('studioTopic').value.trim() || 'أفضل أدوات الذكاء الاصطناعي';
+
+    document.getElementById('studioOutput').innerHTML = `
+      <div class="studio-label">معاينة سريعة</div>
+      <div class="preview-row"><strong>عنوان يوتيوب:</strong> ${escapeAttr(topic)}: دليل عملي لاختيار الأداة المناسبة</div>
+      <div class="preview-row"><strong>وصف SEO:</strong> تعرف على أفضل الطرق لاستخدام ${escapeAttr(topic)} مع أمثلة وتوصيات واضحة.</div>
+      <div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>
+    `;
+  }
+
   renderTools(popularTools);
 </script>
 </body>
