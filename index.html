@@ -238,6 +238,20 @@
 };
 
 function renderTools(list){
+  grid.innerHTML = list.map(function(t){
+    var logo = toolLogos[t.slug] || (t.slug + '.svg');
+
+    return '<a class="tool-mini" href="/tool/' + encodeURIComponent(t.slug) + '/">' +
+      '<div class="tool-logo-box">' +
+        '<img src="/assets/images/tools/' + logo + '" alt="' + t.name + '" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'' + initials(t.name) + '\';">' +
+      '</div>' +
+      '<h3>' + t.name + '</h3>' +
+      '<p>' + t.cat + '</p>' +
+    '</a>';
+  }).join('');
+
+  noResults.classList.toggle('show', list.length === 0);
+}
   grid.innerHTML=list.map(t=>{
     const logo = toolLogos[t.slug] || `${t.slug}.svg`;
     return `
