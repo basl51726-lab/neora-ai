@@ -289,11 +289,15 @@
       return;
     }
 
-    renderTools(
-      popularTools.filter(t =>
-        (t.name + ' ' + t.cat + ' ' + t.slug).toLowerCase().includes(q)
-      )
-    );
+   renderTools(
+  allTools.filter(t =>
+    (
+      (t.name || t.title || '') + ' ' +
+      (t.cat || t.category || '') + ' ' +
+      (t.slug || '')
+    ).toLowerCase().includes(q)
+  )
+);
 
     document.getElementById('tools').scrollIntoView({behavior:'smooth'});
   }
