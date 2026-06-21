@@ -433,13 +433,16 @@
     return s;
   }
   function normalizeTool(t) {
-    const name = t.name||t.title||'';
-    const slug = t.slug||t.id||name.toLowerCase().replace(/\s+/g,'-');
-    const catKey = normalizeCategory(t.category||t.cat||'');
-    return { name, slug, cat:catKey, catLabel:CATEGORY_LABELS[catKey]||t.cat||t.category||'AI Tool' };
+    const name = t.title || t.name || '';
+    const slug = t.slug || t.id || name.toLowerCase().replace(/\s+/g,'-');
+    const catKey = normalizeCategory(t.category || t.cat || '');
+    const desc = t.desc_ar || t.description || '';
+    const pricing = t.pricing_ar || t.pricing || '';
+    const badge = t.badge || '';
+    const rating = t.rating || '';
+    return { name, slug, cat:catKey, catLabel:CATEGORY_LABELS[catKey]||t.cat||t.category||'AI Tool', desc, pricing, badge, rating };
   }
 
-  /* FIX: البحث عن الشعار مع fallback لأسماء متعددة */
   function getToolLogo(t) {
     const slug = String(t.slug||'').toLowerCase();
     const name = String(t.name||'').toLowerCase();
@@ -449,19 +452,25 @@
     if(name.includes('otter')) return 'otter.svg';
     if(name.includes('tome')) return 'Tome.svg';
     if(name.includes('taskade')) return 'Taskade.svg';
-    return `${t.slug}.svg`;
+    return `${slug}.svg`;
   }
 
-  /* FIX: onerror محسّن - يزيل الصورة ويضع الأحرف الأولى بشكل صحيح */
+  const BADGE_LABELS = { free:'مجاني', pro:'مميز', new:'جديد' };
+  const BADGE_COLORS = { free:'#16a34a', pro:'#b89125', new:'#2563eb' };
+
   function renderTools(list) {
     const safeList = Array.isArray(list) ? list : [];
     grid.innerHTML = safeList.map(raw => {
       const t = normalizeTool(raw);
       const logo = getToolLogo(t);
       const fb = escapeAttr(initials(t.name));
+      const badgeHtml = t.badge
+        ? `<span style="position:absolute;top:12px;right:12px;background:${BADGE_COLORS[t.badge]||'#64748b'};color:#fff;font-size:10px;font-weight:900;padding:3px 8px;border-radius:999px;">${BADGE_LABELS[t.badge]||t.badge}</span>`
+        : '';
       return `
-        <a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/">
-          <div class="tool-logo-box" id="logo-${escapeAttr(t.slug)}">
+        <a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/" style="position:relative;">
+          ${badgeHtml}
+          <div class="tool-logo-box">
             <img
               src="/assets/images/tools/${escapeAttr(logo)}"
               alt="${escapeAttr(t.name)}"
@@ -472,6 +481,7 @@
           </div>
           <h3>${escapeAttr(t.name)}</h3>
           <p>${escapeAttr(t.catLabel)}</p>
+          ${t.pricing ? `<p style="font-size:11px;color:#b89125;font-weight:700;margin-top:4px;">${escapeAttr(t.pricing)}</p>` : ''}
         </a>`;
     }).join('');
     noResults.classList.toggle('show', safeList.length === 0);
@@ -509,6 +519,13 @@
       <div class="preview-row"><strong>منشور LinkedIn:</strong> اختيار أدوات AI ليس سباق شهرة؛ بل قرار يعتمد على المهمة والنتيجة المطلوبة.</div>`;
   }
 
+  /* الأدوات المميزة التي تظهر في الصفحة الرئيسية */
+  const featuredSlugs = [
+    'chatgpt-plus','claude','google-gemini','perplexity-ai',
+    'cursor','windsurf','lovable','bolt-new',
+    'replit-agent','claude-code','openai-codex','canva-ai'
+  ];
+
   async function loadAllTools() {
     renderTools(popularTools);
     try {
@@ -517,6 +534,9 @@
       const data = await res.json();
       if(Array.isArray(data)&&data.length) {
         allTools = data.map(normalizeTool).filter(t=>t.name&&t.slug);
+        /* عرض الأدوات المميزة في الصفحة الرئيسية */
+        const featured = allTools.filter(t => featuredSlugs.includes(t.slug));
+        renderTools(featured.length ? featured : allTools.slice(0,12));
       }
     } catch(e) {
       console.warn('[NEORA] Using popular tools fallback:', e);
