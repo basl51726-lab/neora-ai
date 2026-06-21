@@ -193,13 +193,133 @@ footer{background:#0f0f0f;color:rgba(255,255,255,0.6);padding:40px;position:rela
 const CAT_LABELS = {
   chat:'دردشة AI', image:'توليد الصور', video:'توليد الفيديو',
   code:'مساعدي الكود', writing:'أدوات الكتابة', voice:'أدوات الصوت',
-  productivity:'الإنتاجية', research:'البحث والتحليل', data:'تحليل البيانات'
+  productivity:'الإنتاجية', research:'البحث والتحليل', data:'تحليل البيانات',
+  design:'التصميم', audio:'أدوات الصوت'
 };
+
+// ── Official local tool logos ──────────────────────────────────────
+// Keep filenames exactly as stored in /assets/images/tools/
+const TOOL_LOGOS = {
+  'adobe-firefly': 'adobefirefly-color.svg',
+  'adobefirefly': 'adobefirefly-color.svg',
+  'beautiful-ai': 'beautiful-ai.svg',
+  'bolt-new': 'bolt-new.svg',
+  'canva-ai': 'canva.svg',
+  'canva': 'canva.svg',
+  'chatgpt-plus': 'chatgpt.svg',
+  'chatgpt': 'chatgpt.svg',
+  'claude': 'claude.svg',
+  'claude-code': 'claude-code.svg',
+  'openai-codex': 'codex-color.svg',
+  'codex': 'codex-color.svg',
+  'cursor': 'cursor.svg',
+  'dall-e-3': 'dalle-color.svg',
+  'dalle-3': 'dalle-color.svg',
+  'dalle': 'dalle-color.svg',
+  'elevenlabs': 'elevenlabs.svg',
+  'gamma': 'gamma.svg',
+  'google-gemini': 'gemini.svg',
+  'gemini': 'gemini.svg',
+  'github-copilot': 'github-copilot.svg',
+  'microsoft-copilot': 'copilot-color.svg',
+  'copilot': 'copilot-color.svg',
+  'grammarly': 'grammarly.svg',
+  'grok': 'grok-color.svg',
+  'heygen': 'heygen.svg',
+  'ideogram': 'ideogram-color.svg',
+  'kling-ai': 'kling-color.svg',
+  'kling': 'kling-color.svg',
+  'leonardo-ai': 'leonardo.svg',
+  'leonardo': 'leonardo.svg',
+  'lovable': 'lovable.svg',
+  'luma-ai': 'luma-color.svg',
+  'luma': 'luma-color.svg',
+  'midjourney': 'midjourney.svg',
+  'notebooklm': 'notebooklm-color.svg',
+  'notion-ai': 'notion.svg',
+  'notion': 'notion.svg',
+  'perplexity-ai': 'perplexity.svg',
+  'perplexity': 'perplexity.svg',
+  'pika-labs': 'pika-color.svg',
+  'pika': 'pika-color.svg',
+  'replit-agent': 'replit-color.svg',
+  'replit-ai': 'replit-color.svg',
+  'replit': 'replit-color.svg',
+  'runway-ml': 'runway.svg',
+  'runway': 'runway.svg',
+  'sora': 'sora.svg',
+  'stable-diffusion': 'stability-color.svg',
+  'stability-ai': 'stability-color.svg',
+  'suno-ai': 'suno.svg',
+  'suno': 'suno.svg',
+  'synthesia': 'synthesia.svg',
+  'windsurf': 'windsurf.svg'
+};
+
+const LOGO_BASE = '/assets/images/tools/';
+
+function normalizeSlug(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/\+/g, 'plus')
+    .replace(/\./g, '-')
+    .replace(/[^a-z0-9\u0600-\u06FF]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function isImageFile(value) {
+  return /\.(svg|png|webp|jpg|jpeg)$/i.test(String(value || '').trim());
+}
+
+function isAbsoluteOrRootPath(value) {
+  return /^(https?:)?\/\//i.test(String(value || '')) || String(value || '').startsWith('/');
+}
+
+function isProbablyEmoji(value) {
+  const s = String(value || '').trim();
+  return !!s && !isImageFile(s) && s.length <= 4;
+}
+
+function toolLogoSrc(tool, slug, name) {
+  const candidates = [
+    slug,
+    tool.id,
+    tool.slug,
+    normalizeSlug(tool.name),
+    normalizeSlug(tool.title),
+    normalizeSlug(name)
+  ].filter(Boolean);
+
+  for (const key of candidates) {
+    if (TOOL_LOGOS[key]) return LOGO_BASE + TOOL_LOGOS[key];
+  }
+
+  // Use an explicit image field only when it is really an image.
+  if (tool.icon_img && isImageFile(tool.icon_img)) {
+    return isAbsoluteOrRootPath(tool.icon_img) ? tool.icon_img : LOGO_BASE + tool.icon_img.replace(/^\/+/, '');
+  }
+
+  // Some tools-index records store a filename in icon.
+  if (tool.icon && isImageFile(tool.icon)) {
+    return isAbsoluteOrRootPath(tool.icon) ? tool.icon : LOGO_BASE + tool.icon.replace(/^\/+/, '');
+  }
+
+  return '';
+}
+
+function fallbackIcon(tool) {
+  if (tool.icon_emoji) return tool.icon_emoji;
+  if (tool.emoji) return tool.emoji;
+  if (isProbablyEmoji(tool.icon)) return tool.icon;
+  return '🤖';
+}
 
 // ── Badge class ────────────────────────────────────────────────────
 function badgeClass(badge) {
   if (!badge) return 'badge-free';
-  const b = badge.toLowerCase();
+  const b = String(badge).toLowerCase();
   if (b === 'pro' || b === 'paid') return 'badge-pro';
   if (b === 'new') return 'badge-new';
   return 'badge-free';
@@ -208,7 +328,7 @@ function badgeClass(badge) {
 // ── Badge label ────────────────────────────────────────────────────
 function badgeLabel(badge) {
   if (!badge) return 'مجاني';
-  const b = badge.toLowerCase();
+  const b = String(badge).toLowerCase();
   if (b === 'pro' || b === 'paid') return 'احترافي';
   if (b === 'new') return 'جديد';
   return 'مجاني';
@@ -235,29 +355,31 @@ function compareTitle(page) {
 
 // ── Escape HTML ────────────────────────────────────────────────────
 function esc(str) {
-  return String(str||'')
+  return String(str || '')
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 }
 
 // ── Render tool ────────────────────────────────────────────────────
-function renderTool(tool) {
-  const name   = tool.name || tool.title || '';
-  const descAr = tool.desc_ar || tool.description || '';
-  const descEn = tool.desc_en || '';
-  const desc   = descAr || descEn || '';
-  const stars  = parseFloat(String(tool.stars||tool.rating||'4.5')
-                  .replace(/[٠-٩]/g, d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))) || 4.5;
-  const url    = tool.url || '#';
-  const cat    = tool.cat || tool.category || '';
-  const badge  = tool.badge || 'free';
-  const pricing = tool.pricing_ar || '';
-  const slug   = tool.id || tool.slug || '';
+function renderTool(tool, slug) {
+  const name    = tool.name || tool.title || '';
+  const descAr  = tool.desc_ar || tool.description_ar || tool.description || '';
+  const descEn  = tool.desc_en || tool.description_en || '';
+  const desc    = descAr || descEn || '';
+  const stars   = parseFloat(String(tool.stars || tool.rating || '4.5')
+                   .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))) || 4.5;
+  const url     = tool.url || tool.link || tool.website || '#';
+  const cat     = tool.cat || tool.category || '';
+  const badge   = tool.badge || tool.tier || 'free';
+  const pricing = tool.pricing_ar || tool.pricing || '';
+  const toolSlug = slug || normalizeSlug(tool.id || tool.slug || name);
 
   // SEO meta
-  const pageTitle = `${esc(name)} – ${esc(CAT_LABELS[cat]||'أداة AI')} | NEORA`;
+  const pageTitle = `${name} – ${CAT_LABELS[cat] || 'أداة AI'} | NEORA`;
   const pageDesc  = desc || `اكتشف ${name} ضمن دليل NEORA لأدوات الذكاء الاصطناعي.`;
-  const pageUrl   = `https://neora-ai.com/tool/${slug}`;
+  const pageUrl   = `https://neora-ai.com/tool/${toolSlug}/`;
+
   document.title = pageTitle;
   document.getElementById('meta-desc').setAttribute('content', pageDesc);
   document.getElementById('og-title').setAttribute('content', pageTitle);
@@ -269,24 +391,31 @@ function renderTool(tool) {
   // Breadcrumb
   document.getElementById('bc-name').textContent = name;
 
-  // Icon
+  // Icon/logo
   const iconWrap = document.getElementById('icon-wrap');
- if (tool.icon_img) {
-  iconWrap.innerHTML = `
-    <img src="${esc(tool.icon_img)}"
-         alt="${esc(name)}"
-         onerror="this.parentElement.textContent='${esc(tool.icon_emoji||tool.icon||'🤖')}'">
-  `;
-} else {
-  iconWrap.textContent = tool.icon_emoji || tool.icon || '🤖';
-}
-   
+  const logoSrc = toolLogoSrc(tool, toolSlug, name);
+  const fallback = fallbackIcon(tool);
+
+  if (logoSrc) {
+    iconWrap.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = logoSrc;
+    img.alt = name;
+    img.loading = 'lazy';
+    img.onerror = () => {
+      iconWrap.innerHTML = '';
+      iconWrap.textContent = fallback;
+    };
+    iconWrap.appendChild(img);
+  } else {
+    iconWrap.textContent = fallback;
+  }
 
   // Badge & category
   const badgeEl = document.getElementById('badge-tier');
   badgeEl.textContent = badgeLabel(badge);
   badgeEl.className = 'badge-tier ' + badgeClass(badge);
-  document.getElementById('cat-tag').textContent = CAT_LABELS[cat] || cat;
+  document.getElementById('cat-tag').textContent = CAT_LABELS[cat] || cat || 'أداة AI';
 
   // Name, stars, desc
   document.getElementById('tool-name').textContent = name;
@@ -296,35 +425,41 @@ function renderTool(tool) {
   // Visit button
   const visitBtn = document.getElementById('btn-visit');
   visitBtn.href = url;
-  if (tool.rel) visitBtn.rel = tool.rel;
+  visitBtn.rel = tool.rel || 'noopener nofollow';
 
   // Info grid
   const infoItems = [];
   if (pricing) infoItems.push({ label:'التسعير', value: pricing });
-  if (cat)     infoItems.push({ label:'التصنيف', value: CAT_LABELS[cat]||cat });
+  if (cat) infoItems.push({ label:'التصنيف', value: CAT_LABELS[cat] || cat });
   infoItems.push({ label:'التقييم', value: `${stars.toFixed(1)} / 5 ★` });
   if (tool.commission) infoItems.push({ label:'العمولة', value: tool.commission });
+
   document.getElementById('info-grid').innerHTML = infoItems
-    .map(i=>`<div class="info-item"><div class="info-label">${esc(i.label)}</div><div class="info-value">${esc(i.value)}</div></div>`)
+    .map(i => `<div class="info-item"><div class="info-label">${esc(i.label)}</div><div class="info-value">${esc(i.value)}</div></div>`)
     .join('');
 
   // Compare links
-  const compares = findComparePages(slug);
+  const compares = findComparePages(toolSlug);
+  const compareSection = document.getElementById('compare-section');
+
   if (compares.length) {
     document.getElementById('compare-links').innerHTML = compares
-      .map(p=>`<a class="compare-link" href="/compare/${p}/">${esc(compareTitle(p))}<span class="arrow">←</span></a>`)
+      .map(p => `<a class="compare-link" href="/compare/${p}/">${esc(compareTitle(p))}<span class="arrow">←</span></a>`)
       .join('');
-    document.getElementById('compare-section').style.display = '';
+    compareSection.style.display = '';
+  } else {
+    compareSection.style.display = 'none';
   }
 
   // Show content
-  document.getElementById('loading').style.display  = 'none';
-  document.getElementById('content').style.display  = '';
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = '';
 }
 
 // ── Show error ─────────────────────────────────────────────────────
 function showError() {
-  document.getElementById('loading').style.display   = 'none';
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = 'none';
   document.getElementById('error-box').style.display = '';
 }
 
@@ -342,21 +477,35 @@ async function init() {
 
   slug = decodeURIComponent(slug).replace(/\/+$/, '').trim().toLowerCase();
 
-  if (!slug || slug === 'index.html') { showError(); return; }
+  if (!slug || slug === 'index.html') {
+    showError();
+    return;
+  }
 
   try {
-    const res = await fetch('/tools-index.json?v=' + Date.now());
+    const res = await fetch('/tools-index.json?v=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
+
     const tools = await res.json();
+    const tool = tools.find(t => {
+      const keys = [
+        t.id,
+        t.slug,
+        normalizeSlug(t.id),
+        normalizeSlug(t.slug),
+        normalizeSlug(t.name),
+        normalizeSlug(t.title)
+      ].filter(Boolean).map(v => String(v).toLowerCase());
 
-    const tool = tools.find(t =>
-      String(t.id || '').toLowerCase() === slug ||
-      String(t.slug || '').toLowerCase() === slug ||
-      String(t.name || t.title || '').toLowerCase() === slug
-    );
+      return keys.includes(slug);
+    });
 
-    if (!tool) { showError(); return; }
-    renderTool(tool);
+    if (!tool) {
+      showError();
+      return;
+    }
+
+    renderTool(tool, slug);
   } catch (e) {
     console.error('[NEORA] tool page error:', e);
     showError();
@@ -364,6 +513,7 @@ async function init() {
 }
 
 init();
+</script>
 </script>
 </body>
 </html>
