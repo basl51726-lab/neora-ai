@@ -247,7 +247,6 @@
     'dall-e-3': 'dalle-color.svg',
     'elevenlabs': 'elevenlabs.svg',
     'elicit': 'elicit.svg',
-    'fireflies-ai': 'Fireflies AI.svg',
     'gamma': 'gamma.svg',
     'github-copilot': 'github-copilot.svg',
     'google-gemini': 'gemini.svg',
@@ -274,8 +273,11 @@
     'suno-ai': 'suno.svg',
     'synthesia': 'synthesia.svg',
     'reclaim-ai': 'reclaim.svg',
+    'reclaim': 'reclaim.svg',
     'otter-ai': 'otter.svg',
+    'otter': 'otter.svg',
     'fireflies-ai': 'fireflies.svg',
+    'fireflies': 'fireflies.svg',
     'tome': 'Tome.svg',
     'taskade': 'Taskade.svg',
     'windsurf': 'windsurf.svg'
@@ -331,12 +333,28 @@
     };
   }
 
+
+  function getToolLogo(t) {
+    const slug = String(t.slug || '').toLowerCase();
+    const name = String(t.name || '').toLowerCase();
+
+    if (toolLogos[slug]) return toolLogos[slug];
+
+    if (name.includes('reclaim')) return 'reclaim.svg';
+    if (name.includes('fireflies')) return 'fireflies.svg';
+    if (name.includes('otter')) return 'otter.svg';
+    if (name.includes('tome')) return 'Tome.svg';
+    if (name.includes('taskade')) return 'Taskade.svg';
+
+    return `${t.slug}.svg`;
+  }
+
   function renderTools(list) {
     const safeList = Array.isArray(list) ? list : [];
 
     grid.innerHTML = safeList.map(raw => {
       const t = normalizeTool(raw);
-      const logo = toolLogos[t.slug] || `${t.slug}.svg`;
+      const logo = getToolLogo(t);
       const fallback = initials(t.name);
 
       return `
