@@ -271,11 +271,16 @@ function renderTool(tool) {
 
   // Icon
   const iconWrap = document.getElementById('icon-wrap');
-  if (tool.icon_img && tool.icon_img.startsWith('http')) {
-    iconWrap.innerHTML = `<img src="${esc(tool.icon_img)}" alt="${esc(name)}" onerror="this.parentElement.textContent='${esc(tool.icon_emoji||tool.icon||'🤖')}'">`;
-  } else {
-    iconWrap.textContent = tool.icon_emoji || tool.icon || '🤖';
-  }
+ if (tool.icon_img) {
+  iconWrap.innerHTML = `
+    <img src="${esc(tool.icon_img)}"
+         alt="${esc(name)}"
+         onerror="this.parentElement.textContent='${esc(tool.icon_emoji||tool.icon||'🤖')}'">
+  `;
+} else {
+  iconWrap.textContent = tool.icon_emoji || tool.icon || '🤖';
+}
+   
 
   // Badge & category
   const badgeEl = document.getElementById('badge-tier');
