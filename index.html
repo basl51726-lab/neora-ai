@@ -222,11 +222,38 @@
   const grid=document.getElementById('cleanToolsGrid');
   const noResults=document.getElementById('noResults');
   function initials(name){return name.split(/\s|\./).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
-  function renderTools(list){
-    grid.innerHTML=list.map(t=>`<a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/"><div class="tool-logo-box">${initials(t.name)}</div><h3>${t.name}</h3><p>${t.cat}</p></a>`).join('');
-    noResults.classList.toggle('show',list.length===0);
-  }
-  function searchTools(){
+  const toolLogos = {
+  'chatgpt-plus': 'chatgpt.svg',
+  'claude': 'claude.svg',
+  'google-gemini': 'gemini.svg',
+  'perplexity-ai': 'perplexity.svg',
+  'cursor': 'cursor.svg',
+  'windsurf': 'windsurf.svg',
+  'lovable': 'lovable.svg',
+  'bolt-new': 'bolt-new.svg',
+  'replit-agent': 'replit-color.svg',
+  'claude-code': 'claude-code.svg',
+  'openai-codex': 'codex-color.svg',
+  'canva-ai': 'canva.svg'
+};
+
+function renderTools(list){
+  grid.innerHTML=list.map(t=>{
+    const logo = toolLogos[t.slug] || `${t.slug}.svg`;
+    return `
+<a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/">
+  <div class="tool-logo-box">
+    <img src="/assets/images/tools/${logo}"
+         alt="${t.name}"
+         onerror="this.style.display='none';this.parentNode.innerHTML='${initials(t.name)}';">
+  </div>
+  <h3>${t.name}</h3>
+  <p>${t.cat}</p>
+</a>`;
+  }).join('');
+
+  noResults.classList.toggle('show',list.length===0);
+}
     const q=document.getElementById('searchInput').value.trim().toLowerCase();
     if(!q){renderTools(popularTools);return;}
     renderTools(popularTools.filter(t=>(t.name+' '+t.cat+' '+t.slug).toLowerCase().includes(q)));
