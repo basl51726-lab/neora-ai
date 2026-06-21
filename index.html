@@ -168,8 +168,8 @@
               <button onclick="generateStudio()">توليد ✨</button>
             </div>
             <div class="studio-input" style="margin-top:10px;background:#1e293b;">
-              <input id="studioApiKey" type="password" placeholder="🔑 Claude API Key" style="color:#f1f5f9;background:transparent;">
-              <a href="https://console.anthropic.com/settings/keys" target="_blank" style="border:0;background:rgba(212,175,55,.2);color:#f5d778;border-radius:12px;padding:12px 14px;font-weight:900;font-size:12px;white-space:nowrap;text-decoration:none;">احصل عليه
+              <input id="studioApiKey" type="password" placeholder="🔑 أدخل API Key هنا (اختياري بعد 3 تجارب مجانية)" style="color:#f1f5f9;background:transparent;">
+              <span style="color:#94a3b8;font-size:11px;padding:0 8px;white-space:nowrap;">اختياري</span>
             </div>
             <div class="studio-features">
               <div class="studio-feature">🎬 عنوان وسكربت يوتيوب</div>
@@ -515,7 +515,7 @@
   });
 
   /* ========== NEORA STUDIO — Claude API ========== */
-  const STUDIO_KEY = window.__NEORA_KEY__ || [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']
+  const STUDIO_KEY = window.__NEORA_KEY__ || ['sk-ant-api03-','REPLACE_WITH_YOUR_NEW_KEY'].join('');
   const FREE_LIMIT = 3;
 
   function getUsageCount() {
