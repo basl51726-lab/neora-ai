@@ -281,25 +281,30 @@
     noResults.classList.toggle('show', list.length === 0);
   }
 
-  function searchTools() {
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+function searchTools() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
 
-    if (!q) {
-      renderTools(popularTools);
-      return;
-    }
+  if (!q) {
+    renderTools(popularTools);
+    return;
+  }
 
-   renderTools(
-  allTools.filter(t =>
-    (
-      (t.name || t.title || '') + ' ' +
-      (t.cat || t.category || '') + ' ' +
-      (t.slug || '')
-    ).toLowerCase().includes(q)
-  )
-);
+  const sourceTools = (typeof allTools !== 'undefined' && Array.isArray(allTools))
+    ? allTools
+    : popularTools;
 
-    document.getElementById('tools').scrollIntoView({behavior:'smooth'});
+  renderTools(
+    sourceTools.filter(t =>
+      (
+        (t.name || t.title || '') + ' ' +
+        (t.cat || t.category || '') + ' ' +
+        (t.slug || '')
+      ).toLowerCase().includes(q)
+    )
+  );
+
+  document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+}
   }
 
   function quickSearch(q) {
