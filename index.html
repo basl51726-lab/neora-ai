@@ -206,33 +206,74 @@
 
 <script>
   const popularTools = [
-    {name:'ChatGPT Plus',cat:'AI Assistant',slug:'chatgpt-plus'},
-    {name:'Claude',cat:'Writing & Research',slug:'claude'},
-    {name:'Google Gemini',cat:'AI Assistant',slug:'google-gemini'},
-    {name:'Perplexity AI',cat:'AI Search',slug:'perplexity-ai'},
-    {name:'Cursor',cat:'AI Coding',slug:'cursor'},
-    {name:'Windsurf',cat:'AI Coding',slug:'windsurf'},
-    {name:'Lovable',cat:'App Builder',slug:'lovable'},
-    {name:'Bolt.new',cat:'App Builder',slug:'bolt-new'},
-    {name:'Replit Agent',cat:'AI Development',slug:'replit-agent'},
-    {name:'Claude Code',cat:'AI Coding',slug:'claude-code'},
-    {name:'OpenAI Codex',cat:'AI Coding',slug:'openai-codex'},
-    {name:'Canva AI',cat:'Design',slug:'canva-ai'}
+    {name:'ChatGPT Plus',cat:'chat',slug:'chatgpt-plus'},
+    {name:'Claude',cat:'chat',slug:'claude'},
+    {name:'Google Gemini',cat:'chat',slug:'google-gemini'},
+    {name:'Perplexity AI',cat:'research',slug:'perplexity-ai'},
+    {name:'Cursor',cat:'code',slug:'cursor'},
+    {name:'Windsurf',cat:'code',slug:'windsurf'},
+    {name:'Lovable',cat:'code',slug:'lovable'},
+    {name:'Bolt.new',cat:'code',slug:'bolt-new'},
+    {name:'Replit Agent',cat:'code',slug:'replit-agent'},
+    {name:'Claude Code',cat:'code',slug:'claude-code'},
+    {name:'OpenAI Codex',cat:'code',slug:'openai-codex'},
+    {name:'Canva AI',cat:'image',slug:'canva-ai'}
   ];
 
+  let allTools = [...popularTools];
+
+  const CATEGORY_LABELS = {
+    chat: 'AI Assistant',
+    writing: 'Writing & Content',
+    code: 'AI Coding',
+    image: 'Image & Design',
+    video: 'Video',
+    voice: 'Voice',
+    research: 'Research & Analysis',
+    productivity: 'Productivity',
+    data: 'Data Analysis'
+  };
+
   const toolLogos = {
-    'chatgpt-plus': 'chatgpt.svg',
-    'claude': 'claude.svg',
-    'google-gemini': 'gemini.svg',
-    'perplexity-ai': 'perplexity.svg',
-    'cursor': 'cursor.svg',
-    'windsurf': 'windsurf.svg',
-    'lovable': 'lovable.svg',
+    'adobe-firefly': 'adobefirefly-color.svg',
+    'beautiful-ai': 'beautiful-ai.svg',
     'bolt-new': 'bolt-new.svg',
-    'replit-agent': 'replit-color.svg',
+    'canva-ai': 'canva.svg',
+    'chatgpt-plus': 'chatgpt.svg',
     'claude-code': 'claude-code.svg',
+    'claude': 'claude.svg',
+    'consensus': 'consensus.svg',
+    'cursor': 'cursor.svg',
+    'dall-e-3': 'dalle-color.svg',
+    'elevenlabs': 'elevenlabs.svg',
+    'elicit': 'elicit.svg',
+    'fireflies-ai': 'fireflies.svg',
+    'gamma': 'gamma.svg',
+    'github-copilot': 'github-copilot.svg',
+    'google-gemini': 'gemini.svg',
+    'grammarly': 'grammarly.svg',
+    'grok': 'grok-color.svg',
+    'heygen': 'heygen.svg',
+    'ideogram': 'ideogram-color.svg',
+    'kling-ai': 'kling-color.svg',
+    'leonardo-ai': 'leonardo.svg',
+    'lovable': 'lovable.svg',
+    'luma-ai': 'luma-color.svg',
+    'midjourney': 'midjourney.svg',
+    'microsoft-copilot': 'copilot-color.svg',
+    'notebooklm': 'notebooklm-color.svg',
+    'notion-ai': 'notion.svg',
+    'notion': 'notion.svg',
     'openai-codex': 'codex-color.svg',
-    'canva-ai': 'canva.svg'
+    'perplexity-ai': 'perplexity.svg',
+    'pika-labs': 'pika-color.svg',
+    'replit-agent': 'replit-color.svg',
+    'runway-ml': 'runway.svg',
+    'sora': 'sora.svg',
+    'stable-diffusion': 'stability-color.svg',
+    'suno-ai': 'suno.svg',
+    'synthesia': 'synthesia.svg',
+    'windsurf': 'windsurf.svg'
   };
 
   const grid = document.getElementById('cleanToolsGrid');
@@ -256,8 +297,40 @@
       .replace(/>/g, '&gt;');
   }
 
+  function normalizeCategory(value) {
+    const v = String(value || '').trim().toLowerCase();
+
+    if (['code', 'coding', 'developer', 'development', 'ai coding', 'ai development', 'app builder'].includes(v)) return 'code';
+    if (['image', 'images', 'design', 'photo', 'art', 'image & design', 'ai image'].includes(v)) return 'image';
+    if (['video', 'ai video'].includes(v)) return 'video';
+    if (['research', 'search', 'ai search', 'analysis', 'research & analysis'].includes(v)) return 'research';
+    if (['writing', 'content', 'copywriting', 'writing & content', 'writing & research'].includes(v)) return 'writing';
+    if (['productivity', 'meeting', 'meetings', 'notes'].includes(v)) return 'productivity';
+    if (['voice', 'audio', 'sound', 'music'].includes(v)) return 'voice';
+    if (['data', 'analytics'].includes(v)) return 'data';
+    if (['chat', 'ai assistant', 'assistant'].includes(v)) return 'chat';
+
+    return v;
+  }
+
+  function normalizeTool(t) {
+    const name = t.name || t.title || '';
+    const slug = t.slug || t.id || name.toLowerCase().replace(/\s+/g, '-');
+    const catKey = normalizeCategory(t.category || t.cat || '');
+
+    return {
+      name,
+      slug,
+      cat: catKey,
+      catLabel: CATEGORY_LABELS[catKey] || t.cat || t.category || 'AI Tool'
+    };
+  }
+
   function renderTools(list) {
-    grid.innerHTML = list.map(t => {
+    const safeList = Array.isArray(list) ? list : [];
+
+    grid.innerHTML = safeList.map(raw => {
+      const t = normalizeTool(raw);
       const logo = toolLogos[t.slug] || `${t.slug}.svg`;
       const fallback = initials(t.name);
 
@@ -273,36 +346,33 @@
             >
           </div>
           <h3>${escapeAttr(t.name)}</h3>
-          <p>${escapeAttr(t.cat)}</p>
+          <p>${escapeAttr(t.catLabel)}</p>
         </a>
       `;
     }).join('');
 
-    noResults.classList.toggle('show', list.length === 0);
+    noResults.classList.toggle('show', safeList.length === 0);
   }
 
-function searchTools() {
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  function searchTools() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
 
-  if (!q) {
-    renderTools(popularTools);
-    return;
+    if (!q) {
+      renderTools(popularTools);
+      return;
+    }
+
+    const normalizedQuery = normalizeCategory(q);
+
+    const results = allTools.filter(raw => {
+      const t = normalizeTool(raw);
+      const haystack = `${t.name} ${t.slug} ${t.cat} ${t.catLabel}`.toLowerCase();
+      return t.cat === normalizedQuery || haystack.includes(q);
+    });
+
+    renderTools(results);
+    document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
   }
-
-  const sourceTools = popularTools;
-
-  renderTools(
-    sourceTools.filter(t =>
-      (
-        (t.name || t.title || '') + ' ' +
-        (t.cat || t.category || '') + ' ' +
-        (t.slug || '')
-      ).toLowerCase().includes(q)
-    )
-  );
-
-  document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
-}
 
   function quickSearch(q) {
     document.getElementById('searchInput').value = q;
@@ -324,7 +394,24 @@ function searchTools() {
     `;
   }
 
-  renderTools(popularTools);
+  async function loadAllTools() {
+    renderTools(popularTools);
+
+    try {
+      const res = await fetch('/tools-index.json?v=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw new Error('tools-index.json failed');
+
+      const data = await res.json();
+      if (Array.isArray(data) && data.length) {
+        allTools = data.map(normalizeTool).filter(t => t.name && t.slug);
+      }
+    } catch (error) {
+      console.warn('[NEORA] Using popular tools fallback:', error);
+      allTools = [...popularTools];
+    }
+  }
+
+  loadAllTools();
 </script>
 </body>
 </html>
