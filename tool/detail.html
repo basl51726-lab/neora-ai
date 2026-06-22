@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4225177513036246" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">أداة — NEORA</title>
+<meta name="description" id="meta-desc" content="">
+<meta name="robots" content="index, follow">
+<link id="canonical" rel="canonical" href="">
+<meta property="og:type" content="website">
+<meta property="og:title" id="og-title" content="">
+<meta property="og:description" id="og-desc" content="">
+<meta property="og:image" content="https://neora-ai.com/og-image.png">
+<meta property="og:site_name" content="NEORA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="">
+<meta name="twitter:description" id="tw-desc" content="">
+<script type="application/ld+json" id="schema-json"></script>
+<link rel="icon" href="/assets/images/logos/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf8;--card:#ffffff;--border:rgba(212,175,55,0.2);--accent:#b8962e;--accent2:#d4af37;--accent3:#9a7d24;--text:#0f0f0f;--muted:#475569;--glow:0 0 30px rgba(212,175,55,0.15);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;}
+
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.25);flex-wrap:wrap;gap:10px;box-shadow:0 1px 20px rgba(212,175,55,0.08);}
+.logo{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px;text-decoration:none;}
+nav ul{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap;}
+nav ul li a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color 0.2s;}
+nav ul li a:hover{color:var(--accent);}
+.nav-cta{background:linear-gradient(135deg,#d4af37,#b8962e);color:#fff!important;padding:7px 18px;border-radius:8px;font-weight:700!important;}
+.nav-back{color:var(--accent);text-decoration:none;font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);padding:6px 14px;border-radius:8px;transition:background 0.2s;}
+.nav-back:hover{background:rgba(212,175,55,0.14);}
+
+.page-wrap{max-width:860px;margin:0 auto;padding:2.5rem 2rem 6rem;position:relative;z-index:1;}
+
+.loading{text-align:center;padding:6rem 2rem;color:var(--muted);}
+.loading-spinner{width:44px;height:44px;border:3px solid rgba(212,175,55,0.2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1.5rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.error-box{text-align:center;padding:6rem 2rem;}
+.error-box .icon{font-size:48px;display:block;margin-bottom:1rem;}
+.error-box h2{color:var(--text);margin-bottom:1rem;font-size:1.4rem;}
+.error-box p{color:var(--muted);margin-bottom:2rem;}
+.error-box a{color:var(--accent);text-decoration:none;font-weight:700;}
+
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:2rem;flex-wrap:wrap;}
+.breadcrumb a{color:var(--accent);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+.breadcrumb span{color:rgba(0,0,0,0.2);}
+
+.tool-hero{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem;margin-bottom:2rem;box-shadow:0 4px 24px rgba(0,0,0,0.05);}
+.tool-hero-top{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.5rem;}
+.tool-icon-wrap{width:72px;height:72px;border-radius:18px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;}
+.tool-icon-wrap img{width:48px;height:48px;object-fit:contain;border-radius:8px;}
+.tool-hero-info{flex:1;min-width:0;}
+.tool-badges{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.badge-tier{font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:0.05em;}
+.badge-free{background:rgba(16,185,129,0.1);color:#059669;border:1px solid rgba(16,185,129,0.2);}
+.badge-pro{background:rgba(212,175,55,0.15);color:var(--accent3);border:1px solid rgba(212,175,55,0.3);}
+.badge-new{background:rgba(99,102,241,0.1);color:#6366f1;border:1px solid rgba(99,102,241,0.2);}
+.tool-cat-tag{font-size:11px;font-weight:600;color:var(--muted);background:rgba(0,0,0,0.05);padding:3px 10px;border-radius:50px;}
+.tool-name{font-size:1.8rem;font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.2;}
+.tool-stars{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);font-weight:600;}
+.tool-stars .star{color:#f59e0b;font-size:14px;}
+.tool-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;}
+.tool-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-visit{background:linear-gradient(135deg,#d4af37,#b8962e);color:#fff;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;padding:12px 28px;border:none;border-radius:12px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(212,175,55,0.35);}
+.btn-visit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,175,55,0.45);}
+.btn-compare{background:transparent;color:var(--accent3);font-family:'Cairo',sans-serif;font-size:14px;font-weight:600;padding:12px 22px;border:1px solid rgba(212,175,55,0.35);border-radius:12px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,background 0.2s;display:inline-flex;align-items:center;gap:6px;}
+.btn-compare:hover{border-color:var(--accent);background:rgba(212,175,55,0.06);}
+
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.info-item{text-align:center;padding:1rem;background:rgba(212,175,55,0.04);border-radius:12px;border:1px solid rgba(212,175,55,0.1);}
+.info-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
+.info-value{font-size:15px;font-weight:700;color:var(--text);}
+
+.section-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.75rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.section-card h2{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+
+.compare-links{display:flex;flex-direction:column;gap:10px;}
+.compare-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);font-size:14px;font-weight:600;transition:border-color 0.2s,background 0.2s;}
+.compare-link:hover{border-color:rgba(212,175,55,0.5);background:rgba(212,175,55,0.04);}
+.compare-link .arrow{color:var(--accent);font-size:16px;}
+
+/* مقالات ذات صلة */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.article-link{display:block;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);transition:border-color 0.2s,background 0.2s;}
+.article-link:hover{border-color:rgba(212,175,55,0.5);background:rgba(212,175,55,0.04);}
+.article-link .article-type{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:6px;}
+.article-link h3{font-size:14px;font-weight:700;line-height:1.5;color:var(--text);}
+
+/* أدوات مشابهة */
+.similar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;}
+.similar-card{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text);font-size:13px;font-weight:700;text-align:center;transition:border-color 0.2s,background 0.2s;}
+.similar-card:hover{border-color:rgba(212,175,55,0.5);background:rgba(212,175,55,0.04);}
+.similar-icon{width:44px;height:44px;border-radius:12px;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;}
+.similar-icon img{width:30px;height:30px;object-fit:contain;}
+
+footer{background:#0f0f0f;color:rgba(255,255,255,0.6);padding:40px;position:relative;z-index:1;margin-top:auto;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:16px;color:var(--accent);text-decoration:none;font-weight:700;}
+.footer-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;transition:color 0.2s;}
+.footer-links a:hover{color:var(--accent);}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);width:100%;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);}
+
+@media(max-width:640px){
+  nav{padding:14px 16px;}
+  .page-wrap{padding:1.5rem 1rem 4rem;}
+  .tool-hero{padding:1.5rem;}
+  .tool-hero-top{flex-direction:column;gap:1rem;}
+  .tool-name{font-size:1.4rem;}
+  footer{padding:28px 16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">NEORA</a>
+  <ul>
+    <li><a href="/">الأدوات</a></li>
+    <li><a href="/compare/">المقارنات</a></li>
+    <li><a href="/blog/">المدونة</a></li>
+    <li><a class="nav-cta" href="/#studio">ابدأ مجاناً</a></li>
+  </ul>
+  <a class="nav-back" href="/">← جميع الأدوات</a>
+</nav>
+
+<div class="page-wrap">
+  <div id="loading" class="loading">
+    <div class="loading-spinner"></div>
+    <p>جارٍ تحميل بيانات الأداة…</p>
+  </div>
+  <div id="error-box" class="error-box" style="display:none">
+    <span class="icon">🔍</span>
+    <h2>الأداة غير موجودة</h2>
+    <p>لم نتمكن من العثور على هذه الأداة في دليل NEORA.</p>
+    <a href="/">← العودة إلى دليل الأدوات</a>
+  </div>
+  <div id="content" style="display:none">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">NEORA</a>
+      <span>›</span>
+      <a href="/">الأدوات</a>
+      <span>›</span>
+      <span id="bc-name"></span>
+    </nav>
+
+    <div class="tool-hero">
+      <div class="tool-hero-top">
+        <div class="tool-icon-wrap" id="icon-wrap"></div>
+        <div class="tool-hero-info">
+          <div class="tool-badges">
+            <span class="badge-tier" id="badge-tier"></span>
+            <span class="tool-cat-tag" id="cat-tag"></span>
+          </div>
+          <h1 class="tool-name" id="tool-name"></h1>
+          <div class="tool-stars">
+            <span class="star">★</span>
+            <span id="tool-stars"></span>
+            <span>/ 5</span>
+          </div>
+        </div>
+      </div>
+      <p class="tool-desc" id="tool-desc"></p>
+      <div class="tool-actions">
+        <a class="btn-visit" id="btn-visit" href="#" target="_blank" rel="noopener nofollow">🔗 زيارة الموقع الرسمي</a>
+        <a class="btn-compare" href="/compare/">⚖️ المقارنات</a>
+      </div>
+      <div class="info-grid" id="info-grid"></div>
+    </div>
+
+    <!-- مقارنات ذات صلة -->
+    <div class="section-card" id="compare-section" style="display:none">
+      <h2>⚖️ مقارنات ذات صلة</h2>
+      <div class="compare-links" id="compare-links"></div>
+    </div>
+
+    <!-- مقالات ذات صلة -->
+    <div class="section-card" id="articles-section" style="display:none">
+      <h2>📝 مقالات ذات صلة</h2>
+      <div class="articles-grid" id="articles-grid"></div>
+    </div>
+
+    <!-- أدوات مشابهة -->
+    <div class="section-card" id="similar-section" style="display:none">
+      <h2>🤖 أدوات مشابهة</h2>
+      <div class="similar-grid" id="similar-grid"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-logo" href="/">NEORA</a>
+    <ul class="footer-links">
+      <li><a href="/">الأدوات</a></li>
+      <li><a href="/compare/">المقارنات</a></li>
+      <li><a href="/blog/">المدونة</a></li>
+      <li><a href="/about/">من نحن</a></li>
+      <li><a href="/contact/">تواصل معنا</a></li>
+      <li><a href="/privacy-policy/">سياسة الخصوصية</a></li>
+    </ul>
+  </div>
+  <div class="footer-copy">© 2026 NEORA. جميع الحقوق محفوظة.</div>
+</footer>
+
+<script>
+const CAT_LABELS = {
+  chat:'دردشة AI', image:'توليد الصور', video:'توليد الفيديو',
+  code:'مساعدي الكود', writing:'أدوات الكتابة', voice:'أدوات الصوت',
+  productivity:'الإنتاجية', research:'البحث والتحليل', data:'تحليل البيانات',
+  design:'التصميم', audio:'أدوات الصوت'
+};
+
+const TOOL_LOGOS = {
+  'adobe-firefly':'adobefirefly-color.svg','beautiful-ai':'beautiful-ai.svg',
+  'bolt-new':'bolt-new.svg','canva-ai':'canva.svg','canva':'canva.svg',
+  'chatgpt-plus':'chatgpt.svg','chatgpt':'chatgpt.svg','claude':'claude.svg',
+  'claude-code':'claude-code.svg','openai-codex':'codex-color.svg',
+  'cursor':'cursor.svg','dall-e-3':'dalle-color.svg','elevenlabs':'elevenlabs.svg',
+  'gamma':'gamma.svg','google-gemini':'gemini.svg','gemini':'gemini.svg',
+  'github-copilot':'github-copilot.svg','microsoft-copilot':'copilot-color.svg',
+  'grammarly':'grammarly.svg','grok':'grok-color.svg','heygen':'heygen.svg',
+  'ideogram':'ideogram-color.svg','kling-ai':'kling-color.svg',
+  'leonardo-ai':'leonardo.svg','lovable':'lovable.svg','luma-ai':'luma-color.svg',
+  'midjourney':'midjourney.svg','notebooklm':'notebooklm-color.svg',
+  'notion-ai':'notion.svg','notion':'notion.svg','perplexity-ai':'perplexity.svg',
+  'pika-labs':'pika-color.svg','replit-agent':'replit-color.svg',
+  'replit-ai':'replit-color.svg','runway-ml':'runway.svg','sora':'sora.svg',
+  'stable-diffusion':'stability-color.svg','suno-ai':'suno.svg',
+  'synthesia':'synthesia.svg','windsurf':'windsurf.svg',
+  'reclaim-ai':'Reclaim_AI.svg','otter-ai':'otter.svg',
+  'fireflies-ai':'fireflies.svg','tome':'Tome.svg','taskade':'Taskade.svg'
+};
+
+const LOGO_BASE = '/assets/images/tools/';
+
+const COMPARE_PAGES = [
+  'chatgpt-vs-claude','chatgpt-vs-grok','claude-vs-gemini','claude-vs-perplexity',
+  'cursor-vs-windsurf','cursor-vs-claude-code','cursor-vs-github-copilot',
+  'claude-code-vs-github-copilot','claude-code-vs-openai-codex',
+  'gemini-vs-chatgpt','lovable-vs-bolt-new','perplexity-vs-chatgpt',
+  'replit-agent-vs-lovable'
+];
+
+// مقالات مرتبطة بكل أداة
+const TOOL_ARTICLES = {
+  'chatgpt-plus': [
+    { type:'تجربة', title:'اعتمدت على ChatGPT في عملي اليومي لمدة شهر كامل', slug:'2026-06-14-اعتمدت-على-chatgpt-في-عملي-اليومي-لمدة-شهر-كامل-هذه-النتائج-التي-فاجأتني' },
+    { type:'مقارنة', title:'مقارنة ChatGPT و Claude و Gemini في 2026', slug:'2026-06-07-مقارنة-chatgpt-و-claude-و-gemini-في-2026-أيهما-الأفضل؟' },
+  ],
+  'claude': [
+    { type:'مقارنة', title:'Claude vs ChatGPT: أيهما أفضل للكتابة الطويلة؟', slug:'2026-06-12-claude-vs-chatgpt-أيهما-أفضل-للكتابة-الطويلة-وصناعة-المحتوى؟' },
+    { type:'مقارنة', title:'مقارنة ChatGPT و Claude و Gemini في 2026', slug:'2026-06-07-مقارنة-chatgpt-و-claude-و-gemini-في-2026-أيهما-الأفضل؟' },
+  ],
+  'cursor': [
+    { type:'مقارنة', title:'Windsurf AI بعد 30 يوماً من الاستخدام', slug:'2026-06-09-windsurf-ai-بعد-30-يوماً-من-الاستخدام-هل-يستحق-الانتقال-من-cursor-في-2026؟' },
+  ],
+  'windsurf': [
+    { type:'مقارنة', title:'Windsurf AI بعد 30 يوماً من الاستخدام', slug:'2026-06-09-windsurf-ai-بعد-30-يوماً-من-الاستخدام-هل-يستحق-الانتقال-من-cursor-في-2026؟' },
+  ],
+  'lovable': [
+    { type:'مقارنة', title:'Lovable vs Bolt.new: أيهما أفضل لبناء الشركات الناشئة؟', slug:'2026-06-09-lovable-vs-bolt-new-أيهما-أفضل-لبناء-الشركات-الناشئة-في-2026؟' },
+  ],
+  'bolt-new': [
+    { type:'مقارنة', title:'Lovable vs Bolt.new: أيهما أفضل لبناء الشركات الناشئة؟', slug:'2026-06-09-lovable-vs-bolt-new-أيهما-أفضل-لبناء-الشركات-الناشئة-في-2026؟' },
+  ],
+  'devin-ai': [
+    { type:'مراجعة', title:'مراجعة Devin AI: هل يستطيع بناء تطبيقات كاملة؟', slug:'2026-06-11-مراجعة-devin-ai-هل-يستطيع-بناء-تطبيقات-كاملة-دون-تدخل-بشري؟' },
+  ],
+  'notebooklm': [
+    { type:'مراجعة', title:'مراجعة NotebookLM في 2026', slug:'2026-06-09-مراجعة-notebooklm-في-2026-هل-هي-أفضل-أداة-ذكاء-اصطناعي-للبحث-والتعلم؟' },
+  ],
+};
+
+function normalizeSlug(v) {
+  return String(v||'').trim().toLowerCase().replace(/&/g,'and').replace(/\+/g,'plus').replace(/\./g,'-').replace(/[^a-z0-9\u0600-\u06FF]+/g,'-').replace(/^-+|-+$/g,'');
+}
+function isImageFile(v){return /\.(svg|png|webp|jpg|jpeg)$/i.test(String(v||'').trim());}
+function isAbsPath(v){return /^(https?:)?\/\//i.test(String(v||''))||String(v||'').startsWith('/');}
+function isProbablyEmoji(v){const s=String(v||'').trim();return !!s&&!isImageFile(s)&&s.length<=4;}
+
+function toolLogoSrc(tool,slug,name){
+  const candidates=[slug,tool.id,tool.slug,normalizeSlug(tool.name),normalizeSlug(tool.title),normalizeSlug(name)].filter(Boolean);
+  for(const k of candidates){if(TOOL_LOGOS[k])return LOGO_BASE+TOOL_LOGOS[k];}
+  if(tool.icon_img&&isImageFile(tool.icon_img))return isAbsPath(tool.icon_img)?tool.icon_img:LOGO_BASE+tool.icon_img.replace(/^\/+/,'');
+  if(tool.icon&&isImageFile(tool.icon))return isAbsPath(tool.icon)?tool.icon:LOGO_BASE+tool.icon.replace(/^\/+/,'');
+  return '';
+}
+function fallbackIcon(tool){
+  if(tool.icon_emoji)return tool.icon_emoji;
+  if(tool.emoji)return tool.emoji;
+  if(isProbablyEmoji(tool.icon))return tool.icon;
+  return '🤖';
+}
+function badgeClass(b){const v=String(b||'').toLowerCase();if(v==='pro'||v==='paid')return 'badge-pro';if(v==='new')return 'badge-new';return 'badge-free';}
+function badgeLabel(b){const v=String(b||'').toLowerCase();if(v==='pro'||v==='paid')return 'احترافي';if(v==='new')return 'جديد';return 'مجاني';}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function compareTitle(p){return p.split('-vs-').map(s=>s.split('-').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ')).join(' vs ');}
+
+function renderTool(tool, slug, allTools) {
+  const name   = tool.name||tool.title||'';
+  const descAr = tool.desc_ar||tool.description_ar||tool.description||'';
+  const descEn = tool.desc_en||tool.description_en||'';
+  const desc   = descAr||descEn||`اكتشف ${name} ضمن دليل NEORA لأدوات الذكاء الاصطناعي.`;
+  const stars  = parseFloat(String(tool.stars||tool.rating||'4.5').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)))||4.5;
+  const url    = tool.url||tool.link||tool.website||'#';
+  const cat    = tool.cat||tool.category||'';
+  const badge  = tool.badge||tool.tier||'free';
+  const pricing= tool.pricing_ar||tool.pricing||'';
+  const toolSlug = slug||normalizeSlug(tool.id||tool.slug||name);
+
+  const pageTitle = `${name} – ${CAT_LABELS[cat]||'أداة AI'} | NEORA`;
+  const pageDesc  = desc;
+  const pageUrl   = `https://neora-ai.com/tool/${toolSlug}/`;
+
+  document.title = pageTitle;
+  document.getElementById('meta-desc').setAttribute('content',pageDesc);
+  document.getElementById('og-title').setAttribute('content',pageTitle);
+  document.getElementById('og-desc').setAttribute('content',pageDesc);
+  document.getElementById('tw-title').setAttribute('content',pageTitle);
+  document.getElementById('tw-desc').setAttribute('content',pageDesc);
+  document.getElementById('canonical').setAttribute('href',pageUrl);
+
+  // Schema.org
+  const schema = {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name": name,
+    "description": desc,
+    "url": url,
+    "applicationCategory": CAT_LABELS[cat]||'AI Tool',
+    "aggregateRating": {
+      "@type":"AggregateRating",
+      "ratingValue": stars.toFixed(1),
+      "bestRating":"5",
+      "ratingCount":"100"
+    },
+    "offers": pricing ? {"@type":"Offer","price":pricing} : undefined
+  };
+  document.getElementById('schema-json').textContent = JSON.stringify(schema);
+
+  document.getElementById('bc-name').textContent = name;
+
+  const iconWrap = document.getElementById('icon-wrap');
+  const logoSrc  = toolLogoSrc(tool, toolSlug, name);
+  const fallback = fallbackIcon(tool);
+  if(logoSrc){
+    iconWrap.innerHTML='';
+    const img=document.createElement('img');
+    img.src=logoSrc; img.alt=name; img.loading='lazy';
+    img.onerror=()=>{iconWrap.innerHTML='';iconWrap.textContent=fallback;};
+    iconWrap.appendChild(img);
+  } else { iconWrap.textContent=fallback; }
+
+  const badgeEl=document.getElementById('badge-tier');
+  badgeEl.textContent=badgeLabel(badge);
+  badgeEl.className='badge-tier '+badgeClass(badge);
+  document.getElementById('cat-tag').textContent=CAT_LABELS[cat]||cat||'أداة AI';
+  document.getElementById('tool-name').textContent=name;
+  document.getElementById('tool-stars').textContent=stars.toFixed(1);
+  document.getElementById('tool-desc').textContent=desc;
+
+  const visitBtn=document.getElementById('btn-visit');
+  visitBtn.href=url; visitBtn.rel=tool.rel||'noopener nofollow';
+
+  const infoItems=[];
+  if(pricing) infoItems.push({label:'التسعير',value:pricing});
+  if(cat) infoItems.push({label:'التصنيف',value:CAT_LABELS[cat]||cat});
+  infoItems.push({label:'التقييم',value:`${stars.toFixed(1)} / 5 ★`});
+  document.getElementById('info-grid').innerHTML=infoItems.map(i=>`<div class="info-item"><div class="info-label">${esc(i.label)}</div><div class="info-value">${esc(i.value)}</div></div>`).join('');
+
+  // مقارنات
+  const compares=COMPARE_PAGES.filter(p=>p.includes(toolSlug)).slice(0,4);
+  const compareSection=document.getElementById('compare-section');
+  if(compares.length){
+    document.getElementById('compare-links').innerHTML=compares.map(p=>`<a class="compare-link" href="/compare/${p}/">${esc(compareTitle(p))}<span class="arrow">←</span></a>`).join('');
+    compareSection.style.display='';
+  }
+
+  // مقالات ذات صلة
+  const articles=TOOL_ARTICLES[toolSlug]||[];
+  const articlesSection=document.getElementById('articles-section');
+  if(articles.length){
+    document.getElementById('articles-grid').innerHTML=articles.map(a=>`
+      <a class="article-link" href="/blog/${encodeURIComponent(a.slug)}">
+        <div class="article-type">${esc(a.type)}</div>
+        <h3>${esc(a.title)}</h3>
+      </a>`).join('');
+    articlesSection.style.display='';
+  }
+
+  // أدوات مشابهة
+  const similar=allTools.filter(t=>(t.cat||t.category)===cat && normalizeSlug(t.id||t.slug||t.name)!==toolSlug).slice(0,6);
+  const similarSection=document.getElementById('similar-section');
+  if(similar.length){
+    document.getElementById('similar-grid').innerHTML=similar.map(t=>{
+      const tSlug=normalizeSlug(t.id||t.slug||t.name||t.title);
+      const tLogo=toolLogoSrc(t,tSlug,t.name||t.title);
+      const tFb=fallbackIcon(t);
+      const iconHtml=tLogo?`<img src="${esc(tLogo)}" alt="${esc(t.name||t.title)}" loading="lazy" onerror="this.parentNode.textContent='${esc(tFb)}'">`:tFb;
+      return `<a class="similar-card" href="/tool/${tSlug}/"><div class="similar-icon">${iconHtml}</div>${esc(t.name||t.title)}</a>`;
+    }).join('');
+    similarSection.style.display='';
+  }
+
+  document.getElementById('loading').style.display='none';
+  document.getElementById('content').style.display='';
+}
+
+function showError(){
+  document.getElementById('loading').style.display='none';
+  document.getElementById('content').style.display='none';
+  document.getElementById('error-box').style.display='';
+}
+
+async function init(){
+  const params=new URLSearchParams(window.location.search);
+  let slug=params.get('slug')||params.get('name')||'';
+  if(!slug){
+    const parts=window.location.pathname.split('/').filter(Boolean);
+    const toolIndex=parts.indexOf('tool');
+    slug=toolIndex>=0?(parts[toolIndex+1]||''):'';
+  }
+  slug=decodeURIComponent(slug).replace(/\/+$/,'').trim().toLowerCase();
+  if(!slug||slug==='index.html'){showError();return;}
+  try{
+    const res=await fetch('/tools-index.json?v='+Date.now(),{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const tools=await res.json();
+    const tool=tools.find(t=>{
+      const keys=[t.id,t.slug,normalizeSlug(t.id),normalizeSlug(t.slug),normalizeSlug(t.name),normalizeSlug(t.title)].filter(Boolean).map(v=>String(v).toLowerCase());
+      return keys.includes(slug);
+    });
+    if(!tool){showError();return;}
+    renderTool(tool,slug,tools);
+  }catch(e){console.error('[NEORA] tool page error:',e);showError();}
+}
+
+init();
+</script>
+</body>
+</html>
