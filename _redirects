@@ -16,7 +16,7 @@
 /posts-index.json    /posts-index.json    200
 
 # ── 4. Tool detail pages (SPA routes) ────────────────────────────
-
+/tool/    /tool/tools-list.html    200
 /tool/*    /tool/detail.html    200
 
 # ── 5. SPA fallback — must be last ───────────────────────────────
