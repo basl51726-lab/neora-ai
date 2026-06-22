@@ -1,163 +1,98 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4225177513036246" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="page-title">مقال — NEORA</title>
   <meta name="description" id="meta-desc" content="" />
   <meta property="og:title" id="og-title" content="" />
   <meta property="og:description" id="og-desc" content="" />
+  <meta property="og:image" content="https://neora-ai.com/og-image.png" />
+  <meta property="og:site_name" content="NEORA" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link id="canonical" rel="canonical" href="" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #fafaf8; color: #0f0f0f; font-family: 'Cairo', sans-serif; min-height: 100vh; }
-    nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem; border-bottom: 1px solid rgba(212,175,55,0.25);
-      position: sticky; top: 0; background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(10px); z-index: 100;
-      box-shadow: 0 1px 20px rgba(212,175,55,0.08);
-    }
-    .logo {
-      font-size: 1.5rem; font-weight: 900; text-decoration: none; letter-spacing: 0.1em;
-      background: linear-gradient(135deg,#b8962e,#d4af37,#9a7d24);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .nav-back {
-      color: #b8962e; text-decoration: none; font-size: 0.88rem; font-weight: 700;
-      display: flex; align-items: center; gap: 6px;
-      background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2);
-      padding: 6px 14px; border-radius: 8px; transition: all 0.2s;
-    }
-    .nav-back:hover { background: rgba(212,175,55,0.14); }
-    .page-wrap { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem 6rem; }
-    .loading { text-align: center; padding: 6rem 2rem; color: #94a3b8; font-size: 1.1rem; }
-    .error-box { text-align: center; padding: 6rem 2rem; }
-    .error-box h2 { color: #0f0f0f; margin-bottom: 1rem; }
-    .error-box p { color: #475569; margin-bottom: 2rem; }
-    .error-box a { color: #b8962e; text-decoration: none; font-weight: 700; }
-    .breadcrumb {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.78rem; color: #94a3b8; margin-bottom: 2rem;
-    }
-    .breadcrumb a { color: #b8962e; text-decoration: none; font-weight: 700; }
-    .breadcrumb span { color: #cbd5e1; }
+    :root{--bg:#fbfaf6;--accent:#b8962e;--accent2:#d4af37;--accent3:#9a7d24;--text:#0f0f0f;--muted:#475569;--border:rgba(212,175,55,0.18);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;}
 
-    /* HERO */
-    .post-hero-wrap {
-      width: 100%; border-radius: 18px; overflow: hidden; margin-bottom: 2rem;
-      border: 1px solid rgba(212,175,55,0.15);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-      background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, #1a1a1a 60%, #111111 100%);
-      aspect-ratio: 16/8; position: relative;
-    }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:100;box-shadow:0 1px 20px rgba(212,175,55,0.08);}
+    .logo{font-size:1.5rem;font-weight:900;text-decoration:none;letter-spacing:0.1em;background:linear-gradient(135deg,#b8962e,#d4af37,#9a7d24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .nav-back{color:var(--accent);text-decoration:none;font-size:0.88rem;font-weight:700;display:flex;align-items:center;gap:6px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);padding:6px 14px;border-radius:8px;transition:all 0.2s;}
+    .nav-back:hover{background:rgba(212,175,55,0.14);}
 
-    /* صورة حقيقية من المقال */
-    .post-hero-real {
-      position: absolute; inset: 0;
-    }
-    .post-hero-real img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
+    .page-wrap{max-width:860px;margin:0 auto;padding:2.5rem 2rem 6rem;position:relative;z-index:1;}
+    .loading{text-align:center;padding:6rem 2rem;color:#94a3b8;font-size:1.1rem;}
+    .error-box{text-align:center;padding:6rem 2rem;}
+    .error-box h2{color:var(--text);margin-bottom:1rem;}
+    .error-box p{color:var(--muted);margin-bottom:2rem;}
+    .error-box a{color:var(--accent);text-decoration:none;font-weight:700;}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:0.78rem;color:#94a3b8;margin-bottom:2rem;}
+    .breadcrumb a{color:var(--accent);text-decoration:none;font-weight:700;}
+    .breadcrumb span{color:#cbd5e1;}
 
-    /* لوغو أداة */
-    .post-hero-logo {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .post-hero-logo::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(212,175,55,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,175,55,0.06) 1px, transparent 1px);
-      background-size: 34px 34px;
-    }
-    .post-hero-logo img {
-      width: 42%; max-width: 300px; height: auto; object-fit: contain;
-      position: relative; z-index: 2;
-      filter: drop-shadow(0 4px 28px rgba(212,175,55,0.4));
-      transition: transform 0.3s ease;
-    }
-    .post-hero-logo img:hover { transform: scale(1.04); }
+    /* ===== HERO الجديد ===== */
+    .post-hero-wrap{width:100%;border-radius:22px;overflow:hidden;margin-bottom:2rem;border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,0.12);aspect-ratio:16/7;position:relative;}
 
-    /* Smart art fallback */
-    .post-hero-art {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(212,175,55,0.30), transparent 28%),
-        radial-gradient(circle at 80% 75%, rgba(184,150,46,0.22), transparent 30%),
-        linear-gradient(135deg, #121107 0%, #25200f 55%, #0f0f0b 100%);
-      overflow: hidden; padding: 2rem;
-    }
-    .post-hero-art::before {
-      content: ''; position: absolute; inset: -35%; opacity: 0.12;
-      background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px);
-      background-size: 34px 34px; transform: rotate(-8deg);
-    }
-    .post-hero-art-inner { position: relative; z-index: 2; text-align: center; color: #fff8dc; }
-    .post-hero-art-mark {
-      width: 94px; height: 94px; border-radius: 28px; display: grid; place-items: center;
-      margin: 0 auto 1rem; font-size: 2.8rem;
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.35);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12);
-    }
-    .post-hero-art-title { font-size: 1.25rem; font-weight: 900; line-height: 1.6; max-width: 620px; }
+    /* خلفية ديناميكية */
+    .vis-bg{position:absolute;inset:0;}
+    .vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:24px 24px;}
+    .vis-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(45px);opacity:0.5;}
+    .vis-glow-1{top:-30px;right:-20px;background:rgba(212,175,55,0.7);}
+    .vis-glow-2{bottom:-40px;left:10px;background:rgba(255,255,255,0.3);}
+    .vis-logos{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;z-index:2;}
+    .vis-logo-wrap{width:80px;height:80px;border-radius:22px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+    .vis-logo-wrap img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,0.2)) brightness(1.1);}
+    .vis-logo-wrap .emoji{font-size:32px;}
+    .vis-vs{color:rgba(255,255,255,0.6);font-size:13px;font-weight:900;letter-spacing:1px;}
+    .vis-tag{position:absolute;top:16px;right:16px;z-index:3;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(8px);border-radius:50px;padding:5px 14px;font-size:12px;font-weight:700;color:#fff;}
 
-    .post-category {
-      display: inline-block; background: rgba(212,175,55,0.1); color: #9a7d24;
-      font-size: 0.7rem; font-weight: 800; padding: 3px 12px; border-radius: 50px;
-      margin-bottom: 0.8rem; letter-spacing: 0.5px;
-    }
-    .post-title { font-size: 2rem; font-weight: 900; color: #0f0f0f; line-height: 1.45; margin-bottom: 1rem; }
-    .post-meta {
-      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-      color: #94a3b8; font-size: 0.8rem; font-weight: 600;
-      margin-bottom: 2rem; padding-bottom: 1.5rem;
-      border-bottom: 2px solid rgba(212,175,55,0.12);
-    }
-    .meta-item { display: flex; align-items: center; gap: 5px; }
-    .meta-divider { color: rgba(212,175,55,0.3); }
-    #reading-progress {
-      position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200;
-      background: linear-gradient(90deg, #d4af37, #b8962e);
-      transform-origin: left; transform: scaleX(0); transition: transform 0.1s linear;
-    }
-    .post-body { font-size: 1.06rem; line-height: 2.05; color: #334155; }
-    .post-body h2 { font-size: 1.5rem; font-weight: 900; color: #b8962e; margin: 2.75rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(212,175,55,0.15); }
-    .post-body h3 { font-size: 1.18rem; font-weight: 800; color: #0f0f0f; margin: 2rem 0 0.75rem; }
-    .post-body p { margin-bottom: 1.35rem; }
-    .post-body ul, .post-body ol { padding-right: 1.5rem; margin-bottom: 1.25rem; }
-    .post-body li { margin-bottom: 0.65rem; }
-    .post-body a { color: #b8962e; text-decoration: underline; }
-    .post-body strong { color: #0f0f0f; font-weight: 800; }
-    .post-body hr { border: none; border-top: 1px solid rgba(212,175,55,0.2); margin: 2rem 0; }
-    .post-body blockquote { border-right: 4px solid #d4af37; padding: 1rem 1.5rem; background: rgba(212,175,55,0.06); border-radius: 0 12px 12px 0; margin: 1.5rem 0; color: #475569; font-style: italic; }
-    .post-body code { background: rgba(212,175,55,0.1); padding: 2px 7px; border-radius: 5px; font-family: monospace; font-size: 0.9rem; color: #9a7d24; }
-    .post-body pre { background: #f8f5ee; padding: 1.25rem; border-radius: 12px; overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(212,175,55,0.2); }
-    .post-body pre code { background: none; color: #334155; padding: 0; }
-    .post-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 10px; overflow: hidden; }
-    .post-body th { background: rgba(212,175,55,0.12); color: #b8962e; padding: 12px 16px; text-align: right; font-weight: 800; border-bottom: 2px solid rgba(212,175,55,0.25); }
-    .post-body td { padding: 11px 16px; border-bottom: 1px solid rgba(212,175,55,0.1); }
-    .post-body tr:hover td { background: rgba(212,175,55,0.04); }
-    .post-body img { max-width: 100%; border-radius: 12px; margin: 1rem 0; border: 1px solid rgba(212,175,55,0.1); }
-    .post-footer { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .back-btn { display: inline-flex; align-items: center; gap: 6px; color: #b8962e; text-decoration: none; font-weight: 800; font-size: 0.88rem; background: rgba(212,175,55,0.08); padding: 10px 20px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.2); transition: all 0.2s; }
-    .back-btn:hover { background: rgba(212,175,55,0.15); }
-    .share-actions { display: flex; align-items: center; gap: 10px; }
-    .share-btn { font-size: 0.78rem; color: #64748b; cursor: pointer; background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08); padding: 7px 14px; border-radius: 8px; transition: all 0.2s; font-family: inherit; font-weight: 700; }
-    .share-btn:hover { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.25); color: #b8962e; }
-    footer { text-align: center; padding: 2rem; margin-top: 2rem; border-top: 1px solid rgba(212,175,55,0.15); color: #94a3b8; font-size: 0.85rem; background: #fff; }
-    footer a { color: #b8962e; text-decoration: none; font-weight: 700; }
-    @media (max-width: 768px) {
-      .page-wrap { padding: 1.5rem 1rem 4rem; }
-      .post-title { font-size: 1.5rem; }
-      .post-body { font-size: 0.97rem; }
-      nav { padding: 1rem; }
-      .post-hero-wrap { aspect-ratio: 16/9; }
-      .post-hero-logo img { width: 55%; }
-    }
+    /* صورة حقيقية */
+    .post-hero-real{position:absolute;inset:0;}
+    .post-hero-real img{width:100%;height:100%;object-fit:cover;}
+
+    .post-category{display:inline-block;background:rgba(212,175,55,0.1);color:var(--accent3);font-size:0.7rem;font-weight:800;padding:3px 12px;border-radius:50px;margin-bottom:0.8rem;letter-spacing:0.5px;}
+    .post-title{font-size:2rem;font-weight:900;color:var(--text);line-height:1.45;margin-bottom:1rem;}
+    .post-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;color:#94a3b8;font-size:0.8rem;font-weight:600;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid rgba(212,175,55,0.12);}
+    .meta-item{display:flex;align-items:center;gap:5px;}
+    .meta-divider{color:rgba(212,175,55,0.3);}
+
+    #reading-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;background:linear-gradient(90deg,#d4af37,#b8962e);transform-origin:left;transform:scaleX(0);transition:transform 0.1s linear;}
+
+    .post-body{font-size:1.06rem;line-height:2.05;color:#334155;}
+    .post-body h2{font-size:1.5rem;font-weight:900;color:var(--accent);margin:2.75rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid rgba(212,175,55,0.15);}
+    .post-body h3{font-size:1.18rem;font-weight:800;color:var(--text);margin:2rem 0 0.75rem;}
+    .post-body p{margin-bottom:1.35rem;}
+    .post-body ul,.post-body ol{padding-right:1.5rem;margin-bottom:1.25rem;}
+    .post-body li{margin-bottom:0.65rem;}
+    .post-body a{color:var(--accent);text-decoration:underline;}
+    .post-body strong{color:var(--text);font-weight:800;}
+    .post-body hr{border:none;border-top:1px solid rgba(212,175,55,0.2);margin:2rem 0;}
+    .post-body blockquote{border-right:4px solid var(--accent2);padding:1rem 1.5rem;background:rgba(212,175,55,0.06);border-radius:0 12px 12px 0;margin:1.5rem 0;color:#475569;font-style:italic;}
+    .post-body code{background:rgba(212,175,55,0.1);padding:2px 7px;border-radius:5px;font-family:monospace;font-size:0.9rem;color:var(--accent3);}
+    .post-body pre{background:#f8f5ee;padding:1.25rem;border-radius:12px;overflow-x:auto;margin:1.5rem 0;border:1px solid rgba(212,175,55,0.2);}
+    .post-body pre code{background:none;color:#334155;padding:0;}
+    .post-body table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:10px;overflow:hidden;}
+    .post-body th{background:rgba(212,175,55,0.12);color:var(--accent);padding:12px 16px;text-align:right;font-weight:800;border-bottom:2px solid rgba(212,175,55,0.25);}
+    .post-body td{padding:11px 16px;border-bottom:1px solid rgba(212,175,55,0.1);}
+    .post-body tr:hover td{background:rgba(212,175,55,0.04);}
+    .post-body img{max-width:100%;border-radius:12px;margin:1rem 0;border:1px solid rgba(212,175,55,0.1);}
+
+    .post-footer{margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(212,175,55,0.2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .back-btn{display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-weight:800;font-size:0.88rem;background:rgba(212,175,55,0.08);padding:10px 20px;border-radius:10px;border:1px solid rgba(212,175,55,0.2);transition:all 0.2s;}
+    .back-btn:hover{background:rgba(212,175,55,0.15);}
+    .share-actions{display:flex;align-items:center;gap:10px;}
+    .share-btn{font-size:0.78rem;color:#64748b;cursor:pointer;background:rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.08);padding:7px 14px;border-radius:8px;transition:all 0.2s;font-family:inherit;font-weight:700;}
+    .share-btn:hover{background:rgba(212,175,55,0.1);border-color:rgba(212,175,55,0.25);color:var(--accent);}
+
+    footer{text-align:center;padding:2rem;margin-top:2rem;border-top:1px solid rgba(212,175,55,0.15);color:#94a3b8;font-size:0.85rem;background:#fff;position:relative;z-index:1;}
+    footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+
+    @media(max-width:768px){.page-wrap{padding:1.5rem 1rem 4rem;}.post-title{font-size:1.5rem;}.post-body{font-size:0.97rem;}nav{padding:1rem;}.vis-logo-wrap{width:60px;height:60px;}.vis-logo-wrap img{width:40px;height:40px;}}
   </style>
 </head>
 <body>
@@ -165,7 +100,7 @@
 <div id="reading-progress"></div>
 <nav>
   <a href="/" class="logo">NEORA</a>
-  <a href="/blog" class="nav-back">← المدونة</a>
+  <a href="/blog/" class="nav-back">← المدونة</a>
 </nav>
 
 <div class="page-wrap">
@@ -173,12 +108,12 @@
   <div class="error-box" id="error-box" style="display:none;">
     <h2>😕 المقال غير موجود</h2>
     <p>تعذّر تحميل هذا المقال.</p>
-    <a href="/blog">← العودة للمدونة</a>
+    <a href="/blog/">← العودة للمدونة</a>
   </div>
   <div id="post-content" style="display:none;">
     <div class="breadcrumb">
       <a href="/">NEORA</a><span>›</span>
-      <a href="/blog">المدونة</a><span>›</span>
+      <a href="/blog/">المدونة</a><span>›</span>
       <span id="breadcrumb-title"></span>
     </div>
     <div class="post-hero-wrap" id="hero-wrap"></div>
@@ -187,10 +122,10 @@
     <div class="post-meta" id="post-meta"></div>
     <div class="post-body" id="post-body"></div>
     <div class="post-footer">
-      <a href="/blog" class="back-btn">← اقرأ المزيد</a>
+      <a href="/blog/" class="back-btn">← اقرأ المزيد</a>
       <div class="share-actions">
         <button class="share-btn" onclick="copyLink()">🔗 نسخ الرابط</button>
-        <button class="share-btn" onclick="shareTwitter()">𝕏 مشاركة</button>
+        <button class="share-btn" onclick="shareLinkedIn()">💼 LinkedIn</button>
       </div>
     </div>
   </div>
@@ -216,90 +151,127 @@ function copyLink() {
     setTimeout(() => btn.textContent = orig, 2000);
   });
 }
-function shareTwitter() {
-  const title = document.getElementById('post-title-el').textContent;
-  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`, '_blank', 'noopener');
+function shareLinkedIn() {
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank', 'noopener');
 }
 function escapeHTML(v) {
   const m = {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'};
-  return String(v || '').replace(/[&<>'"]/g, c => m[c]);
+  return String(v||'').replace(/[&<>'"]/g, c => m[c]);
 }
 
-/* لوغو مطابق فقط للأدوات المذكورة بالاسم */
-function getPostLogo(title) {
-  const t = String(title || '').toLowerCase();
-  if (t.includes('lovable') && t.includes('bolt'))               return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('windsurf') && t.includes('cursor'))            return '/blog/Cursor_logo.svg';
-  if (t.includes('chatgpt') && t.includes('claude') && t.includes('gemini')) return '/blog/Claude_AI_logo.svg';
-  if (t.includes('lovable') && !t.includes('أفضل'))              return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('bolt') && !t.includes('أفضل'))                 return '/blog/bolt-logo.png';
-  if (t.includes('cursor') && !t.includes('أفضل'))               return '/blog/Cursor_logo.svg';
-  if (t.includes('windsurf') && !t.includes('أفضل'))             return '/blog/Cursor_logo.svg';
-  if (t.includes('notebooklm'))                                  return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('chatgpt') && !t.includes('أفضل'))              return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('claude') && !t.includes('أفضل'))               return '/blog/Claude_AI_logo.svg';
-  if (t.includes('gemini') && !t.includes('أفضل'))               return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('perplexity') && !t.includes('أفضل'))           return '/blog/Perplexity_AI_logo.svg';
-  return null;
+// ===== نظام الخلفيات الديناميكي =====
+const LOGOS = {
+  chatgpt:    '/assets/images/tools/chatgpt.svg',
+  claude:     '/assets/images/tools/claude.svg',
+  gemini:     '/assets/images/tools/gemini.svg',
+  perplexity: '/assets/images/tools/perplexity.svg',
+  cursor:     '/assets/images/tools/cursor.svg',
+  windsurf:   '/assets/images/tools/windsurf.svg',
+  lovable:    '/assets/images/tools/lovable.svg',
+  bolt:       '/assets/images/tools/bolt-new.svg',
+  notebooklm: '/assets/images/tools/notebooklm-color.svg',
+  devin:      '/assets/images/tools/claude-code.svg',
+  replit:     '/assets/images/tools/replit-color.svg',
+  github:     '/assets/images/tools/github-copilot.svg',
+  midjourney: '/assets/images/tools/midjourney.svg',
+  runway:     '/assets/images/tools/runway.svg',
+  sora:       '/assets/images/tools/sora.svg',
+  elevenlabs: '/assets/images/tools/elevenlabs.svg',
+  canva:      '/assets/images/tools/canva.svg',
+  notion:     '/assets/images/tools/notion.svg',
+  grammarly:  '/assets/images/tools/grammarly.svg',
+  grok:       '/assets/images/tools/grok-color.svg',
+};
+
+const GRADIENTS = {
+  'مقارنة':  'linear-gradient(135deg,#1e3a5f 0%,#2d5a8e 50%,#1e3a5f 100%)',
+  'مراجعة':  'linear-gradient(135deg,#3d2800 0%,#6b4a00 50%,#3d2800 100%)',
+  'البرمجة': 'linear-gradient(135deg,#1a2332 0%,#243447 40%,#1a2332 100%)',
+  'التسويق': 'linear-gradient(135deg,#3d1a4f 0%,#6b2d8e 50%,#3d1a4f 100%)',
+  'للطلاب':  'linear-gradient(135deg,#1a3d1a 0%,#2d6b2d 50%,#1a3d1a 100%)',
+  'يوتيوب':  'linear-gradient(135deg,#4f1a1a 0%,#8e2d2d 50%,#4f1a1a 100%)',
+  'default': 'linear-gradient(135deg,#1e2d42 0%,#2d4060 50%,#1e2d42 100%)',
+};
+
+const CAT_ICONS = {
+  'مقارنة':'⚖️','مراجعة':'⭐','البرمجة':'💻','يوتيوب':'▶️',
+  'التسويق':'📈','للطلاب':'📚','البحث العلمي':'🔬',
+  'إنشاء المواقع':'🌐','الذكاء الاصطناعي':'✦'
+};
+
+function getCategory(title, slug) {
+  const t = (title + ' ' + slug).toLowerCase();
+  if (t.includes('مقارن') || t.includes('vs') || t.includes('أيهما')) return 'مقارنة';
+  if (t.includes('مراجع') || t.includes('review'))                      return 'مراجعة';
+  if (t.includes('برمج') || t.includes('كود') || t.includes('devin'))   return 'البرمجة';
+  if (t.includes('يوتيوب') || t.includes('youtube'))                    return 'يوتيوب';
+  if (t.includes('تسويق'))                                              return 'التسويق';
+  if (t.includes('طلاب') || t.includes('دراس'))                        return 'للطلاب';
+  if (t.includes('بحث') || t.includes('علمي'))                         return 'البحث العلمي';
+  if (t.includes('موقع') || t.includes('تطبيق'))                       return 'إنشاء المواقع';
+  return 'الذكاء الاصطناعي';
 }
 
-/* smart art للمقالات العامة */
-function getSmartArt(title) {
-  const t = String(title || '').toLowerCase();
-  if (t.includes('يوتيوب') || t.includes('youtube')) return { icon: '▶️', label: 'محتوى يوتيوب بالذكاء الاصطناعي' };
-  if (t.includes('صور') || t.includes('image'))      return { icon: '🎨', label: 'أدوات توليد الصور' };
-  if (t.includes('فيديو') || t.includes('video'))    return { icon: '🎬', label: 'أدوات توليد الفيديو' };
-  if (t.includes('مواقع') || t.includes('تطبيق'))   return { icon: '🚀', label: 'أدوات بناء المواقع' };
-  if (t.includes('برمج') || t.includes('كود') || t.includes('devin')) return { icon: '💻', label: 'أدوات البرمجة' };
-  if (t.includes('بحث') || t.includes('علمي'))       return { icon: '🔬', label: 'أدوات البحث العلمي' };
-  if (t.includes('طلاب'))                             return { icon: '📚', label: 'أدوات الطلاب' };
-  if (t.includes('تسويق'))                            return { icon: '📈', label: 'أدوات التسويق الرقمي' };
-  return { icon: '✦', label: 'أدوات الذكاء الاصطناعي' };
+function getLogos(title) {
+  const t = title.toLowerCase();
+  const found = [];
+  if (t.includes('chatgpt')) found.push(LOGOS.chatgpt);
+  if (t.includes('claude'))  found.push(LOGOS.claude);
+  if (t.includes('gemini'))  found.push(LOGOS.gemini);
+  if (t.includes('grok'))    found.push(LOGOS.grok);
+  if (t.includes('perplexity')) found.push(LOGOS.perplexity);
+  if (t.includes('cursor'))  found.push(LOGOS.cursor);
+  if (t.includes('windsurf')) found.push(LOGOS.windsurf);
+  if (t.includes('lovable')) found.push(LOGOS.lovable);
+  if (t.includes('bolt'))    found.push(LOGOS.bolt);
+  if (t.includes('notebooklm')) found.push(LOGOS.notebooklm);
+  if (t.includes('devin'))   found.push(LOGOS.devin);
+  if (t.includes('replit'))  found.push(LOGOS.replit);
+  if (t.includes('github'))  found.push(LOGOS.github);
+  if (t.includes('midjourney')) found.push(LOGOS.midjourney);
+  if (t.includes('runway'))  found.push(LOGOS.runway);
+  if (t.includes('sora'))    found.push(LOGOS.sora);
+  if (t.includes('elevenlabs')) found.push(LOGOS.elevenlabs);
+  if (t.includes('canva'))   found.push(LOGOS.canva);
+  if (t.includes('notion'))  found.push(LOGOS.notion);
+  if (t.includes('grammarly')) found.push(LOGOS.grammarly);
+  return found.slice(0, 3);
 }
 
-/* صور ثابتة بناءً على slug المقال */
-function getImageBySlug(slug) {
-  const s = String(slug || '').toLowerCase();
-  if (s.includes('devin-ai') || s.includes('devin')) return '/blog/devin-ai-review.jpg';
-  return null;
-}
+function buildVisual(title, slug) {
+  const cat  = getCategory(title, slug);
+  const logos = getLogos(title);
+  const grad = GRADIENTS[cat] || GRADIENTS['default'];
+  const icon = CAT_ICONS[cat] || '✦';
+  const isVs = cat === 'مقارنة' && logos.length >= 2;
 
-/* بناء الهيرو — الأولوية: صورة حقيقية ← لوغو ← smart art */
-function buildHero(title, realImg, slug) {
-  // 0. صورة ثابتة بناءً على slug
-  const slugImg = getImageBySlug(slug);
-  if (slugImg) {
-    return `<div class="post-hero-real"><img src="${escapeHTML(slugImg)}" alt="${escapeHTML(title)}" /></div>`;
+  let logosHtml = '';
+  if (logos.length > 0) {
+    if (isVs) {
+      logosHtml = `
+        <div class="vis-logos">
+          <div class="vis-logo-wrap"><img src="${logos[0]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>
+          <span class="vis-vs">VS</span>
+          <div class="vis-logo-wrap"><img src="${logos[1]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>
+          ${logos[2] ? `<span class="vis-vs">+</span><div class="vis-logo-wrap"><img src="${logos[2]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>` : ''}
+        </div>`;
+    } else {
+      logosHtml = `
+        <div class="vis-logos">
+          ${logos.map(l => `<div class="vis-logo-wrap"><img src="${l}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>`).join('')}
+        </div>`;
+    }
+  } else {
+    logosHtml = `<div class="vis-logos"><div class="vis-logo-wrap"><span class="emoji">${icon}</span></div></div>`;
   }
-  // 1. صورة حقيقية من الـ CMS
-  if (realImg) {
-    return `<div class="post-hero-real"><img src="${escapeHTML(realImg)}" alt="${escapeHTML(title)}" /></div>`;
-  }
-  // 2. لوغو مطابق للأداة
-  const logo = getPostLogo(title);
-  if (logo) {
-    return `<div class="post-hero-logo"><img src="${escapeHTML(logo)}" alt="${escapeHTML(title)}" /></div>`;
-  }
-  // 3. smart art
-  const art = getSmartArt(title);
-  return `<div class="post-hero-art">
-    <div class="post-hero-art-inner">
-      <div class="post-hero-art-mark">${art.icon}</div>
-      <div class="post-hero-art-title">${art.label}</div>
-    </div>
-  </div>`;
-}
 
-/* استخراج الصورة من كل الحقول الممكنة */
-function extractImage(data) {
-  // كل الأسماء التي يستخدمها Netlify CMS
-  return data.featuredImage
-      || data.featured_image
-      || data.image
-      || data.thumbnail
-      || data.cover
-      || data.hero
-      || null;
+  return `
+    <div class="vis-bg" style="background:${grad}"></div>
+    <div class="vis-grid"></div>
+    <div class="vis-glow vis-glow-1"></div>
+    <div class="vis-glow vis-glow-2"></div>
+    ${logosHtml}
+    <span class="vis-tag">${icon} ${cat}</span>`;
 }
 
 (async () => {
@@ -320,14 +292,15 @@ function extractImage(data) {
     setMeta('og-title', title);
     setMeta('og-desc', data.description || '');
 
-    if (data.category) document.getElementById('post-category').textContent = data.category;
+    const cat = getCategory(title, slugFromURL);
+    document.getElementById('post-category').textContent = CAT_ICONS[cat] + ' ' + (data.category || cat);
     document.getElementById('post-title-el').textContent = title;
     document.getElementById('breadcrumb-title').textContent = title.length > 40 ? title.slice(0,40)+'…' : title;
 
     const d = data.date ? new Date(data.date) : null;
-    const dateStr = d ? d.toLocaleDateString('ar-SA', {year:'numeric', month:'long', day:'numeric'}) : '';
-    const words = (data.content || '').split(/\s+/).length;
-    const mins = Math.max(2, Math.round(words / 200));
+    const dateStr = d ? d.toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'}) : '';
+    const words = (data.content||'').split(/\s+/).length;
+    const mins = Math.max(2, Math.round(words/200));
     document.getElementById('post-meta').innerHTML = [
       dateStr ? `<span class="meta-item">📅 ${dateStr}</span>` : '',
       '<span class="meta-divider">·</span>',
@@ -335,13 +308,17 @@ function extractImage(data) {
       data.author ? `<span class="meta-divider">·</span><span class="meta-item">✍ ${data.author}</span>` : ''
     ].filter(Boolean).join('');
 
-    // استخراج الصورة من كل الحقول الممكنة
-    const imgSrc = extractImage(data);
-    document.getElementById('hero-wrap').innerHTML = buildHero(title, imgSrc, slugFromURL);
+    // بناء الهيرو
+    const heroWrap = document.getElementById('hero-wrap');
+    const realImg = data.featuredImage || data.featured_image || data.image || data.thumbnail || null;
+    if (realImg) {
+      heroWrap.innerHTML = `<div class="post-hero-real"><img src="${escapeHTML(realImg)}" alt="${escapeHTML(title)}"></div>`;
+    } else {
+      heroWrap.innerHTML = buildVisual(title, slugFromURL);
+    }
 
-    marked.setOptions({ breaks: true, gfm: true });
-    document.getElementById('post-body').innerHTML = marked.parse(data.content || '');
-
+    marked.setOptions({breaks:true,gfm:true});
+    document.getElementById('post-body').innerHTML = marked.parse(data.content||'');
     document.getElementById('loading').style.display = 'none';
     document.getElementById('post-content').style.display = 'block';
 
