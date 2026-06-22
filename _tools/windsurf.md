@@ -1,11 +1,47 @@
 ---
-title: Windsurf
-url: https://codeium.com/windsurf
-category: code
-badge: free
-rating: 4.6
-icon: 🏄
-desc_ar: محرر كود بالذكاء الاصطناعي من Codeium، يتميز بمساعد Cascade المتكامل الذي يفهم سياق المشروع كاملاً ويكتب الكود بشكل تعاوني معك.
-desc_en: AI-first code editor by Codeium with integrated Cascade agent that understands your full project context and codes alongside you.
-pricing_ar: مجاني جزئياً
+title: "Windsurf"
+url: "https://codeium.com/windsurf"
+category: "code"
+badge: "free"
+rating: 4.7
+icon: "/assets/images/tools/windsurf.svg"
+desc_ar: "محرر كود ذكي من Codeium يستخدم الذكاء الاصطناعي لمساعدة المطورين في كتابة الكود بشكل أسرع."
+desc_en: "Intelligent code editor from Codeium using AI to help developers write code faster."
+pricing_ar: "مجاني"
 ---
+
+## ما هو Windsurf؟
+
+Windsurf هو محرر كود ذكي طورته شركة Codeium، يُعد منافساً قوياً لـ Cursor. يدمج الذكاء الاصطناعي في بيئة التطوير لمساعدتك في كتابة الكود بشكل أسرع وأذكى.
+
+## أبرز مميزات Windsurf
+
+**Cascade - الذكاء الاصطناعي المتدفق**
+ميزة فريدة تتيح للذكاء الاصطناعي تنفيذ مهام معقدة متعددة الخطوات تلقائياً دون تدخل منك.
+
+**فهم السياق الكامل للمشروع**
+يفهم Windsurf مشروعك بالكامل ويقترح تعديلات تتوافق مع أسلوب الكود الموجود.
+
+**إكمال الكود الذكي**
+اقتراحات إكمال كود دقيقة تفهم ما تحاول فعله وليس مجرد إكمال النص.
+
+**تصحيح الأخطاء التلقائي**
+اكتشاف الأخطاء وتصحيحها تلقائياً مع شرح سبب المشكلة.
+
+**خطة مجانية سخية**
+يقدم Windsurf خطة مجانية أكثر سخاءً من منافسيه.
+
+## لمن يناسب Windsurf؟
+
+- **المطورون المبتدئون:** للاستفادة من الخطة المجانية السخية
+- **المطورون المحترفون:** لتسريع العمل على المشاريع الكبيرة
+- **فرق التطوير:** للتعاون على المشاريع
+
+## التسعير
+
+- **مجاني:** ميزات سخية للمبتدئين والمحترفين
+- **Pro - $15/شهر:** وصول غير محدود لجميع الميزات
+
+## الخلاصة
+
+Windsurf هو بديل ممتاز لـ Cursor مع خطة مجانية أكثر سخاءً. إذا كنت تبحث عن محرر كود ذكي مجاني، فابدأ بـ Windsurf.
