@@ -193,24 +193,53 @@ function generateSitemap() {
         .sort()
     : [];
 
-  // Clean sitemap without xhtml namespace for maximum compatibility
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     '',
+    '  <!-- الصفحة الرئيسية -->',
     '  <url>',
     `    <loc>${BASE}/</loc>`,
     '    <changefreq>daily</changefreq>',
     '    <priority>1.0</priority>',
     '  </url>',
     '',
+    '  <!-- صفحات ثابتة -->',
     '  <url>',
-    `    <loc>${BASE}/blog/</loc>`,
-    '    <changefreq>daily</changefreq>',
+    `    <loc>${BASE}/about/</loc>`,
+    '    <changefreq>monthly</changefreq>',
+    '    <priority>0.8</priority>',
+    '  </url>',
+    '',
+    '  <!-- صفحة الأدوات الرئيسية -->',
+    '  <url>',
+    `    <loc>${BASE}/tool/</loc>`,
+    '    <changefreq>weekly</changefreq>',
     '    <priority>0.9</priority>',
     '  </url>',
     '',
+    '  <!-- صفحات التصنيفات -->',
   ];
+
+  // التصنيفات
+  const categories = ['chat', 'code', 'data', 'image', 'productivity', 'research', 'video', 'voice', 'writing'];
+  categories.forEach(cat => {
+    lines.push('  <url>');
+    lines.push(`    <loc>${BASE}/category/${cat}/</loc>`);
+    lines.push('    <changefreq>weekly</changefreq>');
+    lines.push('    <priority>0.75</priority>');
+    lines.push('  </url>');
+  });
+
+  lines.push('');
+  lines.push('  <!-- المدونة -->');
+  lines.push('  <url>');
+  lines.push(`    <loc>${BASE}/blog/</loc>`);
+  lines.push('    <changefreq>daily</changefreq>');
+  lines.push('    <priority>0.9</priority>');
+  lines.push('  </url>');
+  lines.push('');
+  lines.push('  <!-- مقالات المدونة -->');
 
   posts.forEach(p => {
     if (!p.slug) return;
@@ -224,6 +253,7 @@ function generateSitemap() {
   });
 
   lines.push('');
+  lines.push('  <!-- صفحات المقارنات -->');
   lines.push('  <url>');
   lines.push(`    <loc>${BASE}/compare/</loc>`);
   lines.push('    <changefreq>weekly</changefreq>');
@@ -239,6 +269,7 @@ function generateSitemap() {
   });
 
   lines.push('');
+  lines.push('  <!-- صفحات الأدوات -->');
 
   deduped.forEach(t => {
     const tid = t.id || t.slug;
@@ -255,8 +286,8 @@ function generateSitemap() {
 
   const sitemapPath = path.join(ROOT, 'sitemap.xml');
   fs.writeFileSync(sitemapPath, lines.join('\n'), 'utf8');
-  const total = 2 + posts.length + 1 + compareDirs.length + deduped.length;
-  console.log(`[build] ✅ sitemap.xml: ${total} URLs (no xhtml namespace)`);
+  const total = 2 + categories.length + 1 + posts.length + 1 + compareDirs.length + deduped.length;
+  console.log(`[build] ✅ sitemap.xml: ${total} URLs`);
 }
 
 generateSitemap();
