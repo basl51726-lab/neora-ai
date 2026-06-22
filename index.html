@@ -585,10 +585,37 @@
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
-          max_tokens: 1000,
+          max_tokens: 3000,
           messages: [{
             role: 'user',
-            content: `أنت مساعد محتوى عربي محترف. بناءً على الموضوع: "${topic}" أنتج JSON فقط بدون أي نص إضافي:\n{\n  "youtube_title": "عنوان يوتيوب جذاب أقل من 70 حرف",\n  "youtube_desc": "وصف يوتيوب SEO احترافي 2-3 جمل",\n  "script_intro": "مقدمة سكريبت قوية للفيديو 3-4 جمل",\n  "linkedin": "منشور LinkedIn احترافي 3-4 جمل",\n  "keywords": "5 كلمات مفتاحية مفصولة بفاصلة",\n  "thumbnail_prompt": "وصف بالعربية لصورة مصغرة جذابة"\n}`
+            content: `أنت مساعد محتوى عربي محترف داخل Neora Studio.
+
+الموضوع:
+"${topic}"
+
+أرجع JSON فقط بدون أي شرح خارجي، وبدون Markdown، وبدون \`\`\`.
+
+استخدم هذا الشكل بالضبط:
+
+{
+  "youtube_title": "",
+  "youtube_script": "",
+  "youtube_description": "",
+  "seo_keywords": "",
+  "linkedin_post": "",
+  "x_post": "",
+  "thumbnail_prompt": ""
+}
+
+الشروط:
+- لا تترك أي حقل فارغ.
+- اجعل عنوان يوتيوب جذاباً وواضحاً.
+- اجعل سكربت يوتيوب كاملاً ومناسباً لفيديو من 3 إلى 5 دقائق.
+- اجعل وصف يوتيوب احترافياً ومناسباً للسيو.
+- اكتب 10 إلى 15 كلمة مفتاحية SEO مفصولة بفواصل.
+- اجعل منشور LinkedIn احترافياً ومقنعاً.
+- اجعل منشور X قصيراً وجذاباً.
+- اجعل thumbnail_prompt وصفاً بصرياً تفصيلياً لصورة مصغرة احترافية.`
           }]
         })
       });
@@ -601,7 +628,19 @@
       const data = await res.json();
       const text = data.content?.[0]?.text || '';
       const clean = text.replace(/```json|```/g, '').trim();
-      const result = JSON.parse(clean);
+      const jsonMatch = clean.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error('Claude لم يرجع JSON واضح. جرّب مرة أخرى.');
+      const result = JSON.parse(jsonMatch[0]);
+
+      const studioResult = {
+        youtube_title: result.youtube_title || '',
+        youtube_script: result.youtube_script || result.script_intro || '',
+        youtube_description: result.youtube_description || result.youtube_desc || '',
+        seo_keywords: Array.isArray(result.seo_keywords) ? result.seo_keywords.join(', ') : (result.seo_keywords || result.keywords || ''),
+        linkedin_post: result.linkedin_post || result.linkedin || '',
+        x_post: result.x_post || '',
+        thumbnail_prompt: result.thumbnail_prompt || ''
+      };
 
       incrementUsage();
       const remaining = getUsageCount() < FREE_LIMIT ? `(${FREE_LIMIT - getUsageCount()} تجارب مجانية متبقية)` : '';
@@ -619,18 +658,19 @@
           <strong>${label}</strong>
           <button onclick="navigator.clipboard.writeText(document.getElementById('${id}').textContent).then(()=>{this.textContent='✅';setTimeout(()=>this.textContent='📋',1500)})"
             style="position:absolute;top:8px;left:8px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:3px 8px;cursor:pointer;font-size:12px;">📋</button>
-          <div id="${id}" style="margin-top:6px;">${escapeAttr(value)}</div>
+          <div id="${id}" style="margin-top:6px;white-space:pre-wrap;">${escapeAttr(value)}</div>
         </div>`;
       }
 
       out.innerHTML = `
         <div class="studio-label">✅ جاهز! ${remaining}</div>
-        ${makeRow('🎬 عنوان يوتيوب:', result.youtube_title)}
-        ${makeRow('📝 وصف SEO:', result.youtube_desc)}
-        ${makeRow('🎤 مقدمة السكريبت:', result.script_intro)}
-        ${makeRow('💼 منشور LinkedIn:', result.linkedin)}
-        ${makeRow('🔎 كلمات مفتاحية:', result.keywords)}
-        ${makeRow('🎨 Prompt الصورة:', result.thumbnail_prompt)}
+        ${makeRow('🎬 عنوان يوتيوب:', studioResult.youtube_title)}
+        ${makeRow('📜 سكربت يوتيوب كامل:', studioResult.youtube_script)}
+        ${makeRow('📝 وصف يوتيوب SEO:', studioResult.youtube_description)}
+        ${makeRow('💼 منشور LinkedIn:', studioResult.linkedin_post)}
+        ${makeRow('𝕏 منشور X:', studioResult.x_post)}
+        ${makeRow('🔎 كلمات مفتاحية SEO:', studioResult.seo_keywords)}
+        ${makeRow('🎨 Prompt الصورة:', studioResult.thumbnail_prompt)}
         <button onclick="
           const all = [
             document.querySelectorAll('.preview-row div')
