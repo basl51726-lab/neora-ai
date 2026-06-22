@@ -17,7 +17,7 @@
 
 # ── 4. Tool detail pages (SPA routes) ────────────────────────────
 
-/tool/*    /tool/index.html    200
+/tool/*    /tool/detail.html    200
 
 # ── 5. SPA fallback — must be last ───────────────────────────────
 /*    /index.html    200
