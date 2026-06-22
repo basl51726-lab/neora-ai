@@ -50,9 +50,9 @@ nav ul li a:hover,nav ul li a.active{color:var(--accent);}
 .search-wrap input::placeholder{color:var(--muted);}
 .search-btn{background:linear-gradient(135deg,#d4af37,#b8962e);color:#fff;border:none;border-radius:13px;padding:12px 24px;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;font-size:13px;transition:opacity 0.2s;}
 .search-btn:hover{opacity:0.9;}
-.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
-.filter-btn{background:#fff;border:1.5px solid var(--border);border-radius:50px;padding:8px 18px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.2s;}
-.filter-btn:hover{border-color:var(--accent2);color:var(--accent3);}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:700px;margin:0 auto;}
+.filter-btn{background:#fff;border:1.5px solid var(--border);border-radius:50px;padding:9px 20px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.filter-btn:hover{border-color:var(--accent2);color:var(--accent3);background:#fffdf5;}
 .filter-btn.active{background:linear-gradient(135deg,#d4af37,#b8962e);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(212,175,55,0.3);}
 
 /* GRID */
@@ -131,6 +131,7 @@ footer{background:#0f0f0f;color:rgba(255,255,255,0.7);padding:48px 40px 28px;pos
     <button class="filter-btn" onclick="setFilter('research',this)">🔬 بحث</button>
     <button class="filter-btn" onclick="setFilter('productivity',this)">⚡ إنتاجية</button>
     <button class="filter-btn" onclick="setFilter('voice',this)">🎙️ صوت</button>
+    <button class="filter-btn" onclick="setFilter('data',this)">📊 بيانات</button>
   </div>
 </div>
 
