@@ -19,6 +19,13 @@ function parseFrontmatter(content) {
   return obj;
 }
 
+// ---- استخراج المحتوى بعد frontmatter ----
+function parseBody(content) {
+  const match = content.match(/^---\n[\s\S]*?\n---\n([\s\S]*)$/);
+  if (!match) return '';
+  return match[1].trim();
+}
+
 // ---- تحويل الأرقام العربية ----
 function toLatinDigits(str) {
   return String(str || '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
@@ -78,6 +85,7 @@ function collectMdFiles(dir) {
 function mdFileToTool(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const fm = parseFrontmatter(content);
+  const body = parseBody(content);
 
   // تجاهل الملفات التي ليس فيها title أو url
   if (!fm.title && !fm.url) return null;
@@ -121,6 +129,7 @@ function mdFileToTool(filePath) {
     icon_bg: 'background:rgba(212,175,55,0.1)',
     desc_ar: fm.desc_ar  || fm.description || '',
     desc_en: fm.desc_en  || fm.description || '',
+    body:    body || '',   // ← المحتوى التفصيلي الكامل
     stars:   String(rating),
     tags_ar: [cat],
     aff_badge:        fm.commission ? `💰 ${fm.commission}` : '',
@@ -236,7 +245,6 @@ function generateSitemap() {
     '  <!-- صفحات التصنيفات -->',
   ];
 
-  // التصنيفات
   const categories = ['chat', 'code', 'data', 'image', 'productivity', 'research', 'video', 'voice', 'writing'];
   categories.forEach(cat => {
     lines.push('  <url>');
