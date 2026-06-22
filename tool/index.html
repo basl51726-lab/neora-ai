@@ -115,6 +115,30 @@ footer{background:#0f0f0f;color:rgba(255,255,255,0.6);padding:40px;position:rela
   .tool-name{font-size:1.4rem;}
   footer{padding:28px 16px;}
 }
+
+/* قائمة الأدوات */
+#tools-list-section{display:none;max-width:1280px;margin:0 auto;padding:40px 24px 100px;position:relative;z-index:1;}
+.tl-hero{text-align:center;padding:60px 20px 40px;}
+.tl-hero h1{font-size:clamp(28px,4vw,50px);font-weight:900;margin-bottom:12px;}
+.tl-hero h1 span{background:linear-gradient(135deg,var(--accent3),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tl-hero p{color:#475569;font-size:15px;max-width:520px;margin:0 auto 32px;}
+.tl-search{display:flex;background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:5px 5px 5px 16px;max-width:560px;margin:0 auto 16px;box-shadow:var(--glow);}
+.tl-search input{flex:1;border:none;outline:none;font-family:'Cairo',sans-serif;font-size:14px;background:transparent;padding:10px 0;}
+.tl-search button{background:linear-gradient(135deg,#d4af37,#b8962e);color:#fff;border:none;border-radius:12px;padding:10px 20px;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;}
+.tl-count{font-size:13px;color:#475569;font-weight:600;margin-bottom:24px;}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;}
+.tl-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:22px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;box-shadow:0 2px 12px rgba(0,0,0,0.04);}
+.tl-card:hover{transform:translateY(-5px);border-color:rgba(212,175,55,0.5);box-shadow:0 14px 36px rgba(212,175,55,0.14);}
+.tl-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;padding:3px 8px;border-radius:50px;}
+.tl-badge-free{background:rgba(16,185,129,0.1);color:#059669;border:1px solid rgba(16,185,129,0.2);}
+.tl-badge-pro{background:rgba(212,175,55,0.15);color:var(--accent3);border:1px solid rgba(212,175,55,0.3);}
+.tl-badge-new{background:rgba(99,102,241,0.1);color:#6366f1;border:1px solid rgba(99,102,241,0.2);}
+.tl-icon{width:68px;height:68px;border-radius:18px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.12);display:flex;align-items:center;justify-content:center;font-size:26px;}
+.tl-icon img{width:46px;height:46px;object-fit:contain;}
+.tl-name{font-size:14px;font-weight:800;color:var(--text);}
+.tl-cat{font-size:11px;color:#475569;font-weight:600;}
+.tl-price{font-size:11px;color:var(--accent);font-weight:700;}
+@media(max-width:640px){.tl-grid{grid-template-columns:repeat(2,1fr);}.tl-hero{padding:40px 16px 24px;}}
 </style>
 </head>
 <body>
@@ -441,6 +465,41 @@ async function init(){
     renderTool(tool,slug,tools);
   }catch(e){console.error('[NEORA] tool page error:',e);showError();}
 }
+
+let _allToolsList = [];
+
+function tlApplySearch() {
+  const q = document.getElementById('tlSearch').value.trim().toLowerCase();
+  const filtered = q ? _allToolsList.filter(t =>
+    (t.name||t.title||'').toLowerCase().includes(q) ||
+    (t.cat||'').toLowerCase().includes(q)
+  ) : _allToolsList;
+  renderToolsList(filtered);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tlInput = document.getElementById('tlSearch');
+  if (tlInput) {
+    tlInput.addEventListener('input', tlApplySearch);
+    tlInput.addEventListener('keydown', e => { if(e.key==='Enter') tlApplySearch(); });
+  }
+});
+
+const _origShowToolsList = showToolsList;
+showToolsList = async function() {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('error-box').style.display = 'none';
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('tools-list-section').style.display = 'block';
+  try {
+    const res = await fetch('/tools-index.json?v=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    _allToolsList = await res.json();
+    renderToolsList(_allToolsList);
+  } catch(e) {
+    document.getElementById('tools-grid').innerHTML = '<p style="text-align:center;color:#64748b;">تعذّر تحميل الأدوات.</p>';
+  }
+};
 
 init();
 </script>
