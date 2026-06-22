@@ -584,8 +584,8 @@
           'anthropic-dangerous-direct-browser-access': 'true'
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 3000,
+         model: 'claude-3-7-sonnet-20250219',
+         max_tokens: 3000,
           messages: [{
             role: 'user',
             content: `أنت مساعد محتوى عربي محترف داخل Neora Studio.
@@ -626,11 +626,14 @@
       }
 
       const data = await res.json();
-      const text = data.content?.[0]?.text || '';
-      const clean = text.replace(/```json|```/g, '').trim();
-      const jsonMatch = clean.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error('Claude لم يرجع JSON واضح. جرّب مرة أخرى.');
-      const result = JSON.parse(jsonMatch[0]);
+     const clean = text.replace(/```json|```/g, '').trim();
+const jsonMatch = clean.match(/\{[\s\S]*\}/);
+
+if (!jsonMatch) {
+  throw new Error('Claude لم يرجع JSON واضح');
+}
+
+const result = JSON.parse(jsonMatch[0]);
 
       const studioResult = {
         youtube_title: result.youtube_title || '',
