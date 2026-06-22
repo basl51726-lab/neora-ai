@@ -624,11 +624,15 @@
         const err = await res.json();
         throw new Error(err.error?.message || 'API error ' + res.status);
       }
+const data = await res.json();
 
-      const data = await res.json();
-     const clean = text.replace(/```json|```/g, '').trim();
+const text = data.content?.[0]?.text || '';
+
+console.log('CLAUDE RESPONSE:', text);
+alert(text);
+
+const clean = text.replace(/```json|```/g, '').trim();
 const jsonMatch = clean.match(/\{[\s\S]*\}/);
-
 if (!jsonMatch) {
   throw new Error('Claude لم يرجع JSON واضح');
 }
