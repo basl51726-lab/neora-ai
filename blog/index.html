@@ -76,17 +76,17 @@ nav ul li a:hover,nav ul li a.active{color:var(--accent);}
 .card-visual .vis-bg{position:absolute;inset:0;background:var(--grad);}
 
 /* شبكة نقطية */
-.card-visual .vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px;}
+.card-visual .vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:24px 24px;}
 
 /* دوائر ضبابية */
-.card-visual .vis-glow{position:absolute;width:160px;height:160px;border-radius:50%;filter:blur(50px);opacity:0.35;}
-.card-visual .vis-glow-1{top:-30px;right:-20px;background:rgba(212,175,55,0.6);}
-.card-visual .vis-glow-2{bottom:-40px;left:10px;background:rgba(255,255,255,0.2);}
+.card-visual .vis-glow{position:absolute;width:180px;height:180px;border-radius:50%;filter:blur(45px);opacity:0.5;}
+.card-visual .vis-glow-1{top:-30px;right:-20px;background:rgba(212,175,55,0.7);}
+.card-visual .vis-glow-2{bottom:-40px;left:10px;background:rgba(255,255,255,0.3);}
 
 /* شريط لوقوهات */
 .card-visual .vis-logos{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;z-index:2;}
-.card-visual .vis-logo-wrap{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.card-visual .vis-logo-wrap img{width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3));}
+.card-visual .vis-logo-wrap{width:68px;height:68px;border-radius:18px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.2);}
+.card-visual .vis-logo-wrap img{width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,0.2)) brightness(1.1);}
 .card-visual .vis-logo-wrap .emoji{font-size:26px;}
 .card-visual .vis-vs{color:rgba(255,255,255,0.5);font-size:11px;font-weight:900;letter-spacing:1px;}
 
@@ -234,13 +234,13 @@ const LOGOS = {
 
 // تدرجات حسب التصنيف
 const GRADIENTS = {
-  'مقارنة':    'linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)',
-  'مراجعة':    'linear-gradient(135deg,#1a1207 0%,#2d1f00 50%,#1a0f00 100%)',
-  'البرمجة':   'linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 40%,#0d1117 100%)',
-  'التسويق':   'linear-gradient(135deg,#1a0a1a 0%,#2d0d2d 50%,#1a0a2e 100%)',
-  'للطلاب':    'linear-gradient(135deg,#0a1a0a 0%,#0d2d0d 50%,#0a1a1a 100%)',
-  'يوتيوب':    'linear-gradient(135deg,#1a0a0a 0%,#2d0d0d 50%,#1a0000 100%)',
-  'default':   'linear-gradient(135deg,#111827 0%,#1f2937 50%,#111827 100%)',
+  'مقارنة':    'linear-gradient(135deg,#1e3a5f 0%,#2d5a8e 50%,#1e3a5f 100%)',
+  'مراجعة':    'linear-gradient(135deg,#3d2800 0%,#6b4a00 50%,#3d2800 100%)',
+  'البرمجة':   'linear-gradient(135deg,#1a2332 0%,#243447 40%,#1a2332 100%)',
+  'التسويق':   'linear-gradient(135deg,#3d1a4f 0%,#6b2d8e 50%,#3d1a4f 100%)',
+  'للطلاب':    'linear-gradient(135deg,#1a3d1a 0%,#2d6b2d 50%,#1a3d1a 100%)',
+  'يوتيوب':    'linear-gradient(135deg,#4f1a1a 0%,#8e2d2d 50%,#4f1a1a 100%)',
+  'default':   'linear-gradient(135deg,#1e2d42 0%,#2d4060 50%,#1e2d42 100%)',
 };
 
 function getCategory(title, slug) {
