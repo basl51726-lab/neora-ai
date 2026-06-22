@@ -4,14 +4,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4225177513036246" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>مدونة NEORA – مقالات ومراجعات أدوات الذكاء الاصطناعي</title>
 <meta name="description" content="اقرأ أحدث مقالات ومراجعات أدوات الذكاء الاصطناعي، مقارنات شاملة، وأدلة عملية باللغة العربية على مدونة NEORA.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="NEORA">
 <link rel="canonical" href="https://neora-ai.com/blog/">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://neora-ai.com/blog/">
 <meta property="og:title" content="مدونة NEORA – مقالات ومراجعات أدوات الذكاء الاصطناعي">
@@ -22,502 +19,147 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="مدونة NEORA – مقالات ومراجعات أدوات الذكاء الاصطناعي">
 <meta name="twitter:description" content="أحدث المقالات والمراجعات والمقارنات لأدوات الذكاء الاصطناعي باللغة العربية.">
-<meta name="twitter:image" content="https://neora-ai.com/og-image.png">
-
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Blog","name":"مدونة NEORA","url":"https://neora-ai.com/blog/","description":"مقالات ومراجعات أدوات الذكاء الاصطناعي باللغة العربية","publisher":{"@type":"Organization","name":"NEORA","url":"https://neora-ai.com"}}
 </script>
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link rel="icon" href="/assets/images/logos/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --bg: #fafaf8;
-  --card: #ffffff;
-  --border: rgba(212,175,55,0.2);
-  --accent: #b8962e;
-  --accent2: #d4af37;
-  --accent3: #9a7d24;
-  --text: #0f0f0f;
-  --muted: #475569;
-  --glow: 0 0 30px rgba(212,175,55,0.15);
-}
+:root{--bg:#fbfaf6;--card:#ffffff;--border:rgba(212,175,55,0.18);--accent:#b8962e;--accent2:#d4af37;--accent3:#9a7d24;--text:#0f0f0f;--muted:#475569;--shadow:0 8px 32px rgba(15,23,42,0.08);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0;}
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.22);flex-wrap:wrap;gap:10px;box-shadow:0 1px 20px rgba(212,175,55,0.07);}
+.logo{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px;text-decoration:none;}
+nav ul{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap;}
+nav ul li a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;transition:color 0.2s;}
+nav ul li a:hover,nav ul li a.active{color:var(--accent);}
 
-html { scroll-behavior: smooth; }
+/* HERO */
+.page-hero{position:relative;z-index:1;text-align:center;padding:80px 20px 60px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);padding:7px 20px;border-radius:50px;font-size:13px;color:var(--accent3);font-weight:700;margin-bottom:24px;}
+.hero-badge::before{content:'✦';font-size:10px;}
+.page-hero h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.2;margin-bottom:16px;}
+.page-hero h1 .highlight{background:linear-gradient(135deg,var(--accent3),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero p{font-size:16px;color:var(--muted);max-width:540px;margin:0 auto;line-height:1.75;}
 
-body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+/* SEARCH + FILTERS */
+.controls{position:relative;z-index:1;max-width:760px;margin:0 auto 56px;padding:0 20px;}
+.search-wrap{display:flex;align-items:center;background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:5px 5px 5px 20px;box-shadow:var(--shadow);margin-bottom:18px;transition:border-color 0.2s,box-shadow 0.2s;}
+.search-wrap:focus-within{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(212,175,55,0.12),var(--shadow);}
+.search-wrap input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:'Cairo',sans-serif;font-size:14px;padding:11px 0;min-width:0;}
+.search-wrap input::placeholder{color:var(--muted);}
+.search-btn{background:linear-gradient(135deg,#d4af37,#b8962e);color:#fff;border:none;border-radius:13px;padding:11px 22px;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;font-size:13px;white-space:nowrap;transition:opacity 0.2s;}
+.search-btn:hover{opacity:0.9;}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.filter-btn{background:#fff;border:1.5px solid var(--border);border-radius:50px;padding:7px 18px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;transition:all 0.2s;}
+.filter-btn:hover{border-color:var(--accent2);color:var(--accent3);}
+.filter-btn.active{background:linear-gradient(135deg,#d4af37,#b8962e);border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(212,175,55,0.3);}
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
-}
+/* GRID */
+.container{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 24px 100px;}
+.posts-count{font-size:13px;color:var(--muted);margin-bottom:28px;font-weight:600;}
+.posts-count span{color:var(--accent);font-weight:800;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:26px;}
 
-/* ── Nav ── */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 40px;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212,175,55,0.25);
-  flex-wrap: wrap;
-  gap: 10px;
-  box-shadow: 0 1px 20px rgba(212,175,55,0.08);
-}
+/* CARD */
+.card{background:#fff;border:1.5px solid var(--border);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;box-shadow:0 2px 16px rgba(0,0,0,0.045);text-decoration:none;color:inherit;}
+.card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.5);box-shadow:0 20px 48px rgba(212,175,55,0.14);}
 
-.logo {
-  font-family: 'Space Mono', monospace;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 2px;
-  text-shadow: 0 0 20px rgba(212,175,55,0.3);
-  text-decoration: none;
-}
+/* CARD VISUAL - الجزء الاحترافي */
+.card-visual{width:100%;aspect-ratio:16/7;position:relative;overflow:hidden;flex-shrink:0;}
 
-nav ul {
-  display: flex;
-  gap: 18px;
-  list-style: none;
-  align-items: center;
-  flex-wrap: wrap;
-}
+/* خلفية متدرجة ديناميكية */
+.card-visual .vis-bg{position:absolute;inset:0;background:var(--grad);}
 
-nav ul li a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  transition: color 0.2s;
-}
+/* شبكة نقطية */
+.card-visual .vis-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px;}
 
-nav ul li a:hover,
-nav ul li a.active { color: var(--accent); }
+/* دوائر ضبابية */
+.card-visual .vis-glow{position:absolute;width:160px;height:160px;border-radius:50%;filter:blur(50px);opacity:0.35;}
+.card-visual .vis-glow-1{top:-30px;right:-20px;background:rgba(212,175,55,0.6);}
+.card-visual .vis-glow-2{bottom:-40px;left:10px;background:rgba(255,255,255,0.2);}
 
-.nav-cta {
-  background: linear-gradient(135deg, #d4af37, #b8962e);
-  color: #fff !important;
-  padding: 7px 18px;
-  border-radius: 8px;
-  font-weight: 700 !important;
-  box-shadow: 0 2px 12px rgba(212,175,55,0.3);
-}
+/* شريط لوقوهات */
+.card-visual .vis-logos{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;z-index:2;}
+.card-visual .vis-logo-wrap{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-visual .vis-logo-wrap img{width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.3));}
+.card-visual .vis-logo-wrap .emoji{font-size:26px;}
+.card-visual .vis-vs{color:rgba(255,255,255,0.5);font-size:11px;font-weight:900;letter-spacing:1px;}
 
-/* ── Page header ── */
-.page-header {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 70px 20px 50px;
-}
+/* تاق نوع المقال على الصورة */
+.card-visual .vis-tag{position:absolute;top:14px;right:14px;z-index:3;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(8px);border-radius:50px;padding:4px 12px;font-size:11px;font-weight:700;color:#fff;}
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(212,175,55,0.1);
-  border: 1px solid rgba(212,175,55,0.3);
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 13px;
-  color: var(--accent3);
-  margin-bottom: 24px;
-}
+/* CARD BODY */
+.card-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1;}
+.card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.card-date{font-size:12px;color:var(--muted);font-weight:600;}
+.card-title{font-size:17px;font-weight:800;line-height:1.5;color:var(--text);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.75;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:18px;}
+.card-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--accent);transition:gap 0.2s;}
+.card:hover .card-cta{gap:10px;}
+.card-cta::after{content:'←';}
 
-.badge::before { content: '✦'; font-size: 10px; }
+/* STATES */
+.loading-state,.empty-state,.error-state{text-align:center;padding:80px 20px;grid-column:1/-1;}
+.loading-spinner{width:44px;height:44px;border:3px solid rgba(212,175,55,0.2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 20px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-state p,.empty-state p,.error-state p{color:var(--muted);font-size:15px;}
+.empty-state .icon,.error-state .icon{font-size:48px;margin-bottom:16px;display:block;}
 
-.page-header h1 {
-  font-size: clamp(28px, 5vw, 52px);
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
+/* FOOTER */
+footer{background:#0f0f0f;color:rgba(255,255,255,0.7);padding:48px 40px 28px;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto 36px;}
+.footer-brand .logo{font-size:18px;display:block;margin-bottom:12px;}
+.footer-brand p{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.5);}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul li a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;text-align:center;font-size:12px;color:rgba(255,255,255,0.3);max-width:1200px;margin:0 auto;}
 
-.page-header h1 .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.page-header p {
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* ── Search bar ── */
-.search-section {
-  position: relative;
-  z-index: 1;
-  max-width: 560px;
-  margin: 0 auto 50px;
-  padding: 0 20px;
-}
-
-.search-wrap {
-  display: flex;
-  align-items: center;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 4px 4px 4px 20px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-}
-
-.search-wrap:focus-within {
-  border-color: var(--accent);
-  box-shadow: var(--glow);
-}
-
-.search-wrap input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--text);
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  padding: 11px 0;
-  min-width: 0;
-}
-
-.search-wrap input::placeholder { color: var(--muted); }
-
-.search-btn {
-  background: linear-gradient(135deg, #d4af37, #b8962e);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 11px 20px;
-  font-family: 'Cairo', sans-serif;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-/* ── Grid ── */
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px 80px;
-}
-
-.posts-count {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 28px;
-  font-weight: 600;
-}
-
-.posts-count span { color: var(--accent); }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-/* ── Card ── */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  text-decoration: none;
-  color: inherit;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(212,175,55,0.5);
-  box-shadow: 0 12px 40px rgba(212,175,55,0.14);
-}
-
-/* Card visual header */
-.card-visual {
-  width: 100%;
-  aspect-ratio: 16/7;
-  background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.18) 0%, #1a1a1a 60%, #111 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.card-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(212,175,55,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,175,55,0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-.card-visual img {
-  max-width: 44%;
-  max-height: 75%;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 4px 20px rgba(212,175,55,0.35));
-}
-
-.card-visual .cat-icon {
-  position: relative;
-  z-index: 1;
-  font-size: 48px;
-  filter: drop-shadow(0 4px 16px rgba(212,175,55,0.4));
-}
-
-/* Card body */
-.card-body {
-  padding: 22px 22px 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.card-tag {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent3);
-  background: rgba(212,175,55,0.1);
-  border: 1px solid rgba(212,175,55,0.2);
-  padding: 3px 10px;
-  border-radius: 50px;
-  white-space: nowrap;
-}
-
-.card-date {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.card-title {
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.45;
-  color: var(--text);
-  margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.7;
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin-bottom: 18px;
-}
-
-.card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent);
-  transition: gap 0.2s;
-}
-
-.card:hover .card-cta { gap: 10px; }
-
-.card-cta::after { content: '←'; }
-
-/* ── States ── */
-.loading-state, .empty-state, .error-state {
-  text-align: center;
-  padding: 80px 20px;
-  grid-column: 1 / -1;
-}
-
-.loading-spinner {
-  width: 44px;
-  height: 44px;
-  border: 3px solid rgba(212,175,55,0.2);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 20px;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.loading-state p, .empty-state p, .error-state p {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.empty-state .icon, .error-state .icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-/* ── Footer ── */
-footer {
-  background: #0f0f0f;
-  color: rgba(255,255,255,0.7);
-  padding: 48px 40px 28px;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr);
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto 36px;
-}
-
-.footer-brand .logo {
-  font-family: 'Space Mono', monospace;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--accent);
-  text-shadow: 0 0 20px rgba(212,175,55,0.3);
-  display: block;
-  margin-bottom: 12px;
-  text-decoration: none;
-}
-
-.footer-brand p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-}
-
-.footer-col h4 {
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.footer-col ul { list-style: none; }
-
-.footer-col ul li { margin-bottom: 10px; }
-
-.footer-col ul li a {
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s;
-}
-
-.footer-col ul li a:hover { color: var(--accent); }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 24px;
-  text-align: center;
-  font-size: 12px;
-  color: rgba(255,255,255,0.3);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 640px) {
-  nav { padding: 14px 18px; }
-  .page-header { padding: 50px 18px 36px; }
-  .container { padding: 0 16px 60px; }
-  .grid { grid-template-columns: 1fr; gap: 18px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-  footer { padding: 40px 18px 24px; }
-  .search-section { padding: 0 16px; }
-}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){nav{padding:14px 18px;}.page-hero{padding:50px 18px 36px;}.container{padding:0 16px 60px;}.grid{grid-template-columns:1fr;gap:18px;}.footer-grid{grid-template-columns:1fr;}footer{padding:40px 18px 24px;}.controls{padding:0 16px;}}
 </style>
 </head>
-
 <body>
 
-<!-- ══ Nav ══ -->
 <nav>
   <a class="logo" href="/">NEORA</a>
   <ul>
-    <li><a href="/#tools-section">الأدوات</a></li>
+    <li><a href="/">الأدوات</a></li>
     <li><a href="/compare/">المقارنات</a></li>
     <li><a href="/blog/" class="active">المدونة</a></li>
-    <li><a href="/#about">من نحن</a></li>
-    <li><a href="/#contact">تواصل معنا</a></li>
-    <li><a href="/" class="nav-cta">ابدأ مجاناً</a></li>
+    <li><a href="/about/">من نحن</a></li>
+    <li><a href="/contact/">تواصل معنا</a></li>
   </ul>
 </nav>
 
-<!-- ══ Page Header ══ -->
-<header class="page-header">
-  <div class="badge">مدونة NEORA</div>
+<header class="page-hero">
+  <div class="hero-badge">مدونة NEORA</div>
   <h1>مقالات ومراجعات<br><span class="highlight">أدوات الذكاء الاصطناعي</span></h1>
   <p>أحدث المقارنات والمراجعات والأدلة العملية لأبرز أدوات الذكاء الاصطناعي — باللغة العربية</p>
 </header>
 
-<!-- ══ Search ══ -->
-<div class="search-section">
+<div class="controls">
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="ابحث في المقالات…" autocomplete="off">
-    <button class="search-btn" onclick="applySearch()">بحث</button>
+    <button class="search-btn" onclick="applyFilters()">بحث 🔍</button>
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter('all',this)">الكل</button>
+    <button class="filter-btn" onclick="setFilter('مقارنة',this)">⚖️ مقارنات</button>
+    <button class="filter-btn" onclick="setFilter('مراجعة',this)">⭐ مراجعات</button>
+    <button class="filter-btn" onclick="setFilter('البرمجة',this)">💻 البرمجة</button>
+    <button class="filter-btn" onclick="setFilter('التسويق',this)">📈 التسويق</button>
+    <button class="filter-btn" onclick="setFilter('للطلاب',this)">📚 للطلاب</button>
   </div>
 </div>
 
-<!-- ══ Grid ══ -->
 <main class="container">
   <div class="posts-count" id="postsCount"></div>
   <div class="grid" id="grid">
@@ -528,12 +170,11 @@ footer {
   </div>
 </main>
 
-<!-- ══ Footer ══ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="logo" href="/">NEORA</a>
-      <p>دليل عملي ومتجدد لأدوات الذكاء الاصطناعي في جميع المجالات، مجاناً.</p>
+      <p>دليل عملي ومتجدد لأدوات الذكاء الاصطناعي في جميع المجالات.</p>
     </div>
     <div class="footer-col">
       <h4>روابط سريعة</h4>
@@ -546,17 +187,17 @@ footer {
     <div class="footer-col">
       <h4>الدعم</h4>
       <ul>
-        <li><a href="/#about">من نحن</a></li>
-        <li><a href="/#contact">تواصل معنا</a></li>
-        <li><a href="/#privacy">سياسة الخصوصية</a></li>
-        <li><a href="/#terms">شروط الاستخدام</a></li>
+        <li><a href="/about/">من نحن</a></li>
+        <li><a href="/contact/">تواصل معنا</a></li>
+        <li><a href="/privacy-policy/">سياسة الخصوصية</a></li>
+        <li><a href="/terms/">شروط الاستخدام</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>تابعنا</h4>
       <ul>
-        <li><a href="https://twitter.com/neora_ai" target="_blank" rel="noopener">Twitter / X</a></li>
-        <li><a href="mailto:support@neora-ai.com">support@neora-ai.com</a></li>
+        <li><a href="https://linkedin.com/in/yzneora" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:hello@neora-ai.com">hello@neora-ai.com</a></li>
       </ul>
     </div>
   </div>
@@ -564,146 +205,205 @@ footer {
 </footer>
 
 <script>
-// ── Data ──────────────────────────────────────────────────────────────────────
 let allPosts = [];
-let filtered = [];
+let currentFilter = 'all';
 
-// ── Load ─────────────────────────────────────────────────────────────────────
-async function loadPosts() {
-  try {
-    const res = await fetch('/posts-index.json?v=' + Date.now());
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    allPosts = await res.json();
-    filtered = allPosts;
-    render(filtered);
-  } catch (e) {
-    document.getElementById('grid').innerHTML =
-      '<div class="error-state"><span class="icon">⚠️</span><p>تعذّر تحميل المقالات. يرجى إعادة تحميل الصفحة.</p></div>';
-  }
-}
+// خرائط اللوقوهات
+const LOGOS = {
+  chatgpt:    '/assets/images/tools/chatgpt.svg',
+  claude:     '/assets/images/tools/claude.svg',
+  gemini:     '/assets/images/tools/gemini.svg',
+  perplexity: '/assets/images/tools/perplexity.svg',
+  cursor:     '/assets/images/tools/cursor.svg',
+  windsurf:   '/assets/images/tools/windsurf.svg',
+  lovable:    '/assets/images/tools/lovable.svg',
+  bolt:       '/assets/images/tools/bolt-new.svg',
+  notebooklm: '/assets/images/tools/notebooklm-color.svg',
+  devin:      '/assets/images/tools/claude-code.svg',
+  replit:     '/assets/images/tools/replit-color.svg',
+  github:     '/assets/images/tools/github-copilot.svg',
+  midjourney: '/assets/images/tools/midjourney.svg',
+  runway:     '/assets/images/tools/runway.svg',
+  sora:       '/assets/images/tools/sora.svg',
+  elevenlabs: '/assets/images/tools/elevenlabs.svg',
+  canva:      '/assets/images/tools/canva.svg',
+  notion:     '/assets/images/tools/notion.svg',
+  grammarly:  '/assets/images/tools/grammarly.svg',
+  grok:       '/assets/images/tools/grok-color.svg',
+};
 
-// ── Format date ───────────────────────────────────────────────────────────────
-function formatDate(iso) {
-  if (!iso) return '';
-  try {
-    return new Date(iso).toLocaleDateString('ar-SA', { year:'numeric', month:'long', day:'numeric' });
-  } catch { return iso; }
-}
+// تدرجات حسب التصنيف
+const GRADIENTS = {
+  'مقارنة':    'linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)',
+  'مراجعة':    'linear-gradient(135deg,#1a1207 0%,#2d1f00 50%,#1a0f00 100%)',
+  'البرمجة':   'linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 40%,#0d1117 100%)',
+  'التسويق':   'linear-gradient(135deg,#1a0a1a 0%,#2d0d2d 50%,#1a0a2e 100%)',
+  'للطلاب':    'linear-gradient(135deg,#0a1a0a 0%,#0d2d0d 50%,#0a1a1a 100%)',
+  'يوتيوب':    'linear-gradient(135deg,#1a0a0a 0%,#2d0d0d 50%,#1a0000 100%)',
+  'default':   'linear-gradient(135deg,#111827 0%,#1f2937 50%,#111827 100%)',
+};
 
-// ── Category tag from title/slug ─────────────────────────────────────────────
 function getCategory(title, slug) {
   const t = (title + ' ' + slug).toLowerCase();
-  if (t.includes('مقارن') || t.includes('vs') || t.includes('أيهما')) return { icon:'⚖️', label:'مقارنة' };
-  if (t.includes('مراجع') || t.includes('review'))                      return { icon:'⭐', label:'مراجعة' };
-  if (t.includes('برمج') || t.includes('كود') || t.includes('devin'))   return { icon:'💻', label:'البرمجة' };
-  if (t.includes('صور') || t.includes('image'))                         return { icon:'🎨', label:'توليد الصور' };
-  if (t.includes('فيديو') || t.includes('video'))                       return { icon:'🎬', label:'توليد الفيديو' };
-  if (t.includes('يوتيوب') || t.includes('youtube'))                    return { icon:'▶️', label:'يوتيوب' };
-  if (t.includes('بحث') || t.includes('علمي'))                         return { icon:'🔬', label:'البحث العلمي' };
-  if (t.includes('طلاب') || t.includes('دراس'))                        return { icon:'📚', label:'للطلاب' };
-  if (t.includes('تسويق'))                                              return { icon:'📈', label:'التسويق' };
-  if (t.includes('موقع') || t.includes('تطبيق'))                       return { icon:'🌐', label:'إنشاء المواقع' };
-  return { icon:'✦', label:'الذكاء الاصطناعي' };
+  if (t.includes('مقارن') || t.includes('vs') || t.includes('أيهما')) return 'مقارنة';
+  if (t.includes('مراجع') || t.includes('review'))                      return 'مراجعة';
+  if (t.includes('برمج') || t.includes('كود') || t.includes('devin'))   return 'البرمجة';
+  if (t.includes('يوتيوب') || t.includes('youtube'))                    return 'يوتيوب';
+  if (t.includes('تسويق'))                                              return 'التسويق';
+  if (t.includes('طلاب') || t.includes('دراس'))                        return 'للطلاب';
+  if (t.includes('بحث') || t.includes('علمي'))                         return 'البحث العلمي';
+  if (t.includes('موقع') || t.includes('تطبيق'))                       return 'إنشاء المواقع';
+  return 'الذكاء الاصطناعي';
 }
 
-// ── Logo image from title ─────────────────────────────────────────────────────
-function getLogoImg(title) {
+const CAT_ICONS = {
+  'مقارنة':'⚖️','مراجعة':'⭐','البرمجة':'💻','يوتيوب':'▶️',
+  'التسويق':'📈','للطلاب':'📚','البحث العلمي':'🔬',
+  'إنشاء المواقع':'🌐','الذكاء الاصطناعي':'✦'
+};
+
+function getLogos(title) {
   const t = title.toLowerCase();
-  if (t.includes('lovable') && t.includes('bolt'))         return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('windsurf') && t.includes('cursor'))      return '/blog/Cursor_logo.svg';
-  if (t.includes('chatgpt') && t.includes('claude') && t.includes('gemini')) return '/blog/Claude_AI_logo.svg';
-  if (t.includes('lovable'))                               return '/blog/lovable-wordmark-light.svg';
-  if (t.includes('bolt'))                                  return '/blog/bolt-logo.png';
-  if (t.includes('cursor'))                                return '/blog/Cursor_logo.svg';
-  if (t.includes('windsurf'))                              return '/blog/Cursor_logo.svg';
-  if (t.includes('notebooklm'))                            return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('chatgpt'))                               return '/blog/ChatGPT-Logo.svg';
-  if (t.includes('claude'))                                return '/blog/Claude_AI_logo.svg';
-  if (t.includes('gemini'))                                return '/blog/Gemini_Advanced_logo.svg';
-  if (t.includes('perplexity'))                            return '/blog/Perplexity_AI_logo.svg';
-  if (t.includes('devin'))                                 return null; // has real photo
-  return null;
+  const found = [];
+  if (t.includes('chatgpt')) found.push(LOGOS.chatgpt);
+  if (t.includes('claude'))  found.push(LOGOS.claude);
+  if (t.includes('gemini'))  found.push(LOGOS.gemini);
+  if (t.includes('grok'))    found.push(LOGOS.grok);
+  if (t.includes('perplexity')) found.push(LOGOS.perplexity);
+  if (t.includes('cursor'))  found.push(LOGOS.cursor);
+  if (t.includes('windsurf')) found.push(LOGOS.windsurf);
+  if (t.includes('lovable')) found.push(LOGOS.lovable);
+  if (t.includes('bolt'))    found.push(LOGOS.bolt);
+  if (t.includes('notebooklm')) found.push(LOGOS.notebooklm);
+  if (t.includes('devin'))   found.push(LOGOS.devin);
+  if (t.includes('replit'))  found.push(LOGOS.replit);
+  if (t.includes('github'))  found.push(LOGOS.github);
+  if (t.includes('midjourney')) found.push(LOGOS.midjourney);
+  if (t.includes('runway'))  found.push(LOGOS.runway);
+  if (t.includes('sora'))    found.push(LOGOS.sora);
+  if (t.includes('elevenlabs')) found.push(LOGOS.elevenlabs);
+  if (t.includes('canva'))   found.push(LOGOS.canva);
+  if (t.includes('notion'))  found.push(LOGOS.notion);
+  if (t.includes('grammarly')) found.push(LOGOS.grammarly);
+  return found.slice(0, 3);
 }
 
-// ── Build card HTML ───────────────────────────────────────────────────────────
-function buildCard(post) {
-  const { slug, title, date, description } = post;
-  const href   = '/blog/' + encodeURIComponent(slug);
-  const cat    = getCategory(title, slug);
-  const logo   = getLogoImg(title);
-  const dateStr = formatDate(date);
+function buildVisual(title, cat) {
+  const logos = getLogos(title);
+  const grad = GRADIENTS[cat] || GRADIENTS['default'];
+  const icon = CAT_ICONS[cat] || '✦';
+  const isVs = cat === 'مقارنة' && logos.length >= 2;
 
-  // Visual header: real photo for devin, logo SVG/PNG, or category icon
-  let visual = '';
-  if (slug.includes('devin')) {
-    visual = `<img src="/blog/devin-ai-review.jpg" alt="${escapeHtml(title)}"
-                style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">`;
-  } else if (logo) {
-    visual = `<img src="${logo}" alt="${escapeHtml(title)}"
-                onerror="this.style.display='none';this.parentElement.querySelector('.cat-icon').style.display='block'">
-              <span class="cat-icon" style="display:none">${cat.icon}</span>`;
+  let logosHtml = '';
+  if (logos.length > 0) {
+    if (isVs && logos.length >= 2) {
+      logosHtml = `
+        <div class="vis-logos">
+          <div class="vis-logo-wrap"><img src="${logos[0]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>
+          <span class="vis-vs">VS</span>
+          <div class="vis-logo-wrap"><img src="${logos[1]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>
+          ${logos[2] ? `<span class="vis-vs">+</span><div class="vis-logo-wrap"><img src="${logos[2]}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>` : ''}
+        </div>`;
+    } else {
+      logosHtml = `
+        <div class="vis-logos">
+          ${logos.map(l => `<div class="vis-logo-wrap"><img src="${l}" alt="" onerror="this.parentNode.innerHTML='<span class=emoji>${icon}</span>'"></div>`).join('')}
+        </div>`;
+    }
   } else {
-    visual = `<span class="cat-icon">${cat.icon}</span>`;
+    logosHtml = `<div class="vis-logos"><div class="vis-logo-wrap"><span class="emoji">${icon}</span></div></div>`;
   }
 
   return `
-<a class="card" href="${href}" aria-label="${escapeHtml(title)}">
+    <div class="vis-bg" style="--grad:${grad}"></div>
+    <div class="vis-grid"></div>
+    <div class="vis-glow vis-glow-1"></div>
+    <div class="vis-glow vis-glow-2"></div>
+    ${logosHtml}
+    <span class="vis-tag">${icon} ${cat}</span>`;
+}
+
+function formatDate(iso) {
+  if (!iso) return '';
+  try { return new Date(iso).toLocaleDateString('ar-SA',{year:'numeric',month:'long',day:'numeric'}); }
+  catch { return iso; }
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildCard(post) {
+  const { slug, title, date, description } = post;
+  const href    = '/blog/' + encodeURIComponent(slug);
+  const cat     = getCategory(title, slug);
+  const dateStr = formatDate(date);
+  const visual  = buildVisual(title, cat);
+
+  return `
+<a class="card" href="${href}" aria-label="${esc(title)}">
   <div class="card-visual">${visual}</div>
   <div class="card-body">
     <div class="card-meta">
-      <span class="card-tag">${cat.label}</span>
-      ${dateStr ? `<span class="card-date">${dateStr}</span>` : ''}
+      ${dateStr ? `<span class="card-date">📅 ${dateStr}</span>` : ''}
     </div>
-    <h2 class="card-title">${escapeHtml(title)}</h2>
-    ${description ? `<p class="card-desc">${escapeHtml(description)}</p>` : ''}
+    <h2 class="card-title">${esc(title)}</h2>
+    ${description ? `<p class="card-desc">${esc(description)}</p>` : ''}
     <span class="card-cta">اقرأ المقال</span>
   </div>
 </a>`;
 }
 
-// ── Render ────────────────────────────────────────────────────────────────────
 function render(posts) {
   const grid  = document.getElementById('grid');
   const count = document.getElementById('postsCount');
-
   if (!posts.length) {
     grid.innerHTML  = '<div class="empty-state"><span class="icon">🔍</span><p>لا توجد مقالات تطابق بحثك.</p></div>';
     count.innerHTML = '';
     return;
   }
-
   count.innerHTML = `عرض <span>${posts.length}</span> مقال`;
   grid.innerHTML  = posts.map(buildCard).join('');
 }
 
-// ── Search ────────────────────────────────────────────────────────────────────
-function applySearch() {
+function applyFilters() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  filtered = q
-    ? allPosts.filter(p =>
-        (p.title       || '').toLowerCase().includes(q) ||
-        (p.description || '').toLowerCase().includes(q))
-    : allPosts;
-  render(filtered);
+  let result = allPosts;
+  if (currentFilter !== 'all') {
+    result = result.filter(p => getCategory(p.title, p.slug) === currentFilter);
+  }
+  if (q) {
+    result = result.filter(p =>
+      (p.title||'').toLowerCase().includes(q) ||
+      (p.description||'').toLowerCase().includes(q)
+    );
+  }
+  render(result);
 }
 
-document.getElementById('searchInput').addEventListener('input', applySearch);
-document.getElementById('searchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') applySearch();
-});
-
-// ── Util ──────────────────────────────────────────────────────────────────────
-function escapeHtml(str) {
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
 }
 
-// ── Boot ──────────────────────────────────────────────────────────────────────
+async function loadPosts() {
+  try {
+    const res = await fetch('/posts-index.json?v=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    allPosts = await res.json();
+    render(allPosts);
+  } catch(e) {
+    document.getElementById('grid').innerHTML =
+      '<div class="error-state"><span class="icon">⚠️</span><p>تعذّر تحميل المقالات. يرجى إعادة تحميل الصفحة.</p></div>';
+  }
+}
+
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('searchInput').addEventListener('keydown', e => { if(e.key==='Enter') applyFilters(); });
+
 loadPosts();
 </script>
-
 </body>
 </html>
