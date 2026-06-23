@@ -1,32 +1,52 @@
 // scripts/build.js
-// Neora AI – Single-source build pipeline
-// Reads: _posts/, _tools/, _comparisons/
-// Writes: _posts-json/posts-index.json
-//         _posts-json/tools-index.json
-//         _posts-json/compare-index.json
-//         _posts-json/search-index.json
-//         public/sitemap.xml
+// Neora AI – Safe publishing build pipeline
 
-import fs   from 'fs';
+import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { glob } from 'glob';
 
-const BASE_URL  = 'https://neora-ai.com';
-const OUT_DIR   = '_posts-json';
-const SITEMAP   = 'public/sitemap.xml';
+const BASE_URL = 'https://neora-ai.com';
+const OUT_DIR = '_posts-json';
+const SITEMAP = 'public/sitemap.xml';
 
-// ── helpers ────────────────────────────────────────────────
+let errors = [];
 
-function readFolder(pattern) {
+function fileExists(filePath) {
+  if (!filePath) return true;
+  const cleanPath = filePath.startsWith('/') ? filePath.slice(1) : filePath;
+  return fs.existsSync(cleanPath);
+}
+
+function validateItem(item, type) {
+  const file = item._file || 'unknown file';
+
+  if (!item.title) errors.push(`${file}: missing title`);
+  if (!item.slug) errors.push(`${file}: missing slug`);
+  if (!item.date) errors.push(`${file}: missing date`);
+
+  if (item.slug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) {
+    errors.push(`${file}: invalid slug "${item.slug}"`);
+  }
+
+  if (item.image && !fileExists(item.image)) {
+    errors.push(`${file}: image not found "${item.image}"`);
+  }
+
+  item.type = type;
+  return item;
+}
+
+function readFolder(pattern, type) {
   const files = glob.sync(pattern);
+
   return files
     .map(f => {
       try {
         const { data, content } = matter(fs.readFileSync(f, 'utf8'));
-        return { ...data, _content: content, _file: f };
+        return validateItem({ ...data, _content: content, _file: f }, type);
       } catch (e) {
-        console.warn(`⚠️  Skipping ${f}: ${e.message}`);
+        errors.push(`${f}: ${e.message}`);
         return null;
       }
     })
@@ -34,8 +54,20 @@ function readFolder(pattern) {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+function checkDuplicateSlugs(items) {
+  const seen = new Map();
+
+  items.forEach(item => {
+    const key = `${item.type}:${item.slug}`;
+    if (seen.has(key)) {
+      errors.push(`Duplicate slug: ${key} in ${item._file} and ${seen.get(key)}`);
+    } else {
+      seen.set(key, item._file);
+    }
+  });
+}
+
 function strip(arr) {
-  // Remove heavy fields not needed in index JSON
   return arr.map(({ _content, _file, ...rest }) => rest);
 }
 
@@ -57,26 +89,21 @@ function toUrl(loc, date, priority = '0.7', changefreq = 'monthly') {
   ].join('\n');
 }
 
-// ── sitemap ────────────────────────────────────────────────
-
 function buildSitemap(posts, tools, comparisons) {
   const staticPages = [
-    { loc: '/',         priority: '1.0', changefreq: 'weekly'  },
-    { loc: '/blog',     priority: '0.9', changefreq: 'weekly'  },
-    { loc: '/compare',  priority: '0.9', changefreq: 'weekly'  },
-    { loc: '/tool',     priority: '0.8', changefreq: 'weekly'  },
-    { loc: '/about',    priority: '0.6', changefreq: 'monthly' },
-    { loc: '/contact',  priority: '0.5', changefreq: 'monthly' },
+    { loc: '/', priority: '1.0', changefreq: 'weekly' },
+    { loc: '/blog', priority: '0.9', changefreq: 'weekly' },
+    { loc: '/compare', priority: '0.9', changefreq: 'weekly' },
+    { loc: '/tool', priority: '0.8', changefreq: 'weekly' },
+    { loc: '/about', priority: '0.6', changefreq: 'monthly' },
+    { loc: '/contact', priority: '0.5', changefreq: 'monthly' },
   ];
 
   const urls = [
     ...staticPages.map(p => toUrl(p.loc, null, p.priority, p.changefreq)),
-    ...posts.map(p =>
-      toUrl(`/blog/${p.slug}`, p.date, p.featured ? '0.9' : '0.7')),
-    ...tools.map(t =>
-      toUrl(`/tool/${t.slug}`, t.date, '0.7')),
-    ...comparisons.map(c =>
-      toUrl(`/compare/${c.slug}`, c.date, c.featured ? '0.9' : '0.8')),
+    ...posts.map(p => toUrl(`/blog/${p.slug}`, p.date, p.featured ? '0.9' : '0.7')),
+    ...tools.map(t => toUrl(`/tool/${t.slug}`, t.date, '0.7')),
+    ...comparisons.map(c => toUrl(`/compare/${c.slug}`, c.date, c.featured ? '0.9' : '0.8')),
   ];
 
   const xml = [
@@ -88,30 +115,38 @@ function buildSitemap(posts, tools, comparisons) {
 
   fs.mkdirSync(path.dirname(SITEMAP), { recursive: true });
   fs.writeFileSync(SITEMAP, xml, 'utf8');
-  console.log(`  ✅ ${SITEMAP}  (${urls.length} URLs)`);
+  console.log(`  ✅ ${SITEMAP} (${urls.length} URLs)`);
 }
-
-// ── main ───────────────────────────────────────────────────
 
 async function build() {
   console.log('\n🔨 Neora AI – Build started\n');
 
-  const posts       = readFolder('_posts/**/*.md');
-  const tools       = readFolder('_tools/**/*.md');
-  const comparisons = readFolder('_comparisons/**/*.md');
+  const posts = readFolder('_posts/**/*.md', 'post');
+  const tools = readFolder('_tools/**/*.md', 'tool');
+  const comparisons = readFolder('_comparisons/**/*.md', 'comparison');
+
+  checkDuplicateSlugs([...posts, ...tools, ...comparisons]);
+
+  if (errors.length > 0) {
+    console.error('\n❌ Build stopped. Fix these issues:\n');
+    errors.forEach(e => console.error(`- ${e}`));
+    process.exit(1);
+  }
 
   console.log('📂 Generating JSON indexes...');
-  writeJSON(`${OUT_DIR}/posts-index.json`,   { posts:       strip(posts)       });
-  writeJSON(`${OUT_DIR}/tools-index.json`,   { tools:       strip(tools)       });
+  writeJSON(`${OUT_DIR}/posts-index.json`, { posts: strip(posts) });
+  writeJSON(`${OUT_DIR}/tools-index.json`, { tools: strip(tools) });
   writeJSON(`${OUT_DIR}/compare-index.json`, { comparisons: strip(comparisons) });
-  writeJSON(`${OUT_DIR}/search-index.json`,  {
+  writeJSON(`${OUT_DIR}/search-index.json`, {
     items: strip([...posts, ...tools, ...comparisons]),
   });
 
-  console.log('\n🗺️  Generating sitemap...');
+  console.log('\n🗺️ Generating sitemap...');
   buildSitemap(posts, tools, comparisons);
 
-  console.log(`\n✨ Done — Posts: ${posts.length} | Tools: ${tools.length} | Comparisons: ${comparisons.length}\n`);
+  console.log(
+    `\n✨ Done — Posts: ${posts.length} | Tools: ${tools.length} | Comparisons: ${comparisons.length}\n`
+  );
 }
 
 build().catch(err => {
