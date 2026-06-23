@@ -1,6 +1,6 @@
 [build]
   publish = "."
-command = "node check-images.js || true; node scripts/build.js"
+command = "node scripts/preflight.js && (node check-images.js || true) && node scripts/build.js"
 
 # ── Redirects ────────────────────────────────────────────────────────────────
 [[redirects]]
