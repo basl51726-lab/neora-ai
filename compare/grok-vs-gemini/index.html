@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">مقارنة | Neora AI</title>
+  <meta name="description" id="page-description" content="" />
+  <meta property="og:title" id="og-title" content="" />
+  <meta property="og:description" id="og-description" content="" />
+  <meta property="og:image" id="og-image" content="" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" id="canonical" href="" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <style>
+    .comparison-hero {
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .tools-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .tool-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tool-badge img {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #fff1;
+      padding: 8px;
+    }
+    .tool-badge span { font-size: 1rem; font-weight: 600; color: #e2e8f0; }
+    .vs-badge {
+      font-size: 1.25rem; font-weight: 800;
+      color: #7c3aed;
+      background: #7c3aed22;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    @media (max-width: 640px) { .comparison-grid { grid-template-columns: 1fr; } }
+    .tool-card {
+      background: #ffffff08;
+      border: 1px solid #ffffff15;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .tool-card h3 { margin: 0 0 1rem; font-size: 1.1rem; color: #c4b5fd; }
+    .rating-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .stars { color: #f59e0b; font-size: 1.1rem; }
+    .rating-num { color: #94a3b8; font-size: 0.9rem; }
+    .pros-cons h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0.75rem 0 0.4rem; }
+    .pros-cons ul { list-style: none; padding: 0; margin: 0; }
+    .pros-cons li { font-size: 0.9rem; padding: 0.2rem 0; color: #cbd5e1; }
+    .pros-cons li::before { margin-left: 0.4rem; }
+    .pros h4 { color: #34d399; }
+    .pros li::before { content: '✓ '; color: #34d399; }
+    .cons h4 { color: #f87171; }
+    .cons li::before { content: '✗ '; color: #f87171; }
+    .verdict-box {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+    .verdict-inner {
+      background: linear-gradient(135deg, #7c3aed22, #0ea5e922);
+      border: 1px solid #7c3aed44;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .verdict-inner h2 { margin: 0 0 0.75rem; color: #e2e8f0; font-size: 1.1rem; }
+    .verdict-inner p { margin: 0; color: #94a3b8; }
+    .content-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+    .content-body h2 { color: #e2e8f0; border-bottom: 1px solid #ffffff15; padding-bottom: 0.5rem; margin: 2rem 0 1rem; }
+    .content-body h3 { color: #c4b5fd; margin: 1.5rem 0 0.5rem; }
+    .content-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .content-body th, .content-body td { padding: 0.6rem 1rem; border: 1px solid #ffffff15; font-size: 0.9rem; }
+    .content-body th { background: #ffffff10; color: #e2e8f0; }
+    .loading-state { text-align: center; padding: 6rem 1.5rem; color: #64748b; }
+    .error-state { text-align: center; padding: 4rem 1.5rem; color: #f87171; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="comparison-page">
+    <div class="loading-state"><p>⏳ جاري التحميل...</p></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    const slug = location.pathname.replace(/\/$/, '').split('/').pop();
+
+    function stars(rating) {
+      const full = Math.floor(rating);
+      const half = rating % 1 >= 0.5 ? 1 : 0;
+      const empty = 5 - full - half;
+      return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+    }
+
+    function renderList(items, cls) {
+      if (!items?.length) return '';
+      return `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    }
+
+    function md(text) {
+      if (!text) return '';
+      return text
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/^/, '<p>').replace(/$/, '</p>');
+    }
+
+    async function render() {
+      try {
+        const res = await fetch('/_posts-json/compare-index.json');
+        const data = await res.json();
+        const c = data.comparisons.find(x => x.slug === slug);
+
+        if (!c) {
+          document.getElementById('comparison-page').innerHTML =
+            '<div class="error-state"><h2>المقارنة غير موجودة</h2><p><a href="/compare">← عودة للمقارنات</a></p></div>';
+          return;
+        }
+
+        document.getElementById('page-title').textContent = `${c.title} | Neora AI`;
+        document.getElementById('page-description').content = c.description;
+        document.getElementById('og-title').content = c.title;
+        document.getElementById('og-description').content = c.description;
+        document.getElementById('og-image').content = c.image ?? '';
+        document.getElementById('canonical').href = `https://neora-ai.com/compare/${c.slug}`;
+
+        const a = c.tool_a, b = c.tool_b;
+
+        document.getElementById('comparison-page').innerHTML = `
+          <section class="comparison-hero">
+            <div class="tools-row">
+              <div class="tool-badge">
+                <img src="${a.logo}" alt="${a.name}" onerror="this.style.display='none'" />
+                <span>${a.name}</span>
+              </div>
+              <div class="vs-badge">VS</div>
+              <div class="tool-badge">
+                <img src="${b.logo}" alt="${b.name}" onerror="this.style.display='none'" />
+                <span>${b.name}</span>
+              </div>
+            </div>
+            <h1 style="color:#e2e8f0;font-size:1.6rem;margin:0 0 0.5rem">${c.title}</h1>
+            <p style="color:#94a3b8;margin:0">${c.description}</p>
+          </section>
+
+          <div class="comparison-grid">
+            <div class="tool-card">
+              <h3>${a.name}</h3>
+              <div class="rating-row">
+                <span class="stars">${stars(a.rating ?? 0)}</span>
+                <span class="rating-num">${a.rating ?? '—'} / 5</span>
+              </div>
+              <div class="pros-cons">
+                <div class="pros"><h4>المميزات</h4>${renderList(a.pros)}</div>
+                <div class="cons"><h4>العيوب</h4>${renderList(a.cons)}</div>
+              </div>
+            </div>
+            <div class="tool-card">
+              <h3>${b.name}</h3>
+              <div class="rating-row">
+                <span class="stars">${stars(b.rating ?? 0)}</span>
+                <span class="rating-num">${b.rating ?? '—'} / 5</span>
+              </div>
+              <div class="pros-cons">
+                <div class="pros"><h4>المميزات</h4>${renderList(b.pros)}</div>
+                <div class="cons"><h4>العيوب</h4>${renderList(b.cons)}</div>
+              </div>
+            </div>
+          </div>
+
+          ${c.verdict ? `
+          <div class="verdict-box">
+            <div class="verdict-inner">
+              <h2>🏆 الخلاصة</h2>
+              <p>${c.verdict}</p>
+            </div>
+          </div>` : ''}
+
+          <div class="content-body" id="md-body"></div>
+        `;
+
+        try {
+          const mdRes = await fetch(`/_comparisons/${slug}.md`);
+          if (mdRes.ok) {
+            const raw = await mdRes.text();
+            const body = raw.replace(/^---[\s\S]+?---\n/, '');
+            document.getElementById('md-body').innerHTML = md(body);
+          }
+        } catch (_) {}
+
+      } catch (err) {
+        document.getElementById('comparison-page').innerHTML =
+          `<div class="error-state"><h2>خطأ في التحميل</h2><p>${err.message}</p></div>`;
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
