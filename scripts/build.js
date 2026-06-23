@@ -21,9 +21,24 @@ function fileExists(filePath) {
 function validateItem(item, type) {
   const file = item._file || 'unknown file';
 
-  if (!item.title) errors.push(`${file}: missing title`);
-  if (!item.slug) errors.push(`${file}: missing slug`);
-  if (!item.date) errors.push(`${file}: missing date`);
+  // Tools قد تستخدم name بدل title
+  if (!item.title && item.name) {
+    item.title = item.name;
+  }
+
+  // إذا لا يوجد slug، نأخذه من اسم الملف تلقائياً
+  if (!item.slug) {
+    item.slug = path.basename(file, '.md');
+  }
+
+  if (!item.title) {
+    errors.push(`${file}: missing title`);
+  }
+
+  // التاريخ مطلوب للمقالات والمقارنات فقط، وليس الأدوات
+  if (type !== 'tool' && !item.date) {
+    errors.push(`${file}: missing date`);
+  }
 
   if (item.slug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) {
     errors.push(`${file}: invalid slug "${item.slug}"`);
@@ -51,7 +66,7 @@ function readFolder(pattern, type) {
       }
     })
     .filter(d => d && d.published !== false && d.slug)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 }
 
 function checkDuplicateSlugs(items) {
