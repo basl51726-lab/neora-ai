@@ -61,8 +61,8 @@ function readFolder(pattern, type) {
   return files
     .map(f => {
       try {
-        const { data, content } = matter(fs.readFileSync(f, 'utf8'));
-        return validateItem({ ...data, _content: content, _file: f }, type);
+       const raw = fs.readFileSync(f, 'utf8').trimStart();
+const { data, content } = matter(raw);
       } catch (e) {
         errors.push(`${f}: ${e.message}`);
         return null;
