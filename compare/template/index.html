@@ -5,21 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="page-title">مقارنة | Neora AI</title>
   <meta name="description" id="page-description" content="" />
-
-  <!-- Open Graph -->
-  <meta property="og:title"       id="og-title"       content="" />
+  <meta property="og:title" id="og-title" content="" />
   <meta property="og:description" id="og-description" content="" />
-  <meta property="og:image"       id="og-image"       content="" />
-  <meta property="og:type"        content="article" />
-
-  <!-- Canonical -->
+  <meta property="og:image" id="og-image" content="" />
+  <meta property="og:type" content="article" />
   <link rel="canonical" id="canonical" href="" />
-
-  <!-- Your existing CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" />
-
   <style>
-    /* ── Comparison-specific styles ── */
     .comparison-hero {
       background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
       padding: 3rem 1.5rem 2rem;
@@ -39,8 +31,7 @@
       gap: 0.5rem;
     }
     .tool-badge img {
-      width: 64px;
-      height: 64px;
+      width: 64px; height: 64px;
       object-fit: contain;
       border-radius: 12px;
       background: #fff1;
@@ -48,8 +39,7 @@
     }
     .tool-badge span { font-size: 1rem; font-weight: 600; color: #e2e8f0; }
     .vs-badge {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.25rem; font-weight: 800;
       color: #7c3aed;
       background: #7c3aed22;
       border-radius: 50%;
@@ -79,10 +69,10 @@
     .pros-cons ul { list-style: none; padding: 0; margin: 0; }
     .pros-cons li { font-size: 0.9rem; padding: 0.2rem 0; color: #cbd5e1; }
     .pros-cons li::before { margin-left: 0.4rem; }
-    .pros  h4 { color: #34d399; }
-    .pros  li::before { content: '✓ '; color: #34d399; }
-    .cons  h4 { color: #f87171; }
-    .cons  li::before { content: '✗ '; color: #f87171; }
+    .pros h4 { color: #34d399; }
+    .pros li::before { content: '✓ '; color: #34d399; }
+    .cons h4 { color: #f87171; }
+    .cons li::before { content: '✗ '; color: #f87171; }
     .verdict-box {
       max-width: 900px;
       margin: 0 auto 2rem;
@@ -96,7 +86,7 @@
       text-align: center;
     }
     .verdict-inner h2 { margin: 0 0 0.75rem; color: #e2e8f0; font-size: 1.1rem; }
-    .verdict-inner p  { margin: 0; color: #94a3b8; }
+    .verdict-inner p { margin: 0; color: #94a3b8; }
     .content-body {
       max-width: 760px;
       margin: 0 auto;
@@ -104,67 +94,55 @@
       color: #cbd5e1;
       line-height: 1.8;
     }
-    .content-body h2 { color: #e2e8f0; border-bottom: 1px solid #ffffff15; padding-bottom: 0.5rem; }
-    .content-body h3 { color: #c4b5fd; }
+    .content-body h2 { color: #e2e8f0; border-bottom: 1px solid #ffffff15; padding-bottom: 0.5rem; margin: 2rem 0 1rem; }
+    .content-body h3 { color: #c4b5fd; margin: 1.5rem 0 0.5rem; }
     .content-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
     .content-body th, .content-body td { padding: 0.6rem 1rem; border: 1px solid #ffffff15; font-size: 0.9rem; }
     .content-body th { background: #ffffff10; color: #e2e8f0; }
     .loading-state { text-align: center; padding: 6rem 1.5rem; color: #64748b; }
-    .error-state   { text-align: center; padding: 4rem 1.5rem; color: #f87171; }
+    .error-state { text-align: center; padding: 4rem 1.5rem; color: #f87171; }
   </style>
 </head>
 <body>
-  <!-- Your existing header/nav -->
   <div id="site-header"></div>
 
   <main id="comparison-page">
-    <div class="loading-state">
-      <p>⏳ جاري التحميل...</p>
-    </div>
+    <div class="loading-state"><p>⏳ جاري التحميل...</p></div>
   </main>
 
-  <!-- Your existing footer -->
   <div id="site-footer"></div>
 
   <script>
-    // ── Extract slug from URL ──────────────────────────────
-    const slug = location.pathname
-      .replace(/\/$/, '')
-      .split('/')
-      .pop();
-
-    // ── Simple markdown-to-HTML (headings, bold, tables, lists) ──
-    function md(text) {
-      if (!text) return '';
-      return text
-        .replace(/^### (.+)$/gm,  '<h3>$1</h3>')
-        .replace(/^## (.+)$/gm,   '<h2>$1</h2>')
-        .replace(/^# (.+)$/gm,    '<h1>$1</h1>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g,     '<em>$1</em>')
-        .replace(/\n\n/g,          '</p><p>')
-        .replace(/^/,              '<p>')
-        .replace(/$/,              '</p>');
-    }
+    const slug = location.pathname.replace(/\/$/, '').split('/').pop();
 
     function stars(rating) {
-      const full  = Math.floor(rating);
-      const half  = rating % 1 >= 0.5 ? 1 : 0;
+      const full = Math.floor(rating);
+      const half = rating % 1 >= 0.5 ? 1 : 0;
       const empty = 5 - full - half;
       return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
     }
 
-    function renderList(items, cssClass) {
+    function renderList(items, cls) {
       if (!items?.length) return '';
       return `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
     }
 
-    // ── Render page ───────────────────────────────────────
+    function md(text) {
+      if (!text) return '';
+      return text
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/^/, '<p>').replace(/$/, '</p>');
+    }
+
     async function render() {
       try {
-        const res  = await fetch('/_posts-json/compare-index.json');
+        const res = await fetch('/_posts-json/compare-index.json');
         const data = await res.json();
-        const c    = data.comparisons.find(x => x.slug === slug);
+        const c = data.comparisons.find(x => x.slug === slug);
 
         if (!c) {
           document.getElementById('comparison-page').innerHTML =
@@ -172,20 +150,16 @@
           return;
         }
 
-        // Meta
-        document.getElementById('page-title').textContent       = `${c.title} | Neora AI`;
-        document.getElementById('page-description').content     = c.description;
-        document.getElementById('og-title').content             = c.title;
-        document.getElementById('og-description').content       = c.description;
-        document.getElementById('og-image').content             = c.image ?? '';
-        document.getElementById('canonical').href               = `https://neora-ai.com/compare/${c.slug}`;
+        document.getElementById('page-title').textContent = `${c.title} | Neora AI`;
+        document.getElementById('page-description').content = c.description;
+        document.getElementById('og-title').content = c.title;
+        document.getElementById('og-description').content = c.description;
+        document.getElementById('og-image').content = c.image ?? '';
+        document.getElementById('canonical').href = `https://neora-ai.com/compare/${c.slug}`;
 
-        const a = c.tool_a;
-        const b = c.tool_b;
+        const a = c.tool_a, b = c.tool_b;
 
         document.getElementById('comparison-page').innerHTML = `
-
-          <!-- Hero -->
           <section class="comparison-hero">
             <div class="tools-row">
               <div class="tool-badge">
@@ -202,7 +176,6 @@
             <p style="color:#94a3b8;margin:0">${c.description}</p>
           </section>
 
-          <!-- Tool cards -->
           <div class="comparison-grid">
             <div class="tool-card">
               <h3>${a.name}</h3>
@@ -228,7 +201,6 @@
             </div>
           </div>
 
-          <!-- Verdict -->
           ${c.verdict ? `
           <div class="verdict-box">
             <div class="verdict-inner">
@@ -237,22 +209,17 @@
             </div>
           </div>` : ''}
 
-          <!-- Main content (markdown body) -->
           <div class="content-body" id="md-body"></div>
         `;
 
-        // Render markdown body via separate fetch of full JSON isn't needed
-        // because we already have the stripped index. For full content,
-        // fetch the raw .md file:
         try {
-          const mdRes  = await fetch(`/_comparisons/${slug}.md`);
+          const mdRes = await fetch(`/_comparisons/${slug}.md`);
           if (mdRes.ok) {
-            const raw  = await mdRes.text();
-            // Strip frontmatter
+            const raw = await mdRes.text();
             const body = raw.replace(/^---[\s\S]+?---\n/, '');
             document.getElementById('md-body').innerHTML = md(body);
           }
-        } catch (_) { /* content body is optional */ }
+        } catch (_) {}
 
       } catch (err) {
         document.getElementById('comparison-page').innerHTML =
