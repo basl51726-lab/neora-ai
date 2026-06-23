@@ -40,12 +40,13 @@ function validateItem(item, type) {
     errors.push(`${file}: missing date`);
   }
 
-  if (
+if (
   type !== 'post' &&
   item.slug &&
   !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)
-  }
-
+) {
+  errors.push(`${file}: invalid slug "${item.slug}"`);
+}
   if (item.image && !fileExists(item.image)) {
     errors.push(`${file}: image not found "${item.image}"`);
   }
