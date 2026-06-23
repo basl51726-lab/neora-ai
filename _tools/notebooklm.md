@@ -3,8 +3,8 @@ title: NotebookLM
 url: https://notebooklm.google.com
 category: research
 badge: free
-rating: 4 
-icon: https://notebooklm.google.com/favicon.ico
+rating: 4.7
+icon: "/assets/images/tools/notebooklm-color.svg"
 desc_ar: NotebookLM هو مساعد بحثي ذكي من Google يساعدك على تحليل المستندات
   وملفات PDF والملاحظات وإنشاء ملخصات دقيقة والإجابة على الأسئلة اعتمادًا على
   مصادرك الخاصة باستخدام الذكاء الاصطناعي.
