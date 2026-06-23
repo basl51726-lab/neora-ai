@@ -1,7 +1,7 @@
 {
   "name": "neora-ai",
   "version": "2.0.0",
-  "type": "module",
+ 
   "scripts": {
     "prebuild": "node scripts/build.js",
     "build": "echo '✅ Neora AI build complete'",
