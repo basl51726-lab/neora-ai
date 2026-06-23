@@ -297,7 +297,7 @@ function setFilter(cat, btn) {
 
 async function loadTools() {
   try {
-    const res = await fetch('/_posts-json/tools-index.json?v=' + Date.now(), { cache:'no-store' });
+    const res = await fetch('/tools-index.json?v=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
 
     const data = await res.json();
