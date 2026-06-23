@@ -297,16 +297,19 @@ function setFilter(cat, btn) {
 
 async function loadTools() {
   try {
-    const res = await fetch('/tools-index.json?v=' + Date.now(), {cache:'no-store'});
+    const res = await fetch('/_posts-json/tools-index.json?v=' + Date.now(), { cache:'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    allTools = await res.json();
+
+    const data = await res.json();
+    allTools = Array.isArray(data) ? data : (data.tools || []);
+
     render(allTools);
   } catch(e) {
+    console.error('Tools load error:', e);
     document.getElementById('grid').innerHTML =
       '<div class="empty-state"><span class="icon">⚠️</span><p>تعذّر تحميل الأدوات.</p></div>';
   }
 }
-
 document.getElementById('searchInput').addEventListener('input', applyFilters);
 document.getElementById('searchInput').addEventListener('keydown', e => { if(e.key==='Enter') applyFilters(); });
 
