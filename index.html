@@ -629,7 +629,7 @@
         <div class="art-body">
           <div class="art-cat" data-art-cat="roundup"></div>
           <div class="art-title" data-art-title="writing-tools-2025"></div>
-          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-art-date="2025-06-20"></span> · <span data-art-mins="8"></span></div>
+          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-i18n-date="2025-06-20"></span> · <span data-art-mins="8"></span></div>
         </div>
       </div>
       <div class="art-card">
@@ -637,7 +637,7 @@
         <div class="art-body">
           <div class="art-cat" data-art-cat="guide"></div>
           <div class="art-title" data-art-title="code-editor-guide-2025"></div>
-          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-art-date="2025-06-15"></span> · <span data-art-mins="6"></span></div>
+          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-i18n-date="2025-06-15"></span> · <span data-art-mins="6"></span></div>
         </div>
       </div>
       <div class="art-card">
@@ -645,7 +645,7 @@
         <div class="art-body">
           <div class="art-cat" data-art-cat="compare"></div>
           <div class="art-title" data-art-title="mj-dalle-sd"></div>
-          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-art-date="2025-06-10"></span> · <span data-art-mins="10"></span></div>
+          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-i18n-date="2025-06-10"></span> · <span data-art-mins="10"></span></div>
         </div>
       </div>
       <div class="art-card">
@@ -653,7 +653,7 @@
         <div class="art-body">
           <div class="art-cat" data-art-cat="news"></div>
           <div class="art-title" data-art-title="productivity-q3-2025"></div>
-          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-art-date="2025-06-05"></span> · <span data-art-mins="5"></span></div>
+          <div class="art-meta"><i class="ti ti-calendar" aria-hidden="true"></i> <span data-i18n-date="2025-06-05"></span> · <span data-art-mins="5"></span></div>
         </div>
       </div>
     </div>
@@ -707,7 +707,7 @@
 <!-- ══════════════════════════════════════════════ WHY NEORA -->
 <div class="surf-bg">
   <div class="surf-inner">
-    <div class="sec-hd"><span class="sec-title">Why NEORA?</span></div>
+    <div class="sec-hd"><span class="sec-title" data-i18n="sec.why"></span></div>
     <div class="sec-line"></div>
     <div class="why-grid">
       <div class="why-card">
@@ -951,10 +951,13 @@ document.addEventListener("neora:langchange", (e) => {
 });
 
 // ── Init ──────────────────────────────────────────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-  NeoraI18n.init("home");
-  renderDynamic(NeoraI18n.getLang());
-});
+// Script is at end of <body>: DOM is fully parsed. Call init() directly.
+// NeoraI18n.init("home") sets data-page="home", reads saved lang from localStorage,
+// applies translations to all [data-i18n] elements, and dispatches neora:langchange
+// (which triggers renderDynamic above). The _initialized guard in neora-i18n.js
+// ensures lang-button listeners are only bound once even if auto-init also ran.
+NeoraI18n.init("home");
+renderDynamic(NeoraI18n.getLang());
 </script>
 </body>
 </html>
