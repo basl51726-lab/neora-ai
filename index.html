@@ -196,12 +196,12 @@
         <p id="categoriesDesc">ابدأ من نوع المهمة، ثم اختر الأداة التي تناسبك.</p>
       </div>
       <div class="cat-grid">
-        <a class="cat-card" onclick="quickSearch('writing')"><div class="content"><span class="cat-count">✍️ كتابة</span><h3>الكتابة والمحتوى</h3><p>مقالات، إعلانات، بريد، وتحسين لغوي.</p></div></a>
-        <a class="cat-card" onclick="quickSearch('code')"><div class="content"><span class="cat-count">💻 برمجة</span><h3>البرمجة والتطوير</h3><p>مساعدات كود، بناء تطبيقات، وتسريع التطوير.</p></div></a>
-        <a class="cat-card" onclick="quickSearch('image')"><div class="content"><span class="cat-count">🎨 صور</span><h3>الصور والتصميم</h3><p>إنشاء الصور، الشعارات، وتحسين التصاميم.</p></div></a>
-        <a class="cat-card" onclick="quickSearch('video')"><div class="content"><span class="cat-count">🎬 فيديو</span><h3>الفيديو</h3><p>فيديوهات، أفاتار، مونتاج، وتحويل النص لفيديو.</p></div></a>
-        <a class="cat-card" onclick="quickSearch('research')"><div class="content"><span class="cat-count">🔬 بحث</span><h3>البحث والتحليل</h3><p>مصادر، أبحاث، مراجع، وتلخيص علمي.</p></div></a>
-        <a class="cat-card" onclick="quickSearch('productivity')"><div class="content"><span class="cat-count">⚡ إنتاجية</span><h3>الإنتاجية</h3><p>اجتماعات، ملاحظات، تنظيم، وإدارة وقت.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('writing')"><div class="content"><span class="cat-count" data-i18n-cat-count>✍️ كتابة</span><h3>الكتابة والمحتوى</h3><p>مقالات، إعلانات، بريد، وتحسين لغوي.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('code')"><div class="content"><span class="cat-count" data-i18n-cat-count>💻 برمجة</span><h3>البرمجة والتطوير</h3><p>مساعدات كود، بناء تطبيقات، وتسريع التطوير.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('image')"><div class="content"><span class="cat-count" data-i18n-cat-count>🎨 صور</span><h3>الصور والتصميم</h3><p>إنشاء الصور، الشعارات، وتحسين التصاميم.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('video')"><div class="content"><span class="cat-count" data-i18n-cat-count>🎬 فيديو</span><h3>الفيديو</h3><p>فيديوهات، أفاتار، مونتاج، وتحويل النص لفيديو.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('research')"><div class="content"><span class="cat-count" data-i18n-cat-count>🔬 بحث</span><h3>البحث والتحليل</h3><p>مصادر، أبحاث، مراجع، وتلخيص علمي.</p></div></a>
+        <a class="cat-card" onclick="quickSearch('productivity')"><div class="content"><span class="cat-count" data-i18n-cat-count>⚡ إنتاجية</span><h3>الإنتاجية</h3><p>اجتماعات، ملاحظات، تنظيم، وإدارة وقت.</p></div></a>
       </div>
     </div>
   </section>
@@ -294,12 +294,12 @@
   <div class="container">
     <div class="footer-grid">
       <div><img class="footer-logo" src="/assets/images/logos/neora-logo.png" alt="Neora AI"><p id="footerDesc">دليل عملي ومتجدد لأدوات الذكاء الاصطناعي، المقارنات، والمقالات.</p></div>
-      <div><h4 id="footerQuickTitle">روابط سريعة</h4><ul><li><a id="navTools" href="#tools" onclick="showAllTools();return false;">الأدوات</a></li><li><a href="#categories">التصنيفات</a></li><li><a id="navCompare" href="/compare/">المقارنات</a></li></ul></div>
+      <div><h4 id="footerQuickTitle">روابط سريعة</h4><ul><li><a id="navTools" href="#tools" onclick="showAllTools();return false;">الأدوات</a></li><li><a id="footerCategories" href="#categories">التصنيفات</a></li><li><a id="navCompare" href="/compare/">المقارنات</a></li></ul></div>
       <div><h4 id="footerSupportTitle">الدعم</h4><ul>
-        <li><a href="#" onclick="openModal('modalAbout');return false;">من نحن</a></li>
-        <li><a href="#" onclick="openModal('modalContact');return false;">تواصل معنا</a></li>
-        <li><a href="/privacy-policy/">سياسة الخصوصية</a></li>
-     <li><a href="/terms/">شروط الاستخدام</a></li>
+        <li><a id="footerAbout" href="#" onclick="openModal('modalAbout');return false;">من نحن</a></li>
+        <li><a id="footerContact" href="#" onclick="openModal('modalContact');return false;">تواصل معنا</a></li>
+        <li><a id="footerPrivacy" href="/privacy-policy/">سياسة الخصوصية</a></li>
+     <li><a id="footerTerms" href="/terms/">شروط الاستخدام</a></li>
       </ul></div>
       <div><h4 id="footerFollowTitle">تابعنا</h4><ul><li><a href="https://twitter.com/neora_ai" target="_blank" rel="noopener">Twitter / X</a></li><li><a href="mailto:support@neora-ai.com">support@neora-ai.com</a></li></ul></div>
     </div>
@@ -337,20 +337,20 @@
     ar: {
       lang:'ar', dir:'rtl',
       title:'NEORA – اكتشف أفضل أدوات الذكاء الاصطناعي لمشاريعك',
-      desc:'NEORA دليل منتقى بعناية لاكتشاف ومقارنة أفضل أدوات الذكاء الاصطناعي لعملك ومشاريعك.',
       nav:['الرئيسية','الأدوات','التصنيفات','المقارنات','المدونة','من نحن','تواصل معنا'],
       badge:'Discover & Compare AI Tools',
       heroTitle:'اكتشف أفضل أدوات <span style="display:inline-block;background:linear-gradient(135deg,#92731f,#d4af37);-webkit-background-clip:text;background-clip:text;color:transparent">الذكاء الاصطناعي</span><br>لمشاريعك',
       heroDesc:'دليل منتقى بعناية يساعدك على اكتشاف ومقارنة أفضل أدوات الذكاء الاصطناعي لعملك ومشاريعك.',
-      searchPlaceholder:'ابحث عن أداة... مثال: كتابة، تصميم، كود', searchBtn:'بحث 🔍',
-      explore:'استكشف الأدوات', compare:'قارن الأدوات',
+      searchPlaceholder:'ابحث عن أداة... مثال: كتابة، تصميم، كود',
+      searchBtn:'بحث 🔍', explore:'استكشف الأدوات', compare:'قارن الأدوات',
       toolsTitle:'الأدوات الأكثر استخداماً',
       toolsDesc:'مجموعة مختارة من الأدوات التي تساعدك على العمل، الكتابة، البحث، التصميم، والبرمجة.',
       allToolsTitle:'جميع أدوات الذكاء الاصطناعي',
       allToolsDesc:'كل الأدوات المتوفرة في Neora من قاعدة البيانات الحالية.',
       noResults:'لا توجد نتائج. جرّب كلمة أخرى.',
-      categoriesTitle:'تصفح حسب التصنيف', categoriesDesc:'ابدأ من نوع المهمة، ثم اختر الأداة التي تناسبك.',
-      categories:[
+      categoriesTitle:'تصفح حسب التصنيف',
+      categoriesDesc:'ابدأ من نوع المهمة، ثم اختر الأداة التي تناسبك.',
+      cats:[
         ['✍️ كتابة','الكتابة والمحتوى','مقالات، إعلانات، بريد، وتحسين لغوي.'],
         ['💻 برمجة','البرمجة والتطوير','مساعدات كود، بناء تطبيقات، وتسريع التطوير.'],
         ['🎨 صور','الصور والتصميم','إنشاء الصور، الشعارات، وتحسين التصاميم.'],
@@ -358,119 +358,107 @@
         ['🔬 بحث','البحث والتحليل','مصادر، أبحاث، مراجع، وتلخيص علمي.'],
         ['⚡ إنتاجية','الإنتاجية','اجتماعات، ملاحظات، تنظيم، وإدارة وقت.']
       ],
-      comparisonsTitle:'مقارنات مختارة', comparisonsDesc:'لا تختار بناءً على الشهرة فقط؛ قارن حسب الاستخدام الحقيقي.',
+      comparisonsTitle:'مقارنات مختارة',
+      comparisonsDesc:'لا تختار بناءً على الشهرة فقط؛ قارن حسب الاستخدام الحقيقي.',
       compDesc:['أي مساعد أفضل للكتابة والتحليل والعمل اليومي؟','مقارنة لمساعدات البرمجة داخل بيئة التطوير.','مقارنة في التفكير، الكتابة، الملفات، والبحث.','أي أداة أفضل لبناء MVP بسرعة؟'],
-      articlesTitle:'أحدث المقالات', articlesDesc:'تحليلات ومراجعات عملية تساعدك على اختيار الأداة المناسبة.',
+      articlesTitle:'أحدث المقالات',
+      articlesDesc:'تحليلات ومراجعات عملية تساعدك على اختيار الأداة المناسبة.',
       articleTypes:['مقال','مقارنة','مراجعة'],
       articleTitles:['اعتمدت على ChatGPT في عملي اليومي لمدة شهر كامل: هذه النتائج التي فاجأتني','Claude vs ChatGPT: أيهما أفضل للكتابة الطويلة وصناعة المحتوى؟','مراجعة Devin AI: هل يستطيع بناء تطبيقات كاملة دون تدخل بشري؟'],
-      recommendedBadge:'✦ أدوات ذكاء اصطناعي موصى بها', recommendedTitle:'🔥 أدوات نوصي بها',
-      recommendedDesc:'أدوات مختارة تساعدك على الإنتاجية، البحث، الكتابة، وصناعة المحتوى.',
-      affiliateNote:'بعض الروابط في هذا القسم قد تكون روابط شراكة، وقد نحصل على عمولة دون أي تكلفة إضافية عليك.',
+      recBadge:'✦ أدوات ذكاء اصطناعي موصى بها',
+      recTitle:'🔥 أدوات نوصي بها',
+      recDesc:'أدوات مختارة تساعدك على الإنتاجية، البحث، الكتابة، وصناعة المحتوى.',
+      affiliate:'بعض الروابط في هذا القسم قد تكون روابط شراكة، وقد نحصل على عمولة دون أي تكلفة إضافية عليك.',
       footerDesc:'دليل عملي ومتجدد لأدوات الذكاء الاصطناعي، المقارنات، والمقالات.',
-      footerQuick:'روابط سريعة', footerSupport:'الدعم', footerFollow:'تابعنا',
-      footerCopyright:'© 2026 <strong>NEORA</strong>. جميع الحقوق محفوظة.', footerTagline:'اكتشف إمكانيات الذكاء الاصطناعي',
-      badgeLabels:{free:'مجاني',pro:'مميز',new:'جديد'}
+      footerTitles:['روابط سريعة','الدعم','تابعنا'],
+      footerLinks:['الأدوات','التصنيفات','المقارنات','من نحن','تواصل معنا','سياسة الخصوصية','شروط الاستخدام'],
+      copyright:'© 2026 <strong>NEORA</strong>. جميع الحقوق محفوظة.',
+      tagline:'اكتشف إمكانيات الذكاء الاصطناعي'
     },
     en: {
       lang:'en', dir:'ltr',
       title:'NEORA – Discover the Best AI Tools for Your Projects',
-      desc:'NEORA is a curated guide to discover and compare the best AI tools for your work and projects.',
       nav:['Home','Tools','Categories','Comparisons','Blog','About','Contact'],
       badge:'Discover & Compare AI Tools',
       heroTitle:'Discover the Best <span style="display:inline-block;background:linear-gradient(135deg,#92731f,#d4af37);-webkit-background-clip:text;background-clip:text;color:transparent">AI Tools</span><br>for Your Projects',
       heroDesc:'A carefully curated guide to help you discover and compare the best AI tools for your work and projects.',
-      searchPlaceholder:'Search for a tool... e.g. writing, design, code', searchBtn:'Search 🔍',
-      explore:'Explore Tools', compare:'Compare Tools',
+      searchPlaceholder:'Search for a tool... e.g. writing, design, code',
+      searchBtn:'Search 🔍', explore:'Explore Tools', compare:'Compare Tools',
       toolsTitle:'Popular AI Tools',
       toolsDesc:'A selected collection of tools for work, writing, research, design, and coding.',
       allToolsTitle:'All AI Tools',
       allToolsDesc:'All tools currently available in the Neora database.',
       noResults:'No results found. Try another keyword.',
-      categoriesTitle:'Browse by Category', categoriesDesc:'Start with the task type, then choose the tool that fits your needs.',
-      categories:[
+      categoriesTitle:'Browse by Category',
+      categoriesDesc:'Start with the task type, then choose the tool that fits your needs.',
+      cats:[
         ['✍️ Writing','Writing & Content','Articles, ads, emails, and language improvement.'],
         ['💻 Coding','Coding & Development','Coding assistants, app builders, and faster development.'],
         ['🎨 Images','Image & Design','Image generation, logos, and design enhancement.'],
-        ['🎬 Video','Video','Video creation, avatars, editing, and text-to-video tools.'],
+        ['🎬 Video','Video','Videos, avatars, editing, and text-to-video tools.'],
         ['🔬 Research','Research & Analysis','Sources, papers, references, and research summaries.'],
         ['⚡ Productivity','Productivity','Meetings, notes, organization, and time management.']
       ],
-      comparisonsTitle:'Featured Comparisons', comparisonsDesc:'Do not choose by popularity alone; compare tools based on real use cases.',
+      comparisonsTitle:'Featured Comparisons',
+      comparisonsDesc:'Do not choose by popularity alone; compare tools based on real use cases.',
       compDesc:['Which assistant is better for writing, analysis, and daily work?','A practical comparison of coding assistants inside the development environment.','A comparison across reasoning, writing, files, and search.','Which tool is better for building an MVP quickly?'],
-      articlesTitle:'Latest Articles', articlesDesc:'Practical analysis and reviews to help you choose the right tool.',
+      articlesTitle:'Latest Articles',
+      articlesDesc:'Practical analysis and reviews to help you choose the right tool.',
       articleTypes:['Article','Comparison','Review'],
       articleTitles:['I Used ChatGPT in My Daily Work for a Full Month: The Results Surprised Me','Claude vs ChatGPT: Which Is Better for Long-Form Writing and Content Creation?','Devin AI Review: Can It Really Build Complete Apps Without Human Help?'],
-      recommendedBadge:'✦ Recommended AI Tools', recommendedTitle:'🔥 Recommended Tools',
-      recommendedDesc:'Selected tools for productivity, research, writing, and content creation.',
-      affiliateNote:'Some links in this section may be affiliate links. We may earn a commission at no extra cost to you.',
+      recBadge:'✦ Recommended AI Tools',
+      recTitle:'🔥 Recommended Tools',
+      recDesc:'Selected tools for productivity, research, writing, and content creation.',
+      affiliate:'Some links in this section may be affiliate links. We may earn a commission at no extra cost to you.',
       footerDesc:'A practical and regularly updated guide to AI tools, comparisons, and articles.',
-      footerQuick:'Quick Links', footerSupport:'Support', footerFollow:'Follow Us',
-      footerCopyright:'© 2026 <strong>NEORA</strong>. All rights reserved.', footerTagline:'Discover AI possibilities',
-      badgeLabels:{free:'Free',pro:'Pro',new:'New'}
+      footerTitles:['Quick Links','Support','Follow Us'],
+      footerLinks:['Tools','Categories','Comparisons','About','Contact','Privacy Policy','Terms of Use'],
+      copyright:'© 2026 <strong>NEORA</strong>. All rights reserved.',
+      tagline:'Discover AI possibilities'
     }
   };
 
-  function currentLang(){ return localStorage.getItem('neora_lang') || new URLSearchParams(location.search).get('lang') || 'ar'; }
-  function setText(id, value){ const el=document.getElementById(id); if(el) el.textContent=value; }
-  function setHTML(id, value){ const el=document.getElementById(id); if(el) el.innerHTML=value; }
+  function setText(id, value){const el=document.getElementById(id); if(el) el.textContent=value;}
+  function setHTML(id, value){const el=document.getElementById(id); if(el) el.innerHTML=value;}
+  function getCurrentLang(){return localStorage.getItem('neora_lang') || new URLSearchParams(location.search).get('lang') || 'ar';}
 
   function switchLang(lang) {
     const selected = I18N[lang] ? lang : 'ar';
     const t = I18N[selected];
     localStorage.setItem('neora_lang', selected);
-
-    document.documentElement.setAttribute('lang', t.lang);
-    document.documentElement.setAttribute('dir', t.dir);
+    document.documentElement.lang = t.lang;
+    document.documentElement.dir = t.dir;
     document.title = t.title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if(metaDesc) metaDesc.setAttribute('content', t.desc);
 
     ['navHome','navTools','navCategories','navCompare','navBlog','navAbout','navContact'].forEach((id,i)=>setText(id,t.nav[i]));
     const badge=document.querySelector('.hero-badge'); if(badge) badge.textContent=t.badge;
-    setHTML('heroTitle', t.heroTitle);
-    setText('heroDesc', t.heroDesc);
-    const input=document.getElementById('searchInput'); if(input) input.placeholder=t.searchPlaceholder;
-    setText('searchBtn', t.searchBtn);
-    setText('heroExploreBtn', t.explore);
-    setText('heroCompareBtn', t.compare);
-
-    setText('toolsTitle', t.toolsTitle);
-    setText('toolsDesc', t.toolsDesc);
-    setText('noResults', t.noResults);
-    setText('categoriesTitle', t.categoriesTitle);
-    setText('categoriesDesc', t.categoriesDesc);
+    setHTML('heroTitle',t.heroTitle); setText('heroDesc',t.heroDesc);
+    const si=document.getElementById('searchInput'); if(si) si.placeholder=t.searchPlaceholder;
+    setText('searchBtn',t.searchBtn); setText('heroExploreBtn',t.explore); setText('heroCompareBtn',t.compare);
+    setText('toolsTitle',t.toolsTitle); setText('toolsDesc',t.toolsDesc); setText('noResults',t.noResults);
+    setText('categoriesTitle',t.categoriesTitle); setText('categoriesDesc',t.categoriesDesc);
 
     document.querySelectorAll('.cat-card').forEach((card,i)=>{
-      const c=t.categories[i]; if(!c) return;
-      const count=card.querySelector('.cat-count'), h3=card.querySelector('h3'), p=card.querySelector('p');
-      if(count) count.textContent=c[0]; if(h3) h3.textContent=c[1]; if(p) p.textContent=c[2];
+      const d=t.cats[i]; if(!d) return;
+      const count=card.querySelector('.cat-count'); const h=card.querySelector('h3'); const p=card.querySelector('p');
+      if(count) count.textContent=d[0]; if(h) h.textContent=d[1]; if(p) p.textContent=d[2];
     });
 
-    setText('comparisonsTitle', t.comparisonsTitle);
-    setText('comparisonsDesc', t.comparisonsDesc);
+    setText('comparisonsTitle',t.comparisonsTitle); setText('comparisonsDesc',t.comparisonsDesc);
     document.querySelectorAll('.comparison-card p').forEach((p,i)=>{ if(t.compDesc[i]) p.textContent=t.compDesc[i]; });
-
-    setText('articlesTitle', t.articlesTitle);
-    setText('articlesDesc', t.articlesDesc);
+    setText('articlesTitle',t.articlesTitle); setText('articlesDesc',t.articlesDesc);
     document.querySelectorAll('.article-type').forEach((el,i)=>{ if(t.articleTypes[i]) el.textContent=t.articleTypes[i]; });
     document.querySelectorAll('.article-body h3').forEach((el,i)=>{ if(t.articleTitles[i]) el.textContent=t.articleTitles[i]; });
 
-    setText('recommendedBadge', t.recommendedBadge);
-    setText('recommendedTitle', t.recommendedTitle);
-    setText('recommendedDesc', t.recommendedDesc);
-    setText('affiliateNote', t.affiliateNote);
+    setText('recommendedBadge',t.recBadge); setText('recommendedTitle',t.recTitle); setText('recommendedDesc',t.recDesc); setText('affiliateNote',t.affiliate);
+    setText('footerDesc',t.footerDesc); setText('footerQuickTitle',t.footerTitles[0]); setText('footerSupportTitle',t.footerTitles[1]); setText('footerFollowTitle',t.footerTitles[2]);
+    ['footerTools','footerCategories','footerCompare','footerAbout','footerContact','footerPrivacy','footerTerms'].forEach((id,i)=>setText(id,t.footerLinks[i]));
+    setHTML('footerCopyright',t.copyright); setText('footerTagline',t.tagline);
 
-    setText('footerDesc', t.footerDesc);
-    setText('footerQuickTitle', t.footerQuick);
-    setText('footerSupportTitle', t.footerSupport);
-    setText('footerFollowTitle', t.footerFollow);
-    setHTML('footerCopyright', t.footerCopyright);
-    setText('footerTagline', t.footerTagline);
+    document.getElementById('btnAR').classList.toggle('active', selected==='ar');
+    document.getElementById('btnEN').classList.toggle('active', selected==='en');
 
-    document.getElementById('btnAR').classList.toggle('active', selected === 'ar');
-    document.getElementById('btnEN').classList.toggle('active', selected === 'en');
-
-    if(window.lastRenderedTools) renderTools(window.lastRenderedTools, true);
+    if (window.currentToolList) renderTools(window.currentToolList);
   }
 
   /* ========== TOOLS ========== */
@@ -594,20 +582,17 @@
   }
 
   const BADGE_LABELS = { free:'مجاني', pro:'مميز', new:'جديد' };
-  const BADGE_LABELS_EN = { free:'Free', pro:'Pro', new:'New' };
   const BADGE_COLORS = { free:'#16a34a', pro:'#b89125', new:'#2563eb' };
 
-  function renderTools(list, skipRemember) {
+  function renderTools(list) {
     const safeList = Array.isArray(list) ? list : [];
-    if(!skipRemember) window.lastRenderedTools = safeList;
-    const lang = currentLang();
+    window.currentToolList = safeList;
     grid.innerHTML = safeList.map(raw => {
       const t = normalizeTool(raw);
       const logo = getToolLogo(t);
       const fb = escapeAttr(initials(t.name));
-      const badgeLabels = lang === 'en' ? BADGE_LABELS_EN : BADGE_LABELS;
       const badgeHtml = t.badge
-        ? `<span style="position:absolute;top:12px;right:12px;background:${BADGE_COLORS[t.badge]||'#64748b'};color:#fff;font-size:10px;font-weight:900;padding:3px 8px;border-radius:999px;">${badgeLabels[t.badge]||t.badge}</span>`
+        ? `<span style="position:absolute;top:12px;right:12px;background:${BADGE_COLORS[t.badge]||'#64748b'};color:#fff;font-size:10px;font-weight:900;padding:3px 8px;border-radius:999px;">${BADGE_LABELS[t.badge]||t.badge}</span>`
         : '';
       return `
         <a class="tool-mini" href="/tool/${encodeURIComponent(t.slug)}/" style="position:relative;">
@@ -649,7 +634,8 @@
   }
 
   function showAllTools() {
-    const t = I18N[currentLang()] || I18N.ar;
+    const lang = getCurrentLang();
+    const t = I18N[lang] || I18N.ar;
     document.getElementById('searchInput').value = '';
     document.getElementById('toolsTitle').textContent = t.allToolsTitle;
     document.getElementById('toolsDesc').textContent = t.allToolsDesc;
@@ -698,11 +684,7 @@
     }
   }
 
-  loadAllTools().then(() => {
-    const urlLang = new URLSearchParams(location.search).get('lang');
-    const savedLang = urlLang || localStorage.getItem('neora_lang') || 'ar';
-    switchLang(savedLang);
-  });
+  loadAllTools().then(() => switchLang(new URLSearchParams(location.search).get('lang') || localStorage.getItem('neora_lang') || 'ar'));
 </script>
 </body>
 </html>
