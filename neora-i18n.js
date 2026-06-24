@@ -350,6 +350,18 @@ const NeoraI18n = (() => {
     return key;
   }
 
+  // ── Locale-aware date formatter ───────────────────────────────────────────
+  // Usage: <span data-i18n-date="2025-06-20"></span>
+  // Renders:  "٢٠ يونيو ٢٠٢٥"  (AR)  or  "June 20, 2025"  (EN)
+  function formatDate(isoStr, lang) {
+    try {
+      const d = new Date(isoStr + "T00:00:00");
+      if (isNaN(d)) return isoStr;
+      const locale = lang === "ar" ? "ar-SA" : "en-US";
+      return d.toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" });
+    } catch { return isoStr; }
+  }
+
   function applyLang(lang) {
     const isAr = lang === "ar";
     document.documentElement.dir  = isAr ? "rtl" : "ltr";
@@ -368,6 +380,14 @@ const NeoraI18n = (() => {
     document.querySelectorAll("[data-i18n-html]").forEach(el => {
       // Safe: only used for own content
       el.innerHTML = t(el.getAttribute("data-i18n-html")).replace(/\n/g,"<br>");
+    });
+    // title="" attributes (tooltips, accessibility)
+    document.querySelectorAll("[data-i18n-title]").forEach(el => {
+      el.title = t(el.getAttribute("data-i18n-title"));
+    });
+    // Locale-aware date rendering: <span data-i18n-date="YYYY-MM-DD">
+    document.querySelectorAll("[data-i18n-date]").forEach(el => {
+      el.textContent = formatDate(el.getAttribute("data-i18n-date"), lang);
     });
 
     // SEO
@@ -422,16 +442,18 @@ const NeoraI18n = (() => {
     }
   }
 
-  return { init, setLang, getLang, t, applyLang, dict, pageMeta, get _initialized() { return _initialized; } };
+  return { init, setLang, getLang, t, applyLang, formatDate, dict, pageMeta, get _initialized() { return _initialized; } };
 })();
 
-// Auto-init on DOMContentLoaded (only if the page doesn't call init() explicitly)
-// Pages that call NeoraI18n.init(pageKey) explicitly will set data-page before this fires.
+// Auto-init: run as soon as the DOM is available.
+// If readyState is still "loading" (script in <head> or blocking mid-body), wait for
+// DOMContentLoaded.  If readyState is "interactive" or "complete" (script dynamically
+// injected after parse), run immediately.  In both cases we guard with _initialized so
+// a page that calls NeoraI18n.init(pageKey) explicitly never double-applies.
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
     if (!NeoraI18n._initialized) NeoraI18n.init();
   });
 } else {
-  // Script loaded after DOM ready (end of body) — let the inline script call init(pageKey)
-  // We do nothing here; the page's own DOMContentLoaded handler will call init().
+  if (!NeoraI18n._initialized) NeoraI18n.init();
 }
