@@ -343,7 +343,11 @@ const NeoraI18n = (() => {
   function t(key) {
     const entry = dict[key];
     if (!entry) { console.warn("[NEORA i18n] Missing key:", key); return key; }
-    return entry[currentLang] || entry[DEFAULT] || key;
+    const val = entry[currentLang];
+    if (val !== undefined) return val;
+    const fallback = entry[DEFAULT];
+    if (fallback !== undefined) return fallback;
+    return key;
   }
 
   function applyLang(lang) {
@@ -398,6 +402,8 @@ const NeoraI18n = (() => {
     document.dispatchEvent(new CustomEvent("neora:langchange", { detail:{ lang } }));
   }
 
+  let _initialized = false;
+
   function init(pageKey) {
     if (pageKey) document.documentElement.setAttribute("data-page", pageKey);
     // URL param override
@@ -407,17 +413,25 @@ const NeoraI18n = (() => {
       try { localStorage.setItem(STORAGE_KEY, urlLang); } catch {}
     }
     applyLang(currentLang);
-    document.querySelectorAll("[data-lang-btn]").forEach(btn => {
-      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn")));
-    });
+    // Only bind lang-btn listeners once
+    if (!_initialized) {
+      document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+        btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn")));
+      });
+      _initialized = true;
+    }
   }
 
-  return { init, setLang, getLang, t, applyLang, dict, pageMeta };
+  return { init, setLang, getLang, t, applyLang, dict, pageMeta, get _initialized() { return _initialized; } };
 })();
 
-// Auto-init on DOMContentLoaded
+// Auto-init on DOMContentLoaded (only if the page doesn't call init() explicitly)
+// Pages that call NeoraI18n.init(pageKey) explicitly will set data-page before this fires.
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => NeoraI18n.init());
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!NeoraI18n._initialized) NeoraI18n.init();
+  });
 } else {
-  NeoraI18n.init();
+  // Script loaded after DOM ready (end of body) — let the inline script call init(pageKey)
+  // We do nothing here; the page's own DOMContentLoaded handler will call init().
 }
