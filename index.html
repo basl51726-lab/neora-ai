@@ -3,8 +3,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="/neora-i18n.js"></script>
-
   <!-- SEO: Updated dynamically by i18n engine -->
   <title>نيورا — اكتشف أفضل أدوات الذكاء الاصطناعي</title>
   <meta name="description" content="دليل متميز لأدوات الذكاء الاصطناعي — مراجعات ومقارنات وتصنيفات لأكثر من 70 أداة."/>
@@ -297,11 +295,11 @@
   </div>
 
   <div class="nav-mid">
-    <a href="/tools" data-i18n="nav.explore"></a>
-    <a href="/compare" data-i18n="nav.compare"></a>
-    <a href="/articles" data-i18n="nav.articles"></a>
-    <a href="/categories" data-i18n="nav.categories"></a>
-    <a href="/studio" class="studio-link">
+    <a href="/tools/" data-i18n="nav.explore"></a>
+    <a href="/compare/" data-i18n="nav.compare"></a>
+    <a href="/blog/" data-i18n="nav.articles"></a>
+    <a href="/categories/" data-i18n="nav.categories"></a>
+    <a href="/studio/" class="studio-link">
       <div class="s-dot"></div>
       <span data-i18n="nav.studio"></span>
     </a>
@@ -314,8 +312,8 @@
       <div class="lang-div"></div>
       <button data-lang-btn="en">EN</button>
     </div>
-    <button class="btn-out" data-i18n="nav.submit"></button>
-    <button class="btn-gold" data-i18n="nav.newsletter"></button>
+    <button class="btn-out" data-href="/contact/" data-i18n="nav.submit"></button>
+    <button class="btn-gold" data-href="#newsletter" data-i18n="nav.newsletter"></button>
     <button class="dtog" id="dtog"><i class="ti ti-moon" aria-hidden="true"></i></button>
   </div>
 </nav>
@@ -375,10 +373,10 @@
 </div>
 
 <!-- ══════════════════════════════════════════════ POPULAR TOOLS -->
-<div class="sec">
+<div class="sec" id="tools-section">
   <div class="sec-hd">
     <span class="sec-title" data-i18n="sec.popular"></span>
-    <a class="sec-a" href="/tools" data-i18n="sec.viewall"></a>
+    <a class="sec-a" href="/tools/" data-i18n="sec.viewall"></a>
   </div>
   <div class="sec-line"></div>
   <div class="tools-grid">
@@ -492,11 +490,11 @@
 </div>
 
 <!-- ══════════════════════════════════════════════ CATEGORIES -->
-<div class="surf-bg">
+<div class="surf-bg" id="categories-section">
   <div class="surf-inner">
     <div class="sec-hd">
       <span class="sec-title" data-i18n="sec.categories"></span>
-      <a class="sec-a" href="/categories" data-i18n="sec.allcats"></a>
+      <a class="sec-a" href="/categories/" data-i18n="sec.allcats"></a>
     </div>
     <div class="sec-line"></div>
     <div class="cats-grid">
@@ -568,7 +566,7 @@
   <div>
     <div class="sec-hd">
       <span class="sec-title" data-i18n="sec.comparisons"></span>
-      <a class="sec-a" href="/compare" data-i18n="sec.allcmp"></a>
+      <a class="sec-a" href="/compare/" data-i18n="sec.allcmp"></a>
     </div>
     <div class="sec-line"></div>
     <div class="cmp-grid">
@@ -622,7 +620,7 @@
   <div class="surf-inner">
     <div class="sec-hd">
       <span class="sec-title" data-i18n="sec.articles"></span>
-      <a class="sec-a" href="/articles" data-i18n="sec.viewall"></a>
+      <a class="sec-a" href="/blog/" data-i18n="sec.viewall"></a>
     </div>
     <div class="sec-line"></div>
     <div class="arts-grid">
@@ -737,7 +735,7 @@
 </div>
 
 <!-- ══════════════════════════════════════════════ NEWSLETTER -->
-<div class="nl-band">
+<div class="nl-band" id="newsletter">
   <div class="nl-inner">
     <h2 data-i18n="nl.h"></h2>
     <p data-i18n="nl.sub"></p>
@@ -780,7 +778,7 @@
       <a href="/tools" data-i18n="footer.alltools"></a>
       <a href="/categories" data-i18n="footer.cats"></a>
       <a href="/compare" data-i18n="footer.cmp"></a>
-      <a href="/articles" data-i18n="footer.articles"></a>
+      <a href="/blog/" data-i18n="footer.articles"></a>
       <a href="/submit" data-i18n="footer.submit"></a>
     </div>
     <div class="fc">
@@ -807,7 +805,7 @@
 </footer>
 
 <!-- ══════════════════════════════════════════════ SCRIPTS -->
-<script src="neora-i18n.js"></script>
+<script src="/neora-i18n.js"></script>
 <script>
 // ── Dynamic content: bilingual tool descriptions & article titles ──────────
 const dynamicContent = {
@@ -915,6 +913,21 @@ document.querySelectorAll(".ttab").forEach(btn => {
     btn.classList.add("on");
     currentTab = btn.getAttribute("data-tab");
     renderTrend(currentTab, NeoraI18n.getLang());
+  });
+});
+
+
+// ── Navigation helpers ────────────────────────────────────────────────────
+document.querySelectorAll("[data-href]").forEach(el => {
+  el.addEventListener("click", () => {
+    const href = el.getAttribute("data-href");
+    if (!href) return;
+    if (href.startsWith("#")) {
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    window.location.href = href;
   });
 });
 
