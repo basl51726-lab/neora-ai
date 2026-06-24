@@ -259,6 +259,41 @@ const NeoraI18n = (() => {
     "ui.goback":        { ar:"العودة للرئيسية",   en:"Go to Homepage" },
   };
 
+  
+    // COMPATIBILITY KEYS (Homepage)
+    "nav.explore":      { ar:"الأدوات",           en:"Tools" },
+    "nav.articles":     { ar:"المقالات",          en:"Articles" },
+
+    "hero.h1.line1":    { ar:"اكتشف أفضل أدوات الذكاء الاصطناعي", en:"Discover the Best AI Tools" },
+    "hero.h1.em":       { ar:"لمشاريعك",          en:"for Your Projects" },
+    "hero.h1.line2":    { ar:"",                 en:"" },
+
+    "stat.tools":       { ar:"أداة",             en:"Tools" },
+    "stat.compare":     { ar:"مقارنة",           en:"Comparisons" },
+    "stat.cats":        { ar:"تصنيف",            en:"Categories" },
+    "stat.readers":     { ar:"قارئ",             en:"Readers" },
+
+    "tool.badge.free":  { ar:"مجاني",            en:"Free" },
+    "tool.badge.top":   { ar:"الأعلى تقييماً",   en:"Top Rated" },
+    "tool.badge.dev":   { ar:"اختيار المطورين",  en:"Dev Pick" },
+
+    "trend.tools":      { ar:"الأدوات",          en:"Tools" },
+    "trend.compare":    { ar:"المقارنات",        en:"Comparisons" },
+
+    "aff.best.marketing": { ar:"الأفضل للتسويق", en:"Best for marketing" },
+
+    "footer.explore.h": { ar:"استكشف",           en:"Explore" },
+    "footer.company.h": { ar:"الشركة",           en:"Company" },
+    "footer.search.h":  { ar:"بحث شائع",         en:"Popular Searches" },
+    "footer.articles":  { ar:"المقالات",         en:"Articles" },
+    "footer.newsletter":{ ar:"النشرة البريدية",  en:"Newsletter" },
+    "footer.search1":   { ar:"أفضل أدوات الكتابة", en:"Best Writing AI Tools" },
+    "footer.search2":   { ar:"أدوات الصور",      en:"AI Image Tools" },
+    "footer.search3":   { ar:"أدوات مجانية",     en:"Free AI Tools" },
+    "footer.search4":   { ar:"أدوات البرمجة",    en:"AI Coding Tools" },
+    "footer.search5":   { ar:"بدائل ChatGPT",    en:"ChatGPT Alternatives" },
+
+
   // ── Per-page SEO metadata ─────────────────────────────────────────────────
   const pageMeta = {
     home:     { ar:{ title:"نيورا — اكتشف أفضل أدوات الذكاء الاصطناعي",    desc:"دليل متميز لأدوات الذكاء الاصطناعي — مراجعات ومقارنات وتصنيفات." },
