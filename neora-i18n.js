@@ -245,6 +245,41 @@ const NeoraI18n = (() => {
     "terms.contact.h":  { ar:"التواصل",          en:"Contact" },
     "terms.contact":    { ar:"للأسئلة المتعلقة بشروط الاستخدام، تواصل معنا.", en:"For questions about these terms, contact us." },
 
+
+
+    // HOMEPAGE COMPATIBILITY KEYS
+    "nav.explore":      { ar:"الأدوات",           en:"Tools" },
+    "nav.articles":     { ar:"المقالات",          en:"Articles" },
+
+    "hero.h1.line1":    { ar:"اكتشف أفضل أدوات الذكاء الاصطناعي", en:"Discover the Best AI Tools" },
+    "hero.h1.em":       { ar:"لمشاريعك",          en:"for Your Projects" },
+    "hero.h1.line2":    { ar:"",                 en:"" },
+
+    "stat.tools":       { ar:"أداة ذكاء اصطناعي", en:"AI Tools" },
+    "stat.compare":     { ar:"مقارنة متعمقة",     en:"Deep Comparisons" },
+    "stat.cats":        { ar:"تصنيفات",           en:"Categories" },
+    "stat.readers":     { ar:"قارئ شهرياً",       en:"Monthly Readers" },
+
+    "tool.badge.free":  { ar:"مجاني",            en:"Free" },
+    "tool.badge.top":   { ar:"الأعلى تقييماً",   en:"Top Rated" },
+    "tool.badge.dev":   { ar:"اختيار المطورين",  en:"Dev Pick" },
+
+    "trend.tools":      { ar:"الأدوات",          en:"Tools" },
+    "trend.compare":    { ar:"المقارنات",        en:"Comparisons" },
+
+    "aff.best.marketing": { ar:"الأفضل للتسويق", en:"Best for marketing" },
+
+    "footer.explore.h": { ar:"استكشف",           en:"Explore" },
+    "footer.company.h": { ar:"الشركة",           en:"Company" },
+    "footer.search.h":  { ar:"بحث شائع",         en:"Popular Searches" },
+    "footer.articles":  { ar:"المقالات",         en:"Articles" },
+    "footer.newsletter":{ ar:"النشرة البريدية",  en:"Newsletter" },
+    "footer.search1":   { ar:"أفضل أدوات الكتابة", en:"Best Writing AI Tools" },
+    "footer.search2":   { ar:"أدوات الصور",      en:"AI Image Tools" },
+    "footer.search3":   { ar:"أدوات مجانية",     en:"Free AI Tools" },
+    "footer.search4":   { ar:"أدوات البرمجة",    en:"AI Coding Tools" },
+    "footer.search5":   { ar:"بدائل ChatGPT",    en:"ChatGPT Alternatives" },
+
     // COMMON UI
     "ui.back":          { ar:"رجوع",              en:"Back" },
     "ui.loading":       { ar:"جارٍ التحميل…",     en:"Loading…" },
