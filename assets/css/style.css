@@ -1,0 +1,180 @@
+/* ------------------------------
+   الأساسيات العامة
+------------------------------ */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'Cairo', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1400px;
+}
+
+/* ------------------------------
+   الهيدر
+------------------------------ */
+
+header {
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+header h1 {
+    font-size: 42px;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: .8;
+}
+
+/* ------------------------------
+   بطاقات الأدوات
+------------------------------ */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 40px 0;
+}
+
+.tool-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #222;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.tool-card h3 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    opacity: .8;
+    font-size: 15px;
+}
+
+/* ------------------------------
+   صفحة تفاصيل الأداة
+------------------------------ */
+
+.tool-header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.tool-header h2 {
+    font-size: 36px;
+    color: #d4af37;
+}
+
+.tool-header p {
+    opacity: .7;
+    font-size: 17px;
+}
+
+.tool-content {
+    background: #111;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #222;
+    margin-top: 20px;
+}
+
+/* ------------------------------
+   صفحة المقارنات
+------------------------------ */
+
+.compare-box {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #222;
+    margin-bottom: 20px;
+}
+
+.compare-title {
+    font-size: 26px;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.compare-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #222;
+    opacity: .9;
+}
+
+/* ------------------------------
+   صفحة المراجعات
+------------------------------ */
+
+.review-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #222;
+    margin-bottom: 20px;
+}
+
+.review-card h3 {
+    color: #d4af37;
+}
+
+.review-card p {
+    opacity: .8;
+}
+
+/* ------------------------------
+   صفحة المدونة
+------------------------------ */
+
+.blog-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #222;
+    margin-bottom: 20px;
+}
+
+.blog-card h3 {
+    color: #d4af37;
+}
+
+.blog-card p {
+    opacity: .8;
+}
+
+/* ------------------------------
+   الفوتر
+------------------------------ */
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    opacity: .5;
+    font-size: 14px;
+}
