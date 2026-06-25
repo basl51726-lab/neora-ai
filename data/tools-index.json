@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "id": 1,
+            "name": "ChatGPT",
+            "description": "أفضل أداة للكتابة الإبداعية وصياغة المحتوى.",
+            "link": "https://chat.openai.com/"
+        },
+        {
+            "id": 2,
+            "name": "Claude",
+            "description": "الأفضل في التحليل الطويل وقراءة الملفات.",
+            "link": "https://claude.ai/"
+        },
+        {
+            "id": 3,
+            "name": "Midjourney",
+            "description": "أقوى أداة لتوليد الصور بجودة فنية عالية.",
+            "link": "https://www.midjourney.com/"
+        },
+        {
+            "id": 4,
+            "name": "DALL·E",
+            "description": "أداة قوية لتوليد الصور والتحكم بالتفاصيل.",
+            "link": "https://openai.com/dall-e"
+        }
+    ]
+}
