@@ -87,6 +87,30 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<!-- كود فحص CSS -->
+<div id="css-test" style="padding:20px; margin:20px; background:#222; color:#fff; border-radius:10px;">
+    إذا تشوف هذا الصندوق بلون رمادي غامق → HTML شغال  
+</div>
+
+<script>
+    const el = document.createElement("div");
+    el.className = "tool-card";
+    document.body.appendChild(el);
+
+    const style = window.getComputedStyle(el);
+
+    if (style.borderColor === "rgb(212, 175, 55)") {
+        console.log("✔ CSS الجديد محمّل");
+        document.getElementById("css-test").innerHTML += "<br>✔ CSS الجديد محمّل";
+    } else {
+        console.log("❌ CSS غير محمّل أو المسار خطأ");
+        document.getElementById("css-test").innerHTML += "<br>❌ CSS غير محمّل أو المسار خطأ";
+    }
+
+    el.remove();
+</script>
+</body>
+</html>
 
 </body>
 </html>
