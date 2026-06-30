@@ -3,28 +3,35 @@
 # Rule order matters: first match wins.
 # ══════════════════════════════════════════════════════════════════
 
-# ── 1. Blog listing page ──────────────────────────────────────────
-# Must come BEFORE /blog/* to prevent the wildcard from matching /blog/
+# ── 1. Blog listing + post pages ──────────────────────────────────
+# Listing rule must come BEFORE the /blog/* wildcard.
 /blog/    /blog/index.html    200
-
-# ── 2. Blog post pages (individual articles) ─────────────────────
 /blog/*   /blog/post.html     200
 
-# ── 3. JSON data files — must bypass the SPA wildcard ────────────
-/_posts-json/*    /_posts-json/:splat    200
-/tools-index.json    /tools-index.json    200
-/posts-index.json    /posts-index.json    200
+# ── 2. JSON data files — must bypass the SPA wildcard ─────────────
+/_posts-json/*       /_posts-json/:splat    200
+/tools-index.json    /tools-index.json     200
+/posts-index.json    /posts-index.json     200
+/compare-index.json  /compare-index.json   200
 
-# ── 4. Tool detail pages (SPA routes) ────────────────────────────
-/tool/    /tool/tools-list.html    200
-/tool/*    /tool/detail.html    200
-/compare/grok-vs-gemini    /compare/grok-vs-gemini/index.html    200
-/tool/*    /tool/detail.html    200
-/compare/grok-vs-gemini    /compare/grok-vs-gemini/index.html    200
+# ── 3. Tools (listing is a real file at /tools/index.html;
+#    individual detail pages live at /tool/detail.html) ───────────
+/tools/     /tools/index.html    200
+/tools/*    /tool/detail.html    200
+/tool/      /tool/tools-list.html    200
+/tool/*     /tool/detail.html    200
 
+# ── 4. Stopgap aliases for nav links with no dedicated page yet ───
+/categories/    /tools/    301
+/guides/        /blog/     301
+
+# ── 5. Static asset passthrough ────────────────────────────────────
 /assets/*    /assets/:splat    200
 /images/*    /images/:splat    200
 
-/*    /index.html    200
-# ── 5. SPA fallback — must be last ───────────────────────────────
+# ── 6. Netlify CMS admin ───────────────────────────────────────────
+/admin       /admin/index.html    200
+/admin/*     /admin/index.html    200
+
+# ── 7. SPA fallback — must be last ─────────────────────────────────
 /*    /index.html    200
