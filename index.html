@@ -1,121 +1,530 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEORA AI – دليل أدوات الذكاء الاصطناعي</title>
-    
-    <!-- ربط خط القاهرة Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* التنسيقات الأساسية المتسقة للواجهة بالكامل */
-        body {
-            background: #0d0d0d;
-            color: #fff;
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neora AI — Discover & Compare AI Tools With Confidence</title>
+  <meta name="description" content="Find the best AI tools with honest reviews, real side-by-side comparisons, and expert guides. Neora AI helps you choose the right AI tool for your needs.">
+  <meta name="keywords" content="AI tools, AI comparisons, AI reviews, best AI tools 2026, ChatGPT vs Claude, AI directory">
+  <meta name="author" content="Neora AI">
+  <link rel="canonical" href="https://neora-ai.com/">
 
-        header {
-            padding: 60px 20px 40px;
-            text-align: center;
-            border-bottom: 1px solid #222;
-        }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://neora-ai.com/">
+  <meta property="og:title" content="Neora AI — Discover & Compare AI Tools With Confidence">
+  <meta property="og:description" content="Honest reviews, real comparisons, and expert guides. Find the right AI tool fast.">
+  <meta property="og:image" content="https://neora-ai.com/images/og-image.jpg">
 
-        header h1 {
-            font-size: 56px;
-            color: #d4af37; /* لون ذهبي موحد للعناوين الرئيسية */
-            margin: 0 0 15px 0;
-            font-weight: 700;
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neora AI — Discover & Compare AI Tools With Confidence">
+  <meta name="twitter:description" content="Honest reviews, real comparisons, and expert guides. Find the right AI tool fast.">
+  <meta name="twitter:image" content="https://neora-ai.com/images/og-image.jpg">
 
-        header p {
-            font-size: 20px;
-            opacity: .9;
-            margin: 0;
-        }
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Neora AI",
+    "url": "https://neora-ai.com",
+    "description": "AI tools directory with honest reviews, comparisons, and guides",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://neora-ai.com/tools/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
-        /* حاوية البطاقات */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 50px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            flex-grow: 1;
-        }
-
-        /* فرض تنسيق عالمي (Global Format) على كل البطاقات */
-        .tool-card {
-            background: #111;
-            padding: 30px;
-            border-radius: 18px;
-            border: 2px solid #222; /* إطار افتراضي خفي */
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* تأثير التمرير (Hover) موحد لكل البطاقات */
-        .tool-card:hover {
-            transform: translateY(-8px);
-            border-color: #d4af37; /* يظهر الإطار الذهبي عند التمرير */
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15); /* هالة ذهبية خفيفة */
-        }
-
-        /* فرض لون ذهبي موحد لعنوان الأداة داخل أي بطاقة */
-        .tool-card h3 {
-            color: #d4af37 !important; /* استخدام !important لفرض اللون */
-            margin: 0 0 15px 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        /* فرض تباين موحد لوصف الأداة داخل أي بطاقة */
-        .tool-card p {
-            color: #fff;
-            opacity: .9;
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #222;
-            opacity: .7;
-            font-size: 16px;
-            background: #111;
-        }
-    </style>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/homepage.css">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 </head>
-
 <body>
 
-<header>
-    <h1>NEORA AI</h1>
-    <p>دليل شامل لأفضل أدوات الذكاء الاصطناعي – تصميم هجين أسود × ذهبي</p>
-</header>
+  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Neora AI Home">
+        <div class="lmark" aria-hidden="true">
+          <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="ltext">
+          <span class="lname">Neora AI</span>
+          <span class="ltag">AI Tools Directory</span>
+        </div>
+      </a>
 
-<section class="tools-grid" id="toolsContainer">
-    <!-- هنا ستظهر بطاقات الأدوات المنسقة عالمياً -->
-</section>
+      <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
 
-<footer>
-    © 2026 NEORA AI – All Rights Reserved
-</footer>
+      <ul class="nav-links" id="nav-menu" role="list">
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/compare/">Comparisons</a></li>
+        <li><a href="/categories/">Categories</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
 
-<!-- رابط ملف الجافا سكريبت لإضافة البطاقات ديناميكياً -->
-<script src="assets/js/main.js"></script>
+      <div class="nav-r">
+        <div class="nav-locale" aria-label="Language selector">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 2a14 14 0 010 16M2 10h16" stroke="currentColor" stroke-width="1.4"/></svg>
+          EN
+        </div>
+        <a href="/tools/" class="nc">Explore Tools
+          <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+  <section class="hero-outer" aria-label="Hero">
+    <div class="hero-grid">
+
+      <div class="hero-left">
+        <div class="hbadge">
+          <span class="hbdot" aria-hidden="true"></span>
+          Independent · No paid rankings · Updated weekly
+        </div>
+
+        <h1 class="hero-h">
+          Discover &amp; Compare<br>
+          AI Tools <em>With Confidence</em>
+        </h1>
+
+        <p class="hero-p">
+          Honest reviews, real comparisons, and expert guides<br>
+          to help you make smarter AI decisions.
+        </p>
+
+        <a href="/compare/" class="ctrust" aria-label="View AI tool comparisons">
+          <div class="ctrust-ic" aria-hidden="true">
+            <svg viewBox="0 0 14 14" fill="none"><path d="M4 7.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="1" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <div class="ctrust-copy">
+            <strong>Compare AI tools side-by-side before you commit</strong>
+            <span>10+ in-depth comparisons — ChatGPT vs Claude, Cursor vs Windsurf, and more</span>
+          </div>
+        </a>
+
+        <div class="search-area" role="search">
+          <label for="hero-search" class="slabel">Search Neora</label>
+          <div class="sbar">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M15 15L13 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="search"
+              id="hero-search"
+              placeholder="Search AI tools, comparisons, reviews, and guides..."
+              autocomplete="off"
+              aria-label="Search Neora AI"
+            >
+            <button type="button" class="sbtn" id="hero-search-btn">Search</button>
+          </div>
+          <div class="search-results-dropdown" id="search-dropdown" role="listbox" aria-label="Search results" hidden></div>
+        </div>
+
+        <div class="pops" aria-label="Popular searches">
+          <span class="pops-label">Popular:</span>
+          <a href="/tools/?q=chatgpt" class="pp">ChatGPT</a>
+          <a href="/tools/?q=claude" class="pp">Claude</a>
+          <a href="/tools/?q=cursor" class="pp">Cursor</a>
+          <a href="/tools/?q=gemini" class="pp">Gemini</a>
+          <a href="/tools/?q=midjourney" class="pp">Midjourney</a>
+        </div>
+
+        <div class="hbtns">
+          <a href="/tools/" class="btn-primary">
+            Browse All Tools
+            <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/compare/" class="btn-secondary">View Comparisons</a>
+        </div>
+      </div>
+
+      <!-- Hero Right: Rankings Dashboard -->
+      <div class="hero-right" aria-label="Top ranked AI tools">
+        <div class="dash">
+          <div class="dash-hd">
+            <span class="dash-title">Top Ranked AI Tools</span>
+            <span class="dash-live">
+              <span class="dlive-dot" aria-hidden="true"></span>
+              Live · <span id="dash-date"></span>
+            </span>
+          </div>
+          <div class="dash-cols" aria-hidden="true">
+            <span class="dcl">Tool</span>
+            <span class="dcl dcl-right">Score</span>
+          </div>
+
+          <!-- Populated by JS from tools-index.json -->
+          <div id="top-tools-list" role="list" aria-label="Top ranked tools">
+            <!-- Skeleton loaders -->
+            <div class="tool-row skeleton" aria-hidden="true">
+              <div class="tr-left"><div class="sk-av"></div><div><div class="sk-line w80"></div><div class="sk-line w50 mt4"></div></div></div>
+              <div class="tr-right"><div class="sk-line w40"></div></div>
+            </div>
+            <div class="tool-row skeleton" aria-hidden="true">
+              <div class="tr-left"><div class="sk-av"></div><div><div class="sk-line w80"></div><div class="sk-line w50 mt4"></div></div></div>
+              <div class="tr-right"><div class="sk-line w40"></div></div>
+            </div>
+            <div class="tool-row skeleton" aria-hidden="true">
+              <div class="tr-left"><div class="sk-av"></div><div><div class="sk-line w80"></div><div class="sk-line w50 mt4"></div></div></div>
+              <div class="tr-right"><div class="sk-line w40"></div></div>
+            </div>
+            <div class="tool-row skeleton" aria-hidden="true">
+              <div class="tr-left"><div class="sk-av"></div><div><div class="sk-line w80"></div><div class="sk-line w50 mt4"></div></div></div>
+              <div class="tr-right"><div class="sk-line w40"></div></div>
+            </div>
+          </div>
+
+          <div class="dash-foot">
+            <a href="/tools/?sort=rating">View all rankings
+              <svg viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M5.5 2l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Latest Comparisons Mini Panel -->
+        <div class="comp-mini" aria-label="Latest comparisons">
+          <div class="cm-hd">
+            <span class="cm-label">Latest Comparisons</span>
+            <a href="/compare/" class="cm-link">View all →</a>
+          </div>
+          <div id="latest-comparisons-list">
+            <!-- Populated by JS from posts-index.json / comparisons -->
+            <div class="cm-row skeleton-comp" aria-hidden="true"><div class="sk-line w100"></div></div>
+            <div class="cm-row skeleton-comp" aria-hidden="true"><div class="sk-line w100"></div></div>
+            <div class="cm-row skeleton-comp" aria-hidden="true"><div class="sk-line w100"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ STATS ═══════════════════════════════════════ -->
+  <section class="stats-bar" aria-label="Platform statistics">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-ic" aria-hidden="true">
+          <svg viewBox="0 0 22 22" fill="none"><path d="M11 3l2 6h6l-5 3.5 2 6L11 15l-5 3.5 2-6L3 9h6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="snum" id="stat-tools">60<em>+</em></div>
+        <div class="slbl">AI Tools Reviewed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-ic" aria-hidden="true">
+          <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="6" width="7" height="12" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="3" width="7" height="15" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="snum">8<em>+</em></div>
+        <div class="slbl">Categories Covered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-ic" aria-hidden="true">
+          <svg viewBox="0 0 22 22" fill="none"><path d="M4 11h14M4 7l6-4 6 4M4 15l6 4 6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="snum" id="stat-comparisons">10<em>+</em></div>
+        <div class="slbl">In-Depth Comparisons</div>
+      </div>
+      <div class="stat">
+        <div class="stat-ic" aria-hidden="true">
+          <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 19c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="snum">12k<em>+</em></div>
+        <div class="slbl">Monthly Readers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ POPULAR TOOLS ═══════════════════════════════════════ -->
+  <section class="sec" aria-labelledby="popular-tools-heading">
+    <div class="sec-hd">
+      <div>
+        <h2 class="sect" id="popular-tools-heading">Popular AI Tools</h2>
+        <p class="secs">Quick access to the most-reviewed tools on Neora</p>
+      </div>
+      <a href="/tools/" class="sa" aria-label="View all AI tools">
+        View all <span id="tools-count">60+</span> tools
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M5.5 2l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <!-- Populated by JS -->
+    <div class="tools-row" id="popular-tools-grid" role="list" aria-label="Popular AI tools">
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+      <div class="tool-pill-skeleton" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ CATEGORIES ═══════════════════════════════════════ -->
+  <section class="cat-sec" aria-labelledby="categories-heading">
+    <div class="gold-bar" aria-hidden="true"></div>
+    <div class="sec-hd">
+      <div>
+        <h2 class="sect" id="categories-heading">Browse by Category</h2>
+        <p class="secs">Every AI tool, organized by what it does best</p>
+      </div>
+      <a href="/categories/" class="sa" aria-label="View all categories">
+        View all categories
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M5.5 2l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="cat-grid" id="categories-grid" role="list" aria-label="Tool categories">
+      <!-- Static categories — update counts via JS if needed -->
+      <a href="/categories/coding/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><polyline points="4,6 2,10 4,14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16,6 18,10 16,14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="4" x2="11" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Coding</div>
+          <div class="cc-desc">AI editors, pair programmers, debuggers &amp; more</div>
+          <span class="cc-ct" data-category="coding">14 tools</span>
+        </div>
+      </a>
+      <a href="/categories/writing/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><line x1="3" y1="5" x2="17" y2="5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="9" x2="13" y2="9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="13" x2="10" y2="13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Writing</div>
+          <div class="cc-desc">Long-form, copy, email, content creation</div>
+          <span class="cc-ct" data-category="writing">18 tools</span>
+        </div>
+      </a>
+      <a href="/categories/research/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Research</div>
+          <div class="cc-desc">Search engines, summarizers, citation &amp; data tools</div>
+          <span class="cc-ct" data-category="research">9 tools</span>
+        </div>
+      </a>
+      <a href="/categories/image-generation/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9.5l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Image Generation</div>
+          <div class="cc-desc">Text-to-image, editing, design &amp; art</div>
+          <span class="cc-ct" data-category="image-generation">9 tools</span>
+        </div>
+      </a>
+      <a href="/categories/video/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><polygon points="6,4 16,10 6,16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Video</div>
+          <div class="cc-desc">AI video generation, editing &amp; avatars</div>
+          <span class="cc-ct" data-category="video">7 tools</span>
+        </div>
+      </a>
+      <a href="/categories/productivity/" class="cc" role="listitem">
+        <div class="cc-iw" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <div>
+          <div class="cc-name">Productivity</div>
+          <div class="cc-desc">Workflow, notes, scheduling &amp; automation</div>
+          <span class="cc-ct" data-category="productivity">12 tools</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ COMPARISONS ═══════════════════════════════════════ -->
+  <section class="sec" aria-labelledby="comparisons-heading">
+    <div class="sec-hd">
+      <div>
+        <h2 class="sect" id="comparisons-heading">Featured Comparisons</h2>
+        <p class="secs">Side-by-side breakdowns to help you choose confidently</p>
+      </div>
+      <a href="/compare/" class="sa" aria-label="View all comparisons">
+        View all comparisons
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M5.5 2l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <!-- Populated by JS from comparisons index -->
+    <div class="comp-grid" id="comparisons-grid" role="list" aria-label="Featured comparisons">
+      <div class="ccard-skeleton" aria-hidden="true"></div>
+      <div class="ccard-skeleton" aria-hidden="true"></div>
+      <div class="ccard-skeleton" aria-hidden="true"></div>
+      <div class="ccard-skeleton" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ ARTICLES ═══════════════════════════════════════ -->
+  <section class="sec" style="padding-top:0" aria-labelledby="articles-heading">
+    <div class="sec-hd">
+      <div>
+        <h2 class="sect" id="articles-heading">Latest Articles</h2>
+        <p class="secs">Expert guides, in-depth reviews, and analysis</p>
+      </div>
+      <a href="/blog/" class="sa" aria-label="View all articles">
+        View all articles
+        <svg viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M5.5 2l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <!-- Populated by JS from posts-index.json -->
+    <div class="art-grid" id="articles-grid" role="list" aria-label="Latest articles">
+      <div class="acard-skeleton" aria-hidden="true"></div>
+      <div class="acard-skeleton" aria-hidden="true"></div>
+      <div class="acard-skeleton" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ WHY NEORA ═══════════════════════════════════════ -->
+  <section class="why-sec" aria-labelledby="why-heading">
+    <div class="why-inner">
+      <div class="why-top">
+        <div>
+          <div class="gold-bar" aria-hidden="true"></div>
+          <h2 class="why-h" id="why-heading">Why thousands trust Neora AI</h2>
+          <p class="why-p">We cut through the noise so you can make smarter AI decisions — without the hype.</p>
+        </div>
+        <div class="why-cards" role="list">
+          <div class="wc" role="listitem">
+            <div class="wc-ic" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none"><path d="M4 7.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="1" width="13" height="13" rx="3" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h3>Independent reviews</h3>
+            <p>No paid placements. No sponsorships. Ever.</p>
+          </div>
+          <div class="wc" role="listitem">
+            <div class="wc-ic" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none"><rect x="1" y="3" width="6" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/><rect x="8" y="3" width="6" height="9" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h3>Real side-by-side comparisons</h3>
+            <p>Feature-by-feature breakdowns.</p>
+          </div>
+          <div class="wc" role="listitem">
+            <div class="wc-ic" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 4v3.5l2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Updated every week</h3>
+            <p>AI moves fast. Our coverage moves faster.</p>
+          </div>
+          <div class="wc" role="listitem">
+            <div class="wc-ic" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none"><rect x="2" y="7" width="11" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M5 7V6a2.5 2.5 0 015 0v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Always free to read</h3>
+            <p>No paywall, no signup required — ever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ NEWSLETTER ═══════════════════════════════════════ -->
+  <section class="cta-band" aria-labelledby="newsletter-heading">
+    <div class="cta-grid">
+      <div class="cta-left">
+        <div class="cta-badge">
+          <span class="hbdot" aria-hidden="true"></span>
+          12,000+ readers every week
+        </div>
+        <h2 id="newsletter-heading">Stay ahead in AI</h2>
+        <p>Get the best new tools, honest reviews, and exclusive insights — straight to your inbox.</p>
+      </div>
+      <div class="cta-right">
+        <form class="newsletter-form" id="newsletter-form" novalidate aria-label="Newsletter signup">
+          <div class="erow">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              class="ein"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+              aria-required="true"
+            >
+            <button type="submit" class="esub">Subscribe Free</button>
+          </div>
+          <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+          <p class="cnote">No spam. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo" aria-label="Neora AI Home">
+          <div class="lmark lmark-sm" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/></svg>
+          </div>
+          <div class="ltext">
+            <span class="lname">Neora AI</span>
+            <span class="ltag">AI Tools Directory</span>
+          </div>
+        </a>
+        <p class="footer-desc">Honest AI tool reviews, side-by-side comparisons, and expert guides to help you choose with confidence.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h3 class="fcol-title">Explore</h3>
+          <a href="/tools/">All Tools</a>
+          <a href="/compare/">Comparisons</a>
+          <a href="/categories/">Categories</a>
+          <a href="/guides/">Guides</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Company</h3>
+          <a href="/about/">About</a>
+          <a href="/submit-tool/">Submit a Tool</a>
+          <a href="/contact/">Contact</a>
+          <a href="/advertise/">Advertise</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Resources</h3>
+          <a href="/newsletter/">Newsletter</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/changelog/">Changelog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Legal</h3>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+          <a href="/cookies/">Cookie Policy</a>
+          <a href="/disclosure/">Disclosure</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="fcopy">© <span id="footer-year">2026</span> Neora AI. All rights reserved.</p>
+      <div class="footer-social" aria-label="Social media links">
+        <a href="https://twitter.com/neoraai" aria-label="Follow Neora AI on Twitter" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 3L11 9l6 8H13L9 12l-6 5H1l6-6.5L1 3h4l4 5 6-5h2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/neoraai" aria-label="Follow Neora AI on LinkedIn" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 8.5v5M6 6v.5M10 13.5v-2.8c0-1 .7-1.7 1.5-1.7s1.5.7 1.5 1.7v2.8M10 8.5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/homepage.js" defer></script>
 </body>
 </html>
