@@ -453,7 +453,7 @@ async function init(){
   let slug=params.get('slug')||params.get('name')||'';
   if(!slug){
     const parts=window.location.pathname.split('/').filter(Boolean);
-    const toolIndex=parts.indexOf('tool');
+    const toolIndex=parts.indexOf('tool')>=0?parts.indexOf('tool'):parts.indexOf('tools');
     slug=toolIndex>=0?(parts[toolIndex+1]||''):'';
   }
   slug=decodeURIComponent(slug).replace(/\/+$/,'').trim().toLowerCase();
