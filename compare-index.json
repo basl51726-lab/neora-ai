@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "chatgpt-vs-claude",
+    "tool_a_name": "ChatGPT",
+    "tool_b_name": "Claude",
+    "category": "Writing",
+    "description": "مقارنة عملية للكتابة الطويلة والتحليل والبرمجة وصناعة المحتوى.",
+    "url": "/compare/chatgpt-vs-claude/"
+  },
+  {
+    "slug": "chatgpt-vs-grok",
+    "tool_a_name": "ChatGPT",
+    "tool_b_name": "Grok",
+    "category": "Assistants",
+    "description": "مقارنة شاملة بين ChatGPT و Grok من حيث الكتابة، البحث، البرمجة، تحليل الملفات، والإنتاجية اليومية.",
+    "url": "/compare/chatgpt-vs-grok/"
+  },
+  {
+    "slug": "claude-vs-gemini",
+    "tool_a_name": "Claude",
+    "tool_b_name": "Gemini",
+    "category": "Writing",
+    "description": "مقارنة بين Claude و Gemini من حيث الكتابة والبرمجة وتحليل الملفات والبحث.",
+    "url": "/compare/claude-vs-gemini/"
+  },
+  {
+    "slug": "claude-vs-perplexity",
+    "tool_a_name": "Claude",
+    "tool_b_name": "Perplexity",
+    "category": "Research",
+    "description": "مقارنة شاملة بين Claude و Perplexity من حيث البحث، المصادر، الكتابة، تحليل الملفات، والإنتاجية.",
+    "url": "/compare/claude-vs-perplexity/"
+  },
+  {
+    "slug": "gemini-vs-chatgpt",
+    "tool_a_name": "Gemini",
+    "tool_b_name": "ChatGPT",
+    "category": "Research",
+    "description": "مقارنة شاملة بين Gemini و ChatGPT من حيث البحث والكتابة والبرمجة والإنتاجية.",
+    "url": "/compare/gemini-vs-chatgpt/"
+  },
+  {
+    "slug": "cursor-vs-windsurf",
+    "tool_a_name": "Cursor",
+    "tool_b_name": "Windsurf",
+    "category": "Coding",
+    "description": "أي محرر برمجي بالذكاء الاصطناعي أفضل للمطورين وبناء المواقع؟",
+    "url": "/compare/cursor-vs-windsurf/"
+  },
+  {
+    "slug": "perplexity-vs-chatgpt",
+    "tool_a_name": "Perplexity",
+    "tool_b_name": "ChatGPT",
+    "category": "Research",
+    "description": "متى تستخدم محرك بحث ذكي؟ ومتى تحتاج مساعداً عاماً مثل ChatGPT؟",
+    "url": "/compare/perplexity-vs-chatgpt/"
+  },
+  {
+    "slug": "lovable-vs-bolt-new",
+    "tool_a_name": "Lovable",
+    "tool_b_name": "Bolt.new",
+    "category": "App Builders",
+    "description": "مقارنة بين Lovable و Bolt.new لإنشاء التطبيقات والمواقع باستخدام الذكاء الاصطناعي.",
+    "url": "/compare/lovable-vs-bolt-new/"
+  },
+  {
+    "slug": "cursor-vs-github-copilot",
+    "tool_a_name": "Cursor",
+    "tool_b_name": "GitHub Copilot",
+    "category": "Coding",
+    "description": "مقارنة شاملة بين Cursor و GitHub Copilot من حيث كتابة الكود، فهم المشاريع، تصحيح الأخطاء، مراجعة الكود، والإنتاجية للمطورين.",
+    "url": "/compare/cursor-vs-github-copilot/"
+  },
+  {
+    "slug": "cursor-vs-claude-code",
+    "tool_a_name": "Cursor",
+    "tool_b_name": "Claude Code",
+    "category": "Coding",
+    "description": "مقارنة شاملة بين Cursor و Claude Code من حيث البرمجة، فهم المشاريع، Terminal، والوكلاء البرمجيون.",
+    "url": "/compare/cursor-vs-claude-code/"
+  },
+  {
+    "slug": "claude-code-vs-github-copilot",
+    "tool_a_name": "Claude Code",
+    "tool_b_name": "GitHub Copilot",
+    "category": "Coding",
+    "description": "مقارنة بين Claude Code و GitHub Copilot من حيث البرمجة، الوكلاء البرمجيون، Terminal، ومراجعة الكود للمطورين.",
+    "url": "/compare/claude-code-vs-github-copilot/"
+  },
+  {
+    "slug": "claude-code-vs-openai-codex",
+    "tool_a_name": "Claude Code",
+    "tool_b_name": "OpenAI Codex",
+    "category": "Coding",
+    "description": "مقارنة شاملة بين Claude Code و OpenAI Codex من حيث الوكلاء البرمجيون، فهم المشاريع، استخدام Terminal، إصلاح الأخطاء، وأتمتة تطوير البرمجيات للمطورين.",
+    "url": "/compare/claude-code-vs-openai-codex/"
+  },
+  {
+    "slug": "replit-agent-vs-lovable",
+    "tool_a_name": "Replit Agent",
+    "tool_b_name": "Lovable",
+    "category": "App Builders",
+    "description": "مقارنة بين Replit Agent و Lovable من حيث بناء التطبيقات، إنشاء مواقع الويب، تطوير النماذج الأولية، والتحكم في الكود.",
+    "url": "/compare/replit-agent-vs-lovable/"
+  },
+  {
+    "slug": "replit-agent-vs-bolt-new",
+    "tool_a_name": "Replit Agent",
+    "tool_b_name": "Bolt.new",
+    "category": "App Builders",
+    "description": "مقارنة شاملة بين Replit Agent و Bolt.new من حيث بناء التطبيقات، إنشاء مواقع الويب، كتابة الكود، النشر، وسهولة الاستخدام للمطورين ورواد الأعمال.",
+    "url": "/compare/replit-agent-vs-bolt-new/"
+  },
+  {
+    "slug": "claude-code-vs-cursor",
+    "tool_a_name": "Claude Code",
+    "tool_b_name": "Cursor",
+    "category": "Coding",
+    "description": "مقارنة شاملة بين Claude Code و Cursor من حيث البرمجة، فهم المشاريع، الوكلاء البرمجيون، Terminal، والإنتاجية للمطورين.",
+    "url": "/compare/claude-code-vs-cursor/"
+  },
+  {
+    "slug": "grok-vs-gemini",
+    "tool_a_name": "Grok",
+    "tool_b_name": "Gemini",
+    "category": "Assistants",
+    "description": "مقارنة بين Grok و Gemini من حيث الكتابة، البحث، والإنتاجية اليومية.",
+    "url": "/compare/grok-vs-gemini/"
+  }
+]
