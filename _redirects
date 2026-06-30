@@ -19,5 +19,12 @@
 /tool/    /tool/tools-list.html    200
 /tool/*    /tool/detail.html    200
 /compare/grok-vs-gemini    /compare/grok-vs-gemini/index.html    200
+/tool/*    /tool/detail.html    200
+/compare/grok-vs-gemini    /compare/grok-vs-gemini/index.html    200
+
+/assets/*    /assets/:splat    200
+/images/*    /images/:splat    200
+
+/*    /index.html    200
 # ── 5. SPA fallback — must be last ───────────────────────────────
 /*    /index.html    200
