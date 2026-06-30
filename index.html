@@ -3,71 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEORA AI – أدوات الذكاء الاصطناعي</title>
+    <title>NEORA AI – دليل أدوات الذكاء الاصطناعي</title>
+    
+    <!-- ربط خط القاهرة Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* التنسيقات الأساسية */
+        /* التنسيقات الأساسية المتسقة للواجهة بالكامل */
         body {
             background: #0d0d0d;
             color: #fff;
             font-family: 'Cairo', sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
             text-align: center;
             border-bottom: 1px solid #222;
         }
 
         header h1 {
-            font-size: 42px;
-            color: #d4af37;
-            margin-bottom: 10px;
+            font-size: 56px;
+            color: #d4af37; /* لون ذهبي موحد للعناوين الرئيسية */
+            margin: 0 0 15px 0;
+            font-weight: 700;
         }
 
         header p {
-            font-size: 18px;
-            opacity: .8;
+            font-size: 20px;
+            opacity: .9;
+            margin: 0;
         }
 
+        /* حاوية البطاقات */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 40px 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-grow: 1;
         }
 
+        /* فرض تنسيق عالمي (Global Format) على كل البطاقات */
         .tool-card {
             background: #111;
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid #222;
-            transition: .3s;
+            padding: 30px;
+            border-radius: 18px;
+            border: 2px solid #222; /* إطار افتراضي خفي */
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        /* تأثير التمرير (Hover) موحد لكل البطاقات */
         .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: #d4af37;
+            transform: translateY(-8px);
+            border-color: #d4af37; /* يظهر الإطار الذهبي عند التمرير */
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15); /* هالة ذهبية خفيفة */
         }
 
+        /* فرض لون ذهبي موحد لعنوان الأداة داخل أي بطاقة */
         .tool-card h3 {
-            color: #d4af37;
-            margin-bottom: 10px;
+            color: #d4af37 !important; /* استخدام !important لفرض اللون */
+            margin: 0 0 15px 0;
+            font-size: 24px;
+            font-weight: 700;
         }
 
+        /* فرض تباين موحد لوصف الأداة داخل أي بطاقة */
         .tool-card p {
-            opacity: .8;
-            font-size: 15px;
+            color: #fff;
+            opacity: .9;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
         }
 
         footer {
             text-align: center;
             padding: 40px 0;
-            opacity: .5;
-            font-size: 14px;
+            border-top: 1px solid #222;
+            opacity: .7;
+            font-size: 16px;
+            background: #111;
         }
     </style>
 </head>
@@ -80,14 +107,14 @@
 </header>
 
 <section class="tools-grid" id="toolsContainer">
-    <!-- هنا ستظهر بطاقات الأدوات -->
+    <!-- هنا ستظهر بطاقات الأدوات المنسقة عالمياً -->
 </section>
 
 <footer>
     © 2026 NEORA AI – All Rights Reserved
 </footer>
 
-<!-- نترك رابط الـ JS في الأسفل كما هو -->
+<!-- رابط ملف الجافا سكريبت لإضافة البطاقات ديناميكياً -->
 <script src="assets/js/main.js"></script>
 
 </body>
