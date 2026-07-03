@@ -92,17 +92,12 @@
   ═══════════════════════════════ */
   function slugify(str) {
     return (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
-  function getBrand(slug) {
-    const key = slugify(slug);
-    return TOOL_BRAND[key] || TOOL_BRAND.default;
-  }
-
-  function starsHTML(score) {
-    const full  = Math.round((score / 10) * 5);
-    const empty = 5 - full;
-    return '★'.repeat(full) + '☆'.repeat(empty);
+ function starsHTML(score) {
+  const safeScore = Number(score) || 0;
+  const full = Math.max(0, Math.min(5, Math.round((safeScore / 10) * 5)));
+  const empty = Math.max(0, 5 - full);
+  return '★'.repeat(full) + '☆'.repeat(empty);
+}
   }
 
   function formatDate(dateStr) {
