@@ -18,8 +18,7 @@
 #    individual detail pages live at /tool/detail.html) ───────────
 /tools/     /tools/index.html    200
 /tools/*    /tool/detail.html    200
-/tool/*     /tool/detail.html    200
-
+/tool	/tool/index.html	200
 # ── 4. Stopgap aliases for nav links with no dedicated page yet ───
 /categories/    /tools/    301
 /guides/        /blog/     301
