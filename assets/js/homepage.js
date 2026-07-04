@@ -98,13 +98,12 @@ function getBrand(slug) {
   const key = slugify(slug);
   return TOOL_BRAND[key] || TOOL_BRAND.default;
 }
-
 function starsHTML(score) {
+  const safeScore = Number(score) || 0;
   const full = Math.max(0, Math.min(5, Math.round((safeScore / 10) * 5)));
   const empty = Math.max(0, 5 - full);
   return '★'.repeat(full) + '☆'.repeat(empty);
 }
-  }
 
   function formatDate(dateStr) {
     if (!dateStr) return '';
