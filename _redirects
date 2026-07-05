@@ -4,7 +4,6 @@
 # ══════════════════════════════════════════════════════════════════
 
 # ── 1. Blog listing + post pages ──────────────────────────────────
-# Listing rule must come BEFORE the /blog/* wildcard.
 /blog/    /blog/index.html    200
 /blog/*   /blog/post.html     200
 
@@ -14,22 +13,30 @@
 /posts-index.json    /posts-index.json     200
 /compare-index.json  /compare-index.json   200
 
-# ── 3. Tools (listing is a real file at /tools/index.html;
-#    individual detail pages live at /tool/detail.html) ───────────
-/tools/     /tools/index.html    200
+# ── 3. Comparisons — explicit rule so it never falls through
+#    to the SPA wildcard below ─────────────────────────────────────
+/compare/    /compare/index.html    200
+
+# ── 4. Tools — listing lives at /tool/index.html;
+#    individual detail pages live at /tool/detail.html.
+#    /tools/ (plural) is kept as a safety-net alias so any old
+#    or mistyped links never 404. ────────────────────────────────
+/tool/      /tool/index.html     200
+/tool       /tool/index.html     200
+/tools/     /tool/index.html     200
 /tools/*    /tool/detail.html    200
-/tool	/tool/index.html	200
-# ── 4. Stopgap aliases for nav links with no dedicated page yet ───
-/categories/    /tools/    301
+
+# ── 5. Stopgap aliases for nav links with no dedicated page yet ───
+/categories/    /tool/     301
 /guides/        /blog/     301
 
-# ── 5. Static asset passthrough ────────────────────────────────────
+# ── 6. Static asset passthrough ────────────────────────────────────
 /assets/*    /assets/:splat    200
 /images/*    /images/:splat    200
 
-# ── 6. Netlify CMS admin ───────────────────────────────────────────
+# ── 7. Netlify CMS admin ───────────────────────────────────────────
 /admin       /admin/index.html    200
 /admin/*     /admin/index.html    200
 
-# ── 7. SPA fallback — must be last ─────────────────────────────────
+# ── 8. SPA fallback — must be last ─────────────────────────────────
 /*    /index.html    200
