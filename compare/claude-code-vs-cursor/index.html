@@ -15,176 +15,50 @@
 <meta property="og:url" content="https://neora-ai.com/compare/claude-code-vs-cursor/">
 <meta property="og:site_name" content="Neora AI">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#fafaf8;
-  --card:#ffffff;
-  --text:#111827;
-  --muted:#475569;
-  --gold:#b8962e;
-  --gold2:#d4af37;
-  --border:rgba(212,175,55,.25);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Cairo',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.9;
-}
-a{color:var(--gold);text-decoration:none}
-.header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  padding:18px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  font-weight:900;
-  letter-spacing:2px;
-  color:var(--gold);
-  font-size:22px;
-}
-.nav a{
-  margin-inline-start:16px;
-  font-weight:700;
-  color:var(--muted);
-}
-.hero{
-  max-width:1050px;
-  margin:60px auto 30px;
-  padding:0 20px;
-  text-align:center;
-}
-.badge{
-  display:inline-block;
-  background:#fff7d6;
-  color:var(--gold);
-  padding:6px 14px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  font-weight:700;
-  margin-bottom:18px;
-}
-h1{
-  font-size:42px;
-  line-height:1.4;
-  margin-bottom:18px;
-  color:#111827;
-}
-.subtitle{
-  font-size:18px;
-  color:var(--muted);
-  max-width:850px;
-  margin:auto;
-}
-.container{
-  max-width:1050px;
-  margin:40px auto;
-  padding:0 20px;
-}
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:30px;
-  margin-bottom:28px;
-  box-shadow:0 14px 40px rgba(17,24,39,.04);
-}
-h2{
-  font-size:28px;
-  margin-bottom:16px;
-  color:#111827;
-}
-h3{
-  font-size:22px;
-  margin:22px 0 10px;
-  color:#1f2937;
-}
-p{
-  margin-bottom:16px;
-  color:#334155;
-  font-size:17px;
-}
-ul{
-  padding-right:24px;
-  margin-bottom:18px;
-}
-li{
-  margin-bottom:8px;
-  color:#334155;
-}
-.table-wrap{
-  overflow-x:auto;
-}
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin:20px 0;
-  background:#fff;
-}
-th,td{
-  border:1px solid var(--border);
-  padding:14px;
-  text-align:right;
-  vertical-align:top;
-}
-th{
-  background:#fff8df;
-  color:#111827;
-  font-weight:900;
-}
-.note{
-  background:#fffbeb;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:18px;
-  color:#6b4e00;
-  font-weight:700;
-}
-.cta{
-  background:linear-gradient(135deg,#111827,#2f2a12);
-  color:#fff;
-  text-align:center;
-  border-radius:24px;
-  padding:34px;
-}
-.cta p{color:#e5e7eb}
-.footer{
-  text-align:center;
-  padding:40px 20px;
-  color:var(--muted);
-  border-top:1px solid var(--border);
-  background:#fff;
-}
-.source-list a{
-  display:block;
-  margin-bottom:8px;
-}
-@media(max-width:700px){
-  h1{font-size:30px}
-  h2{font-size:24px}
-  .nav{display:none}
-  .card{padding:22px}
-}
-</style>
+<link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="header">
-  <a class="logo" href="/">NEORA</a>
-  <nav class="nav">
-    <a href="/">الرئيسية</a>
-    <a href="/tools/">الأدوات</a>
-    <a href="/compare/">المقارنات</a>
-    <a href="/blog/">المدونة</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Neora AI Home">
+        <div class="lmark" aria-hidden="true">
+          <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="ltext">
+          <span class="lname">Neora AI</span>
+          <span class="ltag">AI Tools Directory</span>
+        </div>
+      </a>
+      <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="list">
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/compare/">Comparisons</a></li>
+        <li><a href="/categories/">Categories</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <div class="nav-r">
+        <div class="nav-locale" aria-label="Language selector">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 2a14 14 0 010 16M2 10h16" stroke="currentColor" stroke-width="1.4"/></svg>
+          EN
+        </div>
+        <a href="/tools/" class="nc">Explore Tools
+          <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
   </nav>
-</header>
+
 
 <section class="hero">
   <span class="badge">مقارنة أدوات البرمجة بالذكاء الاصطناعي</span>
@@ -578,10 +452,6 @@ th{
 
 </main>
 
-<footer class="footer">
-  <p>NEORA — دليل شامل لأقوى أدوات الذكاء الاصطناعي</p>
-</footer>
-
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -606,5 +476,58 @@ th{
 }
 </script>
 
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo" aria-label="Neora AI Home">
+          <div class="lmark lmark-sm" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/></svg>
+          </div>
+          <div class="ltext">
+            <span class="lname">Neora AI</span>
+            <span class="ltag">AI Tools Directory</span>
+          </div>
+        </a>
+        <p class="footer-desc">Honest AI tool reviews, side-by-side comparisons, and expert guides to help you choose with confidence.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h3 class="fcol-title">Explore</h3>
+          <a href="/tools/">All Tools</a>
+          <a href="/compare/">Comparisons</a>
+          <a href="/categories/">Categories</a>
+          <a href="/guides/">Guides</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Company</h3>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Resources</h3>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Legal</h3>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="fcopy">&copy; <span id="footer-year">2026</span> Neora AI. All rights reserved.</p>
+      <div class="footer-social" aria-label="Social media links">
+        <a href="https://twitter.com/neoraai" aria-label="Follow Neora AI on Twitter" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 3L11 9l6 8H13L9 12l-6 5H1l6-6.5L1 3h4l4 5 6-5h2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/neoraai" aria-label="Follow Neora AI on LinkedIn" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 8.5v5M6 6v.5M10 13.5v-2.8c0-1 .7-1.7 1.5-1.7s1.5.7 1.5 1.7v2.8M10 8.5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

@@ -83,7 +83,6 @@
     const empty = Math.max(0, 5 - full);
     return '★'.repeat(full) + '☆'.repeat(empty);
   }
-
   function formatDate(dateStr) {
     if (!dateStr) return '';
     try {

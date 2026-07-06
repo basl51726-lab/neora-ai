@@ -29,6 +29,15 @@
 # ── 5. Stopgap aliases for nav links with no dedicated page yet ───
 /categories/    /tool/     301
 /guides/        /blog/     301
+/privacy/       /privacy-policy/    301
+/privacy        /privacy-policy/    301
+
+# ── 4b. Legacy root HTML stubs ───────────────────────────────────
+/blog.html      /blog/     301
+/compare.html   /compare/  301
+/tools.html     /tools/    301
+/tool.html      /tools/    301
+/reviews.html   /blog/     301
 
 # ── 6. Static asset passthrough ────────────────────────────────────
 /assets/*    /assets/:splat    200

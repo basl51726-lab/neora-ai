@@ -8,249 +8,53 @@
   <title>مقارنة Cursor و Claude Code: أي أداة أفضل للمبرمجين؟ | Neora AI</title>
   <meta name="description" content="مقارنة شاملة بين Cursor و Claude Code من حيث البرمجة، فهم المشاريع، الوكلاء البرمجيون، تعديل الملفات، Terminal، والإنتاجية للمطورين في 2026." />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Tahoma, sans-serif;
-      background: #f7f4ec;
-      color: #1f2937;
-      line-height: 1.9;
-    }
-
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5dcc7;
-      padding: 22px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #b8860b;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-
-    nav a {
-      margin-right: 22px;
-      color: #1f2937;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .page {
-      max-width: 1050px;
-      margin: auto;
-      padding: 50px 22px;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 42px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #fff8e6;
-      color: #a87912;
-      border: 1px solid #e5c76b;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: 42px;
-      line-height: 1.35;
-      margin: 0 0 18px;
-      color: #111827;
-    }
-
-    h2 {
-      font-size: 28px;
-      color: #a87912;
-      margin-top: 44px;
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      font-size: 22px;
-      color: #111827;
-      margin-top: 28px;
-    }
-
-    p, li {
-      font-size: 17px;
-      color: #374151;
-    }
-
-    a {
-      color: #a87912;
-    }
-
-    .last-updated {
-      color: #6b7280;
-      font-size: 14px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      background: #ffffff;
-      border: 1px solid #eadfbd;
-      border-radius: 18px;
-      padding: 30px;
-      margin-bottom: 28px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-
-    .mini-card {
-      background: #ffffff;
-      border: 1px solid #eadfbd;
-      border-radius: 18px;
-      padding: 22px;
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.04);
-    }
-
-    .mini-card strong {
-      display: block;
-      color: #111827;
-      margin-bottom: 8px;
-    }
-
-    .mini-card span {
-      color: #a87912;
-      font-weight: 800;
-    }
-
-    .note {
-      background: #fff8e6;
-      border-right: 4px solid #b8860b;
-      padding: 18px 22px;
-      border-radius: 12px;
-      margin: 24px 0;
-      font-weight: 600;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #ffffff;
-      margin: 24px 0;
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    th {
-      background: #b8860b;
-      color: #ffffff;
-      padding: 15px;
-      text-align: right;
-    }
-
-    td {
-      border: 1px solid #eadfbd;
-      padding: 15px;
-      vertical-align: top;
-    }
-
-    .winner {
-      font-weight: 800;
-      color: #111827;
-    }
-
-    details {
-      background: #fffaf0;
-      border: 1px solid #eadfbd;
-      border-radius: 14px;
-      padding: 16px 20px;
-      margin: 14px 0;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 800;
-      color: #111827;
-      font-size: 17px;
-    }
-
-    details p {
-      margin-bottom: 0;
-    }
-
-    .cta {
-      text-align: center;
-      background: #fff8e6;
-      border: 1px solid #e5c76b;
-      border-radius: 18px;
-      padding: 32px;
-      margin-top: 35px;
-    }
-
-    .back {
-      display: inline-block;
-      margin-top: 18px;
-      color: #a87912;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #6b7280;
-      font-size: 14px;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 20px;
-      }
-
-      nav a {
-        margin: 0 8px;
-      }
-
-      h1 {
-        font-size: 31px;
-      }
-
-      .section {
-        padding: 22px;
-      }
-
-      th, td {
-        font-size: 14px;
-        padding: 11px;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-  <a class="logo" href="/">NEORA</a>
-  <nav>
-    <a href="/">الرئيسية</a>
-    <a href="/compare/">المقارنات</a>
-    <a href="/blog/">المدونة</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Neora AI Home">
+        <div class="lmark" aria-hidden="true">
+          <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="ltext">
+          <span class="lname">Neora AI</span>
+          <span class="ltag">AI Tools Directory</span>
+        </div>
+      </a>
+      <button class="nav-mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu" role="list">
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/compare/">Comparisons</a></li>
+        <li><a href="/categories/">Categories</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <div class="nav-r">
+        <div class="nav-locale" aria-label="Language selector">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M10 2a14 14 0 010 16M2 10h16" stroke="currentColor" stroke-width="1.4"/></svg>
+          EN
+        </div>
+        <a href="/tools/" class="nc">Explore Tools
+          <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
   </nav>
-</header>
+
+
+<header>
+  <a class="logo" href="/">NEORA</a></header>
 
 <main class="page">
 
@@ -732,9 +536,58 @@
 
 </main>
 
-<footer>
-  © 2026 NEORA AI — دليل أدوات الذكاء الاصطناعي
-</footer>
 
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo footer-logo" aria-label="Neora AI Home">
+          <div class="lmark lmark-sm" aria-hidden="true">
+            <svg viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5L10.2 6H15L11.1 8.8L12.8 13.5L8.5 10.5L4.2 13.5L5.9 8.8L2 6H6.8L8.5 1.5Z" fill="white"/></svg>
+          </div>
+          <div class="ltext">
+            <span class="lname">Neora AI</span>
+            <span class="ltag">AI Tools Directory</span>
+          </div>
+        </a>
+        <p class="footer-desc">Honest AI tool reviews, side-by-side comparisons, and expert guides to help you choose with confidence.</p>
+      </div>
+      <nav class="footer-cols" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h3 class="fcol-title">Explore</h3>
+          <a href="/tools/">All Tools</a>
+          <a href="/compare/">Comparisons</a>
+          <a href="/categories/">Categories</a>
+          <a href="/guides/">Guides</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Company</h3>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Resources</h3>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+        <div class="footer-col">
+          <h3 class="fcol-title">Legal</h3>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="fcopy">&copy; <span id="footer-year">2026</span> Neora AI. All rights reserved.</p>
+      <div class="footer-social" aria-label="Social media links">
+        <a href="https://twitter.com/neoraai" aria-label="Follow Neora AI on Twitter" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 3L11 9l6 8H13L9 12l-6 5H1l6-6.5L1 3h4l4 5 6-5h2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/neoraai" aria-label="Follow Neora AI on LinkedIn" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M6 8.5v5M6 6v.5M10 13.5v-2.8c0-1 .7-1.7 1.5-1.7s1.5.7 1.5 1.7v2.8M10 8.5v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
