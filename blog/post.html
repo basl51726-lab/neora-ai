@@ -60,32 +60,36 @@
 
 <div id="reading-progress"></div>
 <main class="page-main">
-<div class="container-narrow page-wrap">
+<div class="container-narrow page-wrap post-shell">
   <div class="loading" id="loading">⏳ جاري تحميل المقال...</div>
   <div class="error-box" id="error-box" style="display:none;">
     <h2>😕 المقال غير موجود</h2>
     <p>تعذّر تحميل هذا المقال.</p>
     <a href="/blog/">← العودة للمدونة</a>
   </div>
-  <div id="post-content" style="display:none;">
-    <div class="breadcrumb">
-      <a href="/">NEORA</a><span>›</span>
-      <a href="/blog/">المدونة</a><span>›</span>
-      <span id="breadcrumb-title"></span>
+  <article id="post-content" class="post-article" style="display:none;">
+    <div class="post-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">NEORA</a><span aria-hidden="true">›</span>
+        <a href="/blog/">المدونة</a><span aria-hidden="true">›</span>
+        <span id="breadcrumb-title"></span>
+      </nav>
+      <div class="post-hero-wrap" id="hero-wrap"></div>
+      <header class="post-header">
+        <div class="post-category" id="post-category">مقال</div>
+        <h1 class="post-title" id="post-title-el"></h1>
+        <div class="post-meta" id="post-meta"></div>
+      </header>
+      <div class="post-body prose" id="post-body"></div>
+      <footer class="post-footer">
+        <a href="/blog/" class="back-btn">← اقرأ المزيد</a>
+        <div class="share-actions">
+          <button class="share-btn" type="button" onclick="copyLink()">🔗 نسخ الرابط</button>
+          <button class="share-btn" type="button" onclick="shareLinkedIn()">💼 LinkedIn</button>
+        </div>
+      </footer>
     </div>
-    <div class="post-hero-wrap" id="hero-wrap"></div>
-    <div class="post-category" id="post-category">مقال</div>
-    <h1 class="post-title" id="post-title-el"></h1>
-    <div class="post-meta" id="post-meta"></div>
-    <div class="post-body" id="post-body"></div>
-    <div class="post-footer">
-      <a href="/blog/" class="back-btn">← اقرأ المزيد</a>
-      <div class="share-actions">
-        <button class="share-btn" onclick="copyLink()">🔗 نسخ الرابط</button>
-        <button class="share-btn" onclick="shareLinkedIn()">💼 LinkedIn</button>
-      </div>
-    </div>
-  </div>
+  </article>
 </div>
 </main>
 
