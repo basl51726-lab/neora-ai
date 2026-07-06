@@ -40,6 +40,8 @@
   --radius-lg:    13px;
   --radius-xl:    16px;
   --transition:   0.12s ease;
+  --max-w:        1280px;
+  --content-w:    720px;
 }
 
 html { scroll-behavior: smooth; }
@@ -53,6 +55,34 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.7;
+  min-height: 100vh;
+}
+
+.site-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-page main,
+.site-page > main {
+  flex: 1;
+}
+
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
+  transform-origin: right;
+  transform: scaleX(0);
+}
+
+[dir="ltr"] #reading-progress {
+  transform-origin: left;
 }
 
 .sr-only {

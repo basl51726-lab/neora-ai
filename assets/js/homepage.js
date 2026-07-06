@@ -577,44 +577,59 @@
     });
   }
 
+  function initReadingProgress() {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const total = document.body.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (total > 0 ? window.scrollY / total : 0) + ')';
+    }, { passive: true });
+  }
+
   function setFooterYear() {
     const el = document.getElementById('footer-year');
     if (el) el.textContent = new Date().getFullYear();
   }
 
   function setActiveNav() {
-    const path = window.location.pathname;
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.nav-links a').forEach(a => {
-      const href = a.getAttribute('href');
-      if (href === '/' && path === '/') a.setAttribute('aria-current', 'page');
-      else if (href.startsWith('/') && href !== '/' && path.startsWith(href)) a.setAttribute('aria-current', 'page');
+      const href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
+      const hash = a.getAttribute('href') || '';
+      if (hash.includes('#')) {
+        a.removeAttribute('aria-current');
+        return;
+      }
+      if (href === '/' && path === '/') {
+        a.setAttribute('aria-current', 'page');
+      } else if (href !== '/' && (path === href || path.startsWith(href + '/'))) {
+        a.setAttribute('aria-current', 'page');
+      } else {
+        a.removeAttribute('aria-current');
+      }
     });
   }
 
   function init() {
-    setDashDate();
     setFooterYear();
     setActiveNav();
-    initSearch();
     initMobileNav();
-    initNewsletter();
+    initReadingProgress();
 
-    renderTopTools();
-    renderLatestComparisons();
-
-    requestIdleCallback
-      ? requestIdleCallback(() => {
-          renderPopularTools();
-          renderComparisons();
-          renderArticles();
-          updateCategoryCounts();
-        })
-      : setTimeout(() => {
-          renderPopularTools();
-          renderComparisons();
-          renderArticles();
-          updateCategoryCounts();
-        }, 100);
+    if (document.getElementById('hero-search')) {
+      setDashDate();
+      initSearch();
+      initNewsletter();
+      renderTopTools();
+      renderLatestComparisons();
+      const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 100));
+      idle(() => {
+        renderPopularTools();
+        renderComparisons();
+        renderArticles();
+        updateCategoryCounts();
+      });
+    }
   }
 
   if (document.readyState === 'loading') {
