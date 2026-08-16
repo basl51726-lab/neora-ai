@@ -1,4 +1,17 @@
-https://neora-ai.com/tool/runway-ml https://neoratools.com/ 301!
+https://neora-ai.com/tool/runway-ml https://neoratools.com/ai/tools/runway 301!
+/tools/:slug https://neoratools.com/ai/tools/:slug 301!
+/tools/:slug/ https://neoratools.com/ai/tools/:slug 301!
+/tools/:slug/* https://neoratools.com/ai/tools/:slug/:splat 301!
+/tool https://neoratools.com/ai/tools 301!
+/tool/* https://neoratools.com/ai/tools 301!
+/compare https://neoratools.com/ai/tools/compare 301!
+/compare/* https://neoratools.com/ai/tools/compare 301!
+/about https://neoratools.com/about 301!
+/about/* https://neoratools.com/about 301!
+/contact https://neoratools.com/contact 301!
+/contact/* https://neoratools.com/contact 301!
+/privacy-policy https://neoratools.com/privacy 301!
+/privacy-policy/* https://neoratools.com/privacy 301!
 https://neora-ai.com/* https://neoratools.com/:splat 301!
 https://www.neora-ai.com/* https://neoratools.com/:splat 301!
 
